@@ -1,0 +1,127 @@
+/* ════════════════════════════════════════════════════════════
+   0x05 CONVERGIR · 672Hz · ⧉ · CUBO
+   Idle system, snap zones, range sliders, seek/progress
+   layer: mente | geo: CUBO | arquétipos: ATLAS · VITALIS
+════════════════════════════════════════════════════════════ */
+
+/* ── IDLE TARGETS ────────────────────────────────────────── */
+.kob-tts-dock,
+#kodux-widget,
+[data-idle-target] {
+  transition: transform .35s ease, opacity .65s ease;
+  will-change: transform, opacity;
+  box-shadow: none !important;
+}
+.kob-tts-dock.idle,
+#kodux-widget.idle,
+[data-idle-target].idle {
+  opacity: .18;
+  transform: scale(.87);
+}
+.kob-tts-dock:hover,
+#kodux-widget:hover,
+[data-idle-target]:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── RANGE SLIDER OVERRIDE ───────────────────────────────── */
+.kodux-range-override {
+  -webkit-appearance: none; appearance: none;
+  height: 6px;
+  background: rgba(255,255,255,.15);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative; z-index: 50;
+  width: 100%;
+}
+.kodux-range-override::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  background: var(--primary, #00ffcc);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary, rgba(0,255,204,.6));
+  cursor: grab;
+  transition: transform .1s;
+}
+.kodux-range-override::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.3);
+}
+.kodux-range-override::-moz-range-thumb {
+  width: 16px; height: 16px;
+  background: var(--primary, #00ffcc);
+  border-radius: 50%; border: none; cursor: grab;
+}
+
+/* ── PLAYER RANGE (koblluxPlayer) ────────────────────────── */
+#koblluxPlayer input[type="range"] {
+  -webkit-appearance: none;
+  height: 6px;
+  background: rgba(0,255,255,0.1);
+  border-radius: 10px; padding: 0; margin: 10px 0;
+}
+#koblluxPlayer input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #00ffff; cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,255,255,0.5);
+  transition: all 0.2s ease;
+}
+#koblluxPlayer input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(0,255,255,0.8);
+}
+
+/* ── PROGRESS BAR ────────────────────────────────────────── */
+#footer-progress-click {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 6px;
+  background: rgba(255,255,255,.1);
+  cursor: pointer;
+  transition: height .2s;
+}
+#footer-progress-click:hover { height: 8px; }
+
+#footer-progress-bar {
+  height: 100%;
+  background: var(--kob-voice-primary);
+  width: 0;
+  box-shadow: 0 0 10px var(--kob-voice-primary);
+  pointer-events: none;
+  transition: width .1s linear;
+}
+
+/* ── TIME DISPLAY ────────────────────────────────────────── */
+.time-display { text-shadow: 0 0 5px rgba(255,255,255,.3); }
+
+/* ── SEEK OVERLAY ────────────────────────────────────────── */
+.seek-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; z-index: 5;
+  opacity: 0; transition: opacity .2s;
+}
+.seek-overlay.visible { opacity: 1; }
+
+/* ── DRAG HANDLE ─────────────────────────────────────────── */
+.drag-handle {
+  width: 40px; height: 4px; border-radius: 2px;
+  background: rgba(255,255,255,.15);
+  margin: 0 auto 12px;
+  cursor: grab;
+}
+.drag-handle:active { cursor: grabbing; }
+.drag-header { cursor: grab; }
+.drag-header:active { cursor: grabbing; }
+
+/* ── ORB MENU TRIGGER ────────────────────────────────────── */
+.orb-menu-trigger {
+  font-size: .65rem; letter-spacing: .25em;
+  color: rgba(255,255,255,.2);
+  text-align: center; padding: 6px;
+  cursor: pointer;
+  transition: color .2s;
+  user-select: none;
+}
+.orb-menu-trigger:hover { color: rgba(255,255,255,.6); }

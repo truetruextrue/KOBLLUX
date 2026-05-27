@@ -1,0 +1,218 @@
+/* ════════════════════════════════════════════════════════════
+   0x01 DETECTAR · 432Hz · ● · LINHA
+   Inputs, blobs, previews, animations, recognition UI
+   layer: corpo | geo: LINHA | arquétipos: GENUS · KODUX
+════════════════════════════════════════════════════════════ */
+
+/* ── INPUT CONTAINER (Chat) ──────────────────────────────── */
+.input-container {
+  position: fixed; left: 20px; right: 20px; bottom: 90px;
+  display: flex; gap: 6px; z-index: 2;
+}
+.input-container input {
+  flex: 1; padding: 10px;
+  border: none; border-radius: 20px;
+  background: rgba(255,255,255,.1);
+  color: inherit; font-size: 16px;
+  transition: background var(--fast);
+  opacity: 0.7;
+}
+.input-container input:focus {
+  background: rgba(255,255,255,.2);
+  outline: none;
+}
+
+/* ── CYBER INPUT (Fusion Card) ───────────────────────────── */
+.cyber-input {
+  width: 100%;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: .6rem .88rem;
+  color: var(--pearl);
+  font-family: var(--mono);
+  font-size: .82rem;
+  outline: none;
+  transition: border-color .25s, box-shadow .25s;
+}
+.cyber-input:focus {
+  border-color: var(--kob-voice-primary);
+  box-shadow: 0 0 0 2px var(--arch-glow);
+}
+.cyber-input::placeholder { color: rgba(255,255,255,.35); }
+
+/* ── GLASS INPUT (Kodux Widget) ──────────────────────────── */
+.glass-input {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--pearl);
+  font-family: var(--mono);
+  outline: none;
+  transition: border-color .2s;
+}
+.glass-input:focus { border-color: rgba(255,255,255,.25); }
+.glass-input::placeholder { color: rgba(255,255,255,.25); }
+
+.glass-select {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--pearl);
+  font-family: var(--mono);
+  outline: none;
+}
+
+/* ── SEND / VOICE BUTTONS ────────────────────────────────── */
+#sendBtn {
+  width: 60px; height: 60px; font-size: 48px;
+  background: linear-gradient(42deg,#0ff,#f0f);
+  border: none;
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: transform var(--med), opacity var(--slow);
+  opacity: .9;
+}
+#sendBtn:hover { transform: scale(1.1); opacity: 1; }
+
+#voiceBtn {
+  width: 60px; height: 60px;
+  border: none; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background var(--fast), opacity var(--slow);
+  opacity: .7;
+}
+#voiceBtn:hover { background: rgba(255,255,255,0.15); opacity: 1; }
+
+/* ── BLOBS (Fusion Card ambient) ─────────────────────────── */
+.ambient-light {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  overflow: hidden;
+}
+.blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: .18;
+  transition: all 2s ease;
+}
+.blob-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, var(--kob-voice-primary), transparent 70%);
+  top: -100px; left: -100px;
+  animation: blobFloat1 14s ease-in-out infinite;
+}
+.blob-2 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, var(--kob-voice-secondary), transparent 70%);
+  bottom: -80px; right: -80px;
+  animation: blobFloat2 18s ease-in-out infinite;
+}
+@keyframes blobFloat1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(60px,40px) scale(1.12)} }
+@keyframes blobFloat2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-40px,-30px) scale(1.08)} }
+
+/* ── SMALL PREVIEW (Fusion Card header) ──────────────────── */
+.small-preview {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.small-preview:hover {
+  background: rgba(255,255,255,.06);
+  border-color: var(--kob-voice-primary);
+}
+
+.small-text {
+  font-size: .78rem; font-family: var(--mono);
+  color: rgba(255,255,255,.65);
+  max-width: 120px; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+
+.ident-badge {
+  font-family: var(--mono); font-size: .65rem;
+  color: var(--kob-voice-primary);
+  letter-spacing: .1em;
+}
+
+/* ── MINI AVATAR SLOT ────────────────────────────────────── */
+.mini-avatar {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--kob-voice-accent), var(--kob-voice-secondary) 100%);
+  box-shadow: 0 0 8px var(--arch-glow);
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── GREETING ROW (Fusion Card) ──────────────────────────── */
+.greeting-row {
+  display: flex; align-items: baseline; gap: 6px;
+  line-height: 1;
+}
+.txt-thin  { font-size: 1rem; font-weight: 300; opacity: .65; }
+.txt-heavy { font-size: 1.2rem; font-weight: 800; color: var(--kob-voice-primary); }
+
+/* ── TOGGLE BUTTON (chat controls) ──────────────────────── */
+.copy-button, .paste-button, .toggle-button, .kitty-button, .history-button {
+  width: 36px; height: 36px;
+  border: none; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background var(--fast), opacity var(--slow);
+  opacity: .7;
+}
+.copy-button:hover, .paste-button:hover,
+.toggle-button:hover, .kitty-button:hover, .history-button:hover {
+  background: rgba(255,255,255,0.15);
+}
+.toggle-button.active, .kitty-button.active, .history-button.active { opacity: 1; }
+
+/* ── PREVIEW MEDIA ───────────────────────────────────────── */
+.preview-clickable { cursor: pointer; }
+img.w-12 { object-fit: cover; }
+
+/* ── PAGINATION ──────────────────────────────────────────── */
+.pagination button {
+  border: none;
+  background: linear-gradient(45deg,#0ff,#f0f);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2em; cursor: pointer;
+  transition: transform var(--fast);
+}
+.pagination button:hover { transform: scale(1.2); }
+
+#pageIndicator {
+  font-size: .8rem; opacity: .7;
+  font-family: var(--mono);
+}
+
+/* ── BOOT TEXT ───────────────────────────────────────────── */
+#bootText { display: inline-block; position: relative; font-weight: bold; }
+#bootText.pulse::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  background: linear-gradient(42deg,#0ff,#f0f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(4px); opacity: 0.4;
+  pointer-events: none;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ── LED INDICATORS ──────────────────────────────────────── */
+.status-led {
+  font-size: .55rem; font-family: var(--mono);
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #00e5a0;
+  padding: 2px 6px; border-radius: 99px;
+  background: rgba(0,229,160,.08);
+  border: 1px solid rgba(0,229,160,.2);
+}

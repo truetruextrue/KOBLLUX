@@ -1,0 +1,192 @@
+/* ════════════════════════════════════════════════════════════
+   0x00 ORIGEM · 768Hz · ○ · PONTO
+   Fundação absoluta — root vars, reset, base layout, ambient
+   layer: corpo | geo: PONTO | arquétipos: GENUS · KOBLLUX
+════════════════════════════════════════════════════════════ */
+
+/* ── ROOT CUSTOM PROPERTIES ─────────────────────────────── */
+:root {
+  /* Z-Index Ladder */
+  --z-base:     0;
+  --z-content:  100;
+  --z-widget:   500;
+  --z-overlay:  1000;
+  --z-system:   5000;
+  /* aliases legados */
+  --z-bg:       0;
+  --z-hud:      5000;
+
+  /* Timing */
+  --fast: .4s;
+  --med:  .8s;
+  --slow: 1.8s;
+
+  /* Paleta VOID */
+  --void:  #02020a;
+  --abyss: #060615;
+  --deep:  #0a0a20;
+  --ink:   #0f0f2e;
+
+  /* Escala Cobre → Ouro (cu-0 a cu-7) */
+  --cu-0: #8B4513;
+  --cu-1: #B87333;
+  --cu-2: #CD853F;
+  --cu-3: #D4943A;
+  --cu-4: #E8A855;
+  --cu-5: #F0C060;
+  --cu-6: #C9A84C;
+  --cu-7: #FFD700;
+
+  /* Voz KOBLLUX — overriden dinamicamente por 0x0C */
+  --kob-voice-primary:   #C9A84C;
+  --kob-voice-secondary: #8B4513;
+  --kob-voice-accent:    #F0C060;
+  --kob-voice-bg-soft:   color-mix(in srgb, var(--kob-voice-primary) 18%, transparent);
+
+  /* Arquétipo ativo */
+  --arch-color:       #C9A84C;
+  --arch-glow:        rgba(201,168,76,0.35);
+  --arch-glow-strong: rgba(201,168,76,0.6);
+  --arch-emoji:       '∞';
+
+  /* Color-mix composites */
+  --border:    color-mix(in srgb, var(--kob-voice-primary) 35%, rgba(255,255,255,0.08));
+  --panel-bg:  color-mix(in srgb, var(--kob-voice-primary) 8%, #0b0f18);
+
+  /* Pearl / Mist / Cyan */
+  --pearl: #e8e0f0;
+  --mist:  rgba(232,224,240,0.65);
+  --cyan:  #00e5ff;
+
+  /* Neon aliases (Fusion Card) */
+  --neon-cyan:   #00e5ff;
+  --neon-purple: #9f7aea;
+  --primary:     var(--kob-voice-primary);
+  --muted:       rgba(232,224,240,0.45);
+
+  /* Typography */
+  --mono:    'Share Tech Mono', 'JetBrains Mono', monospace;
+  --display: 'Cinzel Decorative', serif;
+  --body:    'Rajdhani', 'Montserrat', sans-serif;
+
+  /* Orb speed */
+  --orb-speed:     7.2s;
+  --orb-spin-speed: 12s;
+  --orb-pulse-speed: 2s;
+  --orb-primary:   hsl(180,100%,55%);
+  --orb-secondary: hsl(240,90%,45%);
+  --orb-accent:    hsl(200,100%,75%);
+
+  /* CobiVoice vars — overriden por 0x0C */
+  --cv1-pitch: 1.0;
+  --cv1-rate:  1.0;
+  --cv1-lang:  'pt-BR';
+  --cv2-pitch: 1.0;
+  --cv2-rate:  1.0;
+
+  /* Paleta Opcode (cores semânticas por fase) */
+  --kob-c-origem:      rgba(200,169,110,.12);
+  --kob-c-detectar:    rgba(155,89,182,.15);
+  --kob-c-integrar:    rgba(52,152,219,.15);
+  --kob-c-expandir:    rgba(0,255,208,.10);
+  --kob-c-lapidar:     rgba(241,196,15,.12);
+  --kob-c-convergir:   rgba(168,85,247,.12);
+  --kob-c-unificar:    rgba(46,204,113,.12);
+  --kob-c-selar:       rgba(255,215,0,.15);
+  --kob-c-testemunhar: rgba(52,231,219,.12);
+  --kob-c-eternizar:   rgba(255,255,255,.10);
+
+  /* Tema padrão */
+  --bg:   linear-gradient(to bottom, #000, #1a1a1a);
+  --text: #d7d7d7;
+}
+
+/* ── TEMA VARIANTS ───────────────────────────────────────── */
+body.light    { --bg: linear-gradient(to bottom,#666,#e0e0e0); --text: #444; }
+body.medium   { --bg: linear-gradient(to bottom,#555,#333);    --text: #eee; }
+body.vibe     { --bg: linear-gradient(135deg,#00d8d8,#d800d8); --text: #fff; }
+body.cyberpunk{ --bg: linear-gradient(135deg,#000,#0a0a2e);    --text: #0ff; }
+body.anime    { --bg: linear-gradient(135deg,#1a0028,#3d0060); --text: #f0c0ff; }
+
+/* ── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--body);
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Montserrat', var(--body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: var(--bg);
+  color: var(--text);
+  transition: background var(--slow), color var(--slow);
+  animation: fadeIn var(--slow) ease forwards;
+}
+
+/* ── AMBIENT LAYERS ──────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 40%, color-mix(in srgb, var(--kob-voice-primary) 10%, transparent) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 60%, color-mix(in srgb, var(--kob-voice-secondary) 8%, transparent) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 65%);
+  transition: background 0.8s ease;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 1;
+  pointer-events: none; opacity: 0.3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ── KEYFRAMES ORIGEM ────────────────────────────────────── */
+@keyframes fadeIn      { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse       { 0%,100%{transform:scale(1)} 50%{transform:scale(1.012)} }
+@keyframes moveGradient{ 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+@keyframes pulseGlow   { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
+@keyframes clickPulse  { 0%,100%{opacity:1} 50%{opacity:0.7} }
+@keyframes expandFooter{ 0%,100%{transform:scale(1)} 50%{transform:scale(0.96)} }
+@keyframes kblx-in     { from { opacity:0; transform:translateY(-20px) scale(.95); } to { opacity:1; transform:none; } }
+
+/* ── SNAP ZONE ───────────────────────────────────────────── */
+#snap-zone {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: -1;
+}
+
+/* ── PARTICLES ───────────────────────────────────────────── */
+#particles-js {
+  position: absolute; inset: 0; z-index: 0;
+}
+
+/* ── SVG LOGO ────────────────────────────────────────────── */
+.svg-container {
+  position: absolute; top: 269px; left: 50%;
+  width: 166px; height: 166px;
+  transform: translateX(-50%); z-index: 1;
+  filter: drop-shadow(0 0 18px rgba(0,255,255,0.15));
+  transition: opacity var(--slow);
+}
+.svg-container.fading { opacity: 0; }
+.svg-container object {
+  width: 100%; height: 100%; object-fit: contain;
+  opacity: 0.9;
+  animation: pulse 2s infinite ease-in-out;
+  transition: opacity var(--med);
+}
+
+#assistantName {
+  margin-top: 199px;
+  font-size: 1.1em; font-weight: 600;
+  opacity: .8;
+  transition: opacity var(--slow);
+}

@@ -1,0 +1,142 @@
+/* ════════════════════════════════════════════════════════════
+   0x0C SÍNTESE · 777Hz · ⌘ · CUBO-TERNARIO
+   Kodux widget states, transport bar, identity engine CSS
+   layer: corpo-mente-espirito | geo: CUBO-TERNARIO
+   arquétipos: KODUX · VITALIS · JESUS
+════════════════════════════════════════════════════════════ */
+
+/* ── KODUX WIDGET (state machine) ────────────────────────── */
+#kodux-widget {
+  position: fixed; right: 20px; bottom: 100px;
+  z-index: var(--z-widget);
+  background: linear-gradient(135deg, rgba(10,10,30,.95), rgba(5,5,18,.98));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px var(--arch-glow), 0 20px 40px rgba(0,0,0,.7);
+  transition: all .4s cubic-bezier(.22,1,.36,1);
+  cursor: pointer;
+}
+
+/* BALL state */
+#kodux-widget[data-state="ball"] {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+}
+/* PREVIEW state */
+#kodux-widget[data-state="preview"] {
+  width: min(280px, 85vw); height: 72px;
+  border-radius: 16px;
+}
+/* FOOTER state */
+#kodux-widget[data-state="footer"] {
+  width: 100%; height: 80px;
+  border-radius: 0; right: 0; bottom: 0;
+  left: 0;
+}
+/* FULL state */
+#kodux-widget[data-state="full"] {
+  width: min(420px, 95vw);
+  height: min(85vh, 700px);
+  border-radius: 24px;
+  right: 10px; bottom: 10px;
+  cursor: default;
+}
+
+/* ── CONTENT BALL ────────────────────────────────────────── */
+#content-ball {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--kob-voice-primary);
+}
+#content-ball .ph-vinyl-record {
+  font-size: 28px; animation-duration: 4s;
+}
+
+/* ── CONTENT PREVIEW ─────────────────────────────────────── */
+#content-preview {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; padding: 0 12px; gap: 12px;
+}
+
+/* ── CONTENT FOOTER ──────────────────────────────────────── */
+#content-footer {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+
+/* ── CONTENT FULL ────────────────────────────────────────── */
+#content-full {
+  display: flex; flex-direction: column;
+  width: 100%; height: 100%;
+  position: relative;
+}
+
+/* ── FOOTER CONTROLS ─────────────────────────────────────── */
+#footerControls {
+  display: flex; align-items: center; gap: 20px;
+}
+#footerControls button {
+  color: var(--muted);
+  background: none; border: none; cursor: pointer;
+  transition: color .2s, transform .15s;
+}
+#footerControls button:hover { color: #fff; transform: scale(1.1); }
+
+/* ── ORB BUTTON IN WIDGET ────────────────────────────────── */
+#prev-play-icon,
+#foot-play-icon { font-size: 2.5rem; }
+
+/* ── ADD LINK ROW ────────────────────────────────────────── */
+#addLinkRow { display: flex; gap: 8px; }
+#linkInputWrap { flex: 1; position: relative; }
+#linkInputWrap i {
+  position: absolute; left: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted); pointer-events: none;
+}
+
+/* ── NEW PLAYLIST ROW ────────────────────────────────────── */
+#newPlaylistRow { display: flex; gap: 8px; align-items: center; }
+#newPlaylistInputWrap { flex: 1; position: relative; }
+#newPlaylistInputWrap i {
+  position: absolute; left: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted); pointer-events: none;
+}
+
+/* ── IDENTITY ENGINE MARKS ───────────────────────────────── */
+[data-di-injected] .orb-core {
+  transition: background .6s ease, box-shadow .6s ease;
+}
+
+/* ── TOAST (kblx-toast alias) ────────────────────────────── */
+.kob-toast {
+  background: rgba(2,2,14,.95);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 6px 14px;
+  font-family: var(--mono); font-size: .68rem;
+  color: var(--kob-voice-primary);
+  letter-spacing: .22em; pointer-events: none;
+  white-space: nowrap;
+  animation: kblx-in .28s ease both, fadeOut .28s ease .8s both;
+}
+@keyframes fadeOut { to { opacity: 0; transform: translateY(-8px); } }
+
+/* ── FULL BODY PLAYLIST ──────────────────────────────────── */
+#fullBody {
+  flex: 1; overflow-y: auto; padding: 20px 20px 160px;
+}
+
+/* ── PLAYLIST HEADER ─────────────────────────────────────── */
+#playlistHeader {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 12px;
+}
+
+/* ── GLOBAL SCROLL OVERRIDE ──────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
