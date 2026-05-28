@@ -326,7 +326,7 @@ body {
 .code-area { flex:1; position:relative; overflow:hidden; }
 
 .highlight-layer {
-  position:absolute; inset:0; padding:12px;
+  position:absolute; inset:0; padding:12px 12px 40px 12px;
   font-family:var(--font-code); font-size:12.5px; line-height:1.65;
   white-space:pre; pointer-events:none;
   tab-size:2; z-index:1; word-break:normal;
@@ -337,9 +337,10 @@ body {
 .hl-line { display:block; min-height:1.65em; border-radius:2px; }
 
 #input-layer {
-  position:absolute; inset:0; padding:12px;
+  position:absolute; inset:0; padding:12px 12px 40px 12px;
   font-family:var(--font-code); font-size:12.5px; line-height:1.65;
-  white-space:pre; border:none; outline:none; overflow:auto;
+  white-space:pre; border:none; outline:none;
+  overflow-x:auto; overflow-y:scroll;
   -webkit-overflow-scrolling:touch;
   tab-size:2; width:100%; height:100%;
   background:transparent;
@@ -347,6 +348,13 @@ body {
   caret-color:var(--primary);
   resize:none; z-index:3;
   -webkit-text-fill-color:transparent;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,0.15) transparent;
+}
+#input-layer::selection {
+  background:rgba(201,168,76,0.18);
+  -webkit-text-fill-color:transparent;
+  color:transparent;
 }
 .highlight-layer {
   background:var(--bg-deep);
@@ -375,7 +383,7 @@ body {
 .gutter {
   width:44px; background:rgba(0,0,0,0.35); border-right:1px solid var(--glass-border);
   overflow:hidden; font-family:var(--font-code); font-size:11.5px; flex-shrink:0;
-  padding:12px 0;
+  padding:12px 0 40px;
 }
 .g-line {
   display:block; text-align:center; line-height:1.65em;
@@ -1295,6 +1303,7 @@ function updateGutter() {
     const color = getLineNumColor(line, ext);
     return `<span class="g-line" style="color:${color}">${i+1}</span>`;
   }).join('');
+  UI.gutter.scrollTop = UI.input.scrollTop;
 }
 
 function logToUI(msg, type='') {
@@ -2139,8 +2148,10 @@ function updateHighlight() {
     const colored = applyTokenColors(safe, ext);
     return `<span class="hl-line" style="background:${bg}">${colored || '&#8203;'}</span>`;
   }).join('\n');
-  layer.scrollTop  = UI.input.scrollTop;
-  layer.scrollLeft = UI.input.scrollLeft;
+  const _st = UI.input.scrollTop, _sl = UI.input.scrollLeft;
+  layer.scrollTop  = _st;
+  layer.scrollLeft = _sl;
+  requestAnimationFrame(() => { layer.scrollTop = _st; layer.scrollLeft = _sl; });
 }
 
 function updateVeebOrb() {
