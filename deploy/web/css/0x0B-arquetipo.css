@@ -4,6 +4,27 @@
    layer: espirito | geo: ICOSAEDRO | arquétipos: HORUS
 ════════════════════════════════════════════════════════════ */
 
+/* ── BODY ARCH THEMING — body[data-voice-arch] ───────────── */
+body[data-voice-arch="atlas"]    { --kob-voice-primary:#8e9aaf; --kob-voice-secondary:#5c6478; --kob-voice-accent:#b0bec5; --arch-color:#8e9aaf; --arch-glow:rgba(142,154,175,.32); }
+body[data-voice-arch="nova"]     { --kob-voice-primary:#00e5ff; --kob-voice-secondary:#0099cc; --kob-voice-accent:#80f4ff; --arch-color:#00e5ff; --arch-glow:rgba(0,229,255,.32); }
+body[data-voice-arch="vitalis"]  { --kob-voice-primary:#00e070; --kob-voice-secondary:#00a050; --kob-voice-accent:#80ffb8; --arch-color:#00e070; --arch-glow:rgba(0,224,112,.32); }
+body[data-voice-arch="pulse"]    { --kob-voice-primary:#ff7020; --kob-voice-secondary:#cc3800; --kob-voice-accent:#ffaa60; --arch-color:#ff7020; --arch-glow:rgba(255,112,32,.32); }
+body[data-voice-arch="kaos"]     { --kob-voice-primary:#ff2a6d; --kob-voice-secondary:#aa0040; --kob-voice-accent:#ff80a0; --arch-color:#ff2a6d; --arch-glow:rgba(255,42,109,.32); }
+body[data-voice-arch="kodux"]    { --kob-voice-primary:#00e28b; --kob-voice-secondary:#0ea5e9; --kob-voice-accent:#80f5c8; --arch-color:#00e28b; --arch-glow:rgba(0,226,139,.32); }
+body[data-voice-arch="lumine"]   { --kob-voice-primary:#ffd700; --kob-voice-secondary:#e09000; --kob-voice-accent:#fff280; --arch-color:#ffd700; --arch-glow:rgba(255,215,0,.32); }
+body[data-voice-arch="aion"]     { --kob-voice-primary:#9f7aea; --kob-voice-secondary:#5b21b6; --kob-voice-accent:#d4b8ff; --arch-color:#9f7aea; --arch-glow:rgba(159,122,234,.32); }
+body[data-voice-arch="kobllux"]  { --kob-voice-primary:#C9A84C; --kob-voice-secondary:#8B4513; --kob-voice-accent:#F0C060; --arch-color:#C9A84C; --arch-glow:rgba(201,168,76,.32); }
+body[data-voice-arch="artemis"]  { --kob-voice-primary:#c8c8e0; --kob-voice-secondary:#7070a0; --kob-voice-accent:#f0f0ff; --arch-color:#c8c8e0; --arch-glow:rgba(200,200,224,.32); }
+body[data-voice-arch="serena"]   { --kob-voice-primary:#c084fc; --kob-voice-secondary:#7c3aed; --kob-voice-accent:#e8c0ff; --arch-color:#c084fc; --arch-glow:rgba(192,132,252,.32); }
+body[data-voice-arch="genus"]    { --kob-voice-primary:#f59e0b; --kob-voice-secondary:#b45309; --kob-voice-accent:#fcd34d; --arch-color:#f59e0b; --arch-glow:rgba(245,158,11,.32); }
+body[data-voice-arch="solus"]    { --kob-voice-primary:#f5f5f5; --kob-voice-secondary:#aaaaaa; --kob-voice-accent:#ffffff; --arch-color:#f5f5f5; --arch-glow:rgba(245,245,245,.32); }
+body[data-voice-arch="rhea"]     { --kob-voice-primary:#b5883c; --kob-voice-secondary:#7c5010; --kob-voice-accent:#d4a860; --arch-color:#b5883c; --arch-glow:rgba(181,136,60,.32); }
+body[data-voice-arch="trinity"]  { --kob-voice-primary:#D4AF37; --kob-voice-secondary:#9a7a10; --kob-voice-accent:#f0d060; --arch-color:#D4AF37; --arch-glow:rgba(212,175,55,.32); }
+body[data-voice-arch="infodose"] { --kob-voice-primary:#38bdf8; --kob-voice-secondary:#0369a1; --kob-voice-accent:#90e0ff; --arch-color:#38bdf8; --arch-glow:rgba(56,189,248,.32); }
+body[data-voice-arch="horus"]    { --kob-voice-primary:#f59e0b; --kob-voice-secondary:#7c3a00; --kob-voice-accent:#fbbf24; --arch-color:#f59e0b; --arch-glow:rgba(245,158,11,.32); }
+body[data-voice-arch="bllue"]    { --kob-voice-primary:#3b82f6; --kob-voice-secondary:#1e3a8a; --kob-voice-accent:#93c5fd; --arch-color:#3b82f6; --arch-glow:rgba(59,130,246,.32); }
+body[data-voice-arch="jesus"]    { --kob-voice-primary:#f0d080; --kob-voice-secondary:#c09040; --kob-voice-accent:#fff8c0; --arch-color:#f0d080; --arch-glow:rgba(240,208,128,.32); }
+
 /* ── ARCH OVERLAYS ───────────────────────────────────────── */
 #arch-overlay,
 #arch-card-overlay {

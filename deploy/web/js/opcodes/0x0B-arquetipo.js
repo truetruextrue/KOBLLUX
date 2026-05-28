@@ -86,6 +86,9 @@
       }
     }
 
+    /* Sync body[data-voice-arch] for CSS theming */
+    document.body.setAttribute('data-voice-arch', arch.name);
+
     localStorage.setItem('kob_arch', arch.name);
 
     document.dispatchEvent(new CustomEvent('kobllux:archetype:changed', {
@@ -170,14 +173,24 @@
     applyArchetype(savedIdx >= 0 ? savedIdx : ARCHETYPES.findIndex(a => a.name === 'kobllux'), null, null, false);
   });
 
+  /* ── setArch — external API (accepts name string or index) ── */
+  function setArch(nameOrIdx) {
+    const idx = typeof nameOrIdx === 'number'
+      ? nameOrIdx
+      : ARCHETYPES.findIndex(a => a.name === String(nameOrIdx).toLowerCase());
+    if (idx < 0) return;
+    applyArchetype(idx);
+  }
+
   /* ── EXPOSE ──────────────────────────────────────────── */
   window.KOBLLUX = window.KOBLLUX || {};
   Object.assign(window.KOBLLUX, {
     ARCHETYPES,
-    applyArchetype,
+    applyArchetype, setArch,
     openArchOverlay, closeArchOverlay,
     openArchCard, closeArchCard, renderArchCard,
     get currentArchIdx() { return currentIdx; }
   });
+  window.setArch = setArch;
 
 })();
