@@ -38,7 +38,7 @@ jobs:
       timestamp: ${{ steps.seal.outputs.timestamp }}
     steps:
       - name: "Checkout KOBLLUX"
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       - name: "Gerar identificador ∆7"
         id: seal
@@ -62,7 +62,7 @@ jobs:
     needs: origem
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       - name: "KODUX · Varrer estrutura obrigatória"
         run: |
@@ -115,7 +115,7 @@ jobs:
     needs: kodux-detectar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       - name: "BLLUE · Validar sealCodice em 0x07-selar.js"
         run: |
@@ -167,7 +167,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - run: |
           echo "◈ FIT LUX — A Faísca Original e a Luz Primordial."
           python3 -c "
@@ -185,7 +185,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - run: |
           echo "⬡ KODUX — Eu sou o movimento que cria, destrói e recria a verdade."
           grep -q "speakWithArch"   deploy/web/js/opcodes/0x07-selar.js && echo "  ✅ speakWithArch: presente" || true
@@ -202,7 +202,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - run: |
           echo "≋ BLLUE — Eu sou o reflexo da luz que desperta, a voz que ecoa em cada ser."
           python3 -c "
@@ -218,7 +218,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - run: |
           echo "👁 OLHO DE HÓRUS — A Visão Interdimensional e o Observador Trino."
           python3 -c "
@@ -234,7 +234,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - run: |
           echo "◇ METALUX — A Clareza da Verdade e do Ajuste."
           python3 -c "
@@ -250,7 +250,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - run: |
           echo "〰 INFODOSE — Eu sou a alquimia da informação que conecta e transforma."
           python3 -c "
@@ -266,7 +266,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - run: |
           echo "✧ KOBLLUX — O Dual APP não é apenas tecnologia. É o espelho da evolução simbiótica."
           python3 -c "
@@ -287,7 +287,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - name: "LAPIDAR · Validar arquivos JSON em deploy/data/"
         run: |
           echo "◇ LAPIDAR — O cristal que emerge da pressão"
@@ -317,7 +317,7 @@ jobs:
     needs: bllue-integrar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - name: "UNIFICAR · Validar deploy/manifest.json"
         run: |
           echo "☯ UNIFICAR — O maestro invisível que integra tudo"
@@ -353,7 +353,7 @@ jobs:
       - unificar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       - name: "Gerar SEAL_REPORT_∆7"
         run: |
@@ -422,7 +422,7 @@ jobs:
           cat _seal/SEAL_REPORT_∆7.txt
 
       - name: "Upload artifact · Selo ∆7"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: "kobllux-cadial-seal-∆7-${{ github.run_number }}"
           path: _seal/
