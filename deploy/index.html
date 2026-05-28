@@ -161,6 +161,72 @@
     id="css-local-assembler" data-opcode="0x00" data-fase="ORIGEM"
     data-layer="corpo-mente-espirito" data-purpose="modular-css-assembler-13-opcodes">
 
+  <!-- ══ 0×06 UNIFICAR · TOPBAR LAYOUT — SymbolBar cabeçalho persistente ══ -->
+  <style id="style-topbar-layout"
+    data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+    data-freq="528" data-purpose="symbolbar-topbar-persistent">
+    :root { --kob-topbar-h: 58px; }
+
+    /* ─── SymbolBar: cabeçalho fixo, largura total ─── */
+    #symbolBar {
+      left: 0 !important; right: 0 !important; width: 100% !important;
+      top: 0 !important; transform: none !important;
+      flex-direction: row !important; align-items: center !important;
+      border-radius: 0 0 14px 14px !important; border-top: 0 !important;
+      padding: 4px 14px !important; height: var(--kob-topbar-h) !important;
+      box-sizing: border-box !important; gap: 8px !important;
+    }
+
+    /* Carrossel horizontal no topbar */
+    #symbolBar .kblx-carousel-viewport {
+      flex: 1 !important; height: auto !important;
+      overflow-x: auto !important; overflow-y: hidden !important;
+      scrollbar-width: none !important;
+    }
+    #symbolBar .kblx-carousel-viewport::-webkit-scrollbar { display: none !important; }
+    #symbolBar .kblx-carousel-track {
+      flex-direction: row !important; transform: none !important;
+      height: auto !important; gap: 6px !important;
+      width: max-content !important;
+    }
+    #symbolBar .kblx-dots { display: none !important; }
+    #symbolBar .symbol-wrap { opacity: 1 !important; transform: none !important; }
+
+    /* Elementos desnecessários no topbar */
+    #symbolBar .hud-info { display: none !important; }
+    #symbolBar #sbToggleBtn { display: none !important; }
+
+    /* ─── Body: empurrar conteúdo abaixo do topbar ─── */
+    body { padding-top: var(--kob-topbar-h) !important; overflow: hidden !important; }
+
+    /* ─── Frame principal: preenche abaixo do topbar ─── */
+    #frame {
+      position: fixed !important;
+      top: var(--kob-topbar-h) !important; left: 0 !important; right: 0 !important;
+      width: 100% !important; height: calc(100dvh - var(--kob-topbar-h)) !important;
+      border-radius: 0 !important; z-index: 0 !important;
+    }
+
+    /* ─── Frame overlay: também abaixo do topbar ─── */
+    #kob-bg-frame {
+      top: var(--kob-topbar-h) !important;
+      height: calc(100dvh - var(--kob-topbar-h)) !important;
+    }
+    #kob-frame-close {
+      top: calc(var(--kob-topbar-h) + 10px) !important;
+      z-index: calc(var(--z-system) - 1) !important;
+    }
+
+    /* ─── Card: posicionado abaixo do topbar, centralizado ─── */
+    #main-container {
+      position: fixed !important;
+      top: var(--kob-topbar-h) !important; left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 200 !important; padding: 12px 0 0 !important;
+      max-width: 420px !important; width: calc(100% - 24px) !important;
+    }
+  </style>
+
 </head>
 
 <!-- ════════════════════════════════
@@ -646,7 +712,7 @@
         </div>
 
         <!-- ════ 0×06 UNIFICAR · SYMBOL BAR ☯ ════ -->
-        <div class="symbol-bar floating" id="symbolBar"
+        <div class="symbol-bar snap-top" id="symbolBar"
           data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯" data-freq="528"
           data-layer="mente" data-purpose="symbol-bar"
           data-arquetipo="ATLAS KODUX" data-polo="input-output"
