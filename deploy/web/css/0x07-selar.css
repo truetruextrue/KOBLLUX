@@ -144,6 +144,32 @@
   box-shadow: 0 0 20px var(--arch-glow);
 }
 
+/* ── VERBOFORMA — 7 Componentes do Corpo da Vida ────────── */
+:root {
+  --vf-fit-lux:        #f0f0ff;
+  --vf-kodux:          #d4a017;
+  --vf-bllue:          #3b82f6;
+  --vf-horus:          #4f46e5;
+  --vf-metalux:        #c0c0c0;
+  --vf-infodose:       #22d3ee;
+  --vf-kobllux:        #C9A84C;
+  --codice-primary:    var(--vf-kobllux);
+  --codice-hz:         1134;
+}
+
+/* ── SEALED STATE — loop de auto-modificação fechado ─────── */
+body.codice-sealed {
+  --kob-voice-primary: var(--codice-primary);
+  --arch-color:        var(--codice-primary);
+}
+body.codice-sealed .orb-core {
+  animation: orbSpin 1.2s linear infinite, orbBreathe 2s ease-in-out infinite;
+  box-shadow:
+    0 0 40px var(--codice-primary),
+    0 0 80px color-mix(in srgb, var(--codice-primary) 40%, transparent),
+    0 0 8px rgba(255,255,255,0.1) inset;
+}
+
 /* ── GLOW TEXT ───────────────────────────────────────────── */
 .glow-text {
   text-shadow:
