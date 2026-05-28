@@ -119,7 +119,9 @@
     const SWIPE_DIST = 45, SWIPE_TIME = 350;
     let drag = { x: 0, y: 0, t: 0, active: false };
 
+    /* Document-level swipe: only fires for touches outside iframes (placeholders) */
     document.addEventListener('touchstart', e => {
+      if (e.target.closest('#kob-strip-left,#kob-strip-right,#kob-strip-bottom,#kob-strip-top')) return;
       drag.x = e.touches[0].clientX; drag.y = e.touches[0].clientY;
       drag.t = Date.now(); drag.active = true;
     }, { passive: true });
@@ -158,6 +160,66 @@
         e.deltaX > 0 ? navigateTo(currentRow, currentCol + 1) : navigateTo(currentRow, currentCol - 1);
       }
     }, { passive: true });
+  }
+
+  /* ── EDGE CAPTURE STRIPS ─────────────────────────────────
+     Strips fixas nas beiradas da tela (sobre iframes).
+     Centro da tela → iframe rola naturalmente.
+     Beirada → interpreta como navegação da grade 3×3.
+  ──────────────────────────────────────────────────────── */
+  function initEdgeStrips() {
+    const EDGE = 52; /* px — largura/altura da faixa de borda */
+    const ACCENT = 'rgba(201,168,76,0.09)';
+
+    function topH() {
+      return parseInt(getComputedStyle(document.documentElement)
+        .getPropertyValue('--kob-topbar-h') || '58', 10);
+    }
+
+    const DEFS = [
+      {
+        id: 'kob-strip-left',
+        css: () => `left:0;top:${topH()}px;bottom:0;width:${EDGE}px;` +
+                   `background:linear-gradient(to right,${ACCENT},transparent);`
+      },
+      {
+        id: 'kob-strip-right',
+        css: () => `right:0;top:${topH()}px;bottom:0;width:${EDGE}px;` +
+                   `background:linear-gradient(to left,${ACCENT},transparent);`
+      },
+      {
+        id: 'kob-strip-bottom',
+        css: () => `bottom:0;left:${EDGE}px;right:${EDGE}px;height:${EDGE}px;` +
+                   `background:linear-gradient(to top,${ACCENT},transparent);`
+      },
+      {
+        id: 'kob-strip-top',
+        css: () => `top:${topH()}px;left:${EDGE}px;right:${EDGE}px;height:${EDGE}px;` +
+                   `background:linear-gradient(to bottom,${ACCENT},transparent);`
+      }
+    ];
+
+    DEFS.forEach(({ id, css }) => {
+      let el = document.getElementById(id);
+      if (!el) { el = document.createElement('div'); el.id = id; document.body.appendChild(el); }
+      el.style.cssText = `position:fixed;z-index:3;pointer-events:auto;touch-action:none;${css()}`;
+      el.setAttribute('aria-hidden', 'true');
+
+      let sx, sy, st;
+      el.addEventListener('touchstart', e => {
+        sx = e.touches[0].clientX;
+        sy = e.touches[0].clientY;
+        st = Date.now();
+      }, { passive: true });
+
+      el.addEventListener('touchend', e => {
+        if (Date.now() - st > 400) return;
+        handleSwipe(
+          e.changedTouches[0].clientX - sx,
+          e.changedTouches[0].clientY - sy
+        );
+      }, { passive: true });
+    });
   }
 
   function handleSwipe(dx, dy) {
@@ -313,6 +375,7 @@
     buildUniverseGrid();
     buildNavMatrix();
     initGridNavigation();
+    initEdgeStrips();
 
     document.getElementById('kob-frame-close')?.addEventListener('click', closeInternalFrame);
     document.getElementById('createPlaylistBtn')?.addEventListener('click', createPlaylist);
