@@ -27,21 +27,33 @@
     const bar = document.getElementById('symbolBar');
     if (!bar) return;
 
-    const hudInfo = bar.querySelector('.hud-info');
+    const isTopBar = bar.classList.contains('snap-top');
 
-    const vp = document.createElement('div');
-    vp.className = 'kblx-carousel-viewport';
-    vp.style.height = (VISIBLE * ITEM_H - GAP) + 'px';
-    hudInfo.before(vp);
+    /* Use existing HTML elements if available, else create */
+    let vp = document.getElementById('kblxCarouselViewport');
+    let track = document.getElementById('kblxCarouselTrack');
+    let dots = document.getElementById('kblxDots');
 
-    const track = document.createElement('div');
-    track.className = 'kblx-carousel-track';
-    track.style.gap = GAP + 'px';
-    vp.appendChild(track);
+    if (!vp) {
+      vp = document.createElement('div');
+      vp.className = 'kblx-carousel-viewport';
+      bar.querySelector('.hud-info')?.before(vp);
+    }
+    if (!track) {
+      track = document.createElement('div');
+      track.className = 'kblx-carousel-track';
+      vp.appendChild(track);
+    }
+    if (!dots) {
+      dots = document.createElement('div');
+      dots.className = 'kblx-dots';
+      bar.querySelector('.hud-info')?.before(dots);
+    }
 
-    const dots = document.createElement('div');
-    dots.className = 'kblx-dots';
-    hudInfo.before(dots);
+    if (!isTopBar) {
+      vp.style.height = (VISIBLE * ITEM_H - GAP) + 'px';
+      track.style.gap = GAP + 'px';
+    }
 
     NAV_BUTTONS.forEach(def => {
       const wrap = document.createElement('div');
@@ -88,7 +100,9 @@
       });
     });
 
-    /* Drag carousel */
+    if (isTopBar) return; /* skip vertical carousel drag in topbar mode */
+
+    /* Drag carousel (vertical floating mode only) */
     track.addEventListener('mousedown', e => {
       carouselDragging = true; carouselDragStart = e.clientY; carouselDragDelta = 0;
       track.classList.add('kblx-dragging');

@@ -8,26 +8,37 @@
   'use strict';
 
   /* ── INTERNAL FRAME LOADER ───────────────────────────── */
+  const FRAME_DEFAULT = 'https://kodux78k.github.io/oiDual--Y-/M0D/VWRDI/index.html';
+
   function loadInternalFrame(url) {
-    const frame    = document.getElementById('kob-bg-frame');
-    const veil     = document.getElementById('kob-frame-veil');
+    /* Load into the main #frame (below topbar). Neutralize any bg-frame overlay. */
+    const frame = document.getElementById('frame');
+    const bgFrame = document.getElementById('kob-bg-frame');
+    const veil    = document.getElementById('kob-frame-veil');
     const closeBtn = document.getElementById('kob-frame-close');
-    if (!frame) return;
-    frame.src = url;
-    frame.classList.add('visible');
-    veil?.classList.add('visible');
-    closeBtn?.classList.add('visible');
+
+    if (frame) {
+      frame.src = url;
+    } else if (bgFrame) {
+      /* fallback: use bg-frame if #frame is absent */
+      bgFrame.src = url;
+      bgFrame.classList.add('visible');
+      veil?.classList.add('visible');
+      closeBtn?.classList.add('visible');
+    }
     toast('⊙ CARREGANDO: ' + url.split('/').pop());
   }
 
   function closeInternalFrame() {
-    const frame    = document.getElementById('kob-bg-frame');
+    const frame = document.getElementById('frame');
+    if (frame) { frame.src = FRAME_DEFAULT; return; }
+    const bgFrame  = document.getElementById('kob-bg-frame');
     const veil     = document.getElementById('kob-frame-veil');
     const closeBtn = document.getElementById('kob-frame-close');
-    frame?.classList.remove('visible');
+    bgFrame?.classList.remove('visible');
     veil?.classList.remove('visible');
     closeBtn?.classList.remove('visible');
-    setTimeout(() => { if (frame) frame.src = 'about:blank'; }, 500);
+    setTimeout(() => { if (bgFrame) bgFrame.src = 'about:blank'; }, 500);
   }
 
   /* ── TOAST ───────────────────────────────────────────── */
