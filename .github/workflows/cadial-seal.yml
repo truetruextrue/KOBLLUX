@@ -189,6 +189,12 @@ jobs:
       - run: |
           echo "⬡ KODUX — Eu sou o movimento que cria, destrói e recria a verdade."
           grep -q "speakWithArch"   deploy/web/js/opcodes/0x07-selar.js && echo "  ✅ speakWithArch: presente" || true
+          [ -f deploy/web/js/opcodes/0x07-nebula.js ] && echo "  ✅ 0x07-nebula.js: VOZES NEBULA presente" || echo "  ⚠️  0x07-nebula.js ausente"
+          grep -q "autoDetectVoice" deploy/web/js/opcodes/0x07-nebula.js 2>/dev/null && echo "  ✅ autoDetectVoice: presente" || true
+          grep -q "spfSpeak"        deploy/web/js/opcodes/0x07-nebula.js 2>/dev/null && echo "  ✅ SPEECHIFY spfSpeak: presente" || true
+          [ -f deploy/web/js/opcodes/0x04-geometry.js ] && echo "  ✅ 0x04-geometry.js: GEOMETRY ENGINE presente" || echo "  ⚠️  0x04-geometry.js ausente"
+          grep -q "applyDomAttribution" deploy/web/js/opcodes/0x04-geometry.js 2>/dev/null && echo "  ✅ applyDomAttribution: presente" || true
+          grep -q "toggleOverlay"       deploy/web/js/opcodes/0x04-geometry.js 2>/dev/null && echo "  ✅ toggleOverlay \[G\]: presente" || true
           python3 -c "
           import json
           d = json.load(open('deploy/data/codice.json'))

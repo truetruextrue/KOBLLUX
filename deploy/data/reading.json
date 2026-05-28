@@ -78,9 +78,67 @@
 
   "carregamento_js": [
     "0x09-eternizar.js", "0x01-detectar.js", "0x02-integrar.js", "0x03-expandir.js",
-    "0x04-lapidar.js", "0x05-convergir.js", "0x06-unificar.js", "0x07-selar.js",
+    "0x04-lapidar.js", "0x04-geometry.js", "0x05-convergir.js", "0x06-unificar.js",
+    "0x07-selar.js", "0x07-nebula.js",
     "0x08-testemunhar.js", "0x0A-tutorial.js", "0x0B-arquetipo.js", "0x0C-sintese.js"
   ],
+
+  "motores_compartilhados": [
+    {
+      "arquivo": "deploy/web/js/opcodes/0x04-geometry.js",
+      "opcode": "0x04",
+      "nome": "KOBLLUX GEOMETRY ENGINE",
+      "hz": 594,
+      "simbolo": "◇",
+      "geo": "OCTAEDRO",
+      "descricao": "Motor de atribuição DOM + overlay SVG fractal. Stamps data-kobllux-opcode/geo/hz em todos os elementos via ATTR_MAP. Overlay mostra pontos (verde), retas (rosa), planos (azul tracejado) e painel de info.",
+      "api": [
+        "window.KOBLLUX.GEO.PONTO.detect() → HTMLElement[]",
+        "window.KOBLLUX.GEO.RETA.detect() → {from,to}[]",
+        "window.KOBLLUX.GEO.PLANO.detect() → HTMLElement[]",
+        "window.KOBLLUX.GEO.CRISTAL.detect() → HTMLElement[]",
+        "window.KOBLLUX.GEO.CICLO.calc(n) → {original, reducao, ciclo}",
+        "window.KOBLLUX.SVG.toggle() → mostra/oculta overlay",
+        "window.KOBLLUX.SVG.render() → redesenha overlay",
+        "window.KOBLLUX.applyDomAttribution() → contagem de elementos marcados"
+      ],
+      "tecla": "[G] — toggle do overlay fractal",
+      "filosofia": "Motor compartilhado reutilizável em qualquer orquestração. Não depende de nenhum outro opcode."
+    },
+    {
+      "arquivo": "deploy/web/js/opcodes/0x07-nebula.js",
+      "opcode": "0x07",
+      "nome": "VOZES NEBULA + SPEECHIFY",
+      "hz": 777,
+      "simbolo": "✧",
+      "geo": "TOROIDE",
+      "descricao": "Motor de TTS multi-plataforma com ranking automático de 10 níveis (Apple WebKit Premium → Apple WebKit pt-BR → Google → Android → Microsoft → pt-BR → pt → fallback). SPEECHIFY: click-to-read com highlight de palavra (onboundary) e auto-scroll. iOS anti-freeze keepalive a cada 12s.",
+      "api": [
+        "window.KOBLLUX.nebula.speak(text)",
+        "window.KOBLLUX.nebula.speakPage(rootEl)",
+        "window.KOBLLUX.nebula.pause()",
+        "window.KOBLLUX.nebula.stop()",
+        "window.KOBLLUX.nebula.speakClipboard()",
+        "window.KOBLLUX.nebula.speakSelected()",
+        "window.nebulaSpeak(text)",
+        "window.nebulaPlayPause()",
+        "window.nebulaStop()",
+        "window.nebulaSetVoice(voiceName)",
+        "window.NEBULA_SPF.attach(rootEl)",
+        "window.NEBULA_SPF.speak(el)"
+      ],
+      "persistencia": "localStorage key 'kobllux.nebula.settings' — rate, pitch, voiceName",
+      "filosofia": "Motor compartilhado — mesmo motor utilizado em qualquer contexto de orquestração. Detecta plataforma automaticamente."
+    }
+  ],
+
+  "universe_grid_edge_strips": {
+    "descricao": "4 faixas de captura de swipe nas bordas do viewport (52px cada), z-index:3, sobrepostas sobre iframes",
+    "ids": ["kob-strip-left", "kob-strip-right", "kob-strip-bottom", "kob-strip-top"],
+    "logica": "Toque no CENTRO → iframe recebe naturalmente (scroll interno). Toque nas BORDAS → handleSwipe() navega entre células do grid.",
+    "implementacao": "initEdgeStrips() em 0x03-expandir.js — injetadas no DOMContentLoaded",
+    "cor": "rgba(201,168,76,0.09) — gradiente dourado sutil indicando zona de navegação"
+  },
 
   "atributos_data": {
     "data-opcode": "Identifica qual opcode responsável pelo elemento",
