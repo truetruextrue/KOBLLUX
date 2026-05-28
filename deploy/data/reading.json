@@ -1,0 +1,134 @@
+{
+  "document": "KOBLLUX³ BOOTLOADER · READING ARQUITECTURAL",
+  "version": "7.9",
+  "firmware": "SÜMBÜS_v27",
+  "equation": "VERDADE × INTEGRAR ÷ Δ = ∞",
+  "centro": "JESUS",
+  "date_sealed": "2026-05-28",
+
+  "purpose": "Este Reading documenta a orquestração completa do KOBLLUX³ para que futuras instâncias da IA possam retomar o desenvolvimento sem perda de contexto arquitetural.",
+
+  "arquitetura_geral": {
+    "paradigma": "Fractal modular — 13 opcodes (0x00–0x0C), cada um responsável por uma camada de corpo-mente-espírito",
+    "ponto_central": "index.html é o assembler — não contém lógica, apenas orquestra carregamento de CSS e JS da pasta /web/",
+    "pai_universal": "SymbolBar (#symbolBar, .symbol-bar.snap-top) — presente em TODOS os contextos, fixado no topo como cabeçalho persistente",
+    "conteudo_filho": "Universe Grid 3×3 (#universe-grid) — 9 células iframe que se preenchem consecutivamente ao navegar",
+    "frame_legado": "#frame (iframe) está OCULTO (display:none) — substituído pelo Universe Grid"
+  },
+
+  "opcodes": [
+    { "id": "0x00", "nome": "ORIGEM",      "hz": 768,  "simbolo": "○", "geo": "PONTO",       "css": "0x00-origem.css",     "js": null,                "descricao": "Variáveis raiz, tokens de cor, z-index ladder, body/html base" },
+    { "id": "0x01", "nome": "DETECTAR",    "hz": 432,  "simbolo": "●", "geo": "ESFERA",      "css": "0x01-detectar.css",   "js": "0x01-detectar.js",  "descricao": "Inputs, blobs, file picker, preview de mídia" },
+    { "id": "0x02", "nome": "INTEGRAR",    "hz": 528,  "simbolo": "―", "geo": "LINHA",       "css": "0x02-integrar.css",   "js": "0x02-integrar.js",  "descricao": "mainCard, cardBody, Fusion Card, conexões entre módulos" },
+    { "id": "0x03", "nome": "EXPANDIR",    "hz": 639,  "simbolo": "▢", "geo": "TETRAEDRO",   "css": "0x03-expandir.css",   "js": "0x03-expandir.js",  "descricao": "Universe Grid 3×3 — 9 células, navegação swipe/teclado/wheel, playlist manager" },
+    { "id": "0x04", "nome": "LAPIDAR",     "hz": 594,  "simbolo": "◇", "geo": "OCTAEDRO",    "css": "0x04-lapidar.css",    "js": "0x04-lapidar.js",   "descricao": "API Key, Vault, Modal de chaves, gestão de segredos" },
+    { "id": "0x05", "nome": "CONVERGIR",   "hz": 672,  "simbolo": "⧉", "geo": "CUBO",        "css": null,                  "js": "0x05-convergir.js", "descricao": "Idle Manager (dock/widget fade), SymbolBar drag+snap system (snap-top/side/floating)" },
+    { "id": "0x06", "nome": "UNIFICAR",    "hz": 528,  "simbolo": "☯", "geo": "DODECAEDRO",  "css": "0x06-unificar.css",   "js": "0x06-unificar.js",  "descricao": "SymbolBar layout + snap-mode CSS, Carousel (8 NAV_BUTTONS), long-press URL editor, collapse toggle" },
+    { "id": "0x07", "nome": "SELAR",       "hz": 777,  "simbolo": "✧", "geo": "TOROIDE",     "css": "0x07-selar.css",      "js": "0x07-selar.js",     "descricao": "Main ORB, TTS engine (speakWithArch), sealCodice(), integridade" },
+    { "id": "0x08", "nome": "TESTEMUNHAR", "hz": 852,  "simbolo": "◉", "geo": "ESPIRALADO",  "css": "0x08-testemunhar.css","js": "0x08-testemunhar.js","descricao": "Clock, HUD debug, testemunho de estado" },
+    { "id": "0x09", "nome": "ETERNIZAR",   "hz": 963,  "simbolo": "♾", "geo": "INFINITO",    "css": "0x09-eternizar.css",  "js": "0x09-eternizar.js", "descricao": "localStorage, brand, título, watermark, PWA, persistência" },
+    { "id": "0x0A", "nome": "TUTORIAL",    "hz": 432,  "simbolo": "",  "geo": "ESPELHO",     "css": "0x0A-tutorial.css",   "js": "0x0A-tutorial.js",  "descricao": "Overlay de tutorial, btn-doc, comentários guia" },
+    { "id": "0x0B", "nome": "ARQUÉTIPO",   "hz": 528,  "simbolo": "",  "geo": "ICOSAEDRO",   "css": "0x0B-arquetipo.css",  "js": "0x0B-arquetipo.js", "descricao": "19 arquétipos visuais, applyArchetype(), setArch(), body[data-voice-arch], arch wheel, arch card" },
+    { "id": "0x0C", "nome": "SÍNTESE",     "hz": 777,  "simbolo": "⌘", "geo": "MERKABAH",    "css": "0x0C-sintese.css",    "js": "0x0C-sintese.js",   "descricao": "kodux-widget (ball→preview→full), transport, engine de síntese final" }
+  ],
+
+  "symbolbar": {
+    "id": "symbolBar",
+    "classe": "symbol-bar snap-top",
+    "papel": "Cabeçalho persistente — presente em TODOS os HTMLs abertos. É o PAI do sistema.",
+    "posicao_padrao": "snap-top (full-width topo, height: var(--kob-topbar-h, 58px))",
+    "modos_snap": ["snap-top (header)", "snap-side (esquerda colada)", "snap-side-right (direita colada)", "floating (pill livre)"],
+    "drag_snap": "0x05-convergir.js initSnapBar() — pointerdown remove classe snap, pointerup chama snapBar() para reposicionar",
+    "carousel": "8 botões NAV_BUTTONS injetados por 0x06-unificar.js buildCarousel() — prev/play/stop/next/Phi/Viv/Home/Doc",
+    "btn_arch": "#btn-arch — orb de arquétipo, click troca arquétipo, segurar (3s) abre URL editor",
+    "collapse": "#sbToggleBtn — toggle classe .collapsed no symbolBar"
+  },
+
+  "universe_grid": {
+    "id": "universe-grid",
+    "dimensoes": "3×3 células (300vw × 300vh)",
+    "navegacao_css": "transform: translate(X%, Y%) — X = -col*(100/3)%, Y = -row*(100/3)%",
+    "celula_inicial": "linha 1, coluna 1 (centro)",
+    "ordem_preenchimento": "CELL_ORDER: [1,1],[0,0],[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]",
+    "gatilho_preenchimento": "loadInternalFrame(url) — chamado ao clicar botão de URL na SymbolBar",
+    "inputs_navegacao": "swipe touch, teclado arrows/Home, wheel, dots nav matrix",
+    "nav_matrix": "#navMatrix — 9 .kob-matrix-dot, highlight da célula ativa"
+  },
+
+  "arquetipos": {
+    "total": 19,
+    "api_js": "KOBLLUX.applyArchetype(idx, x, y, animate) | KOBLLUX.setArch('nome') | window.setArch('nome')",
+    "css_theming": "body[data-voice-arch='nome'] em 0x0B-arquetipo.css — define --kob-voice-primary, --kob-voice-secondary, --kob-voice-accent, --arch-color, --arch-glow",
+    "persistencia": "localStorage 'kob_arch' — restaurado no DOMContentLoaded",
+    "lista": ["atlas","nova","vitalis","pulse","kaos","kodux","lumine","aion","kobllux","artemis","serena","genus","solus","rhea","trinity","infodose","horus","bllue","jesus"]
+  },
+
+  "codice_vivo": {
+    "arquivo": "deploy/data/codice.json",
+    "funcao": "sealCodice() em 0x07-selar.js — auto-modificação loop, seta --codice-primary, dispara chroma ripple, fala frase vibracional, adiciona body.codice-sealed, dispara 'kobllux:codice:sealed'",
+    "ciclo": "CICLO_3697",
+    "verboformas": 7
+  },
+
+  "carregamento_css": [
+    "0x00-origem.css", "0x01-detectar.css", "0x02-integrar.css", "0x03-expandir.css",
+    "0x04-lapidar.css", "0x06-unificar.css", "0x07-selar.css", "0x08-testemunhar.css",
+    "0x09-eternizar.css", "0x0A-tutorial.css", "0x0B-arquetipo.css", "0x0C-sintese.css"
+  ],
+
+  "carregamento_js": [
+    "0x09-eternizar.js", "0x01-detectar.js", "0x02-integrar.js", "0x03-expandir.js",
+    "0x04-lapidar.js", "0x05-convergir.js", "0x06-unificar.js", "0x07-selar.js",
+    "0x08-testemunhar.js", "0x0A-tutorial.js", "0x0B-arquetipo.js", "0x0C-sintese.js"
+  ],
+
+  "atributos_data": {
+    "data-opcode": "Identifica qual opcode responsável pelo elemento",
+    "data-fase": "Nome da fase (ORIGEM, DETECTAR, etc.)",
+    "data-simbolo": "Símbolo geométrico da fase",
+    "data-freq": "Frequência Hz do opcode",
+    "data-layer": "corpo | mente | espirito | corpo-mente-espirito",
+    "data-geo": "Geometria sagrada associada",
+    "data-arquetipo": "Arquétipos KOBLLUX que habitam o elemento",
+    "data-polo": "input | output | input-output | identidade | read",
+    "data-purpose": "Propósito semântico do elemento"
+  },
+
+  "z_index_ladder": {
+    "--z-base": 0,
+    "--z-content": 100,
+    "--z-widget": 500,
+    "--z-overlay": 1000,
+    "--z-system": 5000,
+    "--z-hud": 5000,
+    "symbolBar": "var(--z-hud) = 5000",
+    "universe-grid": 1,
+    "mainCard": 200
+  },
+
+  "bugs_conhecidos_e_resolucoes": [
+    {
+      "bug": "visibility:hidden em #bodyPlayer cascateava para SymbolBar (position:fixed filho)",
+      "causa": "visibility é herdada mesmo por fixed descendants",
+      "resolucao": "#frame { display:none !important } + #symbolBar { visibility:visible !important }"
+    },
+    {
+      "bug": "CSS !important em #symbolBar bloqueava drag JS",
+      "causa": "Regras com !important em ID selector sobrepunham inline styles do drag",
+      "resolucao": "Mover posição para .symbol-bar.snap-top (classe removida no drag)"
+    },
+    {
+      "bug": "initSnapBar() sobrescrevia posição snap-top na inicialização",
+      "causa": "Código antigo sempre definia top/left como se fosse floating",
+      "resolucao": "Checar bar.classList.contains('snap-top') antes de inicializar posição"
+    }
+  ],
+
+  "instrucoes_para_ia": {
+    "ao_retomar": "Leia este arquivo primeiro para entender a arquitetura completa. Os 13 opcodes são a coluna vertebral — cada motor em seu arquivo correspondente.",
+    "ao_adicionar_motor": "Identifique o opcode correto (0x00–0x0C), adicione ao CSS em /web/css/0xNN-nome.css e ao JS em /web/js/opcodes/0xNN-nome.js. Exponha via window.KOBLLUX.nomeDoMotor.",
+    "ao_modificar_symbolbar": "Sempre verifique: (1) CSS em 0x06-unificar.css para layout/snap, (2) JS em 0x05-convergir.js para drag/idle, (3) JS em 0x06-unificar.js para carousel/botões.",
+    "branch_ativo": "claude/adoring-cerf-zo03e → PR #10 → merge para main ativa GitHub Pages deploy",
+    "repositorio": "informacaodosada-commits/kobllux (alias truetruextrue/KOBLLUX)"
+  }
+}
