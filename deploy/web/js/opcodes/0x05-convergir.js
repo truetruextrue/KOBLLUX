@@ -58,11 +58,18 @@
     if (!bar) return;
 
     let dragging = false, offX = 0, offY = 0;
-    bar.style.top  = (window.innerHeight / 2 - bar.offsetHeight / 2) + 'px';
-    bar.style.left = '16px';
+
+    /* Initialize position based on current class (snap-top = start at top) */
+    if (bar.classList.contains('snap-top')) {
+      bar.style.top  = '0';
+      bar.style.left = '0';
+    } else {
+      bar.style.top  = (window.innerHeight / 2 - bar.offsetHeight / 2) + 'px';
+      bar.style.left = '16px';
+    }
 
     bar.addEventListener('pointerdown', e => {
-      if (e.target.closest('button, .kblx-carousel-track, .kblx-dots')) return;
+      if (e.target.closest('button, .kblx-carousel-track, .kblx-dots, .kblx-carousel-viewport')) return;
       dragging = true;
       bar.setPointerCapture(e.pointerId);
       const r = bar.getBoundingClientRect();
@@ -71,11 +78,14 @@
       bar.classList.add('is-dragging');
       bar.classList.remove('snap-side','snap-side-right','snap-top','floating');
       bar.style.transform = 'none';
+      /* Restore natural size during drag */
+      bar.style.width = '';
+      bar.style.right = '';
     });
 
     window.addEventListener('pointermove', e => {
       if (!dragging) return;
-      const x = Math.max(0, Math.min(window.innerWidth  - bar.offsetWidth,  e.clientX - offX));
+      const x = Math.max(0, Math.min(window.innerWidth  - Math.min(bar.offsetWidth, 80),  e.clientX - offX));
       const y = Math.max(0, Math.min(window.innerHeight - bar.offsetHeight, e.clientY - offY));
       bar.style.left = x + 'px';
       bar.style.top  = y + 'px';
@@ -94,8 +104,16 @@
       const cy = r.top  + r.height / 2;
       const W  = window.innerWidth;
       const H  = window.innerHeight;
+      const topZone = Math.max(80, bar.offsetHeight + 20);
 
-      if (cx <= 60 || (cx <= W - cx && cx <= cy * 1.5)) {
+      /* Top zone → snap-top (full-width header) */
+      if (cy < topZone) {
+        bar.classList.add('snap-top');
+        bar.style.top  = '0';
+        bar.style.left = '0';
+        bar.style.width  = '';
+        bar.style.right  = '';
+      } else if (cx <= 60 || (cx <= W - cx && cx <= cy * 1.5)) {
         bar.classList.add('snap-side');
         bar.style.left = '0';
         bar.style.top  = Math.max(0, Math.min(H - bar.offsetHeight, r.top)) + 'px';
@@ -103,10 +121,6 @@
         bar.classList.add('snap-side-right');
         bar.style.left = (W - bar.offsetWidth) + 'px';
         bar.style.top  = Math.max(0, Math.min(H - bar.offsetHeight, r.top)) + 'px';
-      } else if (cy < 50) {
-        bar.classList.add('snap-top');
-        bar.style.top  = '0';
-        bar.style.left = Math.max(0, Math.min(W - bar.offsetWidth, r.left)) + 'px';
       } else {
         bar.classList.add('floating');
       }

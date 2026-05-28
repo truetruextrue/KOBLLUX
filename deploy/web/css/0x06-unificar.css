@@ -54,10 +54,16 @@
   border-right: 0;
 }
 .symbol-bar.snap-top {
-  flex-direction: row;
-  border-radius: 0 0 24px 24px;
-  border-top: 0; top: 0 !important;
-  transform: none !important;
+  flex-direction: row; align-items: center;
+  border-radius: 0 0 14px 14px;
+  border-top: 0;
+  top: 0 !important; transform: none !important;
+  left: 0 !important; right: 0 !important;
+  width: 100% !important;
+  padding: 4px 14px;
+  height: var(--kob-topbar-h, 58px);
+  box-sizing: border-box;
+  gap: 8px;
 }
 .symbol-bar.floating {
   flex-direction: column;

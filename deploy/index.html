@@ -161,53 +161,111 @@
     id="css-local-assembler" data-opcode="0x00" data-fase="ORIGEM"
     data-layer="corpo-mente-espirito" data-purpose="modular-css-assembler-13-opcodes">
 
-  <!-- ══ 0×06 UNIFICAR · TOPBAR LAYOUT — SymbolBar cabeçalho persistente ══ -->
+  <!-- ══ 0×06 UNIFICAR · TOPBAR + 0×03 EXPANDIR · UNIVERSE GRID ══ -->
   <style id="style-topbar-layout"
     data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
-    data-freq="528" data-purpose="symbolbar-topbar-persistent">
+    data-freq="528" data-purpose="symbolbar-topbar-universe-grid">
     :root { --kob-topbar-h: 58px; }
 
-    /* ─── SymbolBar: cabeçalho fixo, largura total ─── */
-    #symbolBar {
-      left: 0 !important; right: 0 !important; width: 100% !important;
-      top: 0 !important; transform: none !important;
-      flex-direction: row !important; align-items: center !important;
-      border-radius: 0 0 14px 14px !important; border-top: 0 !important;
-      padding: 4px 14px !important; height: var(--kob-topbar-h) !important;
-      box-sizing: border-box !important; gap: 8px !important;
-    }
-
-    /* Carrossel horizontal no topbar */
-    #symbolBar .kblx-carousel-viewport {
+    /* ─── SymbolBar snap-top: carrossel horizontal ─── */
+    /* Posição gerenciada por .symbol-bar.snap-top em 0x06-unificar.css */
+    /* Drag/snap restaurado via 0x05-convergir.js initSnapBar()         */
+    .symbol-bar.snap-top .kblx-carousel-viewport {
       flex: 1 !important; height: auto !important;
       overflow-x: auto !important; overflow-y: hidden !important;
       scrollbar-width: none !important;
     }
-    #symbolBar .kblx-carousel-viewport::-webkit-scrollbar { display: none !important; }
-    #symbolBar .kblx-carousel-track {
+    .symbol-bar.snap-top .kblx-carousel-viewport::-webkit-scrollbar { display: none !important; }
+    .symbol-bar.snap-top .kblx-carousel-track {
       flex-direction: row !important; transform: none !important;
       height: auto !important; gap: 6px !important;
       width: max-content !important;
     }
-    #symbolBar .kblx-dots { display: none !important; }
-    #symbolBar .symbol-wrap { opacity: 1 !important; transform: none !important; }
+    .symbol-bar.snap-top .kblx-dots { display: none !important; }
+    .symbol-bar.snap-top .symbol-wrap { opacity: 1 !important; }
+    .symbol-bar.snap-top .hud-info { display: none !important; }
+    .symbol-bar.snap-top #sbToggleBtn { display: none !important; }
 
-    /* Elementos desnecessários no topbar */
-    #symbolBar .hud-info { display: none !important; }
-    #symbolBar #sbToggleBtn { display: none !important; }
+    /* ─── Body: espaço para topbar ─── */
+    body { overflow: hidden !important; }
 
-    /* ─── Body: empurrar conteúdo abaixo do topbar ─── */
-    body { padding-top: var(--kob-topbar-h) !important; overflow: hidden !important; }
-
-    /* ─── Frame principal: preenche abaixo do topbar ─── */
-    #frame {
+    /* ─── Card: posicionado abaixo do topbar ─── */
+    #main-container {
       position: fixed !important;
-      top: var(--kob-topbar-h) !important; left: 0 !important; right: 0 !important;
-      width: 100% !important; height: calc(100dvh - var(--kob-topbar-h)) !important;
-      border-radius: 0 !important; z-index: 0 !important;
+      top: var(--kob-topbar-h) !important; left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 200 !important; padding: 12px 0 0 !important;
+      max-width: 420px !important; width: calc(100% - 24px) !important;
     }
 
-    /* ─── Frame overlay: também abaixo do topbar ─── */
+    /* ─── Ocultar frame legado (substituído pelo universe grid) ─── */
+    #bodyPlayer { pointer-events: none !important; visibility: hidden !important; }
+
+    /* ─── 0×03 EXPANDIR · UNIVERSE GRID 3×3 ─── */
+    #universe-grid {
+      position: fixed;
+      top: var(--kob-topbar-h); left: 0;
+      width: 300vw;
+      height: calc((100dvh - var(--kob-topbar-h)) * 3);
+      display: grid;
+      grid-template-columns: repeat(3, 100vw);
+      grid-template-rows: repeat(3, calc(100dvh - var(--kob-topbar-h)));
+      transition: transform 0.5s cubic-bezier(0.25, 0.85, 0.35, 1);
+      will-change: transform;
+      z-index: 1;
+    }
+
+    .kob-screen {
+      width: 100vw;
+      height: calc(100dvh - var(--kob-topbar-h));
+      overflow: hidden; position: relative;
+      background: var(--void, #02020a);
+    }
+    .kob-screen iframe { width: 100%; height: 100%; border: none; }
+
+    .kob-screen-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 100%; height: 100%; gap: 8px;
+      font-family: var(--mono, monospace);
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(201,168,76,0.12);
+    }
+    .kob-screen-placeholder .ph-symbol {
+      font-size: 1.6rem; opacity: 0.3;
+    }
+
+    /* ─── 0×05 CONVERGIR · NAV MATRIX ─── */
+    #navMatrix {
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: 50%; transform: translateX(-50%);
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: 10px 18px; border-radius: 60px;
+      z-index: 4000;
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: auto;
+    }
+    .kob-matrix-dot {
+      width: 9px; height: 9px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      transition: all 0.25s; cursor: pointer;
+    }
+    .kob-matrix-dot.active {
+      background: var(--kob-voice-primary, #C9A84C);
+      transform: scale(1.6);
+      box-shadow: 0 0 10px var(--kob-voice-primary, #C9A84C);
+    }
+    .kob-matrix-dot.filled {
+      background: rgba(201,168,76,0.4);
+    }
+    .kob-matrix-dot:hover { background: rgba(255,255,255,0.55); }
+
+    /* ─── Frame overlay: ajustar abaixo do topbar ─── */
     #kob-bg-frame {
       top: var(--kob-topbar-h) !important;
       height: calc(100dvh - var(--kob-topbar-h)) !important;
@@ -215,15 +273,6 @@
     #kob-frame-close {
       top: calc(var(--kob-topbar-h) + 10px) !important;
       z-index: calc(var(--z-system) - 1) !important;
-    }
-
-    /* ─── Card: posicionado abaixo do topbar, centralizado ─── */
-    #main-container {
-      position: fixed !important;
-      top: var(--kob-topbar-h) !important; left: 50% !important;
-      transform: translateX(-50%) !important;
-      z-index: 200 !important; padding: 12px 0 0 !important;
-      max-width: 420px !important; width: calc(100% - 24px) !important;
     }
   </style>
 
@@ -803,6 +852,25 @@
         id="script-kobdh0" data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"></script>
     </div><!-- /root -->
   </div><!-- /bodyPlayer -->
+
+  <!-- ════ 0×03 EXPANDIR · UNIVERSE GRID 3×3 ▢ ════ -->
+  <div id="universe-grid"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-layer="mente" data-purpose="universe-3x3-viewports"
+    data-geo="CUBO-TERNARIO" data-fractal="3x6x9x7-1134"
+    data-arquetipo="VITALIS ATLAS KODUX"
+    aria-label="Grade de universo 3×3 KOBLLUX">
+    <!-- Células injetadas por 0x03-expandir.js buildUniverseGrid() -->
+  </div><!-- /universe-grid -->
+
+  <!-- ════ 0×05 CONVERGIR · NAV MATRIX DOTS ⧉ ════ -->
+  <div id="navMatrix"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+    data-layer="mente" data-purpose="nav-matrix-3x3"
+    data-arquetipo="ATLAS HORUS"
+    role="navigation" aria-label="Navegação matriz 3×3 KOBLLUX">
+    <!-- Dots injetados por 0x03-expandir.js buildNavMatrix() -->
+  </div><!-- /navMatrix -->
 
   <!-- ════ MOTORES DE ÁUDIO ════ -->
   <div id="yt-container"
