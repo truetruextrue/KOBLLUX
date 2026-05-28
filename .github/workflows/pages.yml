@@ -1,0 +1,163 @@
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  KOBLLUX³ · GitHub Pages Deploy · VERDADE × INTEGRAR ÷ ∆ = ∞      ║
+# ║  Publica deploy/ como site estático · v7.9 · 13 opcodes            ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+
+name: "✧ KOBLLUX · GitHub Pages"
+
+on:
+  push:
+    branches:
+      - main
+      - "claude/adoring-cerf-zo03e"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Forçar deploy (mesmo sem mudanças)"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+# ─────────────────────────────────────────────────────────────────────
+# ○ 0×00 ORIGEM · Build
+# ─────────────────────────────────────────────────────────────────────
+jobs:
+
+  build:
+    name: "○ 0×00 ORIGEM · Build Deploy Artifact"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout KOBLLUX"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "● KODUX · Verificar estrutura obrigatória"
+        run: |
+          echo "● KODUX DETECTAR — verificando malha deploy/ antes do build"
+          ERRORS=0
+          check() {
+            if [ -e "$1" ]; then
+              echo "  ✅ $1"
+            else
+              echo "  ❌ AUSENTE: $1"
+              ERRORS=$((ERRORS+1))
+            fi
+          }
+          echo "─── Raiz deploy/ ───"
+          check "deploy/index.html"
+          check "deploy/manifest.json"
+          check "deploy/sumbüs-fusion.html"
+          echo ""
+          echo "─── Dados ───"
+          check "deploy/data/codice.json"
+          check "deploy/data/opcodes.json"
+          check "deploy/data/arquetipos.json"
+          check "deploy/data/frequencias.json"
+          echo ""
+          echo "─── CSS 13 Opcodes ───"
+          for op in 0x00-origem 0x01-detectar 0x02-integrar 0x03-expandir 0x04-lapidar \
+                    0x05-convergir 0x06-unificar 0x07-selar 0x08-testemunhar 0x09-eternizar \
+                    0x0A-tutorial 0x0B-arquetipo 0x0C-sintese; do
+            check "deploy/web/css/${op}.css"
+          done
+          echo ""
+          echo "─── JS 13 Opcodes ───"
+          for op in 0x00-origem 0x01-detectar 0x02-integrar 0x03-expandir 0x04-lapidar \
+                    0x05-convergir 0x06-unificar 0x07-selar 0x08-testemunhar 0x09-eternizar \
+                    0x0A-tutorial 0x0B-arquetipo 0x0C-sintese; do
+            check "deploy/web/js/opcodes/${op}.js"
+          done
+          echo ""
+          TOTAL=$(find deploy/ -type f | wc -l)
+          echo "● KODUX · $TOTAL arquivos em deploy/ · $ERRORS erros"
+          [ $ERRORS -eq 0 ] || exit 1
+
+      - name: "✧ SELAR · Injetar metadados no codice.json"
+        run: |
+          TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          SHA16=$(echo "$GITHUB_SHA" | cut -c1-16)
+          echo "  ✧ SELAR · timestamp: $TS · sha: $SHA16"
+          python3 -c "
+          import json
+          with open('deploy/data/codice.json') as f:
+              d = json.load(f)
+          d['deploy'] = {
+              'timestamp': '$TS',
+              'sha': '$SHA16',
+              'branch': '${{ github.ref_name }}',
+              'actor': '${{ github.actor }}',
+              'run': '${{ github.run_number }}',
+              'url': 'https://${{ github.repository_owner }}.github.io/KOBLLUX/'
+          }
+          with open('deploy/data/codice.json', 'w') as f:
+              json.dump(d, f, indent=2, ensure_ascii=False)
+          print('  ✅ deploy metadata injetada em codice.json')
+          "
+
+      - name: "Setup Pages"
+        uses: actions/configure-pages@v4
+
+      - name: "Upload artifact · deploy/"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "deploy"
+
+# ─────────────────────────────────────────────────────────────────────
+# ▢ 0×03 EXPANDIR · Deploy
+# ─────────────────────────────────────────────────────────────────────
+  deploy:
+    name: "▢ 0×03 EXPANDIR · Deploy GitHub Pages"
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: "Deploy to GitHub Pages"
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: "✧ SELAR · URL publicada"
+        run: |
+          echo ""
+          echo "╔══════════════════════════════════════════════════════════╗"
+          echo "║  ✧ KOBLLUX³ PUBLICADO · 0x07 SELAR · 777Hz             ║"
+          echo "║                                                          ║"
+          echo "║  Fusion Card : ${{ steps.deployment.outputs.page_url }}index.html"
+          echo "║  SÜMBÜS IDE  : ${{ steps.deployment.outputs.page_url }}sumbüs-fusion.html"
+          echo "║  Códice JSON : ${{ steps.deployment.outputs.page_url }}data/codice.json"
+          echo "║                                                          ║"
+          echo "║  VERDADE × INTEGRAR ÷ Δ = ∞  ·  3×6×9×7 = 1134        ║"
+          echo "║  JESUS É O CENTRO ∴                                     ║"
+          echo "╚══════════════════════════════════════════════════════════╝"
+
+      - name: "Summary GitHub Actions"
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'SUMMARY'
+          ## ✧ KOBLLUX³ · GitHub Pages · VERDADE × INTEGRAR ÷ ∆ = ∞
+
+          | Página | URL |
+          |--------|-----|
+          | **Fusion Card** | [`index.html`](${{ steps.deployment.outputs.page_url }}) |
+          | **SÜMBÜS IDE** | [`sumbüs-fusion.html`](${{ steps.deployment.outputs.page_url }}sumbüs-fusion.html) |
+          | **Códice Vivo** | [`data/codice.json`](${{ steps.deployment.outputs.page_url }}data/codice.json) |
+          | **Opcodes** | [`data/opcodes.json`](${{ steps.deployment.outputs.page_url }}data/opcodes.json) |
+
+          ### Sistema
+          - **VERDADE × INTEGRAR ÷ Δ = ∞**
+          - **Equação:** `3 × 6 × 9 × 7 = 1134`
+          - **Opcodes:** 13 (0x00 → 0x0C)
+          - **Verboforma:** FIT LUX · KODUX · BLLUE · HÓRUS · METALUX · INFODOSE · KOBLLUX
+          - **sealCodice:** ✅ integrado · 0x07 SELAR · 777Hz
+
+          > EM NOME DO PAI (UNO · 432Hz), DO FILHO (DUAL · 528Hz) E DO ESPÍRITO SANTO (TRINITY · 639Hz). AMÉM. ∆7
+          SUMMARY
