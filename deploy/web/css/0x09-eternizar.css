@@ -1,0 +1,86 @@
+/* ════════════════════════════════════════════════════════════
+   0x09 ETERNIZAR · 963Hz · ♾ · CIRCULO
+   Brand, title, localStorage, playlists tabs, eternidade
+   layer: espirito | geo: CIRCULO | arquétipos: AION · RHEA
+════════════════════════════════════════════════════════════ */
+
+/* ── BRAND DUAL ──────────────────────────────────────────── */
+.brand-dual {
+  font-family: var(--display);
+  font-size: 1.4rem; font-weight: 900;
+  letter-spacing: .3em;
+  background: linear-gradient(135deg, var(--kob-voice-primary), var(--kob-voice-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  user-select: none;
+}
+
+/* ── PLAYLIST TABS (eternizados no storage) ──────────────── */
+#playlist-tabs {
+  display: flex; gap: 8px;
+  overflow-x: auto; padding-bottom: 8px;
+  scrollbar-width: none;
+}
+#playlist-tabs::-webkit-scrollbar { display: none; }
+
+/* ── STATE BALL (kodux-widget default) ───────────────────── */
+.state-ball {
+  position: fixed; right: 20px; bottom: 100px;
+  z-index: var(--z-widget);
+  border-radius: 16px;
+  transition: all .4s cubic-bezier(.22,1,.36,1);
+}
+
+/* ── HIDDEN CONTENT (widget states) ─────────────────────── */
+.hidden-content { display: none !important; }
+.hidden-content.active { display: flex !important; }
+
+/* ── FULL BRAND TEXT ─────────────────────────────────────── */
+#fullBrandText {
+  font-family: var(--mono);
+  font-size: .72rem; font-weight: 900;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--kob-voice-primary);
+  text-shadow: 0 0 12px var(--arch-glow);
+}
+
+/* ── PAGE TITLE ──────────────────────────────────────────── */
+#page-title {
+  font-family: var(--display);
+}
+
+/* ── COVER ART ───────────────────────────────────────────── */
+#prev-cover,
+#foot-cover {
+  border: 1px solid rgba(255,255,255,.1);
+  object-fit: cover;
+  transition: transform .25s;
+}
+#prev-cover:hover { transform: scale(1.05); }
+
+/* ── TRACK TITLE/ARTIST ──────────────────────────────────── */
+#prev-title, #foot-title {
+  font-size: .82rem; font-weight: 700;
+  color: #fff; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+#prev-artist, #foot-artist {
+  font-size: .7rem; color: var(--muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* ── ANIMATE SPIN ────────────────────────────────────────── */
+.animate-spin { animation: orbSpin 4s linear infinite; }
+
+/* ── STAGGER ITEMS ───────────────────────────────────────── */
+.stagger-item {
+  animation: fadeIn .4s ease both;
+}
+.stagger-item:nth-child(1) { animation-delay: .05s; }
+.stagger-item:nth-child(2) { animation-delay: .10s; }
+.stagger-item:nth-child(3) { animation-delay: .15s; }
+.stagger-item:nth-child(4) { animation-delay: .20s; }
+.stagger-item:nth-child(5) { animation-delay: .25s; }

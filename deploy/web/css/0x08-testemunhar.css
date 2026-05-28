@@ -1,0 +1,154 @@
+/* ════════════════════════════════════════════════════════════
+   0x08 TESTEMUNHAR · 852Hz · ◉ · ESFERA
+   Clock, HUD status, debug panel, toaster notifications
+   layer: espirito | geo: ESFERA | arquétipos: AION · RHEA
+════════════════════════════════════════════════════════════ */
+
+/* ── CLOCK WIDGET ────────────────────────────────────────── */
+.clock-widget {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 2px; flex-shrink: 0;
+}
+#clockTime {
+  font-family: var(--mono);
+  font-size: .9rem; font-weight: 700;
+  color: var(--kob-voice-primary);
+  letter-spacing: .08em;
+  text-shadow: 0 0 10px var(--arch-glow);
+}
+
+/* ── HUD STATUS ──────────────────────────────────────────── */
+#hudStatus {
+  font-size: 8px; font-family: var(--mono);
+  color: var(--kob-voice-primary);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  font-weight: 700; padding: 5px 6px; margin-top: 4px;
+  border-top: 1px solid var(--border);
+  pointer-events: none; white-space: nowrap; opacity: 0.75;
+  writing-mode: vertical-rl; text-orientation: mixed;
+  transition: color 0.5s ease, border-color 0.5s ease;
+}
+.symbol-bar.snap-top #hudStatus { display: none; }
+
+/* ── TOASTER ─────────────────────────────────────────────── */
+#kblx-toast {
+  position: fixed; bottom: 80px; left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: rgba(2,2,14,0.95);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 6px 14px;
+  font-family: var(--mono); font-size: 0.68rem;
+  color: var(--kob-voice-primary);
+  letter-spacing: 0.22em; opacity: 0;
+  pointer-events: none; z-index: 10002;
+  transition: opacity .28s, transform .28s;
+  white-space: nowrap;
+}
+#kblx-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── DEV PANEL BUTTON ────────────────────────────────────── */
+#dev-btn {
+  position: fixed; bottom: 24px; left: 24px;
+  z-index: 99998;
+  background: rgba(0,0,0,.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.7);
+  padding: 12px; border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  cursor: pointer;
+  transition: all .25s;
+  display: flex; align-items: center; gap: 8px;
+}
+#dev-btn:hover {
+  color: #fff;
+  transform: scale(1.05);
+  border-color: rgba(59,130,246,.5);
+}
+
+/* ── DEV PANEL DRAWER ────────────────────────────────────── */
+#dev-panel {
+  position: fixed; inset-y: 0; left: 0;
+  width: min(90vw, 420px);
+  background: rgba(5,5,5,.95);
+  backdrop-filter: blur(40px);
+  border-right: 1px solid rgba(255,255,255,.1);
+  z-index: 99999;
+  transform: translateX(-100%);
+  transition: transform .5s cubic-bezier(0.16,1,0.3,1);
+  display: flex; flex-direction: column;
+  box-shadow: 20px 0 50px rgba(0,0,0,.5);
+}
+#dev-panel.open { transform: translateX(0); }
+
+#dev-resources-list { display: flex; flex-direction: column; gap: 8px; }
+
+.dev-resource-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border-radius: 8px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.05);
+}
+.dev-resource-badge {
+  font-family: var(--mono); font-size: .6rem;
+  padding: 2px 6px; border-radius: 4px;
+  background: rgba(59,130,246,.2);
+  color: rgba(147,197,253,1);
+  text-transform: uppercase; letter-spacing: .08em;
+  flex-shrink: 0;
+}
+.dev-resource-url {
+  font-family: var(--mono); font-size: .65rem;
+  color: rgba(255,255,255,.4);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  flex: 1;
+}
+.dev-resource-remove {
+  width: 20px; height: 20px; border-radius: 4px;
+  border: none; background: rgba(255,0,0,.1);
+  color: rgba(255,80,80,.7); cursor: pointer;
+  font-size: .7rem; flex-shrink: 0;
+  transition: all .15s;
+}
+.dev-resource-remove:hover { background: rgba(255,0,0,.25); }
+
+/* ── DEV SCROLL ──────────────────────────────────────────── */
+.dev-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.08) transparent;
+}
+.dev-scroll::-webkit-scrollbar { width: 4px; }
+.dev-scroll::-webkit-scrollbar-track { background: transparent; }
+.dev-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius: 4px; }
+
+/* ── P-CHIP (panel chip label) ───────────────────────────── */
+.p-chip {
+  font-family: var(--mono); font-size: .6rem;
+  text-transform: uppercase; letter-spacing: .18em;
+  color: var(--kob-voice-primary); opacity: .7;
+  margin-bottom: 8px;
+}
+.p-title {
+  font-size: 1.1rem; font-weight: 800;
+  color: var(--pearl); margin-bottom: 12px;
+}
+.p-lbl {
+  font-family: var(--mono); font-size: .65rem;
+  color: rgba(255,255,255,.45); display: block;
+  margin-bottom: 6px;
+}
+
+/* ── WATERMARK LAYER ─────────────────────────────────────── */
+#watermark-layer {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 0; opacity: .07;
+  pointer-events: none; user-select: none;
+  font-family: var(--display);
+  font-size: 8rem; font-weight: 900;
+  color: var(--kob-voice-primary);
+  letter-spacing: .2em;
+}

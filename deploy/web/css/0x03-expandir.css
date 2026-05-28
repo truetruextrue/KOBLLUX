@@ -1,0 +1,201 @@
+/* ════════════════════════════════════════════════════════════
+   0x03 EXPANDIR · 639Hz · ▢ · TETRAEDRO
+   Containers, iframes, playlists, pagination, activation
+   layer: mente | geo: TETRAEDRO | arquétipos: VITALIS
+════════════════════════════════════════════════════════════ */
+
+/* ── IFRAME FUNDO (kob-bg-frame) ─────────────────────────── */
+#kob-bg-frame {
+  position: fixed; inset: 0; z-index: var(--z-bg);
+  width: 100%; height: 100%;
+  border: none; opacity: 0;
+  transition: opacity 0.5s ease;
+  background: var(--void);
+  pointer-events: none;
+}
+#kob-bg-frame.visible {
+  opacity: 1; pointer-events: auto; z-index: 5;
+}
+
+#kob-frame-veil {
+  position: fixed; inset: 0; z-index: 4;
+  background: rgba(2,2,10,0.12);
+  pointer-events: none; opacity: 0;
+  transition: opacity 0.5s;
+}
+#kob-frame-veil.visible { opacity: 1; backdrop-filter: blur(2px); }
+
+#kob-frame-close {
+  position: fixed; top: 14px; right: 14px; z-index: 6;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(2,2,10,0.85);
+  color: var(--kob-voice-primary);
+  font-size: 16px; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s;
+}
+#kob-frame-close.visible { display: flex; }
+#kob-frame-close:hover { background: rgba(201,168,76,0.2); }
+
+/* ── MAIN FRAME (bodyPlayer) ─────────────────────────────── */
+#bodyPlayer {
+  min-height: 100vh; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+
+.wrap {
+  position: relative; z-index: var(--z-content);
+  display: flex; gap: 12px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1; position: relative;
+  border-radius: 16px; overflow: hidden;
+}
+
+#frame {
+  width: 100%; height: 100%;
+  border: none; border-radius: 16px;
+  background: var(--void);
+}
+
+/* ── ACTIVATION WRAP / CARD ──────────────────────────────── */
+.activation-wrap {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.activation-toggle {
+  display: flex; align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .2s;
+}
+.activation-toggle:hover { background: rgba(255,255,255,.03); }
+
+.activation-card {
+  padding: 14px;
+  border-top: 1px solid rgba(255,255,255,.05);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.activation-hidden { display: none; }
+.activation-card.open { display: flex; animation: kblx-in .22s ease both; }
+
+.activation-pre {
+  background: rgba(0,0,0,.5);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 8px; padding: 10px;
+  font-family: var(--mono); font-size: .7rem;
+  color: var(--kob-voice-primary);
+  white-space: pre-wrap; word-break: break-all;
+  max-height: 180px; overflow-y: auto;
+  line-height: 1.5;
+}
+
+.activation-badge {
+  font-family: var(--mono); font-size: .65rem;
+  color: var(--kob-voice-primary);
+  letter-spacing: .1em;
+}
+
+.activation-controls { display: flex; gap: 8px; }
+
+/* ── MODEL TOGGLE ────────────────────────────────────────── */
+.model-toggle select,
+.model-toggle .btn {
+  width: 100%;
+  padding: 8px 10px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  color: var(--pearl);
+  font-family: var(--mono); font-size: .75rem;
+  outline: none; cursor: pointer;
+  transition: border-color .2s;
+}
+.model-toggle select:hover,
+.model-toggle .btn:hover { border-color: var(--kob-voice-primary); }
+
+/* ── TOASTER WRAP ────────────────────────────────────────── */
+.toaster-wrap {
+  position: fixed; bottom: 80px; left: 50%;
+  transform: translateX(-50%);
+  z-index: calc(var(--z-system) + 10);
+  pointer-events: none;
+  display: flex; flex-direction: column; gap: 8px; align-items: center;
+}
+
+/* ── YOUTUBE / SOUNDCLOUD CONTAINERS ─────────────────────── */
+#yt-container,
+#sc-container {
+  position: absolute; left: -9999px;
+  width: 0; height: 0; overflow: hidden;
+}
+
+/* ── PLAYLIST (Kodux Widget) ─────────────────────────────── */
+#playlist-container { display: flex; flex-direction: column; gap: 10px; }
+
+.playlist-tab {
+  padding: 6px 12px; border-radius: 99px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.55);
+  font-family: var(--mono); font-size: .65rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  cursor: pointer; white-space: nowrap;
+  transition: all .18s;
+  flex-shrink: 0;
+}
+.playlist-tab.active {
+  background: rgba(255,255,255,.1);
+  border-color: var(--kob-voice-primary);
+  color: var(--kob-voice-primary);
+}
+
+.playlist-track {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.05);
+  cursor: pointer;
+  transition: all .18s;
+}
+.playlist-track:hover {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.12);
+}
+.playlist-track.playing {
+  border-color: var(--kob-voice-primary);
+  background: color-mix(in srgb, var(--kob-voice-primary) 8%, transparent);
+}
+
+.track-thumb {
+  width: 42px; height: 42px; border-radius: 8px;
+  object-fit: cover; flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.track-info { flex: 1; min-width: 0; }
+.track-title  { font-size: .82rem; font-weight: 600; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.track-artist { font-size: .7rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.track-duration {
+  font-family: var(--mono); font-size: .68rem;
+  color: var(--muted); flex-shrink: 0;
+}
+
+/* ── SOFT SCROLL ─────────────────────────────────────────── */
+.soft-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.1) transparent;
+}
+.soft-scroll::-webkit-scrollbar { width: 4px; }
+.soft-scroll::-webkit-scrollbar-track { background: transparent; }
+.soft-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 4px; }

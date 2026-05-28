@@ -1,0 +1,147 @@
+/* ════════════════════════════════════════════════════════════
+   0x04 LAPIDAR · 594Hz · ◇ · OCTAEDRO
+   API keys, vault modal, login container, lapidação
+   layer: mente | geo: OCTAEDRO | arquétipos: RHEA · VITALIS
+════════════════════════════════════════════════════════════ */
+
+/* ── LOGIN CONTAINER (chat) ──────────────────────────────── */
+.login-container {
+  display: none;
+  position: fixed; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px; padding: 1.5rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+.login-container.active { display: block; }
+.login-container input {
+  width: 100%; background: transparent;
+  border: none; border-bottom: 1px solid rgba(255,255,255,0.3);
+  margin: .8rem 0; padding: .4rem 0;
+  font-size: .95em; color: #fff; outline: none;
+}
+.login-container input::placeholder { color: rgba(255,255,255,0.5); }
+.login-container button {
+  width: 100%; margin-top: 1rem; padding: .5rem 0;
+  border: 1px solid #0ff; border-radius: 8px;
+  background: transparent; font-size: .95em;
+  color: #0ff; cursor: pointer;
+  transition: background .25s, color .25s;
+}
+.login-container button:hover { background: #0ff; color: #000; }
+
+/* ── MODAL OVERLAY ───────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  z-index: var(--z-overlay);
+  display: none; align-items: center; justify-content: center;
+  background: rgba(2,2,10,0.8);
+  backdrop-filter: blur(10px);
+}
+.modal-overlay[aria-hidden="false"],
+.modal-overlay.open { display: flex; }
+
+/* ── KEYS CARD (vault) ───────────────────────────────────── */
+.keys-card {
+  background: linear-gradient(160deg, rgba(12,10,28,.99), rgba(5,5,16,.99));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  width: min(400px, 92vw);
+  padding: 22px;
+  box-shadow: 0 0 60px var(--arch-glow), 0 30px 60px rgba(0,0,0,.85);
+  animation: kblx-in .28s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+.keys-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+/* ── KEY LIST ────────────────────────────────────────────── */
+.key-list {
+  display: flex; flex-direction: column; gap: 8px;
+  max-height: 200px; overflow-y: auto;
+  margin-bottom: 4px;
+}
+
+.key-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 8px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  transition: background .2s;
+}
+.key-item:hover { background: rgba(255,255,255,.06); }
+.key-item.active-key { border-color: var(--kob-voice-primary); }
+
+.key-name { font-family: var(--mono); font-size: .75rem; color: var(--pearl); flex: 1; }
+.key-badge { font-family: var(--mono); font-size: .6rem; color: var(--kob-voice-primary); }
+
+/* ── VAULT UNLOCK ────────────────────────────────────────── */
+.vault-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--kob-voice-primary);
+}
+
+/* ── THEME SELECTOR ──────────────────────────────────────── */
+#themeSelector {
+  background: rgba(0,255,255,0.05);
+  border: 1px solid rgba(0,255,255,0.15);
+  border-radius: 8px; color: #0ff;
+  padding: 4px 8px; font-size: 13px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  position: fixed; top: 10px; right: 10px; z-index: 3;
+}
+#themeSelector:hover {
+  background: rgba(0,255,255,0.1);
+  border-color: rgba(0,255,255,0.3);
+}
+
+/* ── THEME TOGGLE BUTTON ─────────────────────────────────── */
+#themeToggle {
+  position: absolute; top: 60px; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 30px;
+  border: 1px solid var(--text); border-radius: 50%;
+  background: transparent; opacity: .3;
+  cursor: pointer;
+  transition: opacity var(--med), border-color var(--med);
+  z-index: 10;
+}
+#themeToggle:hover { opacity: 0.8; }
+#themeToggle::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--text); opacity: 0.2;
+}
+
+/* ── HUD MENU BTN ────────────────────────────────────────── */
+.hud-menu-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.55);
+  cursor: pointer; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.hud-menu-btn:hover {
+  background: rgba(255,255,255,.08);
+  border-color: var(--kob-voice-primary);
+  color: var(--kob-voice-primary);
+}
+
+/* ── COL (grid layout) ───────────────────────────────────── */
+.col { display: flex; flex-direction: column; gap: 6px; }

@@ -1,0 +1,44 @@
+/* ════════════════════════════════════════════════════════════
+   KOBLLUX³ · CSS ASSEMBLER · 13 OPCODES · v7.9
+   Importa todos os módulos CSS na ordem fractal correta
+   VERDADE × INTEGRAR ÷ ∆ = ∞ · 3×6×9×7 = 1134
+════════════════════════════════════════════════════════════ */
+
+/* 0x00 ORIGEM · 768Hz · ◈ · PONTO ZERO — vars raiz, reset, temas */
+@import '../css/0x00-origem.css';
+
+/* 0x01 DETECTAR · 432Hz · ⊕ · LINHA — inputs, voz, blobs */
+@import '../css/0x01-detectar.css';
+
+/* 0x02 INTEGRAR · 528Hz · ⬡ · TRIÂNGULO — fusion card, resposta, páginas */
+@import '../css/0x02-integrar.css';
+
+/* 0x03 EXPANDIR · 594Hz · ✦ · ESPIRAL — frame interno, toaster, playlists */
+@import '../css/0x03-expandir.css';
+
+/* 0x04 LAPIDAR · 639Hz · ◇ · QUADRADO — vault, modais, temas, HUD */
+@import '../css/0x04-lapidar.css';
+
+/* 0x05 CONVERGIR · 672Hz · ⧉ · PENTAGONO — idle, range, drag handle */
+@import '../css/0x05-convergir.css';
+
+/* 0x06 UNIFICAR · 741Hz · ⬡ · HEXÁGONO — symbol bar, carrossel, snap */
+@import '../css/0x06-unificar.css';
+
+/* 0x07 SELAR · 777Hz · ✧ · TOROIDE — orbs, TTS, chroma ripple */
+@import '../css/0x07-selar.css';
+
+/* 0x08 TESTEMUNHAR · 852Hz · ◉ · ESFERA — clock, HUD, dev panel */
+@import '../css/0x08-testemunhar.css';
+
+/* 0x09 ETERNIZAR · 963Hz · ♾ · CIRCULO — brand, playlists, estado */
+@import '../css/0x09-eternizar.css';
+
+/* 0x0A TUTORIAL · 432Hz · ☯ · ESPIRAL — ativação, docs, botões */
+@import '../css/0x0A-tutorial.css';
+
+/* 0x0B ARQUÉTIPO · 528Hz · ⬡ · ICOSAEDRO — arch wheel, arch card */
+@import '../css/0x0B-arquetipo.css';
+
+/* 0x0C SÍNTESE · 777Hz · ⌘ · TOROIDE UNIFICADO — widget kodux, identidade */
+@import '../css/0x0C-sintese.css';
