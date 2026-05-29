@@ -195,6 +195,15 @@ jobs:
           [ -f deploy/web/js/opcodes/0x04-geometry.js ] && echo "  ✅ 0x04-geometry.js: GEOMETRY ENGINE presente" || echo "  ⚠️  0x04-geometry.js ausente"
           grep -q "applyDomAttribution" deploy/web/js/opcodes/0x04-geometry.js 2>/dev/null && echo "  ✅ applyDomAttribution: presente" || true
           grep -q "toggleOverlay"       deploy/web/js/opcodes/0x04-geometry.js 2>/dev/null && echo "  ✅ toggleOverlay \[G\]: presente" || true
+          [ -f deploy/web/js/opcodes/0x05-mestre.js ] && echo "  ✅ 0x05-mestre.js: MESTRE ORQUESTRADOR presente" || echo "  ⚠️  0x05-mestre.js ausente"
+          [ -f deploy/web/js/opcodes/0x09-lvb.js    ] && echo "  ✅ 0x09-lvb.js: LUX VERITAS BLLUE presente"    || echo "  ⚠️  0x09-lvb.js ausente"
+          [ -f deploy/web/js/opcodes/0x0C-kobdh0.js ] && echo "  ✅ 0x0C-kobdh0.js: KOBDH0 PHI presente"       || echo "  ⚠️  0x0C-kobdh0.js ausente"
+          [ -f deploy/web/js/opcodes/kobphi-node.js  ] && echo "  ✅ kobphi-node.js: KOBΦ-NODE presente"        || echo "  ⚠️  kobphi-node.js ausente"
+          grep -q "sealAll"      deploy/web/js/opcodes/0x05-mestre.js   2>/dev/null && echo "  ✅ MESTRE.sealAll: presente"     || true
+          grep -q "LVb"          deploy/web/js/opcodes/0x09-lvb.js      2>/dev/null && echo "  ✅ LVb motor: presente"          || true
+          grep -q "crystallize"  deploy/web/js/opcodes/0x0C-kobdh0.js   2>/dev/null && echo "  ✅ DH0.crystallize: presente"    || true
+          grep -q "KOBPHINode"   deploy/web/js/opcodes/kobphi-node.js   2>/dev/null && echo "  ✅ KOBΦ-NODE exposto: presente"  || true
+          grep -q "sealPhi"      deploy/web/js/opcodes/kobphi-node.js   2>/dev/null && echo "  ✅ sealPhi SELAR: presente"      || true
           python3 -c "
           import json
           d = json.load(open('deploy/data/codice.json'))
