@@ -1,0 +1,88 @@
+/* ════════════════════════════════════════════════════════════
+   0x04 FRAMEFIX · 594Hz · ◇ · OCTAEDRO
+   CSS Framefix — correções de layout para frames e iframes
+   Cristalização de: kob-framefix.css (oiDual--Y-)
+   RÉGUA ESPELHADA 78K — cristalizado em assembly KOBLLUX local
+
+   layer: mente | geo: OCTAEDRO | arquétipos: ARTEMIS · ATLAS
+   Correções de frame/iframe para contextos KOBLLUX.
+   Complementa o display:none do #frame legado.
+════════════════════════════════════════════════════════════ */
+
+/* ── FRAME LEGADO ─────────────────────────────────────── */
+/* #frame está oculto — substituído pelo Universe Grid 3×3 */
+#frame {
+  display: none !important;
+}
+
+/* ── SYMBOLBAR — garantia de visibilidade ────────────── */
+#symbolBar {
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* ── UNIVERSE GRID FRAMES ─────────────────────────────── */
+.kob-grid-cell iframe,
+.universe-cell iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: transparent;
+}
+
+/* ── IFRAME LOADING STATE ────────────────────────────── */
+.kob-grid-cell.loading iframe {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.kob-grid-cell.loaded iframe {
+  opacity: 1;
+}
+
+/* ── FRAME SAFE AREA ─────────────────────────────────── */
+/* Compensa topbar em frames que herdarem layout */
+.frame-safe {
+  padding-top: var(--kob-topbar-h, 58px);
+  box-sizing: border-box;
+}
+
+/* ── EDGE STRIPS (captura de swipe) ─────────────────── */
+#kob-strip-left,
+#kob-strip-right,
+#kob-strip-bottom,
+#kob-strip-top {
+  position: fixed;
+  z-index: 3;
+  pointer-events: auto;
+  touch-action: none;
+  cursor: default;
+  /* gradiente dourado sutil */
+}
+
+/* ── FIX: iframes no Universe Grid não capturam pointer ─ */
+#universe-grid.navigating .kob-grid-cell iframe {
+  pointer-events: none;
+}
+
+/* ── BODY PLAYER ─────────────────────────────────────── */
+#bodyPlayer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── FRAMEFIX: correção de z-index em modais ─────────── */
+.modal-overlay,
+.kob-modal,
+[data-modal] {
+  z-index: var(--z-overlay, 1000);
+}
+
+/* ── CORREÇÃO MOBILE VIEWPORT ─────────────────────────── */
+@supports (height: 100dvh) {
+  .full-height { height: 100dvh; }
+}
+@supports not (height: 100dvh) {
+  .full-height { height: 100vh; }
+}

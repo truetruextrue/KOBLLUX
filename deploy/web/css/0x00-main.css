@@ -1,0 +1,127 @@
+/* ════════════════════════════════════════════════════════════
+   0x00 MAIN · 768Hz · ○ · PONTO
+   CSS Main-Root — base visual expandida KOBLLUX
+   Cristalização de: main-root.css (V-core) + main.css (oi-Dual)
+   RÉGUA ESPELHADA 78K — cristalizado em assembly KOBLLUX local
+
+   layer: corpo | geo: PONTO | arquétipos: GENUS · KOBLLUX
+   Complementa 0x00-origem.css com variantes contextuais.
+════════════════════════════════════════════════════════════ */
+
+/* ── EXTENSÃO RAIZ ──────────────────────────────────────── */
+:root {
+  /* Frequências base do codice.json */
+  --hz-origem:    768Hz;
+  --hz-detectar:  432Hz;
+  --hz-integrar:  528Hz;
+  --hz-expandir:  639Hz;
+  --hz-lapidar:   594Hz;
+  --hz-convergir: 672Hz;
+  --hz-unificar:  528Hz;
+  --hz-selar:     777Hz;
+  --hz-testemunhar:852Hz;
+  --hz-eternizar: 963Hz;
+  --hz-sintese:   1134Hz;
+  --hz-phi:       630Hz;
+
+  /* Ciclo 3-6-9-7 */
+  --ciclo-3: 3;
+  --ciclo-6: 6;
+  --ciclo-9: 9;
+  --ciclo-7: 7;
+  --ciclo-produto: 1134;
+
+  /* Geometrias */
+  --geo-ponto:      '●';
+  --geo-reta:       '―';
+  --geo-plano:      '▢';
+  --geo-cristal:    '◇';
+  --geo-cubo:       '⧉';
+  --geo-toroide:    '✧';
+  --geo-infinito:   '♾';
+  --geo-merkabah:   '⌘';
+  --geo-icosaedro:  '⬡';
+  --geo-phi:        'φ';
+
+  /* Verboformas KOBLLUX */
+  --vf-fitlux:   #f0f4ff;
+  --vf-kodux:    #ffd600;
+  --vf-bllue:    #1E90FF;
+  --vf-horus:    #4fc3f7;
+  --vf-metalux:  #c0c0c0;
+  --vf-infodose: #80cbc4;
+  --vf-kobllux:  #39ffb6;
+
+  /* PHI vars base */
+  --kob-phi:        1.6180339887;
+  --kob-phi-inv:    0.6180339887;
+  --kob-phi-sq:     2.6180339887;
+  --kob-phi-scale:  1.6180339887;
+}
+
+/* ── MAIN ROOT — layout base ──────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+/* ── SELEÇÃO ─────────────────────────────────────────── */
+::selection {
+  background: var(--arch-color, var(--vf-kobllux));
+  color: var(--kob-bg, #050510);
+}
+
+/* ── SCROLLBAR KOBLLUX ─────────────────────────────── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--arch-color, var(--vf-kobllux));
+  border-radius: 2px;
+  opacity: .5;
+}
+
+/* ── FOCO ACESSÍVEL ─────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--arch-color, var(--vf-kobllux));
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ── MEDIA QUERIES BASE ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --kob-bg: #f0f4ff;
+    --kob-text: #050510;
+  }
+}
+
+/* ── DATA-KOBLLUX ATTRIBUTION DISPLAY ──────────────── */
+[data-kobllux-opcode] {
+  /* elementos marcados pelo geometry motor */
+  position: relative;
+}
+
+/* ── KOBPHI FIELD ────────────────────────────────── */
+body.kobphi-field-active [data-kobllux-opcode] {
+  transition:
+    transform var(--kob-phi-duration, 0.618s) ease,
+    box-shadow var(--kob-phi-duration, 0.618s) ease;
+}
+
+/* ── BD3 SELAGEM VISUAL ──────────────────────────── */
+body.bd3-corpo-sealed    { border-top: 1px solid var(--vf-bllue); }
+body.bd3-mente-sealed    { border-top: 1px solid var(--vf-kodux); }
+body.bd3-espirito-sealed { border-top: 1px solid var(--vf-kobllux); }

@@ -1,0 +1,177 @@
+/* ════════════════════════════════════════════════════════════
+   0x0A DOX · 432Hz · ESPIRAL
+   CSS Dox Nanai — documentação e tutorial overlay KOBLLUX
+   Cristalização de: kob-dox-nanai-v4.css + kob-dox-nanai.css
+   RÉGUA ESPELHADA 78K — cristalizado em assembly KOBLLUX local
+
+   layer: corpo | geo: ESPIRAL | arquétipos: LUMINE · GENUS
+   Nanai = "minha terra" (língua indígena Tupí) — tutorial raiz.
+   Estilos para documentação, tooltips, guias e overlays de tutorial.
+════════════════════════════════════════════════════════════ */
+
+/* ── DOX OVERLAY ──────────────────────────────────────── */
+.kob-dox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,5,16,.85);
+  backdrop-filter: blur(4px);
+  z-index: calc(var(--z-overlay, 1000) + 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.kob-dox-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── DOX CARD ─────────────────────────────────────────── */
+.kob-dox-card {
+  background: rgba(10,10,32,.96);
+  border: 1px solid var(--arch-color, #39ffb6);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: min(90vw, 520px);
+  max-height: 80vh;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--kob-text, #e0e6ff);
+  box-shadow: 0 0 32px rgba(57,255,182,.15);
+  position: relative;
+}
+
+/* ── DOX HEADER ───────────────────────────────────────── */
+.kob-dox-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--arch-color, #39ffb6);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* ── DOX STEPS ────────────────────────────────────────── */
+.kob-dox-step {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+.kob-dox-step-num {
+  background: var(--arch-color, #39ffb6);
+  color: var(--kob-bg, #050510);
+  border-radius: 50%;
+  width: 22px; height: 22px;
+  min-width: 22px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900;
+}
+.kob-dox-step-body {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ── DOX TOOLTIP ──────────────────────────────────────── */
+[data-dox-tip] {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dashed var(--arch-color, #39ffb6);
+}
+[data-dox-tip]::after {
+  content: attr(data-dox-tip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: rgba(10,10,32,.96);
+  border: 1px solid var(--arch-color, #39ffb6);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--kob-text, #e0e6ff);
+  white-space: nowrap;
+  max-width: 240px;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 9999;
+}
+[data-dox-tip]:hover::after {
+  opacity: 1;
+}
+
+/* ── DOX KEYBOARD HINTS ──────────────────────────────── */
+.kob-kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  background: rgba(57,255,182,.1);
+  border: 1px solid rgba(57,255,182,.3);
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--arch-color, #39ffb6);
+  letter-spacing: .05em;
+}
+
+/* Mapa de teclas global */
+.kob-kbd-map {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  font-size: 10px;
+  color: rgba(224,230,255,.6);
+}
+.kob-kbd-map span { color: var(--arch-color, #39ffb6); }
+
+/* ── DOX TUTORIAL SECTIONS ──────────────────────────── */
+.kob-tutorial-section {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(57,255,182,.1);
+}
+.kob-tutorial-section:last-child {
+  border-bottom: none; margin-bottom: 0; padding-bottom: 0;
+}
+.kob-tutorial-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--arch-color, #39ffb6);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  margin-bottom: 8px;
+}
+
+/* ── BTN DOC ──────────────────────────────────────────── */
+.btn-doc,
+[data-role="btn-doc"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: rgba(57,255,182,.08);
+  border: 1px solid rgba(57,255,182,.2);
+  border-radius: 20px;
+  color: rgba(224,230,255,.7);
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.btn-doc:hover { background: rgba(57,255,182,.15); color: var(--arch-color, #39ffb6); }
+
+/* ── CÓDIGO INLINE ────────────────────────────────────── */
+.kob-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 2px 5px;
+  background: rgba(57,255,182,.08);
+  border-radius: 3px;
+  color: var(--arch-color, #39ffb6);
+}
