@@ -1,0 +1,116 @@
+/* ════════════════════════════════════════════════════════════
+   0x08 AURA · 852Hz · ◉ · ESPIRALADO
+   CSS Aura — efeitos de aura e campo vibracional
+   Cristalização de: kob-aura.css (kob-DH0)
+   RÉGUA ESPELHADA 78K — cristalizado em assembly KOBLLUX local
+
+   layer: espirito | geo: ESPIRALADO | arquétipos: HORUS · AION
+   Aura = campo luminoso externo dos elementos KOBLLUX.
+   Testemunha visual do estado vibracional de cada elemento.
+════════════════════════════════════════════════════════════ */
+
+/* ── KEYFRAMES AURA ───────────────────────────────────── */
+@keyframes kob-aura-expand {
+  0%   { opacity: .7; transform: scale(1);    }
+  100% { opacity: 0;  transform: scale(1.5);  }
+}
+
+@keyframes kob-aura-breathe {
+  0%, 100% {
+    box-shadow:
+      0 0 8px  2px var(--aura-color, var(--arch-glow, rgba(57,255,182,.2))),
+      0 0 20px 4px var(--aura-color, var(--arch-glow, rgba(57,255,182,.12)));
+  }
+  50% {
+    box-shadow:
+      0 0 16px 6px var(--aura-color, var(--arch-glow, rgba(57,255,182,.35))),
+      0 0 40px 10px var(--aura-color, var(--arch-glow, rgba(57,255,182,.15)));
+  }
+}
+
+@keyframes kob-aura-ripple {
+  0%   { transform: scale(0); opacity: .6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes kob-aura-horus {
+  0%   { filter: hue-rotate(0deg)   brightness(1);    }
+  33%  { filter: hue-rotate(120deg) brightness(1.1);  }
+  66%  { filter: hue-rotate(240deg) brightness(1.05); }
+  100% { filter: hue-rotate(360deg) brightness(1);    }
+}
+
+/* ── AURA CLASSES ─────────────────────────────────────── */
+.kob-aura {
+  --aura-color: var(--arch-glow, rgba(57,255,182,.25));
+  animation: kob-aura-breathe 3s ease-in-out infinite;
+}
+
+.kob-aura-strong {
+  --aura-color: var(--arch-glow, rgba(57,255,182,.45));
+  animation: kob-aura-breathe 1.618s ease-in-out infinite;
+}
+
+/* Ripple ao clicar */
+.kob-aura-ripple {
+  position: relative;
+  overflow: visible;
+}
+.kob-aura-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--arch-color, #39ffb6);
+  opacity: 0;
+  pointer-events: none;
+}
+.kob-aura-ripple.active::after {
+  animation: kob-aura-ripple .6s ease-out forwards;
+}
+
+/* ── KDEV HUD AURA ───────────────────────────────────── */
+#kob-kdev-hud {
+  box-shadow: 0 0 12px 2px rgba(57,255,182,.2);
+}
+
+/* ── ARQUÉTIPOS — AURA ESPECÍFICA ──────────────────── */
+body[data-voice-arch="kodux"]   .kob-aura { --aura-color: rgba(255,214,0,.3); }
+body[data-voice-arch="bllue"]   .kob-aura { --aura-color: rgba(30,144,255,.3); }
+body[data-voice-arch="nova"]    .kob-aura { --aura-color: rgba(0,229,255,.3); }
+body[data-voice-arch="vitalis"] .kob-aura { --aura-color: rgba(0,230,118,.3); }
+body[data-voice-arch="pulse"]   .kob-aura { --aura-color: rgba(255,109,0,.3); }
+body[data-voice-arch="jesus"]   .kob-aura { --aura-color: rgba(255,253,231,.3); }
+body[data-voice-arch="kobllux"] .kob-aura { --aura-color: rgba(57,255,182,.3); }
+body[data-voice-arch="trinity"] .kob-aura { --aura-color: rgba(179,157,219,.3); }
+
+/* ── HORUS — visão além ─────────────────────────────── */
+body[data-voice-arch="horus"] .kob-aura {
+  animation: kob-aura-horus 8s linear infinite,
+             kob-aura-breathe 4s ease-in-out infinite;
+}
+
+/* ── TESTEMUNHAR — HUD elements ─────────────────────── */
+[data-fase="TESTEMUNHAR"],
+[data-kobllux-opcode="0x08"] {
+  position: relative;
+}
+[data-fase="TESTEMUNHAR"]::before {
+  content: '◉';
+  position: absolute;
+  top: 2px; right: 4px;
+  font-size: 7px;
+  color: var(--arch-color, #39ffb6);
+  opacity: .4;
+  pointer-events: none;
+}
+
+/* ── KDEV ACTIVE ─────────────────────────────────────── */
+body.kdev-watching [data-kobllux-opcode] {
+  outline: 1px dashed rgba(57,255,182,.15);
+}
+
+/* ── REDUCE MOTION ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .kob-aura, .kob-aura-strong { animation: none !important; }
+}

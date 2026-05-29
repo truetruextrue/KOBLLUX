@@ -1,0 +1,105 @@
+/* ════════════════════════════════════════════════════════════
+   0x01 PULSAR · 432Hz · ● · ESFERA
+   CSS Pulsar — animações de detecção e vibração V-D5
+   Cristalização de: 0x01_pulsar_V_D5-2.css (kob-DH0)
+   RÉGUA ESPELHADA 78K — cristalizado em assembly KOBLLUX local
+
+   layer: corpo | geo: ESFERA | arquétipos: NOVA · VITALIS · PULSE
+   Animações pulsáteis para elementos de detecção (0x01 DETECTAR).
+   V = Variante | D5 = Delta-5 (5ª dimensão de vibração)
+════════════════════════════════════════════════════════════ */
+
+/* ── KEYFRAMES PULSAR ─────────────────────────────────── */
+@keyframes kob-pulse {
+  0%   { transform: scale(1);    opacity: 1; }
+  50%  { transform: scale(1.05); opacity: .8; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes kob-pulse-glow {
+  0%   { box-shadow: 0 0 0    0   var(--arch-glow, rgba(57,255,182,.24)); }
+  50%  { box-shadow: 0 0 16px 6px var(--arch-glow, rgba(57,255,182,.32)); }
+  100% { box-shadow: 0 0 0    0   var(--arch-glow, rgba(57,255,182,.24)); }
+}
+
+@keyframes kob-pulsar-ring {
+  0%   { transform: scale(1);   opacity: .8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes kob-vibrate {
+  0%, 100% { transform: translateX(0); }
+  10%  { transform: translateX(-2px); }
+  30%  { transform: translateX(2px); }
+  50%  { transform: translateX(-1px); }
+  70%  { transform: translateX(1px); }
+  90%  { transform: translateX(-1px); }
+}
+
+@keyframes kob-breath {
+  0%, 100% { opacity: .6; transform: scale(1); }
+  50%       { opacity: 1;  transform: scale(1.02); }
+}
+
+/* ── CLASSES PULSAR ───────────────────────────────────── */
+.kob-pulse {
+  animation: kob-pulse 2s ease-in-out infinite;
+}
+
+.kob-pulse-slow {
+  animation: kob-pulse 3.236s ease-in-out infinite; /* 2×φ */
+}
+
+.kob-pulse-glow {
+  animation: kob-pulse-glow 2s ease-in-out infinite;
+}
+
+.kob-breath {
+  animation: kob-breath 4s ease-in-out infinite;
+}
+
+.kob-vibrate {
+  animation: kob-vibrate .5s ease-in-out;
+}
+
+/* ── RING PULSAR ──────────────────────────────────────── */
+.kob-pulsar-ring {
+  position: relative;
+}
+.kob-pulsar-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid var(--arch-color, var(--kob-accent, #39ffb6));
+  animation: kob-pulsar-ring 1.618s ease-out infinite;
+  pointer-events: none;
+}
+
+/* ── DETECTAR — ELEMENTOS DE INPUT ──────────────────── */
+[data-kobllux-opcode="0x01"],
+[data-fase="DETECTAR"] {
+  animation: kob-breath 4s ease-in-out infinite;
+}
+
+/* ── ORB CORE PULSAR ─────────────────────────────────── */
+#main-orb.pulsing,
+.orb-core.pulsing {
+  animation: kob-pulse-glow 1.5s ease-in-out infinite,
+             kob-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── DOT MATRIX PULSAR ───────────────────────────────── */
+.kob-matrix-dot.active {
+  animation: kob-pulse-glow .618s ease-in-out infinite;
+}
+
+/* ── VD7 PULSAR (estado) ────────────────────────────── */
+body[data-vd7-state="D0"] [data-kobllux-opcode] { animation-duration: 4s; }
+body[data-vd7-state="D6"] [data-kobllux-opcode] { animation-duration: .618s; }
+
+/* ── REDUCE MOTION ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .kob-pulse, .kob-pulse-slow, .kob-pulse-glow,
+  .kob-breath, .kob-pulsar-ring::after { animation: none !important; }
+}

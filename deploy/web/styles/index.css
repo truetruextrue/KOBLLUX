@@ -42,3 +42,27 @@
 
 /* 0x0C SÍNTESE · 777Hz · ⌘ · TOROIDE UNIFICADO — widget kodux, identidade */
 @import '../css/0x0C-sintese.css';
+
+/* ════ CRISTALIZAÇÃO 78K — MOTORES EXTERNOS ════
+   AC→DC: scripts externos cristalizados em assembly local
+   Régua Espelhada 78K · KOBLLUX × KODUX × BLLUE
+   a mesma lógica em múltiplas óticas · a mesma ótica de múltiplas lógicas
+═══════════════════════════════════════════════════════════ */
+
+/* 0x00 MAIN · 768Hz · ○ — root vars expandidas + base visual */
+@import '../css/0x00-main.css';
+
+/* 0x01 PULSAR · 432Hz · ● — animações de detecção e vibração V-D5 */
+@import '../css/0x01-pulsar.css';
+
+/* 0x04 FRAMEFIX · 594Hz · ◇ — correções de layout frame/iframe */
+@import '../css/0x04-framefix.css';
+
+/* 0x08 AURA · 852Hz · ◉ — efeitos de campo vibracional HORUS */
+@import '../css/0x08-aura.css';
+
+/* 0x0A DOX · 432Hz · ESPIRAL — documentação e tutorial Nanai */
+@import '../css/0x0A-dox.css';
+
+/* 0x0C SS5 · 777Hz · ⌘ — síntese SS5 DBZP + KOBΦ estado máximo */
+@import '../css/0x0C-ss5.css';
