@@ -449,6 +449,31 @@
     "date_sealed": "2026-05-29"
   },
 
+  "scripts_externos_assembly": {
+    "descricao": "Scripts e códigos externos extraídos e reescritos em ASSEMBLY KOBLLUX. Cada script ganha opcode, arquétipo, Hz, glifo e API window.KOBLLUX.XXX.",
+    "axioma": "Todo script externo que entra na malha KOBLLUX ganha opcode, arquétipo, Hz e glifo — e torna-se ASSEMBLY.",
+    "arquivo_catalog": "deploy/data/scripts-externos.json",
+    "total_fontes_js": 8,
+    "total_fontes_py": 5,
+    "total_assemblies_criados": 5,
+    "assemblies": {
+      "roda-viva.js":      { "opcode": "0x03", "hz": 639, "fonte": "inbox/[0×00]_SCRIPTS_DE_MELHORIA_RODA_VIVA_KOBLLUX.js + web/js/opcodes/0x00-core.js", "api": "KOBLLUX.RODA" },
+      "cifra-kobllux.js":  { "opcode": "0x0A", "hz": 432, "fonte": "cifra_kobllux.py", "api": "KOBLLUX.CIFRA", "novidade": "decode() + reflexoOposto() — funções que faltavam no AUFABETTY" },
+      "cerebro-oraculo.js":{ "opcode": "0x08", "hz": 852, "fonte": "cerebro_oraculo.py", "api": "KOBLLUX.CEREBRO" },
+      "veeb-firmware.js":  { "opcode": "0x05", "hz": 672, "fonte": "veeb_firmware.py", "api": "KOBLLUX.VEEB" },
+      "chat-trinity.js":   { "opcode": "0x0B", "hz": 528, "fonte": "01_DIMENSOES/07_7D_TORO/js/kobllux_chat_trinity_12_arquetipos.js", "api": "KOBLLUX.TRINITY" }
+    },
+    "eventos_novos": [
+      "kobllux:roda:carregado",
+      "kobllux:cifra:carregado",
+      "kobllux:cerebro:carregado · ativado · processado",
+      "kobllux:veeb:carregado · processado",
+      "kobllux:trinity:carregado · ativado"
+    ],
+    "catalogado_aguarda": ["dual-infodose (3929 linhas)", "codex_azure.py"],
+    "date_sealed": "2026-05-29"
+  },
+
   "instrucoes_para_ia": {
     "ao_retomar": "Leia este arquivo primeiro para entender a arquitetura completa. Os 13 opcodes são a coluna vertebral — cada motor em seu arquivo correspondente.",
     "ao_processar_input_usuario": "Use KOBLLUX.DNA.processar(input) para passar o input pelo pipeline M4. Detect verbo gerador → mapear opcode → organizar arquivos → executar → selar com AMEM {Z}.",
