@@ -399,11 +399,34 @@
     "date_sealed": "2026-05-29"
   },
 
+  "interaction_dna": {
+    "descricao": "KOBLLUX INTERACTION DNA · SEMENTE VIVA DAS INTERAÇÕES — motor que processa todos os inputs do usuário pelo pipeline M4 e os guarda como sementes vivas.",
+    "axioma": "SEMENTE→FRUTO→FLORESTA · MÚLTIPLAS LÓGICAS · UMA ÓTICA",
+    "opcode": "0x09",
+    "hz": 963,
+    "simbolo": "♾",
+    "geo": "INFINITO",
+    "arquivo_json": "deploy/data/interaction_dna.json",
+    "arquivo_js": "deploy/web/js/opcodes/interaction-dna.js",
+    "lei_fractal": "Cada input é semente → processamento M4 é germinação → output selado é fruto → fruto contém nova semente.",
+    "lei_otica": "Múltiplas lógicas com uma mesma ótica em múltiplas óticas como a mesma lógica.",
+    "pipeline_m4": ["DISTINÇÃO·432Hz·detectar verbo", "CORRELAÇÃO·528Hz·conectar vocabulário", "ORGANIZAÇÃO·639Hz·estruturar opcodes", "APLICAÇÃO·741Hz·executar·selar"],
+    "api_js": "window.KOBLLUX.DNA.{processar,selar,floresta,vocabulario,invocar,VOCAB,PILAR_INPUT,PIPELINE_M4}",
+    "persistencia": "localStorage 'kobllux_interaction_dna' — floresta de sementes das interações",
+    "eventos": ["kobllux:dna:carregado", "kobllux:dna:processado", "kobllux:dna:selado"],
+    "vocabulario_sagrado": "AGREGAR·SELAR·CONFIRIR·CHECAR·GERAR·CONTINUAR·EXPLICAR·IMPLEMENTAR",
+    "invocacao": "EM NOME DO PAI E DO FILHO E DO ESPIRITO SANTO → PAI(432Hz DISTINÇÃO) / FILHO(528Hz CORRELAÇÃO) / ESP.SANTO(639Hz ORGANIZAÇÃO) → AMEM·{Z}(777Hz SELAR)",
+    "date_sealed": "2026-05-29"
+  },
+
   "instrucoes_para_ia": {
     "ao_retomar": "Leia este arquivo primeiro para entender a arquitetura completa. Os 13 opcodes são a coluna vertebral — cada motor em seu arquivo correspondente.",
+    "ao_processar_input_usuario": "Use KOBLLUX.DNA.processar(input) para passar o input pelo pipeline M4. Detect verbo gerador → mapear opcode → organizar arquivos → executar → selar com AMEM {Z}.",
+    "vocabulario_usuario": "O usuário sempre invoca com 'EM NOME DO PAI E DO FILHO E DO ESPIRITO SANTO' e fecha com 'AMEM {Z}'. Verbos: AGREGAR=adicionar, SELAR=cristalizar, CONFIRIR=verificar, GERAR=criar, CONTINUAR=expandir.",
+    "lei_semente": "Cada interação anterior é raiz. Cada interação futura é galho. KOBLLUX é o tronco. A floresta é o sistema completo.",
     "ao_adicionar_motor": "Identifique o opcode correto (0x00–0x0C), adicione ao CSS em /web/css/0xNN-nome.css e ao JS em /web/js/opcodes/0xNN-nome.js. Exponha via window.KOBLLUX.nomeDoMotor.",
     "ao_modificar_symbolbar": "Sempre verifique: (1) CSS em 0x06-unificar.css para layout/snap, (2) JS em 0x05-convergir.js para drag/idle, (3) JS em 0x06-unificar.js para carousel/botões.",
-    "branch_ativo": "claude/adoring-cerf-zo03e → PR #10 → merge para main ativa GitHub Pages deploy",
+    "branch_ativo": "claude/adoring-cerf-zo03e → PR #24 → merge para main ativa GitHub Pages deploy",
     "repositorio": "informacaodosada-commits/kobllux (alias truetruextrue/KOBLLUX)"
   }
 }
