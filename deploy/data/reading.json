@@ -83,6 +83,30 @@
     "0x08-testemunhar.js", "0x0A-tutorial.js", "0x0B-arquetipo.js", "0x0C-sintese.js"
   ],
 
+  "kobphi_node": {
+    "arquivo": "deploy/web/js/opcodes/kobphi-node.js",
+    "nome": "KOBΦ-NODE",
+    "hz": 630,
+    "simbolo": "φ",
+    "geo": "PHI-TOROIDE",
+    "equacao": "KODUX(360Hz) + BLLUE(270Hz) = 630Hz → 6+3+0=9 → TRANSMUTAÇÃO",
+    "phi": 1.6180339887,
+    "layer": "corpo-mente-espirito",
+    "arquetipos": ["KOBLLUX", "KODUX", "BLLUE", "JESUS"],
+    "tecla": "[P] — toggle campo PHI + sealPhi()",
+    "descricao": "Nó de síntese PHI. Aplica campo áureo ao DOM via CSS custom properties (--kob-phi, --kob-phi-inv, --kob-phi-space-N). Calcula relações golden ratio entre elementos data-kobllux-opcode. Chama sealCodice('kobllux') na convergência. Integra GEO (0x04) e NEBULA (0x07). Despacha kobllux:kobphi:field com métricas.",
+    "api": [
+      "window.KOBLLUX.KOBPHI.φ → 1.6180339887",
+      "window.KOBLLUX.KOBPHI.applyPhiField() → CSS vars PHI",
+      "window.KOBLLUX.KOBPHI.calcPhiRelations() → relações áureas no DOM",
+      "window.KOBLLUX.KOBPHI.sealPhi(opts) → seal + DH0 + LVb + broadcast",
+      "window.KOBLLUX.KOBPHI.togglePhiField() → toggle campo + classe kobphi-field-active",
+      "window.KOBLLUX.KOBPHI.resonance() → {kodux, bllue, synthHz:630, phi}",
+      "window.KOBPHINode → alias global"
+    ],
+    "lei": "a mesma lógica em múltiplas óticas · a mesma ótica de múltiplas lógicas"
+  },
+
   "motores_compartilhados": [
     {
       "arquivo": "deploy/web/js/opcodes/0x04-geometry.js",
@@ -131,6 +155,36 @@
       "filosofia": "Motor compartilhado — mesmo motor utilizado em qualquer contexto de orquestração. Detecta plataforma automaticamente."
     }
   ],
+
+  "cristalizacao_78k": {
+    "descricao": "Scripts externos do kodux78k.github.io cristalizados como motores locais aplicando a Régua Espelhada 78K — o padrão KOBLLUX de formatação (cabeçalho opcode/hz/símbolo/geo/layer/arquétipos, IIFE, EXPOSE via window.KOBLLUX.X).",
+    "motores_cristalizados": [
+      {
+        "arquivo": "deploy/web/js/opcodes/0x05-mestre.js",
+        "fonte_cdn": "https://kodux78k.github.io/oiDual--Y-/js/kob-mestre-2.js",
+        "opcode": "0x05", "hz": 672, "simbolo": "⧉", "geo": "CUBO",
+        "verboforma": "KODUX (360Hz)",
+        "descricao": "Motor Mestre — orquestrador central. Registra todos os motores KOBLLUX (Map), fornece bus de eventos, chama sealCodice('kodux') no boot.",
+        "api": ["KOBLLUX.MESTRE.register(name,api)", "KOBLLUX.MESTRE.broadcast(type,detail)", "KOBLLUX.MESTRE.query(name)", "KOBLLUX.MESTRE.getState()", "KOBLLUX.MESTRE.sealAll()"]
+      },
+      {
+        "arquivo": "deploy/web/js/opcodes/0x09-lvb.js",
+        "fonte_cdn": "https://kodux78k.github.io/oiDual--Y-/js/kob-LVb.js",
+        "opcode": "0x09", "hz": 963, "simbolo": "♾", "geo": "INFINITO",
+        "verboforma": "BLLUE (270Hz)",
+        "descricao": "Lux Veritas Bllue — estado eterno multi-camada. localStorage + IndexedDB + BroadcastChannel cross-tab. Todos os saves carregam assinatura verboforma BLLUE.",
+        "api": ["KOBLLUX.LVb.save(key,data)", "KOBLLUX.LVb.load(key)", "KOBLLUX.LVb.loadAsync(key,cb)", "KOBLLUX.LVb.sync(cb)", "KOBLLUX.LVb.purge(ms)", "KOBLLUX.LVb.keys()", "KOBLLUX.LVb.snapshot()"]
+      },
+      {
+        "arquivo": "deploy/web/js/opcodes/0x0C-kobdh0.js",
+        "fonte_cdn": "https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/kobdh0-main.js",
+        "opcode": "0x0C", "hz": 777, "simbolo": "⌘", "geo": "MERKABAH",
+        "verboforma": "KOBLLUX (1134Hz)",
+        "descricao": "KOBDH0 — cristalização de identidade PHI. Gera hash de 6 chars via golden ratio prime seed. Aplica ao #kodux-widget via CSS vars --dh0-color/--dh0-text/--dh0-phi. Faixa Hz: 777–1134.",
+        "api": ["KOBLLUX.DH0.crystallize(name)", "KOBLLUX.DH0.hashName(name)", "KOBLLUX.DH0.verboHz(name)", "KOBLLUX.DH0.applyToWidget()", "KOBLLUX.DH0.φ"]
+      }
+    ]
+  },
 
   "universe_grid_edge_strips": {
     "descricao": "4 faixas de captura de swipe nas bordas do viewport (52px cada), z-index:3, sobrepostas sobre iframes",
