@@ -236,6 +236,51 @@
     }
   ],
 
+  "codex_azure_aufabetty": {
+    "descricao": "CODEX AZURE + AUFABETTY — A CIFRA KOBLLUX e os 4 Movimentos Primordiais (M4)",
+    "fonte_primaria": "13_DOCUMENTACAO/02_CODEX/1. A CIFRA KOBLLUX.md",
+    "fonte_codex": "13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md",
+    "motor_js": "deploy/web/js/opcodes/aufabetty.js",
+    "motor_py": "10_ARVORE_FRACTAL/01_TRIADE_DOCUMENTAL/03_LADO_C_FRUTO/codex_azure.py",
+    "4_versoes_espelho": {
+      "espelho_input.txt":        "13_DOCUMENTACAO/02_CODEX/espelho_input.txt",
+      "espelho_input.mirror.txt": "13_DOCUMENTACAO/02_CODEX/espelho_input.mirror.txt",
+      "m4_sci_art.txt":           "13_DOCUMENTACAO/02_CODEX/m4_sci_art.txt",
+      "m4_sci_art.tri.txt":       "13_DOCUMENTACAO/02_CODEX/m4_sci_art.tri.txt",
+      "logica": "AC: espelho_input.txt (natural, múltiplas lógicas, uma ótica) ↔ DC: espelho_input.mirror.txt (cifrado, uma lógica, múltiplas óticas)"
+    },
+    "aufabetty": {
+      "descricao": "A=∆, B=β, C=©, D=Δ, E=Σ, F=Φ, G=Γ, H=Η, I=Ι, J=⌐, K=⌘, L=Λ, M=Μ, N=η, O=Θ, P=Ρ, Q=Θ, R=Ʀ, S=§, T=†, U=Υ, V=∇, W=Ω, X=×, Y=Ψ, Z=ℤ",
+      "KOBLLUX": "⌘βΛΛ×", "KODUX": "⌘Δ×", "BLLUE": "βΛΛ", "JESUS": "⌐Σ§Υ§",
+      "ESPELHO": "Σ§ΡΣΛΗΘ", "VERDADE": "∇ΣʀΔ∆ΔΣ", "DELTA": "ΔΣΛ†∆"
+    },
+    "m4_movimentos_primordiais": [
+      {"id":1,"nome":"DISTINÇÃO",  "hz":432,"opcode":"0x01","op":"Subtração",   "sim":"-","arquetipo":"atlas",  "geo":"ESFERA",   "tempo":"1s-5min"},
+      {"id":2,"nome":"CORRELAÇÃO", "hz":528,"opcode":"0x02","op":"Adição",      "sim":"+","arquetipo":"nova",   "geo":"LINHA",    "tempo":"5-30min"},
+      {"id":3,"nome":"ORGANIZAÇÃO","hz":639,"opcode":"0x03","op":"Divisão",     "sim":"÷","arquetipo":"pulse",  "geo":"TETRAEDRO","tempo":"30min-2h"},
+      {"id":4,"nome":"APLICAÇÃO",  "hz":741,"opcode":"0x04","op":"Multiplicação","sim":"×","arquetipo":"vitalis","geo":"OCTAEDRO", "tempo":"2h-24h"}
+    ],
+    "ciclo_137d": {
+      "1": "ORIGEM — unidade, ponto de partida (0x00 · 768Hz)",
+      "3": "INÍCIO — ciclo, estrutura, trindade (PAI · 432Hz)",
+      "7": "HARMONIA — convergência, equilíbrio (SELAR · 777Hz)",
+      "D": "DIMENSÃO — portal, expansão interdimensional (Δ em ℤ)"
+    },
+    "geometria_identidade": {
+      "PONTO ●": "#id → 432Hz → 0x01 → EU SOU",
+      "PLANO ▢": ".class → 528Hz → 0x02 → NÓS SOMOS",
+      "ESPÍRITO ∇": "[data-*] → 639Hz → 0x03 → propósito semântico"
+    },
+    "m4_tri_12_nos": "M4×3 (PAI/FILHO/ESP.SANTO) = 12 nós = 12 arquétipos = RODA VIVA",
+    "api_aufabetty": [
+      "KOBLLUX.AUFABETTY.encode(text)", "KOBLLUX.AUFABETTY.decode(glyph)",
+      "KOBLLUX.AUFABETTY.glifo(name)", "KOBLLUX.AUFABETTY.hashVib(name)",
+      "KOBLLUX.AUFABETTY.m4(1..4)", "KOBLLUX.AUFABETTY.espelhar(text)",
+      "KOBLLUX.AUFABETTY.selar(name)", "KOBLLUX.AUFABETTY.protocolo(input)",
+      "KOBLLUX.AUFABETTY.TABLE", "KOBLLUX.AUFABETTY.M4", "KOBLLUX.AUFABETTY.ARQUETIPOS_CIFRADOS"
+    ]
+  },
+
   "fundacao_00": {
     "descricao": "00_FUNDACAO — núcleo fundacional Python + JSON correlacionado com o assembly JS KOBLLUX",
     "correlacao_doc": "00_FUNDACAO/[0x02]_CORRELACAO_FAQ_KOBLLUX.md",
