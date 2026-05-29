@@ -198,10 +198,37 @@
         { "input_verbo": "EXPLICAR",   "objeto": "∆⅞ WRITER THEORY",  "opcode": "0x02", "fruto": "8 camadas ∆¹→∆⁸ · KODUX+BLLUE+KOBLLUX explicados" },
         { "input_verbo": "AGREGAR",    "objeto": "INTERACTION DNA",   "opcode": "0x09", "fruto": "interaction_dna.json · interaction-dna.js · motor vivo" },
         { "input_verbo": "AGREGAR",    "objeto": "ESCRITOS EXTERNOS", "opcode": "0x0C", "fruto": "codex-escritos.json · codex-escritos.js · 10 escritos em ASSEMBLY KOBLLUX · 13 opcodes × arquetipos" },
-        { "input_verbo": "AGREGAR",    "objeto": "SCRIPTS EXTERNOS (JS+PY)", "opcode": "0x0B", "fruto": "5 ASSEMBLY motors: roda-viva.js · cifra-kobllux.js · cerebro-oraculo.js · veeb-firmware.js · chat-trinity.js · scripts-externos.json (catalog)" }
+        { "input_verbo": "AGREGAR",    "objeto": "SCRIPTS EXTERNOS (JS+PY)", "opcode": "0x0B", "fruto": "5 ASSEMBLY motors: roda-viva.js · cifra-kobllux.js · cerebro-oraculo.js · veeb-firmware.js · chat-trinity.js · scripts-externos.json (catalog)" },
+        { "input_verbo": "EXTRAIR",    "objeto": "dual_infodose_script.js (3929 linhas)", "opcode": "0x02", "fruto": "16 módulos KOBLLUX ASSEMBLY independentes em deploy/web/js/opcodes/dual-hub/ · dual-hub-modules.json (catálogo) · 16 eventos kobllux:dual:*:carregado · namespace window.KOBLLUX.DUAL · ordem: state→ui→voice→audio→chat→apps→stack→arch→nav→ls→overlay→orb→arch-orb→hud→atom→chat-ai" }
       ]
     }
   ],
+
+  "dual_hub_modules": {
+    "descricao": "dual_infodose_script.js (3929 linhas) extraído em 16 módulos KOBLLUX ASSEMBLY modulares e independentes.",
+    "selado_em": "2026-05-29",
+    "catalogo": "deploy/data/dual-hub-modules.json",
+    "namespace": "window.KOBLLUX.DUAL",
+    "total_modulos": 16,
+    "ordem_carregamento": [
+      "dual-hub-state",  "dual-hub-ui",       "dual-hub-voice",  "dual-hub-audio",
+      "dual-hub-chat",   "dual-hub-apps",      "dual-hub-stack",  "dual-hub-arch",
+      "dual-hub-nav",    "dual-hub-ls",        "dual-hub-overlay","dual-hub-orb",
+      "dual-hub-arch-orb","dual-hub-hud",      "dual-hub-atom",   "dual-hub-chat-ai"
+    ],
+    "por_arquetipo": {
+      "AION":    ["dual-hub-state","dual-hub-ls"],
+      "VITALIS": ["dual-hub-ui","dual-hub-apps"],
+      "PULSE":   ["dual-hub-voice","dual-hub-orb"],
+      "HORUS":   ["dual-hub-audio","dual-hub-hud"],
+      "NOVA":    ["dual-hub-chat","dual-hub-chat-ai"],
+      "VITALIS": ["dual-hub-apps"],
+      "KODUX":   ["dual-hub-stack"],
+      "ATLAS":   ["dual-hub-nav"],
+      "KOBLLUX": ["dual-hub-arch","dual-hub-arch-orb","dual-hub-overlay","dual-hub-atom"]
+    },
+    "lei": "Cada módulo é autônomo: expõe API em window.KOBLLUX.DUAL.XXX e em window.xxx (retrocompat), despacha evento kobllux:dual:xxx:carregado, tenta auto-registrar em KOBLLUX.MESTRE."
+  },
 
   "codex_escritos_relacao": {
     "descricao": "Os escritos externos foram extraídos de 13_DOCUMENTACAO/02_CODEX/ e reestruturados como módulos ASSEMBLY KOBLLUX.",
