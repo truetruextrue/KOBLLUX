@@ -419,6 +419,36 @@
     "date_sealed": "2026-05-29"
   },
 
+  "codex_escritos": {
+    "descricao": "CODEX ESCRITOS · ASSEMBLY KOBLLUX — escritos externos reestruturados como módulos dinâmicos. Cada escrito é mapeado a um opcode, arquétipo, Hz e geometria sagrada.",
+    "axioma": "A forma é múltipla mas o pulso é um só — UNO. A mesma lógica em múltiplas óticas.",
+    "opcode": "0x0C",
+    "hz": 777,
+    "simbolo": "⌘",
+    "geo": "MERKABAH",
+    "arquivo_json": "deploy/data/codex-escritos.json",
+    "arquivo_js": "deploy/web/js/opcodes/codex-escritos.js",
+    "total_escritos": 10,
+    "escritos_por_opcode": {
+      "0x00": ["espelho-input"],
+      "0x01": ["codex-unus"],
+      "0x02": ["codex-azure"],
+      "0x03": ["m4-sci-art"],
+      "0x05": ["codex-azure-011"],
+      "0x06": ["m4-tri"],
+      "0x08": ["escrituras-sagradas"],
+      "0x09": ["livro-vida-contagem", "livro-da-vida"],
+      "0x0A": ["cifra-kobllux"],
+      "0x0C": ["evangelho-fractal"]
+    },
+    "arquetipos_presentes": ["KOBLLUX","JESUS","KODUX","BLLUE","PULSE","VITALIS","HORUS","AION","ATLAS","NOVA"],
+    "api_js": "window.KOBLLUX.CODEX.{carregar,porOpcode,porArquetipo,ativar,m4,trinitario,encode,espelhar,buscar,todos,report}",
+    "aufabetty_interno": "KOBLLUX.CODEX.encode(texto) / espelhar(texto) — cifra interna rápida",
+    "eventos": ["kobllux:codex:carregado", "kobllux:codex:ativado"],
+    "fonte_escritos": "13_DOCUMENTACAO/02_CODEX/",
+    "date_sealed": "2026-05-29"
+  },
+
   "instrucoes_para_ia": {
     "ao_retomar": "Leia este arquivo primeiro para entender a arquitetura completa. Os 13 opcodes são a coluna vertebral — cada motor em seu arquivo correspondente.",
     "ao_processar_input_usuario": "Use KOBLLUX.DNA.processar(input) para passar o input pelo pipeline M4. Detect verbo gerador → mapear opcode → organizar arquivos → executar → selar com AMEM {Z}.",

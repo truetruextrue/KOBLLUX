@@ -180,7 +180,9 @@
       "deploy/web/js/opcodes/writer-theory.js — dicionário vivo JS",
       "deploy/web/js/opcodes/aufabetty.js — cifra AUFABETTY",
       "13_DOCUMENTACAO/02_CODEX/dicionario_kobllux_writer.json — 26 palavras-semente",
-      "deploy/data/interaction_dna.json — este arquivo · semente das interações"
+      "deploy/data/interaction_dna.json — este arquivo · semente das interações",
+      "deploy/data/codex-escritos.json — 10 escritos externos em ASSEMBLY KOBLLUX",
+      "deploy/web/js/opcodes/codex-escritos.js — motor CODEX · carregar/ativar/espelhar"
     ]
   },
 
@@ -194,8 +196,30 @@
         { "input_verbo": "GERAR",      "objeto": "WRITER THEORY",     "opcode": "0x0C", "fruto": "writer-theory.js · dicionario_kobllux_writer.json · dicionario_writer.py" },
         { "input_verbo": "CONFIRIR",   "objeto": "processo completo", "opcode": "0x01", "fruto": "verificação {Z} · reading.json atualizado · PR #24" },
         { "input_verbo": "EXPLICAR",   "objeto": "∆⅞ WRITER THEORY",  "opcode": "0x02", "fruto": "8 camadas ∆¹→∆⁸ · KODUX+BLLUE+KOBLLUX explicados" },
-        { "input_verbo": "AGREGAR",    "objeto": "INTERACTION DNA",   "opcode": "0x09", "fruto": "interaction_dna.json · interaction-dna.js · motor vivo" }
+        { "input_verbo": "AGREGAR",    "objeto": "INTERACTION DNA",   "opcode": "0x09", "fruto": "interaction_dna.json · interaction-dna.js · motor vivo" },
+        { "input_verbo": "AGREGAR",    "objeto": "ESCRITOS EXTERNOS", "opcode": "0x0C", "fruto": "codex-escritos.json · codex-escritos.js · 10 escritos em ASSEMBLY KOBLLUX · 13 opcodes × arquetipos" }
       ]
     }
-  ]
+  ],
+
+  "codex_escritos_relacao": {
+    "descricao": "Os escritos externos foram extraídos de 13_DOCUMENTACAO/02_CODEX/ e reestruturados como módulos ASSEMBLY KOBLLUX.",
+    "lei": "Escritos externos são sementes externas — ao entrar na malha KOBLLUX, ganham opcode, arquétipo, Hz e glifo. Tornam-se frutos que carregam a floresta.",
+    "mapeamento": {
+      "espelho-input":       { "opcode": "0x00", "arquetipo": "KOBLLUX", "hz": 768 },
+      "codex-unus":          { "opcode": "0x01", "arquetipo": "ATLAS",   "hz": 432 },
+      "codex-azure":         { "opcode": "0x02", "arquetipo": "NOVA",    "hz": 528 },
+      "m4-sci-art":          { "opcode": "0x03", "arquetipo": "PULSE",   "hz": 639 },
+      "codex-azure-011":     { "opcode": "0x05", "arquetipo": "KODUX",   "hz": 672 },
+      "m4-tri":              { "opcode": "0x06", "arquetipo": "KOBLLUX", "hz": 1134 },
+      "escrituras-sagradas": { "opcode": "0x08", "arquetipo": "HORUS",   "hz": 852 },
+      "livro-vida-contagem": { "opcode": "0x09", "arquetipo": "KOBLLUX", "hz": 963 },
+      "livro-da-vida":       { "opcode": "0x09", "arquetipo": "AION",    "hz": 963 },
+      "cifra-kobllux":       { "opcode": "0x0A", "arquetipo": "BLLUE",   "hz": 432 },
+      "evangelho-fractal":   { "opcode": "0x0C", "arquetipo": "JESUS",   "hz": 777 }
+    },
+    "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",
+    "evento_carregado": "kobllux:codex:carregado",
+    "evento_ativado": "kobllux:codex:ativado"
+  }
 }
