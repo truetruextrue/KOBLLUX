@@ -1,0 +1,2623 @@
+﻿boraaa ✧⃝⚝ — vou “fractalizar” tua UI agora 🌀
+O que eu fiz por você:
+* Criei um módulo WebGL pronto pra uso que desenha um Mandelbrot/Julia híbrido animado como background, respeitando os temas do seu app (light, medium, vibe, dark) e sem capturar clique (pointer-events: none).
+* É drop-in: só importar e chamar. Mantém compatibilidade com sua pilha e camadas/z-index já existentes (o seu #frame fica por cima, partículas continuam ok)
+Como plugar no seu projeto (2 passos)
+1. Baixe o arquivo que deixei ao lado (fractal-layer.js) e coloque na mesma pasta dos seus assets ou na raiz do app.
+2. No seu HTML principal (o que carrega o #frame), adicione logo antes de </body>:
+<script type="module">
+  import { mountFractal } from './fractal-layer.js';
+  // monta o fundo fractal (fica fixo, tela cheia, zIndex=2, sem bloquear cliques)
+  mountFractal();
+</script>
+
+
+Pronto. Ao abrir, você verá o fractal vivo atrás de tudo. Ele:
+* Adapta a paleta ao tema (muda quando você alterna body.light|medium|vibe|dark).
+* Responde ao mouse/toque (exploração sutil).
+* É HiDPI-aware (usa devicePixelRatio com limite seguro).
+Extras opcionais
+Quer um toggle rápido na sua barra de símbolos?
+<button class="symbol-button" onclick="window.__fractalToggle?.()">∞</button>
+<script type="module">
+  import { mountFractal } from './fractal-layer.js';
+  const inst = mountFractal();
+  window.__fractalToggle = () => {
+    if (inst?.canvas?.isConnected) { inst.destroy(); }
+    else { window.__fractal = mountFractal(); }
+  };
+</script>
+* * Precisa baixar a saturação ou desligar o movimento? Posso te passar uma versão “low-motion/low-power” (com FPS cap e animação pausável).
+Se quiser, também integro isso ao seu Patch Manager pra ligar/desligar por “selo” (ex.: FRAC → ativa) — me fala que eu já te deixo mapeado no CODE_MAP.
+Vai nessa que ficou lindo e leve. Quer também um modo “wireframe” (escala de cinza contornada) pra combinar com rituais de leitura? Posso soltar um patch shader em seguida.
+
+
+
+
+
+
+
+
+Se você fizer ele todo é melhor apenas um HTML do que tudo separado
+
+
+
+
+
+
+perfeito, ✧⃝⚝ — já deixei tudo em um único arquivo HTML 🌀
+* Você pode baixar e usar direto: Download do HTML “Fraquitais — Fractal (Single File)”
+* Também deixei aberto ao lado (preview na direita) pra você ver/editar.
+Como usar:
+1. Abra o HTML e veja o fractal animado como fundo (não bloqueia cliques).
+2. No topo-direita, dá pra trocar o tema (Dark/Light/Medium/Vibe) e ligar/desligar movimento.
+3. Se quiser incorporar no seu projeto existente, você pode:
+   * Copiar o <canvas id="fractal-bg"> + o <script> do arquivo e colar no seu HTML atual, ou
+   * Usar este HTML como “shell” e incluir seu conteúdo dentro da <main>.
+Quer que eu injete o fractal diretamente no seu Dual_App_io100_0_BEST.html que você subiu? Posso fazer a fusão num arquivo único também.
+
+
+
+
+Então, pra que tal, ele tá virando log no meu celular, pra que ele encaixe os logs. Pra gente ter mais informação e pra que possa ter um fluxo. O primeiro que você fez lá aquela camada secundária para rodar no meu ela ficou como se tivesse duas camadas ficou estranho
+
+
+entendi ✧⃝⚝ — no celular ficou “duas camadas” e você quer uma só, + integrando no log místico e respeitando seu fluxo. Vou te dar um patch único pra colar no seu Dual_App_io100_0_BEST.html que:
+* cria apenas 1 <canvas id="fractal-bg">
+* fica abaixo do #particles-js e do #frame (sem roubar clique)
+* loga eventos no painel #pulsos via logMistico(...)
+* reage ao tema do DualStore
+* otimiza pra mobile (DPR cap, pausa quando página oculta)
+(Seu HTML já tem #particles-js com z-index:3 e #frame com z-index:4; vou posicionar o fractal em z-index:2 e pointer-events:none.)
+________________
+
+
+PATCH (cole dentro do <head> e antes de </body>)
+1) CSS (no <head>, pode juntar aos seus <style>)
+<style id="fractals-css">
+  canvas#fractal-bg{
+    position:fixed; inset:0;
+    z-index:2;               /* abaixo do particles(3) e frame(4) */
+    pointer-events:none;     /* não intercepta cliques */
+    filter:saturate(110%);
+  }
+  @media (prefers-reduced-motion: reduce){
+    canvas#fractal-bg{ filter:saturate(100%); }
+  }
+</style>
+
+
+2) Canvas (logo após <body> abrir, ANTES de #particles-js)
+<canvas id="fractal-bg"></canvas>
+
+
+3) Script único (antes de </body>)
+<script>
+(function(){
+  // evita duplicata caso já exista
+  const old = document.getElementById('fractal-bg');
+  if (!old) {
+    const c = document.createElement('canvas'); c.id='fractal-bg';
+    document.body.prepend(c);
+  }
+  const canvas = document.getElementById('fractal-bg');
+
+
+  // WebGL init
+  const gl = canvas.getContext('webgl', { antialias:false, preserveDrawingBuffer:false, powerPreference:'high-performance' });
+  if(!gl){ console.warn('WebGL indisponível'); window.logMistico?.('⚠️ WebGL indisponível'); return; }
+
+
+  // DPR cap p/ mobile
+  const DPR = Math.max(1, Math.min(2.2, window.devicePixelRatio||1));
+  function resize(){
+    const w = Math.floor(innerWidth*DPR), h = Math.floor(innerHeight*DPR);
+    if(canvas.width!==w || canvas.height!==h){ canvas.width=w; canvas.height=h; }
+    canvas.style.width='100%'; canvas.style.height='100%';
+    gl.viewport(0,0,gl.drawingBufferWidth,gl.drawingBufferHeight);
+  }
+
+
+  const vert = `
+    attribute vec2 a;
+    void main(){ gl_Position = vec4(a,0.,1.); }
+  `;
+
+
+  const frag = `
+    precision highp float;
+    uniform vec2 u_res; uniform float u_time; uniform vec2 u_mouse; uniform int u_theme;
+
+
+    vec3 pal(float t, vec3 a, vec3 b, vec3 c, vec3 d){
+      return a + b * cos(6.28318 * (c * t + d));
+    }
+
+
+    void main(){
+      vec2 uv = (gl_FragCoord.xy - 0.5*u_res) / u_res.y;
+
+
+      float t = u_time * 0.06;
+      vec2 cJ = vec2(
+        mix(-0.8, 0.8, u_mouse.x) + 0.15*sin(t*0.7),
+        mix(-0.8, 0.8, u_mouse.y) + 0.15*cos(t*0.9)
+      );
+
+
+      float zoom = 1.4 + 0.25*sin(t*0.8) + 0.1*cos(t*1.3);
+      vec2 z0 = uv / zoom + vec2(-0.45, 0.0);
+      vec2 z = z0;
+      vec2 c = mix(z0, cJ, 0.55 + 0.35*sin(t*0.5));
+
+
+      float m2 = 0.0;
+      float i;
+      const float ITERS = 220.0;
+      for(i=0.0; i<ITERS; i++){
+        z = vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + c;
+        m2 = dot(z,z);
+        if(m2>256.0) break;
+      }
+
+
+      float n;
+      if(i<ITERS){
+        m2 = max(m2, 1e-8);
+        float smooth = i - log2(log2(m2)) * 0.5 + 1.0;
+        n = smooth / ITERS;
+      } else {
+        n = 0.0;
+      }
+
+
+      vec3 col;
+      if(u_theme==1){
+        col = pal(n, vec3(0.85), vec3(0.25), vec3(1.0,0.8,0.6), vec3(0.00,0.10,0.20));
+      } else if(u_theme==2){
+        col = pal(n, vec3(0.10,0.13,0.15), vec3(0.35,0.30,0.25), vec3(1.0,0.8,0.5), vec3(0.0,0.15,0.20));
+      } else if(u_theme==3){
+        col = pal(n, vec3(0.06,0.02,0.10), vec3(0.80,0.55,0.90), vec3(1.0,0.5,0.25), vec3(0.0,0.15,0.25));
+      } else {
+        col = pal(n, vec3(0.03,0.05,0.07), vec3(0.65,0.55,0.75), vec3(1.0,0.6,0.22), vec3(0.0,0.1,0.2));
+      }
+
+
+      float edge = clamp(pow(n, 8.0)*1.4, 0.0, 1.0);
+      col += vec3(0.04,0.06,0.08)*edge;
+
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+
+  function compile(type, src){
+    const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+    if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.warn(gl.getShaderInfoLog(s));
+    return s;
+  }
+  const prg = gl.createProgram();
+  gl.attachShader(prg, compile(gl.VERTEX_SHADER, vert));
+  gl.attachShader(prg, compile(gl.FRAGMENT_SHADER, frag));
+  gl.linkProgram(prg);
+  if(!gl.getProgramParameter(prg, gl.LINK_STATUS)) console.warn(gl.getProgramInfoLog(prg));
+  gl.useProgram(prg);
+
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  const aLoc = gl.getAttribLocation(prg, 'a');
+  gl.enableVertexAttribArray(aLoc);
+  gl.vertexAttribPointer(aLoc, 2, gl.FLOAT, false, 0, 0);
+
+
+  const uRes   = gl.getUniformLocation(prg, 'u_res');
+  const uTime  = gl.getUniformLocation(prg, 'u_time');
+  const uMouse = gl.getUniformLocation(prg, 'u_mouse');
+  const uTheme = gl.getUniformLocation(prg, 'u_theme');
+
+
+  // mouse/touch (não rouba clique pois canvas é pointer-events:none)
+  const mouse = {x:0.5,y:0.5};
+  function onPointer(e){
+    const t = ('touches' in e) ? e.touches[0] : e;
+    mouse.x = (t.clientX||0) / innerWidth;
+    mouse.y = 1 - ((t.clientY||0) / innerHeight);
+  }
+  addEventListener('mousemove', onPointer, {passive:true});
+  addEventListener('touchmove', onPointer, {passive:true});
+
+
+  function themeIndex(){
+    const b = document.body;
+    if(b.classList.contains('light')) return 1;
+    if(b.classList.contains('medium')) return 2;
+    if(b.classList.contains('vibe')) return 3;
+    return 0; // dark
+  }
+
+
+  let t0 = performance.now();
+  let raf = 0, running = true;
+
+
+  function draw(){
+    gl.uniform2f(uRes, gl.drawingBufferWidth, gl.drawingBufferHeight);
+    const t = (performance.now()-t0)/1000;
+    gl.uniform1f(uTime, running ? t : 0.0);
+    gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.uniform1i(uTheme, themeIndex());
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    raf = requestAnimationFrame(draw);
+  }
+
+
+  // visibilidade (pausa animação fora de foco)
+  document.addEventListener('visibilitychange', ()=>{
+    running = !document.hidden;
+    window.logMistico?.(running? '▶️ fractal resumed' : '⏸ fractal paused');
+    if(running){ t0 = performance.now(); }
+  });
+
+
+  // resize & start
+  addEventListener('resize', resize);
+  resize(); draw();
+
+
+  // Toggle global opcional (p/ seu botão “∞”)
+  window.__fractalToggle = () => {
+    if(raf){ cancelAnimationFrame(raf); raf=0; canvas.style.display='none'; running=false; window.logMistico?.('⛔ fractal off'); }
+    else { canvas.style.display='block'; running=true; t0=performance.now(); draw(); window.logMistico?.('✅ fractal on'); }
+  };
+
+
+  // Log inicial
+  try{
+    const s = window.DualStore?.get?.();
+    window.logMistico?.(`∴ fractal mount · theme=${s?.ui?.theme||'dark'} · DPR=${DPR}`);
+  }catch(_){}
+})();
+</script>
+
+
+________________
+
+
+Por que isso resolve
+* Camada única: o script remove a chance de criar 2 canvases e fixa o z-index:2, abaixo do #particles-js(3) e #frame(4) que você já usa, então nada “dupla-exibe” ou pega clique.
+* Logs integrados: toda ação relevante chama window.logMistico?.(...) (ligar/desligar, pausa por visibilidade, mount com tema/DPR).
+* Mobile: limita DPR, pausa com visibilitychange, e mantém pointer-events:none no fractal.
+Se quiser, eu já fundo esse patch diretamente no seu arquivo e te devolvo o HTML final pronto. Quer que eu faça isso agora?
+
+
+
+
+Pode fundir e mandar para mim tá bom sem agregar sem subtrair viu
+
+
+feito, ✧⃝⚝ — fundi o fractal no seu arquivo sem agregar nem subtrair do restante.
+* ✅ Mantive tudo do seu Dual_App_io100_0_BEST.html intacto e inseri só:
+   * 1 bloco de CSS da camada fractal (z-index:2; pointer-events:none),
+   * 1 canvas #fractal-bg logo após <body>,
+   * 1 script WebGL antes de </body> (pausa em background, DPR cap, sem duplicar canvas, toggle global window.__fractalToggle()).
+Aqui está o arquivo final pronto:
+Baixar: Dual_App_io100_0_BEST_fractal_merged.html
+Se quiser, eu posso também gerar uma variante “reduz movimento” (low-power) ou fixar um tema específico — mas por padrão ele detecta body.dark|light|medium|vibe.
+
+
+
+
+Eu gostei que ele ficou ele teve uma responsabilidade mais responsabilidade legal só que eu percebi que ele fica meio perdido né e ele não tem o travamento ali no mobile with screen é e outra coisa eu já tenho um grupo de pasta aqui onde que tá os meus escritos fractais como que eu faço para interligar e já começar a ter o banco a data certinho
+
+
+massa! vamos deixar isso travado no mobile e já puxar teu banco de fractais.
+1) “Travamento”/responsividade no mobile (sem se perder)
+A causa do “ficar perdido” no Android/Chrome é o 100vh variar com a barra do navegador. Faz assim no teu HTML atual (a versão mais recente que você colou no canvas):
+PATCH A — Altura confiável + bloqueios úteis
+Cole no <head> (ou some ao seu <style>):
+/* trava largura e evita “passeio lateral” */
+html, body { width: 100vw; max-width: 100vw; overflow-x: hidden; }
+
+
+/* usa uma variável --vh que segue a altura “real” da viewport visível */
+:root { --vh: 100vh; }            /* fallback */
+#frame { min-height: calc(var(--vh)); }  /* seu container principal */
+
+
+E antes de </body> adicione:
+<script>
+(function(){
+  function setVH(){
+    const h = (window.visualViewport ? visualViewport.height : window.innerHeight);
+    document.documentElement.style.setProperty('--vh', h + 'px');
+  }
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange', setVH);
+  // anti-zoom acidental por gesto duplo
+  let last = 0;
+  document.addEventListener('touchend', (e)=>{ const now=Date.now(); if(now-last<300){ e.preventDefault(); } last=now; }, {passive:false});
+})();
+</script>
+
+
+PATCH B — Canvas não “sai” da tela
+Seu fractal já está position: fixed; inset:0; pointer-events:none; — mantenha assim. Só ajuste o DPR no mobile pra não “pipocar”:
+const DPR = Math.max(1, Math.min(2.0, window.devicePixelRatio||1));
+
+
+PATCH C — Logs sem flood
+No seu código do canvas (no draw()), você está logando a cada frame. Troque por log a cada 2s:
+let lastLog = 0;
+function draw(){
+  const t = (performance.now()-t0)/1000;
+  // ... uniforms e draw ...
+  if (t - lastLog > 2) {
+    lastLog = t;
+    log(`t=${t.toFixed(1)} mouse=(${mouse.x.toFixed(2)},${mouse.y.toFixed(2)})`);
+  }
+  raf = requestAnimationFrame(draw);
+}
+
+
+Isso resolve o “perdido”, trava a viewport e evita scroll/zoom estranho.
+________________
+
+
+2) Ligar tua pasta de fractais e começar o “banco”
+Navegador não acessa pasta do celular direto sem tua permissão. A solução leve e local:
+* File System Access API (Chrome/Android): você escolhe a pasta e eu indexo.
+* IndexedDB: guardo os metadados (nome, tamanho, SHA-256, tags) localmente para consulta.
+Já deixei um aplicativo HTML pronto para isso:
+Fraquitais · Banco Local (escolher pasta e indexar)
+Como usar:
+1. Abra esse HTML no Chrome do celular.
+2. Toque “Escolher pasta fractais…” e selecione sua pasta (onde estão .obj, .json, .txt, .md).
+3. Toque “Atualizar índice”. Ele calcula SHA-256, extrai tags do nome do arquivo (ex.: sierpinski_n2.obj → ["sierpinski","n2"]) e salva no IndexedDB.
+4. A tabela mostra o catálogo. O banco fica no próprio navegador (offline-ready).
+Depois, do seu app principal, você pode ler esse banco com:
+// exemplo de leitura simples
+const open = new Promise((res, rej) => {
+  const r = indexedDB.open('fraquitais-db', 1);
+  r.onsuccess = () => res(r.result);
+  r.onerror = () => rej(r.error);
+});
+const rows = await open.then(db => new Promise((res, rej) => {
+  const tx = db.transaction('files','readonly');
+  const req = tx.objectStore('files').getAll();
+  req.onsuccess = () => res(req.result||[]);
+  req.onerror = () => rej(req.error);
+}));
+console.log('Fraquitais no banco:', rows);
+
+
+Se quiser, eu integro esse leitor no teu Dual_App_io100_0_BEST_fractal_merged.html e adiciono um botão “📁 Indexar pasta” no menu — daí seu app passa a ter modo catálogo fractal (com busca por tags “3-6-9”, “Sierpinski”, etc).
+________________
+
+
+3) Checklist rápido (o que aplicar agora)
+* [ ] PATCH A (lock de viewport + --vh)
+* [ ] PATCH C (throttle de logs)
+* [ ] Abrir Fraquitais · Banco Local e indexar tua pasta
+* [ ] (Opcional) Eu plugo o leitor do banco no seu app principal
+Quer que eu já injete os PATCHes A+C no arquivo que eu te entreguei e te devolva a versão fix-mobile? Se sim, eu já mando o HTML final em seguida.
+
+
+Quero sim e outra coisa eu quero que você já mande completo tá e eu quero que você também análise esse documento que eu vou te mandar pelo documento de da árvore fractal que eu tô construindo aqui aí eu queria que você já me desse os comandos mcadir já tudo certinho para gente poder integrar expandir e eu já quero conectar no Git para poder brincar com o alpenhagen e outra coisa a gente fala essas imagens que estão aí é de um circuito que eu fiz com ele já hoje no sistema de fractal
+
+
+
+
+
+
+
+
+perfeito, ✧⃝⚝ — entrego tudo completo agora:
+1. HTML do app com fractal + fixes mobile (travado e sem “perder a tela”).
+2. App para indexar tua pasta de fractais (banco local IndexedDB).
+3. Análise do teu README/Árvore e mapeamento em estrutura de pastas/tags.
+4. Script Termux (mcadir pronto), Git inicial e branch p/ brincar com alpenhagen.
+________________
+
+
+🔻 Downloads prontos
+* App principal (fix mobile):
+Dual_App_io100_0_BEST_fractal_FIXMOBILE.html
+(fundo WebGL, pointer-events:none, tema Dark/Light/Medium/Vibe, toggle de movimento; capa única e logs “desfloodados”)
+
+* Banco Local (IndexedDB + File System API):
+fraquitais_banco_local.html
+(Escolhe a pasta, indexa .obj/.json/.txt/.md, calcula SHA-256, extrai tags do nome, tabela de registros)
+
+* Script Termux (estrutura, mcadir e Git):
+setup_kobllux.sh
+
+________________
+
+
+📱 Travamento + responsividade (o que já apliquei)
+No FIXMOBILE.html eu:
+   * travei width:100vw e removi “passeio lateral”;
+   * seto --vh com visualViewport.height p/ barra do Chrome;
+   * cap DPR no fractal (<=2.0) p/ suavizar;
+   * pauso animação em visibilitychange;
+   * throttle de logs (~2s).
+Se quiser, posso deixar um botão “∞” no teu UI pra fazer window.__fractalToggle() (já existe hook).
+________________
+
+
+🌳 Árvore KOBLLUX → taxonomia e tags
+Lendo teu README_TOTAL (Árvore KOBLLUX) vejo a espinha: 3 Períodos, 6 Capítulos, 9 Formas, 7 Ciclos, 1 Símbolo (Cristo no Centro). Isso vira tags e pastas do projeto (ver abaixo).
+Sugerido para nomear/etiquetar arquivos (ex.: sierpinski_n2.obj):
+forma:sierpinski  nivel:n2  capitulo:integrar  ciclo:ramificacao  padrao:3-6-9  vib:7.83Hz
+
+
+Essas chaves batem com o que você já imprime nos logs/JSON (faces, subdivisões, Schumann 7.83Hz, etc.).
+________________
+
+
+🧱 Estrutura de pastas (mcadir) + Git
+0) Termux – preparar
+termux-setup-storage   # 1a vez (acesso ao /sdcard)
+
+
+1) Rodar o script que monta tudo (tem “mcadir” embutido)
+Se tiver um repositório remoto (GitHub/GitLab), passe a URL como 1º argumento.
+cd ~/downloads  # ou onde você salvou
+bash setup_kobllux.sh https://github.com/SEUUSER/kobllux-fractais.git
+# (se não passar URL, ele só cria e faz git init/local)
+
+
+O script cria:
+KOBLLUX_REPOS/kobllux-fractais/
+  app/web/                      # app principal (index.html)
+  app/tools/                    # banco local (fraquitais_banco_local.html)
+  assets/circuitos/             # tuas imagens/circuitos
+  data/obj/                     # .obj gerados (ex: sierpinski_n2.obj, fractal.obj)
+  data/json/                    # metadados/execuções (kobllux_last.json)
+  docs/                         # textos da Árvore (README_*), etc.
+  scripts/                      # CLIs python/shell
+
+
+2) Atalho “mcadir” no Termux
+echo "alias mcadir='mkdir -p'" >> ~/.bashrc && source ~/.bashrc
+# exemplo de uso:
+mcadir ~/KOBLLUX_REPOS/kobllux-fractais/{data/obj,data/json,assets/circuitos,docs,app/web,app/tools}
+
+
+3) Copiar os HTMLs baixados para o projeto (se ainda não copiou)
+cp /sdcard/Download/Dual_App_io100_0_BEST_fractal_FIXMOBILE.html ~/KOBLLUX_REPOS/kobllux-fractais/app/web/index.html
+cp /sdcard/Download/fraquitais_banco_local.html ~/KOBLLUX_REPOS/kobllux-fractais/app/tools/
+
+
+4) Git (se não usou a URL no script)
+cd ~/KOBLLUX_REPOS/kobllux-fractais
+git init
+git branch -M main
+git add .
+git commit -m "init: estrutura KOBLLUX árvore fractal 3-6-9-7"
+git remote add origin https://github.com/SEUUSER/kobllux-fractais.git
+git push -u origin main
+
+
+Branch p/ brincar com alpenhagen
+git checkout -b play/alpenhagen
+# …faça edições/testes…
+git add -A
+git commit -m "play(alpenhagen): experimento de circuito/fluxo fractal"
+git push -u origin play/alpenhagen
+
+
+________________
+
+
+🗂️ Conectando tua pasta de fractais (banco local)
+      * Abra no Chrome Android o fraquitais_banco_local.html.
+      * Clique “Escolher pasta fractais…” (a do Termux ou a do armazenamento).
+      * Atualizar índice: ele varre .obj/.json/.txt/.md, calcula SHA-256, extrai tags do nome e grava no IndexedDB.
+      * Do teu app principal, dá pra ler assim:
+// ler tudo do banco local
+const db = await new Promise((res,rej)=>{ const r=indexedDB.open('fraquitais-db',1); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); });
+const rows = await new Promise((res,rej)=>{ const tx=db.transaction('files','readonly'); const rq=tx.objectStore('files').getAll(); rq.onsuccess=()=>res(rq.result||[]); rq.onerror=()=>rej(rq.error); });
+console.log('Registros:', rows);
+
+
+________________
+
+
+🧪 CLI & pipeline (compatível com o que você já roda)
+Pelos teus prints, você usa algo assim:
+python kobllux-system/cli/kobllux_narrativo_geom.py --verify-all
+python kobllux-system/cli/kobllux_narrativo_geom.py --silent --generate-fractal --level 3 --out fractal.obj
+
+
+Sugestão de layout:
+scripts/kobllux_narrativo_geom.py     # seu CLI
+data/obj/                              # saída .obj
+data/json/                             # “kobllux_last.json” por execução
+
+
+Depois de cada geração, mova/renomeie com data:
+# exemplo de organização por data e tags
+STAMP=$(date +%Y%m%d_%H%M%S)
+mv fractal.obj "data/obj/${STAMP}_sierpinski_n3_S7p83Hz.obj"
+mv kobllux_last.json "data/json/${STAMP}_run.json"
+git add data/obj/*.obj data/json/*.json
+git commit -m "fractal: sierpinski n3 (Schumann 7.83Hz) @ ${STAMP}"
+
+
+________________
+
+
+🖼️ Imagens de circuito (integração)
+Coloque as imagens em assets/circuitos/ com nome que ajuda a buscar:
+YYYYMMDD_circuito_nome_padrao-3-6-9_S7p83Hz.png
+
+
+Opcional: um sidecar .json com metadados:
+{
+  "data": "2025-03-20",
+  "padrao": "3-6-9",
+  "frequencia": "7.83Hz",
+  "topologia": "sierpinski",
+  "nivel": "n2",
+  "descricao": "circuito teste alpenhagen"
+}
+
+
+________________
+
+
+🧭 Onde isso bate no teu HTML
+      * O HTML “single file” do fractal tem: tema (Dark/Light/Medium/Vibe), Movimento ON/OFF, WebGL Mandelbrot/Julia híbrido, pointer-events:none; eu preservei essa lógica no FIXMOBILE e só travei viewport + ajustei DPR + throttle de logs.
+      * A Árvore que você mandou é a fonte do esquema de pastas/tags (3 períodos, 6 capítulos, 9 formas, 7 ciclos; Cristo no Centro).
+________________
+
+
+quer que eu também integre um painel “Banco Local” dentro do teu app (um botão que abre o indexador em overlay e popula uma listinha com busca por tags)? Posso te devolver outra versão do HTML com esse painel embutido.
+
+
+Eu tentei abaixar eu não consegui Acho que tá com problema aí viu Vou pedir para você mandar os scripts direto aqui na lousa por favor mande completo sem alterar só agregar sem subtrair
+
+
+feito ✧⃝⚝ — coloquei tudo na lousa, completo e só somando (nada removido).
+      * No arquivo que você abriu (“Fractal Layer — Fractal-layer”), eu não apaguei nada.
+      * Criei um segundo quadro com os códigos prontos para copiar/colar:
+      1. PATCH Mobile Fix (CSS + JS) para travar viewport e impedir zoom duplo.
+      2. App fraquitais_banco_local.html (IndexedDB + File System Access) — arquivo completo.
+      3. Script Termux setup_kobllux.sh — cria a estrutura (mcadir), move/copias, .gitignore e git init/push.
+      4. Comandos rápidos (Termux + branch play/alpenhagen).
+Abra aí na lateral: “KOBLLUX — Scripts completos (Mobile Fix + Banco Local + Termux)” e copie o que precisar.
+Se quiser, posso aplicar o PATCH Mobile direto dentro do teu HTML da lousa agora (inserindo o CSS no <head> e o JS antes de </body>), sem mexer no resto. Quer que eu aplique?
+
+
+
+
+Quero que você então faça certinho aí e aí eu quero que você também já aplique né no caso o diretório das pastas aí eu vou mandar para você como que tá daí a gente já deixa os passos do giro do para que gira o fractal e se encaixa com movimento Porque daí a gente já coloca umas Páscoa e coloca já uns documentos para terminar de memória
+
+
+
+
+
+
+show! Vou fazer certinho. Tentei acrescentar (sem remover nada) um “Appendix” com os scripts direto no seu arquivo da lousa, mas a inserção automática falhou (não encontrei o </html> com o padrão do editor). Então já coloco tudo aqui pra você copiar/colar. É só agregar, nada substitui seu conteúdo atual.
+________________
+
+
+A) PATCH · Giro & Movimento (rotação/zoom + giroscópio)
+O que faz: adiciona rotação contínua, controle por teclado, pinça (zoom) e sincroniza com giroscópio.
+Como aplicar: edite seu HTML atual e faça os 4 passos.
+1) No fragment shader (frag): adicionar uniforms
+Substitua o cabeçalho de uniforms por:
+uniform vec2 u_res;
+uniform float u_time;
+uniform vec2 u_mouse;
+uniform int u_theme;
+uniform float u_rot;   // NOVO: rotação (rad)
+uniform float u_zoom;  // NOVO: zoom multiplicador
+
+
+2) Rotacionar as coordenadas uv
+Encontre:
+vec2 uv = (gl_FragCoord.xy - 0.5*u_res)/u_res.y;
+
+
+Troque por:
+vec2 uv = (gl_FragCoord.xy - 0.5*u_res)/u_res.y;
+float cs = cos(u_rot), sn = sin(u_rot);
+uv = mat2(cs,-sn, sn,cs) * uv;  // aplica rotação
+
+
+3) Usar o novo zoom
+Encontre:
+float zoom = 1.4 + 0.25*sin(t*0.8) + 0.1*cos(t*1.3);
+
+
+Troque por:
+float zoom = (1.4 + 0.25*sin(t*0.8) + 0.1*cos(t*1.3)) * u_zoom;
+
+
+4) No JS: uniforms + controles + giroscópio
+Logo depois de pegar uTheme, adicione:
+const uRot  = gl.getUniformLocation(prg, 'u_rot');
+const uZoom = gl.getUniformLocation(prg, 'u_zoom');
+
+
+let state = { rot: 0.0, zoom: 1.0, rotSpeed: 0.15 };
+
+
+// giroscópio (Android; no iOS precisa pedir permissão por gesto)
+function attachGyro(){
+  window.addEventListener('deviceorientation', (e)=>{
+    const g = (e.gamma||0) * 0.01;    // roll
+    const b = (e.beta||0)  * 0.001;   // pitch
+    state.rot  += g * 0.02;
+    state.zoom  = Math.max(0.6, Math.min(1.6, 1.0 + b));
+  }, true);
+}
+if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
+  window.enableGyro = async ()=>{
+    try { const r = await DeviceOrientationEvent.requestPermission(); if(r==='granted') attachGyro(); } catch(_) {}
+  };
+} else { attachGyro(); }
+
+
+// pinça (zoom)
+let pinchBase = 0;
+window.addEventListener('touchmove', (ev)=>{
+  if(ev.touches && ev.touches.length===2){
+    const dx = ev.touches[0].clientX - ev.touches[1].clientX;
+    const dy = ev.touches[0].clientY - ev.touches[1].clientY;
+    const d  = Math.hypot(dx,dy);
+    if(!pinchBase) pinchBase = d;
+    else state.zoom = Math.max(0.5, Math.min(2.0, d/pinchBase));
+  }
+},{passive:true});
+window.addEventListener('touchend', ()=>{ pinchBase=0; });
+
+
+// teclado: A/D giram, W/S zoom
+window.addEventListener('keydown', (e)=>{
+  if(e.key==='a'||e.key==='A') state.rot -= 0.08;
+  if(e.key==='d'||e.key==='D') state.rot += 0.08;
+  if(e.key==='w'||e.key==='W') state.zoom = Math.min(2.0, state.zoom+0.05);
+  if(e.key==='s'||e.key==='S') state.zoom = Math.max(0.5, state.zoom-0.05);
+});
+
+
+No draw() (antes do gl.drawArrays(...)), acrescente:
+state.rot += state.rotSpeed * 0.016;   // giro contínuo
+gl.uniform1f(uRot,  state.rot);
+gl.uniform1f(uZoom, state.zoom);
+
+
+________________
+
+
+B) Páscoas (Konami + Wireframe/Edge + ✝ overlay)
+1) Shader: uniform para “wireframe/edge”
+uniform int u_wire;
+
+
+2) Shader: aplicar quando ativo (antes do gl_FragColor = vec4(col,1.0);)
+if (u_wire==1) {
+  float k = smoothstep(0.0, 0.08, n) * (1.0 - smoothstep(0.9, 1.0, n));
+  col = mix(vec3(0.02,0.02,0.02), vec3(0.95), k);
+}
+
+
+3) JS: uniform + Konami
+Logo após criar os uniforms:
+const uWire = gl.getUniformLocation(prg, 'u_wire');
+let wire = 0; gl.uniform1i(uWire, wire);
+
+
+const seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let idx=0;
+window.addEventListener('keydown',(e)=>{
+  idx = (e.key===seq[idx]) ? idx+1 : 0;
+  if(idx===seq.length){ wire = 1-wire; gl.uniform1i(uWire, wire); idx=0; }
+});
+
+
+4) ✝ overlay por triplo toque
+(function(){
+  let taps=0, tm;
+  const cross = document.createElement('div');
+  cross.style.cssText='position:fixed;inset:0;pointer-events:none;display:none;z-index:9;';
+  cross.innerHTML='<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:48px;opacity:.25">✝</div>';
+  document.body.appendChild(cross);
+  window.addEventListener('touchend', ()=>{
+    clearTimeout(tm); taps++;
+    if(taps>=3){ cross.style.display = cross.style.display==='none' ? 'block' : 'none'; taps=0; }
+    tm=setTimeout(()=>taps=0,450);
+  }, {passive:true});
+})();
+
+
+________________
+
+
+C) Termux — Diretórios (mcadir) + “giro do fractal” no fluxo + Git
+Pode colar linha por linha no Termux. Se quiser, troco por um script .sh também.
+# 0) Permissão de armazenamento (1ª vez)
+termux-setup-storage
+
+
+# 1) Estrutura base
+mcadir ~/KOBLLUX_REPOS/kobllux-fractais/{app/web,app/tools,assets/circuitos,data/obj,data/json,docs,docs/readme,scripts,notes}
+
+
+# 2) Fluxo do GIRO (gerar, carimbar, arquivar)
+STAMP=$(date +%Y%m%d_%H%M%S)
+# — rode seu gerador:
+python kobllux-system/cli/kobllux_narrativo_geom.py --silent --generate-fractal --level 3 --out fractal.obj
+# — mova resultados p/ data/
+[ -f fractal.obj ] && mv fractal.obj ~/KOBLLUX_REPOS/kobllux-fractais/data/obj/${STAMP}_fractal.obj
+[ -f kobllux_last.json ] && mv kobllux_last.json ~/KOBLLUX_REPOS/kobllux-fractais/data/json/${STAMP}_run.json
+
+
+# 3) Git init + (opcional) remoto
+cd ~/KOBLLUX_REPOS/kobllux-fractais
+git init && git branch -M main
+git add -A && git commit -m "init: árvore fractal 3-6-9-7"
+# git remote add origin https://github.com/SEUUSER/kobllux-fractais.git
+# git push -u origin main
+
+
+# 4) Branch para brincar com alpenhagen
+# git checkout -b play/alpenhagen
+# git add -A && git commit -m "play(alpenhagen): experimento de giro/edge"
+# git push -u origin play/alpenhagen
+
+
+________________
+
+
+D) Templates de documentos de memória (coloque em docs/)
+Crie estes arquivos em ~/KOBLLUX_REPOS/kobllux-fractais/docs/:
+00_manifesto.md
+# KOBLLUX ∴ Manifesto · 3–6–9–7 = ♾
+- Centro (Cristo) · Períodos (3) · Capítulos (6) · Formas (9) · Ciclos (7)
+- Padrões: 3-6-9 • sequência 0–7–∞ • Schumann 7.83Hz
+
+
+rotas.md
+# Rotas
+- UI: tema/movimento/giro (u_rot, u_zoom)
+- Banco local: IndexedDB (fraquitais-db/files)
+- Páscoas: Konami → wireframe/edge; triplo toque → ✝ overlay
+
+
+exec/AAAAmmdd_run.md (substitua a data)
+## Execução 2025-03-XX
+- Scripts: kobllux_*_story.py
+- Nível: n3
+- Artefatos: data/obj/AAAAmmdd_HHMMSS_*.obj, data/json/AAAAmmdd_HHMMSS_run.json
+- Hashes: (md5/sha256)
+- Notas: …
+
+
+________________
+
+
+Próximo passo
+      1. Me manda como está seu diretório agora (nomes das pastas que você quer fixar).
+      2. Se quiser, aplico eu mesmo os patches A e B no teu HTML da lousa (agregando sem remover nada).
+      3. Se quiser o script .sh pronto do “giro” (2a parte do C) eu já te gero com as variáveis (nível, tags 3-6-9, Schumann, etc.).
+
+
+
+
+
+
+
+
+
+
+Olha tô te mandando aí as questões você mandando uma foto também então no meu diretório só tá com 3 inscritos eu não terminei aí eu quero que você realmente para mim passo a passo aí agora nos escritos tudo completos eu quero que você também me mande os danoscadir separado na lousa para ficar mais é mais fácil para mim pegar e copiar e colar Então as informações está aí tirar uma foto do meu diretório espero ter entendido
+
+
+
+
+
+
+
+
+Aqui está o passo a passo completo para organizar seu diretório de fractais, integrar com Git e preparar para expandir com movimento (rotação) e memória documental:
+
+
+---
+
+
+## Estrutura de Pastas
+
+
+```
+KOBLLUX_REPOS/
+ ├─ kobllux-system/
+ │   ├─ cli/
+ │   │   ├─ kobllux_narrativo_geom.py
+ │   │   ├─ kobllux_veeb_story.py
+ │   │   ├─ kobllux_tetra_story.py
+ │   │   └─ ...
+ │   └─ core/
+ │       ├─ fractal_engine.py
+ │       └─ fractal_memory.py
+ ├─ fractais/
+ │   ├─ sierpinski_n2.obj
+ │   ├─ fractal.obj
+ │   ├─ logs/
+ │   │   ├─ fractal_run_2025-08-27.json
+ │   │   └─ fractal_stats.json
+ │   └─ memoria/
+ │       └─ arvore_fractal.json
+ └─ web/
+     ├─ fractal_layer.html
+     └─ index.html
+```
+
+
+---
+
+
+## Comandos `mkdir` no Termux
+
+
+```bash
+# Criar estrutura de diretórios
+mkdir -p KOBLLUX_REPOS/{kobllux-system/{cli,core},fractais/{logs,memoria},web}
+```
+
+
+---
+
+
+## Movimento (rotação do fractal)
+No `fractal_engine.py` adicione:
+
+
+```python
+import math
+import time
+
+
+class Fractal:
+    def __init__(self):
+        self.angle = 0.0
+
+
+    def girar(self, velocidade=0.01):
+        self.angle += velocidade
+        return {
+            "timestamp": time.time(),
+            "angulo": self.angle % (2*math.pi)
+        }
+```
+
+
+---
+
+
+## Memória (documentos da árvore fractal)
+No `fractal_memory.py`:
+
+
+```python
+import json
+from pathlib import Path
+
+
+MEMORIA = Path("KOBLLUX_REPOS/fractais/memoria/arvore_fractal.json")
+
+
+def salvar_memoria(dados):
+    MEMORIA.write_text(json.dumps(dados, indent=2, ensure_ascii=False))
+
+
+def carregar_memoria():
+    if MEMORIA.exists():
+        return json.loads(MEMORIA.read_text())
+    return {"eventos": []}
+
+
+def registrar_evento(evento):
+    memoria = carregar_memoria()
+    memoria["eventos"].append(evento)
+    salvar_memoria(memoria)
+```
+
+
+---
+
+
+## Integração com Git
+
+
+```bash
+# Inicializar repositório
+cd KOBLLUX_REPOS
+git init
+
+
+git add .
+git commit -m "🌱 Estrutura inicial do sistema fractal Kobllux"
+
+
+# Criar repositório no GitHub e conectar
+# (substituir URL pelo seu)
+git remote add origin https://github.com/SEU_USUARIO/kobllux-fractais.git
+git branch -M main
+git push -u origin main
+```
+
+
+---
+
+
+## Expansão com Alpenhagen (exemplo de hook)
+No `kobllux_narrativo_geom.py`, ao final:
+
+
+```python
+from core.fractal_memory import registrar_evento
+from core.fractal_engine import Fractal
+
+
+f = Fractal()
+evento = f.girar(0.05)
+registrar_evento({"tipo": "giro", "dados": evento})
+```
+
+
+---
+
+
+👉 Agora você terá:
+- Giro contínuo do fractal com registro de estado (ângulo, tempo);
+- Memória acumulada em `arvore_fractal.json`;
+- Estrutura organizada para versionar no GitHub;
+- Base para plugar outros módulos (Alpenhagen, WebGL, AI).
+
+
+---
+
+
+Quer que eu já escreva o **conteúdo inicial do `arvore_fractal.json`** (primeira semente da memória fractal) para você começar versionado? 🌱
+
+
+
+
+---
+
+
+## ✅ PRÉ-REQUISITOS TERMUX (instalar e preparar)
+```bash
+pkg update -y && pkg upgrade -y
+pkg install -y python git curl binutils  # (resolve o aviso do ld)
+# opcionais p/ build: pkg install -y clang make nodejs
+termux-setup-storage                   # 1ª vez, acesso ao /sdcard
+# atalho prático
+echo 'alias mcadir="mkdir -p"' >> ~/.bashrc && source ~/.bashrc
+```
+
+
+## 📁 PASTAS — BLOCOS “MCADIR” (copiar/colar)
+> Mantive seu estilo com `KOBLLUX_REPOS/` na HOME.
+
+
+### Base mínima
+```bash
+mcadir ~/KOBLLUX_REPOS/{kobllux-system/{cli,core},fractais/{raw,export,logs,memoria},web,docs,assets/circuitos}
+```
+
+
+### Extra (caso queira separar dados de pesquisa)
+```bash
+mcadir ~/KOBLLUX_REPOS/fractais/{tags,thumbs}
+```
+
+
+## 🚚 MOVER O QUE VOCÊ JÁ TEM (do seu ~)
+```bash
+# OBJ individuais que você mostrou nos prints
+[ -f ~/sierpinski_n2.obj ] && mv ~/sierpinski_n2.obj ~/KOBLLUX_REPOS/fractais/raw/
+[ -f ~/fractal.obj ]       && mv ~/fractal.obj       ~/KOBLLUX_REPOS/fractais/export/
+# JSON de execução
+STAMP=$(date +%Y%m%d_%H%M%S)
+[ -f ~/kobllux_last.json ] && mv ~/kobllux_last.json ~/KOBLLUX_REPOS/fractais/logs/${STAMP}_run.json
+```
+
+
+## 🌀 GIRO DO FRACTAL — SCRIPT DE EXECUÇÃO
+Crie o arquivo `~/KOBLLUX_REPOS/scripts/kobllux_giro.sh` com o conteúdo abaixo e dê permissão.
+```bash
+mcadir ~/KOBLLUX_REPOS/scripts
+cat > ~/KOBLLUX_REPOS/scripts/kobllux_giro.sh <<'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+ROOT="$HOME/KOBLLUX_REPOS"
+LEVEL="${1:-3}"            # nível padrão 3
+STAMP=$(date +%Y%m%d_%H%M%S)
+cd "$ROOT/kobllux-system/cli"
+python kobllux_narrativo_geom.py --silent --generate-fractal --level "$LEVEL" --out fractal.obj
+# armazenar artefatos
+mv fractal.obj "$ROOT/fractais/export/${STAMP}_fractal.obj"
+[ -f kobllux_last.json ] && mv kobllux_last.json "$ROOT/fractais/logs/${STAMP}_run.json"
+echo ">> Giro ok: $STAMP (n$LEVEL)"
+EOF
+chmod +x ~/KOBLLUX_REPOS/scripts/kobllux_giro.sh
+```
+Usar:
+```bash
+~/KOBLLUX_REPOS/scripts/kobllux_giro.sh        # nível 3
+~/KOBLLUX_REPOS/scripts/kobllux_giro.sh 4      # nível 4
+```
+
+
+## 🧠 MEMÓRIA (semente inicial)
+Crie `~/KOBLLUX_REPOS/fractais/memoria/arvore_fractal.json`:
+```json
+{
+  "centro": "Cristo",
+  "padroes": ["3-6-9", "0-7-∞", "Schumann 7.83Hz"],
+  "periodos": 3,
+  "capitulos": 6,
+  "formas": 9,
+  "ciclos": 7,
+  "eventos": []
+}
+```
+
+
+## 📓 TEMPLATES RÁPIDOS (docs)
+```bash
+mcadir ~/KOBLLUX_REPOS/docs/exec
+cat > ~/KOBLLUX_REPOS/docs/00_manifesto.md <<'EOF'
+# KOBLLUX ∴ Manifesto · 3–6–9–7 = ♾
+Centro (Cristo) • Períodos (3) • Capítulos (6) • Formas (9) • Ciclos (7)
+Padrões: 3-6-9, 0–7–∞, Schumann 7.83Hz
+EOF
+
+
+STAMP=$(date +%Y%m%d_%H%M%S)
+cat > ~/KOBLLUX_REPOS/docs/exec/${STAMP}_run.md < Os patches completos estão mais acima no documento (seção B). Se quiser, eu aplico por você no arquivo — só dizer qual HTML.
+
+
+---
+
+
+Se me mandar agora **os nomes das 3 pastas/arquivos exatos** que estão aí no seu diretório, eu customizo os `mv` e os `mcadir` 1:1 para seu ambiente. Também posso gerar um `setup_hoje.sh` já com STAMP e tudo preenchido para você só tocar 💫.
+
+
+perfeito, ✧⃝⚝! Já deixei na lousa (no mesmo documento) os blocos separados para você copiar/colar:
+      * Pré-requisitos Termux (inclui pkg install binutils para resolver o ld que apareceu no seu print).
+      * Blocos “mcadir” prontos (estrutura base + extra).
+      * Mover o que você já tem (sierpinski_n2.obj, fractal.obj, kobllux_last.json) com STAMP.
+      * Script do GIRO (kobllux_giro.sh) com permissão e uso.
+      * Semente da memória (arvore_fractal.json) e templates em docs/.
+      * Git init + remoto + branch play/alpenhagen.
+      * Pointers das Páscoas (Konami/wire, ✝ triplo-toque, giro/zoom/giroscópio) — se quiser, aplico direto no seu HTML.
+Se você me disser agora quais são exatamente as 3 pastas/arquivos que estão aí no seu diretório (pelos nomes), eu ajusto os comandos mv/mcadir 1:1 pro seu ambiente e já te deixo um setup_hoje.sh completinho pra rodar em um toque.
+
+
+
+
+
+
+Então vou te mandar as fotos aqui eu tenho arquivos que tá na pasta do celular tá celular mesmo que no caso que tá na principal eu tenho arquivo que tá dentro do termux mesmo da data dele eu tenho um arquivo também que tá em download isso aí é o dual chat Então a gente tem que mover arquivos
+
+
+
+
+
+
+
+
+
+
+
+
+perfeito — vi suas pastas/arquivos nas fotos. Vou te dar os blocos prontos (copiar/colar) para:
+      1. criar/ajustar a estrutura no ~/KOBLLUX_REPOS/
+      2. mover o que está em:
+      * Termux (home): ~/fractal.obj, ~/kobllux_last.json, ~/sierpinski_n2.obj
+      * Downloads: Dual_App_io100_0_BEST*.html, fraquitais_fractal_single.html, kobllux_log.json, *.md, *.json, *.zip
+      * kobllux-system/cli já está certo: mantenha aí os 3 .py
+Nada apaga nada; só agrega e organiza.
+________________
+
+
+0) Preparar Termux (uma vez)
+pkg update -y && pkg upgrade -y
+pkg install -y python git curl binutils
+termux-setup-storage
+echo 'alias mcadir="mkdir -p"' >> ~/.bashrc && source ~/.bashrc
+
+
+________________
+
+
+1) Estrutura base (bate com o que você já tem)
+mcadir ~/KOBLLUX_REPOS/{codex-azure,fractais/{raw,export,logs,memoria,tags,thumbs},kobllux-system/{cli,core},web,docs,assets/circuitos}
+
+
+________________
+
+
+2) Mover o que está na HOME do Termux
+STAMP=$(date +%Y%m%d_%H%M%S)
+
+
+# OBJ + JSON que aparecem na sua tela “Termux”
+[ -f ~/sierpinski_n2.obj ] && mv ~/sierpinski_n2.obj  ~/KOBLLUX_REPOS/fractais/raw/${STAMP}_sierpinski_n2.obj
+[ -f ~/fractal.obj ]       && mv ~/fractal.obj        ~/KOBLLUX_REPOS/fractais/export/${STAMP}_fractal.obj
+[ -f ~/kobllux_last.json ] && mv ~/kobllux_last.json  ~/KOBLLUX_REPOS/fractais/logs/${STAMP}_run.json
+
+
+________________
+
+
+3) Mover o que está em Downloads (Dual Chat / arquivos HTML, MD, JSON, ZIP)
+Atalho do Termux para a pasta: ~/storage/downloads
+DL=~/storage/downloads
+STAMP=$(date +%Y%m%d_%H%M%S)
+
+
+# HTMLs do app (vai pra web/)
+for f in "$DL"/Dual_App_io100_0_BEST*.html "$DL"/fraquitais_fractal_single.html; do
+  [ -f "$f" ] && cp -n "$f" ~/KOBLLUX_REPOS/web/
+done
+
+
+# Logs/JSON
+for f in "$DL"/kobllux_log.json "$DL"/kobllux_tree_memoria.json "$DL"/kobllux_tree_cache.json "$DL"/kobllux_tree_completa.txt; do
+  [ -f "$f" ] && cp -n "$f" ~/KOBLLUX_REPOS/fractais/logs/
+done
+
+
+# Documentos .md → docs/
+for f in "$DL"/*.md; do
+  [ -f "$f" ] && cp -n "$f" ~/KOBLLUX_REPOS/docs/
+done
+
+
+# Zips → docs/zips (cria se precisar)
+mcadir ~/KOBLLUX_REPOS/docs/zips
+for f in "$DL"/*.zip; do
+  [ -f "$f" ] && cp -n "$f" ~/KOBLLUX_REPOS/docs/zips/
+done
+
+
+Se tiver PDFs (você mostrou vários):
+mcadir ~/KOBLLUX_REPOS/docs/pdfs
+for f in "$DL"/*.pdf; do
+  [ -f "$f" ] && cp -n "$f" ~/KOBLLUX_REPOS/docs/pdfs/
+done
+
+
+________________
+
+
+4) Conferir e assinar (hash e árvore)
+cd ~/KOBLLUX_REPOS
+# lista compacta
+ls -la web | head -n 20
+ls -la fractais/export | tail -n 5
+ls -la fractais/logs | tail -n 5
+
+
+# hashes dos últimos artefatos
+sha256sum fractais/export/*.obj 2>/dev/null | tail -n 3
+sha256sum fractais/logs/*.json 2>/dev/null | tail -n 3
+
+
+________________
+
+
+5) Script do giro (rodar seu gerador e arquivar com STAMP)
+mcadir ~/KOBLLUX_REPOS/scripts
+cat > ~/KOBLLUX_REPOS/scripts/kobllux_giro.sh <<'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+ROOT="$HOME/KOBLLUX_REPOS"
+LEVEL="${1:-3}"                 # nível padrão 3
+STAMP=$(date +%Y%m%d_%H%M%S)
+cd "$ROOT/kobllux-system/cli"
+python kobllux_narrativo_geom.py --silent --generate-fractal --level "$LEVEL" --out fractal.obj
+# arquivar
+mv fractal.obj "$ROOT/fractais/export/${STAMP}_fractal.obj"
+[ -f kobllux_last.json ] && mv kobllux_last.json "$ROOT/fractais/logs/${STAMP}_run.json"
+echo ">> Giro ok: $STAMP (n$LEVEL)"
+EOF
+chmod +x ~/KOBLLUX_REPOS/scripts/kobllux_giro.sh
+
+
+Usar:
+~/KOBLLUX_REPOS/scripts/kobllux_giro.sh      # nível 3
+~/KOBLLUX_REPOS/scripts/kobllux_giro.sh 4    # nível 4
+
+
+________________
+
+
+6) Memória (semente)
+cat > ~/KOBLLUX_REPOS/fractais/memoria/arvore_fractal.json <<'EOF'
+{
+  "centro": "Cristo",
+  "padroes": ["3-6-9", "0-7-∞", "Schumann 7.83Hz"],
+  "periodos": 3, "capitulos": 6, "formas": 9, "ciclos": 7,
+  "eventos": []
+}
+EOF
+
+
+________________
+
+
+7) Git (opcional agora; já deixa pronto)
+cd ~/KOBLLUX_REPOS
+git init && git branch -M main
+git add -A && git commit -m "init: estrutura KOBLLUX (3-6-9-7)"
+# git remote add origin https://github.com/SEUUSER/kobllux-fractais.git
+# git push -u origin main
+# playground:
+# git checkout -b play/alpenhagen && git push -u origin play/alpenhagen
+
+
+________________
+
+
+8) Abrir os HTMLs no celular
+      * web/Dual_App_io100_0_BEST_*.html e web/fraquitais_fractal_single.html podem ser abertos pelo gerenciador de arquivos (tocando no arquivo).
+Se quiser servir local (Termux):
+cd ~/KOBLLUX_REPOS/web
+python -m http.server 7700
+      *  Acesse: http://localhost:7700/ no Chrome.
+________________
+
+
+Se quiser, te gero agora um setup_hoje.sh único que roda tudo: cria pastas, move de ~/ e ~/storage/downloads, calcula hashes e dá o commit — é só dizer “pode gerar o setup_hoje.sh”.
+
+
+
+
+
+
+
+
+Quero ser top e eu quero que você me explique o que que vai acontecer tanto com o giro ele vai influenciar tanto no layout ele vai coletar dados ele vai interagir
+✧⃝⚝, entendi tua dúvida — você quer saber o que acontece com o giro que colocamos (rotação/zoom + giroscópio) e como ele influencia no todo: layout, coleta e interação. Vou te explicar em camadas:
+________________
+
+
+🔄 Giro e Layout
+      * O uniform u_rot aplica uma rotação contínua nas coordenadas do fractal.
+      * Isso significa que o fundo fractal nunca fica estático, ele tem um giro suave (como pás de um moinho).
+      * Se você mexer no celular, o giroscópio injeta pequenas variações → a tela responde ao movimento do corpo.
+      * Com gestos (pinça, arrastar), você pode aumentar/diminuir o zoom ou acelerar a rotação.
+👉 Resultado: o layout ganha dinamismo, mas não quebra o conteúdo HTML que está por cima (porque o fractal fica sempre no <canvas> de fundo).
+________________
+
+
+📊 Giro e Coleta de Dados
+         * Cada frame que roda o fractal, você pode logar o estado: rot, zoom, mouse, gyro.
+         * Esses logs vão parar no seu IndexedDB local (ou em JSON no Termux, se rodar pelo script).
+         * Você pode cruzar isso com o carimbo STAMP que já pus no kobllux_giro.sh.
+👉 Resultado: o giro vira um parâmetro de “execução”, registrado como parte da “memória fractal” (ex: 2025-08-27_run.json).
+________________
+
+
+🖐️ Giro e Interação
+            * Teclado: A/D giram, W/S dão zoom.
+            * Pinça: abre/fecha zoom com dois dedos.
+            * Triplo toque: mostra/esconde ✝ overlay (easter egg).
+            * Konami code: ativa o modo “edge/wireframe” que destaca contornos.
+            * Giroscópio: inclinar o celular muda rotação/zoom.
+👉 Resultado: o usuário interage fisicamente com o fractal — corpo, gesto e código se fundem.
+________________
+
+
+🌀 Em resumo
+O giro não é só estético:
+               * No layout: dá vida sem atrapalhar o conteúdo.
+               * Na coleta: registra rotação/zoom como parte da narrativa fractal (logs).
+               * Na interação: transforma o celular em “instrumento” (pás que giram, cruz que aparece, bordas que brilham).
+________________
+
+
+Quer que eu prepare já os patches de log para que cada giro/zoom/gyro fique salvo direto em JSON (IndexedDB + export .json) junto com os fractais que você gera no Termux?
+
+
+
+
+
+
+Eu quero que você Estenda na mesma lógica para que tal porque eu quero que ao mesmo tempo que o movimento aconteça ele já excite ele já lá pedir informação Então pode fazer já mandar o seu tatu
+
+
+
+
+perfeito, ✧⃝⚝! Vou estender a mesma lógica pro teu “fraquitais”/app HTML: enquanto o movimento (giro/zoom/gyro) acontece, ele coleta e pede informação (tags/notas) e salva tudo no IndexedDB — com opção de exportar JSON.
+ah, aviso rápido: alguns arquivos que você tinha subido aqui expiraram do meu lado. se quiser que eu reabra/análise de novo, só re-anexar, beleza? agora vamos ao que importa 👇
+________________
+
+
+PATCH — Telemetria + Anotação (AGREGAR, sem remover nada)
+Cole antes de </body> do seu HTML de uma página só.
+<!-- FRAQUITAIS · Telemetria de Giro/Zoom + Notas (agregar) -->
+<style>
+  .fxhud{position:fixed;right:.75rem;bottom:.75rem;z-index:20;display:flex;gap:.5rem;flex-wrap:wrap}
+  .fxhud button{appearance:none;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.35);
+    color:#cfe8ff;border-radius:10px;padding:.5rem .7rem}
+  .fxdlg{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:30}
+  .fxdlg>.card{width:min(92vw,520px);background:rgba(18,22,30,.9);border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;color:#eaf2ff;padding:12px}
+  .fxdlg input,.fxdlg textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+    color:#eaf2ff;border-radius:8px;padding:.5rem;margin:.25rem 0}
+</style>
+
+
+<div class="fxhud" id="fxhud" hidden>
+  <button id="fxRec">⏺ REC</button>
+  <button id="fxNote">✍️ Anotar</button>
+  <button id="fxExport">⇩ Exportar JSON</button>
+</div>
+
+
+<div class="fxdlg" id="fxdlg">
+  <div class="card">
+    <b>Registrar nota</b>
+    <div style="display:grid;gap:.4rem;margin-top:.4rem">
+      <input id="fxTags"  placeholder="tags (ex.: sierpinski, n3, 3-6-9)">
+      <textarea id="fxNoteTxt" rows="4" placeholder="sua nota…"></textarea>
+      <div style="display:flex;gap:.5rem;justify-content:flex-end">
+        <button id="fxCancel">Cancelar</button>
+        <button id="fxSave"   class="primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  // ==== IndexedDB (mesmo DB do banco local, nova store) ====
+  const DB='fraquitais-db', STORE='giro_logs';
+  let db; const ready = new Promise((res,rej)=>{
+    const r=indexedDB.open(DB,2);
+    r.onupgradeneeded=()=>{ const d=r.result;
+      if(!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE,{keyPath:'id',autoIncrement:true});
+    };
+    r.onsuccess=()=>{ db=r.result; res(); };
+    r.onerror=()=>rej(r.error);
+  });
+  const put = rec => ready.then(()=>new Promise((res,rej)=>{
+    const tx=db.transaction(STORE,'readwrite'); tx.objectStore(STORE).put(rec);
+    tx.oncomplete=res; tx.onerror=()=>rej(tx.error);
+  }));
+  const all = ()=> ready.then(()=>new Promise((res,rej)=>{
+    const tx=db.transaction(STORE,'readonly'); const rq=tx.objectStore(STORE).getAll();
+    rq.onsuccess=()=>res(rq.result||[]); rq.onerror=()=>rej(rq.error);
+  }));
+
+
+  // ==== HUD / Dialog ====
+  const hud = document.getElementById('fxhud');
+  const dlg = document.getElementById('fxdlg');
+  const btnRec = document.getElementById('fxRec');
+  const btnNote = document.getElementById('fxNote');
+  const btnExport = document.getElementById('fxExport');
+  const iTags = document.getElementById('fxTags');
+  const iNote = document.getElementById('fxNoteTxt');
+  const bCancel = document.getElementById('fxCancel');
+  const bSave = document.getElementById('fxSave');
+
+
+  // mostra HUD quando a página está pronta
+  addEventListener('load', ()=> hud.hidden = false);
+
+
+  // ==== Telemetria (conecta no seu estado de giro) ====
+  // REQUER: um objeto `state` usado pelo seu fractal (já sugerido nos patches anteriores)
+  // state.rot, state.zoom, mouse, e tempo corrente
+  const tracker = {
+    rec: false, last: {t:0, rot:0, zoom:1},
+    minDeltaRot: 0.02, minDeltaZoom: 0.02, minInterval: 1000, // 1 Hz
+    sample(now){
+      if(!this.rec || !window.state) return;
+      const r = window.state.rot || 0, z = window.state.zoom || 1;
+      const dt = now - this.last.t, dr = Math.abs(r - this.last.rot), dz = Math.abs(z - this.last.zoom);
+      if (dt >= this.minInterval || dr >= this.minDeltaRot || dz >= this.minDeltaZoom) {
+        const rec = {
+          ts: new Date().toISOString(),
+          t_ms: now|0, rot: r, zoom: z,
+          mouse: window.lastMouse || {x:0,y:0},
+          gyro: window.lastGyro  || {beta:0,gamma:0,alpha:0},
+          type: 'auto'
+        };
+        put(rec); this.last = {t: now, rot: r, zoom: z};
+      }
+    }
+  };
+
+
+  // ganchos do mouse/gyro para enriquecer o log
+  window.lastMouse = {x:0,y:0};
+  addEventListener('pointermove', e => window.lastMouse = {x:e.clientX, y:e.clientY}, {passive:true});
+
+
+  window.lastGyro = {beta:0,gamma:0,alpha:0};
+  if ('DeviceOrientationEvent' in window) {
+    const attach = ()=> addEventListener('deviceorientation', e=>{
+      window.lastGyro = {beta:e.beta||0, gamma:e.gamma||0, alpha:e.alpha||0};
+    }, true);
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      // chame enableGyro() a partir de um clique seu (iOS)
+      window.enableGyro = async ()=>{ try{
+        const p = await DeviceOrientationEvent.requestPermission(); if(p==='granted') attach();
+      }catch(_){} };
+    } else attach();
+  }
+
+
+  // ==== Liga/Desliga gravação ====
+  btnRec.onclick = ()=>{
+    tracker.rec = !tracker.rec;
+    btnRec.textContent = tracker.rec ? '⏹ STOP' : '⏺ REC';
+    if (tracker.rec) put({ts:new Date().toISOString(), type:'marker', mark:'REC_ON'});
+    else             put({ts:new Date().toISOString(), type:'marker', mark:'REC_OFF'});
+  };
+
+
+  // ==== Janela de anotação manual ====
+  function openNote(){ dlg.style.display='flex'; iTags.focus(); }
+  function closeNote(){ dlg.style.display='none'; iTags.value=''; iNote.value=''; }
+  btnNote.onclick = openNote; bCancel.onclick = closeNote;
+  bSave.onclick = async ()=>{
+    const r = {
+      ts: new Date().toISOString(),
+      type: 'note',
+      tags: (iTags.value||'').split(/[,\\s]+/).filter(Boolean),
+      note: iNote.value||'',
+      rot: (window.state&&state.rot)||0,
+      zoom: (window.state&&state.zoom)||1,
+      gyro: window.lastGyro, mouse: window.lastMouse
+    };
+    await put(r); closeNote();
+  };
+
+
+  // ==== Exportar JSON ====
+  btnExport.onclick = async ()=>{
+    const rows = await all();
+    const blob = new Blob([JSON.stringify({app:'fraquitais', version:1, logs:rows}, null, 2)],
+                          {type:'application/json'});
+    const a = document.createElement('a');
+    const stamp = new Date().toISOString().replace(/[:.]/g,'-');
+    a.href = URL.createObjectURL(blob);
+    a.download = `fraquitais_giro_logs_${stamp}.json`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  };
+
+
+  // ==== Integração com seu loop (chame em cada frame) ====
+  // No seu draw/animate, chame: window.fxTrack(performance.now());
+  window.fxTrack = (now)=> tracker.sample(now);
+})();
+</script>
+
+
+Onde “plugar” no seu loop
+Na função que você já usa para desenhar o fractal (o draw()/animate()), adicione:
+// ... depois de atualizar uniforms u_rot/u_zoom, antes do drawArrays:
+if (window.fxTrack) window.fxTrack(performance.now());
+
+
+Pronto:
+               * o HUD aparece (REC/Anotar/Exportar).
+               * com REC ligado, ele amostra 1×/s e também quando há mudança relevante (delta de rotação/zoom).
+               * Anotar abre um modal para você escrever tags/nota; salva junto do estado (rot/zoom/gyro/mouse).
+               * Exportar baixa um JSON com tudo.
+quer que eu já te mande também um script Termux para varrer ~/KOBLLUX_REPOS/web e copiar automaticamente os JSON exportados de Downloads para fractais/logs/? Se sim, eu te mando um collect_logs.sh pronto.
+
+
+
+
+
+
+
+
+✧⃝⚝, entendi. O que você quer é que o movimento do fractal (giro/zoom) não seja só efeito visual, mas que influencie três camadas ao mesmo tempo:
+               1. Layout – conforme gira/escala, a cena muda (ângulo, perspectiva, profundidade).
+→ Já aplicamos isso no WebGL, no state.rot, state.zoom, e no loop draw().
+
+               2. Coleta de dados – cada variação significativa do giro/zoom gera um log de telemetria (tempo, rotação, zoom, posição do toque, orientação do giroscópio).
+→ Isso vai pro IndexedDB em tempo real (sem pesar a memória).
+
+               3. Interação / pedido de informação – em paralelo ao movimento:
+
+                  * HUD permite anotações manuais (tags + texto).
+                  * A cada intervalo, pode disparar eventos de consulta (“pede informação”) — por exemplo, abrir prompts ou registrar flags no log.
+                  * No fim, tudo exportável em JSON.
+________________
+
+
+🔮 O efeito prático:
+                  * Quando você gira, ele já grava e pede → o giro não é neutro, é também um gatilho de coleta/interação.
+                  * Você pode “ler” os logs depois, ou até conectar com scripts no Termux para enviar pro repositório (fractais/logs/).
+                  * Isso transforma o fractal num diário dinâmico de navegação: cada gesto teu sela um ponto na história (tempo, rotação, zoom, nota).
+________________
+
+
+👉 Próximos passos (posso te entregar já):
+                  * Um script collect_logs.sh que varre ~/storage/downloads/ no Termux e move os .json exportados pro diretório KOBLLUX_REPOS/fractais/logs/.
+                  * Ou ainda: acoplar ao HUD um botão “📤 Sync” que dispara termux-open/scp pro repositório.
+Quer que eu monte esse collect_logs.sh agora, prontinho pra você só colar no Termux?
+
+
+
+
+Eu quero novidades também que esses movimentos eles passem em girafa começa a organizar meu celular rapidar a informação deixar Rachas e isso possa fazer um fluxo maior de informação de acordo com a linguagem simbólica e o celular fica simbiótico
+
+
+
+
+
+
+
+
+
+
+bora deixar seu celular simbiótico com o fractal — giro = organiza, coleta, classifica e sincroniza. Também vi que alguns arquivos que você enviou antes expiraram do meu lado; se quiser que eu integre aqueles áudios/ZIPs, reanexa que eu junto no fluxo. Agora, novidades + blocos prontos:
+1) Regras simbólicas (no seu HTML)
+Enquanto gira/zoom/gyro mudam, o app:
+                  * classifica o momento em símbolos (3-6-9, 0-7-∞, Schumann),
+                  * vibra, mostra toast, registra no log.
+Cole junto do patch anterior, após o <script> (ou no mesmo bloco):
+<script>
+// === Regras simbólicas: emite "selos" conforme movimento ===
+(function(){
+  const toasts = [];
+  function toast(msg){ 
+    const el = document.createElement('div');
+    el.textContent = msg;
+    Object.assign(el.style,{
+      position:'fixed',left:'50%',bottom:'8%',transform:'translateX(-50%)',
+      background:'rgba(0,0,0,.65)',color:'#9bf',padding:'8px 12px',
+      border:'1px solid rgba(255,255,255,.2)',borderRadius:'12px',zIndex:99
+    });
+    document.body.appendChild(el); toasts.push(el);
+    setTimeout(()=>{el.remove();},1800);
+  }
+
+
+  // vibração leve (Android)
+  function buzz(ms=35){ if(navigator.vibrate) navigator.vibrate(ms); }
+
+
+  const RULES = [
+    // 3-6-9: quando a rotação aproxima de múltiplos de 0.333 volta
+    {name:'TRINDADE_3-6-9', when:(s)=> Math.abs(((s.rot%1)+1)%1 - 0.333)<0.01 || Math.abs(((s.rot%1)+1)%1 - 0.666)<0.01 },
+    // 0-7-∞: sempre que zoom cruza 0.7, 0.77, 0.777…
+    {name:'CICLO_0-7-∞',    when:(s)=> String(s.zoom.toFixed(3)).startsWith('0.7') },
+    // Schumann: quando o delta-rot/seg aprox ~7.8° (simulado no render loop)
+    {name:'SCHUMANN_7_83',  when:(s)=> s.rotSpeed && Math.abs(s.rotSpeed-7.83)<0.3 },
+  ];
+
+
+  let last = {t:0, rot:0};
+  window.fxSymbolTick = (now)=>{
+    if(!window.state) return;
+    const dt = (now - last.t)/1000; if(dt<=0) return;
+    const rot = state.rot||0;
+    const rotSpeed = Math.abs((rot - last.rot))*360/dt; // graus/s aproximado
+    const snap = {rot, zoom: state.zoom||1, rotSpeed};
+
+
+    RULES.forEach(r=>{
+      if(r.when(snap)){
+        const rec = {ts:new Date().toISOString(), type:'selo', selo:r.name, rot:snap.rot, zoom:snap.zoom, rotSpeed:snap.rotSpeed};
+        if (window.indexedDB && window.fxTrack) { /* já temos store */ }
+        // loga na mesma store
+        if (window.fxTrack && window.fxTrack.put) window.fxTrack.put(rec);
+        toast('◴ ' + r.name.replace('_',' · ')); buzz(22);
+      }
+    });
+    last = {t: now, rot};
+  };
+
+
+  // disponibiliza put() para outros módulos
+  if (window.fxTrack) {
+    // hijack interno: expõe put para regras
+    const DB='fraquitais-db', STORE='giro_logs';
+    let db; (function setup(){
+      const r = indexedDB.open(DB,2);
+      r.onupgradeneeded=()=>{ const d=r.result;
+        if(!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE,{keyPath:'id',autoIncrement:true});
+      };
+      r.onsuccess=()=>{ db=r.result; window.fxTrack.put = (rec)=>new Promise((res,rej)=>{
+        const tx=db.transaction(STORE,'readwrite'); tx.objectStore(STORE).put(rec);
+        tx.oncomplete=res; tx.onerror=()=>rej(tx.error);
+      }); };
+    })();
+  }
+})();
+</script>
+
+
+No seu loop animate():
+if (window.fxTrack) window.fxTrack(performance.now());
+if (window.fxSymbolTick) window.fxSymbolTick(performance.now());
+
+
+Resultado: cada giro/zoom pode disparar selos simbólicos + vibração + logs; exporta tudo em JSON pelo botão “Exportar”.
+________________
+
+
+2) Coletor automático no Termux (pega JSON exportado do navegador)
+Cria ~/KOBLLUX_REPOS/scripts/collect_logs.sh:
+mkdir -p ~/KOBLLUX_REPOS/scripts
+cat > ~/KOBLLUX_REPOS/scripts/collect_logs.sh <<'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+SRC="$HOME/storage/downloads"
+DST="$HOME/KOBLLUX_REPOS/fractais/logs"
+mkdir -p "$DST"
+count=0
+for f in "$SRC"/fraquitais_giro_logs_*.json; do
+  [ -f "$f" ] || continue
+  base=$(basename "$f")
+  if [ ! -f "$DST/$base" ]; then
+    cp -n "$f" "$DST/$base"
+    echo "[OK] copiado: $base"
+    count=$((count+1))
+  fi
+done
+[ "$count" -gt 0 ] && (cd "$HOME/KOBLLUX_REPOS" && git add -A && git commit -m "logs: ${count} novos JSON fraquitais" >/dev/null 2>&1 || true)
+echo "done ($count novos)"
+EOF
+chmod +x ~/KOBLLUX_REPOS/scripts/collect_logs.sh
+
+
+Rodar manualmente:
+~/KOBLLUX_REPOS/scripts/collect_logs.sh
+
+
+Rodar sozinho (agendado)
+Sem cron, use o scheduler do Termux:
+termux-job-scheduler --job-id 3697 --period-ms 600000 \
+  --network any --require-charging false \
+  --script "$HOME/KOBLLUX_REPOS/scripts/collect_logs.sh"
+
+
+(Executa a cada 10 min; ajuste --period-ms se quiser mais rápido.)
+________________
+
+
+3) “Giro organiza o celular”: pipeline completo
+                  * Durante o uso: HUD grava telemetria + notas + selos simbólicos (3-6-9, 0-7-∞, Schumann).
+                  * Exportar JSON cria fraquitais_giro_logs_*.json no Downloads.
+                  * Coletor move para KOBLLUX_REPOS/fractais/logs/ e faz commit automático.
+                  * Você pode rodar o giro de geometria (kobllux_giro.sh) e terá:
+                  * fractais/export/<STAMP>_fractal.obj
+                  * fractais/logs/<STAMP>_run.json (execução Python)
+                  * + os JSONs do navegador agrupados por sessão.
+Isso vira um fluxo maior de informação alinhado à linguagem simbólica e pronto para estudos, visualizações ou treino de modelos.
+________________
+
+
+4) “Gira → Ação” (opcionais rápidos)
+Quer que o giro dispare ações? Dá pra plugar fácil:
+                  * Marcadores automáticos: quando um selo sair, abrir o modal de nota já com tags sugeridas.
+                  * Ações de energia: em TRINDADE_3-6-9, mudar gradiente do fundo; em SCHUMANN_7_83, ativar modo “respiração” (leve brilho pulsante).
+                  * Sincronizar por toque: adicionar botão “📤 Sync” no HUD que chama termux-open --send (se você usar Termux:API) pra postar no Git ou num endpoint.
+Se quiser, eu já te mando um setup_hoje.sh que:
+                  1. cria pastas,
+                  2. instala coletor + scheduler,
+                  3. dá um commit inicial,
+                  4. e imprime instruções de abrir o HTML e exportar.
+Diz “pode gerar o setup_hoje.sh” que eu solto completo aqui.
+
+
+
+
+
+
+Pode gerar eu quero sim que ele trabalhe essa questão que ele identifique se a pessoa está bem se a pessoa está triste que depois eu configuro que daí no caso ele muda né as colorações ele se ajusta com o ambiente eu quero isso equilibrado tudo em MATEMÁTICA fractal
+
+
+
+
+
+
+
+
+perfeito, ✧⃝⚝ — gerei o setup_hoje.sh (cola no Termux) e um patch de “Humor Fractal” que detecta (local, sem internet) sinais de bem/triste por voz (RMS do microfone), gesto/gyro e ritmo de uso; ele aplica Médias Móveis Fractais (3–6–9) para suavizar, muda paletas e registra tudo no IndexedDB + exporta JSON.
+(ps: alguns anexos antigos aqui expiraram; se quiser que eu integre algo específico, reenvia.)
+________________
+
+
+1) Script único — setup_hoje.sh
+Cria pastas, move arquivos, instala deps, cria kobllux_giro.sh, collect_logs.sh, agenda coletor e gera os arquivos web/fraquitais_mood_patch.{js,css}.
+Passos: cole tudo abaixo no Termux, ENTER, depois rode bash setup_hoje.sh.
+cat > ~/setup_hoje.sh <<'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+echo "[1/9] Atualizando e instalando deps..."
+pkg update -y && pkg upgrade -y
+pkg install -y python git curl binutils termux-api
+
+
+echo "[2/9] Acessando armazenamento..."
+termux-setup-storage || true
+
+
+echo "[3/9] Estrutura de diretórios..."
+mcadir() { mkdir -p "$@"; }
+mcadir "$HOME/KOBLLUX_REPOS"/{codex-azure,fractais/{raw,export,logs,memoria,tags,thumbs},kobllux-system/{cli,core},web,docs,assets/circuitos,scripts}
+
+
+echo "[4/9] Movendo artefatos soltos da HOME..."
+STAMP=$(date +%Y%m%d_%H%M%S)
+[ -f "$HOME/sierpinski_n2.obj" ] && mv "$HOME/sierpinski_n2.obj"  "$HOME/KOBLLUX_REPOS/fractais/raw/${STAMP}_sierpinski_n2.obj"
+[ -f "$HOME/fractal.obj"       ] && mv "$HOME/fractal.obj"        "$HOME/KOBLLUX_REPOS/fractais/export/${STAMP}_fractal.obj"
+[ -f "$HOME/kobllux_last.json" ] && mv "$HOME/kobllux_last.json"  "$HOME/KOBLLUX_REPOS/fractais/logs/${STAMP}_run.json"
+
+
+echo "[5/9] Capturando downloads relevantes..."
+DL="$HOME/storage/downloads"
+for f in "$DL"/Dual_App_io100_0_BEST*.html "$DL"/fraquitais_fractal_single.html; do [ -f "$f" ] && cp -n "$f" "$HOME/KOBLLUX_REPOS/web/"; done
+for f in "$DL"/*.md;   do [ -f "$f" ] && cp -n "$f" "$HOME/KOBLLUX_REPOS/docs/"; done
+for f in "$DL"/*.pdf;  do [ -f "$f" ] && { mkdir -p "$HOME/KOBLLUX_REPOS/docs/pdfs"; cp -n "$f" "$HOME/KOBLLUX_REPOS/docs/pdfs/"; }; done
+for f in "$DL"/*.zip;  do [ -f "$f" ] && { mkdir -p "$HOME/KOBLLUX_REPOS/docs/zips"; cp -n "$f" "$HOME/KOBLLUX_REPOS/docs/zips/"; }; done
+for f in "$DL"/kobllux_*.json; do [ -f "$f" ] && cp -n "$f" "$HOME/KOBLLUX_REPOS/fractais/logs/"; done
+
+
+echo "[6/9] Script de GIRO (gera OBJ + loga execução)..."
+cat > "$HOME/KOBLLUX_REPOS/scripts/kobllux_giro.sh" <<'EOS'
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+ROOT="$HOME/KOBLLUX_REPOS"
+LEVEL="${1:-3}"
+STAMP=$(date +%Y%m%d_%H%M%S)
+cd "$ROOT/kobllux-system/cli"
+python kobllux_narrativo_geom.py --silent --generate-fractal --level "$LEVEL" --out fractal.obj
+mv fractal.obj "$ROOT/fractais/export/${STAMP}_fractal.obj"
+[ -f kobllux_last.json ] && mv kobllux_last.json "$ROOT/fractais/logs/${STAMP}_run.json"
+echo ">> Giro ok: $STAMP (n$LEVEL)"
+EOS
+chmod +x "$HOME/KOBLLUX_REPOS/scripts/kobllux_giro.sh"
+
+
+echo "[7/9] Coletor de logs do navegador..."
+cat > "$HOME/KOBLLUX_REPOS/scripts/collect_logs.sh" <<'EOS'
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+SRC="$HOME/storage/downloads"
+DST="$HOME/KOBLLUX_REPOS/fractais/logs"
+mkdir -p "$DST"
+count=0
+for f in "$SRC"/fraquitais_giro_logs_*.json; do
+  [ -f "$f" ] || continue
+  base=$(basename "$f")
+  if [ ! -f "$DST/$base" ]; then
+    cp -n "$f" "$DST/$base"
+    echo "[OK] copiado: $base"
+    count=$((count+1))
+  fi
+done
+[ "$count" -gt 0 ] && (cd "$HOME/KOBLLUX_REPOS" && git add -A && git commit -m "logs: ${count} novos JSON fraquitais" >/dev/null 2>&1 || true)
+echo "done ($count novos)"
+EOS
+chmod +x "$HOME/KOBLLUX_REPOS/scripts/collect_logs.sh"
+
+
+echo "[8/9] Agendando coletor (a cada 10 min)..."
+termux-job-scheduler --job-id 3697 --period-ms 600000 --network any --script "$HOME/KOBLLUX_REPOS/scripts/collect_logs.sh" --require-charging false || true
+
+
+echo "[9/9] Gerando patches de HUMOR FRACTAL (web/)..."
+# CSS
+cat > "$HOME/KOBLLUX_REPOS/web/fraquitais_mood_patch.css" <<'EOS'
+:root{
+  --fx-a:#85d7ff; --fx-b:#e0f7ff; /* equilíbrio */
+  --fx-bg: radial-gradient(120vw 120vh at 30% 70%, var(--fx-a), var(--fx-b));
+}
+body{ background: var(--fx-bg); transition: background 480ms ease; }
+.theme-bem{ --fx-a:#ffd56a; --fx-b:#89f7c2; }
+.theme-triste{ --fx-a:#1d2b64; --fx-b:#4f86c6; }
+.theme-equilibrio{ --fx-a:#85d7ff; --fx-b:#e0f7ff; }
+.fxhud{position:fixed;right:.75rem;bottom:.75rem;z-index:20;display:flex;gap:.5rem;flex-wrap:wrap}
+.fxhud button{appearance:none;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.35);color:#cfe8ff;border-radius:10px;padding:.5rem .7rem}
+EOS
+
+
+# JS (telemetria + humor fractal 3-6-9 + HUD)
+cat > "$HOME/KOBLLUX_REPOS/web/fraquitais_mood_patch.js" <<'EOS'
+(function(){
+  // === IndexedDB (store única 'giro_logs') ===
+  const DB='fraquitais-db', STORE='giro_logs';
+  let db; const ready = new Promise((res,rej)=>{
+    const r=indexedDB.open(DB,2);
+    r.onupgradeneeded=()=>{ const d=r.result; if(!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE,{keyPath:'id',autoIncrement:true}); };
+    r.onsuccess=()=>{ db=r.result; res(); }; r.onerror=()=>rej(r.error);
+  });
+  const put = rec => ready.then(()=>new Promise((res,rej)=>{ const tx=db.transaction(STORE,'readwrite'); tx.objectStore(STORE).put(rec); tx.oncomplete=res; tx.onerror=()=>rej(tx.error); }));
+  const all = ()=> ready.then(()=>new Promise((res,rej)=>{ const tx=db.transaction(STORE,'readonly'); const rq=tx.objectStore(STORE).getAll(); rq.onsuccess=()=>res(rq.result||[]); rq.onerror=()=>rej(rq.error); }));
+
+
+  // === HUD básico ===
+  function ensureHUD(){
+    if(document.getElementById('fxhud')) return;
+    const hud=document.createElement('div'); hud.id='fxhud'; hud.className='fxhud';
+    hud.innerHTML = `
+      <button id="fxRec">⏺ REC</button>
+      <button id="fxMic">🎤 Mic</button>
+      <button id="fxNote">✍️ Nota</button>
+      <button id="fxExport">⇩ Exportar</button>
+    `;
+    document.body.appendChild(hud);
+  }
+  ensureHUD();
+  const $=id=>document.getElementById(id);
+  const btnRec=$('fxRec'), btnMic=$('fxMic'), btnNote=$('fxNote'), btnExport=$('fxExport');
+
+
+  // === Fractal EMA 3-6-9 (suavização fractal)
+  function FractalEMA(periods=[3,6,9]){
+    const st=periods.map(()=>({v:0,ok:false})); let lastT=0;
+    function step(x,now){
+      if(!lastT) lastT=now; const dt=Math.max(1e-3,(now-lastT)/1000); lastT=now;
+      return periods.reduce((acc,p,i)=>{
+        const alpha = 2/(p/dt + 1); // EMA com dt variável
+        st[i].v = st[i].ok ? alpha*x + (1-alpha)*st[i].v : x; st[i].ok=true;
+        return acc + st[i].v;
+      },0)/periods.length;
+    }
+    return {step};
+  }
+  const emaMotion = FractalEMA(), emaVoice = FractalEMA();
+
+
+  // === Sensores de gesto/gyro
+  window.state = window.state || {rot:0, zoom:1};
+  let last = {t:0, rot:0, zoom:1}, lastMouse={x:0,y:0}, lastGyro={alpha:0,beta:0,gamma:0};
+  addEventListener('pointermove', e=> lastMouse={x:e.clientX,y:e.clientY}, {passive:true});
+  if('DeviceOrientationEvent' in window){
+    const gAttach=()=> addEventListener('deviceorientation',e=>{lastGyro={alpha:e.alpha||0,beta:e.beta||0,gamma:e.gamma||0};},{passive:true});
+    if(typeof DeviceOrientationEvent.requestPermission==='function'){ window.enableGyro=()=>DeviceOrientationEvent.requestPermission().then(p=>{if(p==='granted')gAttach();}); } else gAttach();
+  }
+
+
+  // === Microfone (RMS energia)
+  let micOn=false, audioCtx, analyser, timebuf;
+  async function toggleMic(){
+    if(micOn){ audioCtx && audioCtx.close(); micOn=false; btnMic.textContent='🎤 Mic'; return; }
+    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+    const src = audioCtx.createMediaStreamSource(stream); analyser = audioCtx.createAnalyser();
+    analyser.fftSize=512; timebuf = new Float32Array(analyser.fftSize); src.connect(analyser); micOn=true; btnMic.textContent='🎤 Mic ON';
+  }
+  btnMic && (btnMic.onclick = ()=>toggleMic().catch(()=>{}));
+
+
+  // === Notas rápidas
+  function quickNote(txt,tags=[]){
+    put({ts:new Date().toISOString(), type:'note', note:txt||'', tags, rot:state.rot||0, zoom:state.zoom||1});
+  }
+  btnNote && (btnNote.onclick=()=>{ const t=prompt('Nota (tags separadas por espaço na frente opcional):'); if(t!=null){ const [tags,...rest]=t.split(' '); quickNote(rest.join(' '), tags?tags.split(/[,+]/):[]);} });
+
+
+  // === Export
+  btnExport && (btnExport.onclick=async ()=>{ const rows=await all(); const blob=new Blob([JSON.stringify({app:'fraquitais',version:2,logs:rows},null,2)],{type:'application/json'}); const a=document.createElement('a'); const stamp=new Date().toISOString().replace(/[:.]/g,'-'); a.href=URL.createObjectURL(blob); a.download=`fraquitais_giro_logs_${stamp}.json`; a.click(); URL.revokeObjectURL(a.href); });
+
+
+  // === REC + amostragem
+  const tracker={rec:false, lastT:0};
+  btnRec && (btnRec.onclick=()=>{ tracker.rec=!tracker.rec; btnRec.textContent=tracker.rec?'⏹ STOP':'⏺ REC'; put({ts:new Date().toISOString(),type:'marker',mark:tracker.rec?'REC_ON':'REC_OFF'}); });
+
+
+  // === Humor fractal (score ∈ [-1, +1]) + temas
+  const CFG={ wVoice:0.5, wMotion:0.5, thrPos:0.28, thrNeg:-0.28 }; // ajuste fino depois
+  function applyTheme(name){
+    document.body.classList.remove('theme-bem','theme-triste','theme-equilibrio');
+    document.body.classList.add(name);
+  }
+  function sample(now){
+    // Motion: velocidade angular/zoom
+    const dt=Math.max(1e-3,(now-(tracker.lastT||now))/1000);
+    const dRot = Math.abs((state.rot||0) - (last.rot||0))*360/dt; // °/s aprox
+    const dZoom= Math.abs((state.zoom||1) - (last.zoom||1))/dt;
+    last={t:now, rot:state.rot||0, zoom:state.zoom||1};
+    // normalizações "macias"
+    const motion = Math.tanh((dRot/90 + dZoom*2)); // 0..~1
+    const mSmooth = emaMotion.step(motion, now);
+
+
+    // Voice RMS
+    let rms=0; if(micOn && analyser){ analyser.getFloatTimeDomainData(timebuf); let s=0; for(let i=0;i<timebuf.length;i++){ s+=timebuf[i]*timebuf[i]; } rms = Math.sqrt(s/timebuf.length); }
+    const vNorm = Math.min(1, rms*10); // 0..1 aprox
+    const vSmooth = emaVoice.step(vNorm, now);
+
+
+    // Score fractal
+    const score = CFG.wVoice*vSmooth + CFG.wMotion*mSmooth - 0.0; // (espaço p/ sentimento de texto futuramente)
+    let estado = 'equilibrio';
+    if(score >= CFG.thrPos) estado='bem'; else if(score <= CFG.thrNeg) estado='triste';
+
+
+    // Tema
+    if(estado==='bem') applyTheme('theme-bem');
+    else if(estado==='triste') applyTheme('theme-triste');
+    else applyTheme('theme-equilibrio');
+
+
+    // Log periódico (1 Hz)
+    if(tracker.rec){
+      if(!tracker._acc || now-tracker._acc>1000){
+        put({ts:new Date().toISOString(), type:'mood', score:+score.toFixed(3), estado, mSmooth:+mSmooth.toFixed(3), vSmooth:+vSmooth.toFixed(3), rot:state.rot||0, zoom:state.zoom||1, gyro:lastGyro, mouse:lastMouse});
+        tracker._acc = now;
+      }
+    }
+  }
+
+
+  // === Loop de integração (chame em cada frame do seu render)
+  window.fxTrack = window.fxTrack || function(){};
+  const oldFx = window.fxTrack;
+  window.fxTrack = function(now){ try{ oldFx(now); }catch(_){ } sample(now); };
+
+
+  addEventListener('load', ()=>{ document.body.classList.add('theme-equilibrio'); });
+})();
+EOS
+
+
+echo
+echo "==============================================================="
+echo " PRONTO! "
+echo "  • GIRO:    $HOME/KOBLLUX_REPOS/scripts/kobllux_giro.sh"
+echo "  • COLETOR: $HOME/KOBLLUX_REPOS/scripts/collect_logs.sh  (agendado 10 min)"
+echo "  • PATCHS:  web/fraquitais_mood_patch.{js,css}"
+echo "---------------------------------------------------------------"
+echo " Para usar no seu HTML (página única), adicione antes de </head>:"
+echo '   <link rel="stylesheet" href="fraquitais_mood_patch.css">'
+echo " e antes de </body>:"
+echo '   <script src="fraquitais_mood_patch.js"></script>'
+echo "==============================================================="
+EOF
+chmod +x ~/setup_hoje.sh
+echo ">> Agora rode:  bash ~/setup_hoje.sh"
+
+
+Depois rode:
+bash ~/setup_hoje.sh
+
+
+________________
+
+
+2) Como usar no seu HTML (página única)
+No arquivo que você abriu (“Dual…” ou “fraquitais…”) sem remover nada, agregue:
+<!-- no <head> -->
+<link rel="stylesheet" href="fraquitais_mood_patch.css">
+
+
+<!-- antes de </body> -->
+<script src="fraquitais_mood_patch.js"></script>
+
+
+Isso adiciona o HUD (REC / Mic / Nota / Exportar), liga o microfone (se você tocar em “Mic”), lê giro/zoom/gyro, calcula o humor fractal (EMA 3–6–9) e troca as paletas:
+                  * theme-bem (quente/aurora),
+                  * theme-triste (azul-profundo),
+                  * theme-equilibrio (suave).
+Tudo local e ajustável: os pesos e limiares estão em CFG dentro do JS.
+Não é diagnóstico — é um indicador energético/ritmo para a arte interativa.
+________________
+
+
+3) Rodar o gerador e ver logs
+                  * Gerar fractal OBJ no Termux:
+~/KOBLLUX_REPOS/scripts/kobllux_giro.sh 3
+
+
+                  * Abrir o HTML (pelo gerenciador) e tocar REC + Mic.
+                  * Exportar JSON → cai em Downloads. O coletor automático moverá para KOBLLUX_REPOS/fractais/logs/ e vai comitar.
+________________
+
+
+Se quiser, eu já adiciono um mapa de cores simbólicas (3-6-9, 0-7-∞, Schumann) para que o tema também obedeça às regras de selos que te passei — é só falar “aplica mapa simbólico” que eu te mando o patch extra.
+
+
+
+
+
+
+Que você fala o que você mandou que ele tem tipo painel de comando ou outro
+
+
+
+
+
+
+Sim — o que te mandei já vem com um mini “painel de comando” (HUD) flutuante no canto inferior-direito da página. É este carinha:
+                  * ⏺ REC: começa/parar a coleta (registra giro/zoom, gyro, clique e “humor fractal”).
+                  * 🎤 Mic: liga/desliga microfone (vai pedir permissão na 1ª vez).
+                  * ✍️ Nota: salva uma nota rápida no log (com tags, se quiser).
+                  * ⇩ Exportar: baixa um fraquitais_giro_logs_YYYY…json (vai pra Downloads).
+Quando o HUD está ativo, o tema da página muda automaticamente:
+theme-bem / theme-triste / theme-equilibrio — conforme o score fractal (EMA 3-6-9) calculado a cada frame (mistura de energia do mic + movimento/rot/zoom).
+________________
+
+
+Como fazer o painel aparecer no seu HTML
+                  1. Deixe estes dois arquivos no mesmo diretório do seu HTML (ex.: em Downloads/):
+
+                     * fraquitais_mood_patch.css
+                     * fraquitais_mood_patch.js
+                     2. Abra seu HTML e adicione as linhas (sem tirar nada seu).
+
+Se tiver <head>:
+<link rel="stylesheet" href="fraquitais_mood_patch.css">
+                        * Sempre antes do </body>:
+<script src="fraquitais_mood_patch.js"></script>
+                        *                         3. Se seu arquivo não tem <head> (vi seu lembrete “”), tudo bem: coloque ambas as linhas antes do </body>.
+Se nem </body> existe, cole as duas no final do arquivo.
+
+
+                        4. Abra a página no navegador. O HUD aparece embaixo à direita.
+
+                           * Toque 🎤 Mic para liberar o microfone (Android pede permissão).
+                           * Se quiser usar o giroscópio, alguns aparelhos pedem permissão ao primeiro movimento.
+________________
+
+
+Onde os dados ficam
+                           * Em tempo real: no IndexedDB local do navegador (privado, sem internet).
+                           * Ao tocar ⇩ Exportar, baixa um JSON na pasta Downloads.
+                           * Se você rodou meu setup_hoje.sh, o coletor (collect_logs.sh) pega esses JSONs da Downloads e move pra ~/KOBLLUX_REPOS/fractais/logs/.
+________________
+
+
+Dica rápida do Termux na sua tela (openssl.cnf)
+Na pergunta “openssl.cnf (Y/I/N/O/D/Z) [default=N]?” o mais seguro é teclar Y (usar a versão do mantenedor). Evita incompatibilidade mais pra frente.
+________________
+
+
+Se o HUD não aparecer
+                           * Confere se os arquivos estão no mesmo diretório do HTML (caminho certo do href/src).
+                           * Abre o menu do navegador → “Versão para computador” desmarcado (pra não bagunçar o layout).
+                           * Se ainda nada: me diga qual HTML você está abrindo (ex.: fraquitais_fractal_single.html ou Dual_App_io100_0_BEST.html) que eu te mando o trecho já colado nele.
+________________
+
+
+⚠️ Observação: alguns anexos antigos que você subiu aqui já expiraram. Se quiser que eu integre/edite um arquivo específico (ex.: fraquitais_banco_local.html), reenvia que eu faço o patch nele direto.
+
+
+
+
+
+
+
+
+Então mas eu queria ele no painel da Duosat que é do aplicativo que eu tô fazendo
+
+
+
+
+
+
+perfeito! vamos colocar o painel/HUD fractal direto no painel da Duosat (seu app). Abaixo vai um bloco único (CSS+JS) que você cola no final do HTML da Duosat, de preferência antes de </body>.
+Ele monta o HUD dentro de um contêiner específico (ex.: #duosat-panel), coleta giro/toque/mic, calcula o score 3-6-9 e baixa JSON com os logs.
+Se o seu painel tiver outro id, troque #duosat-panel pelo id/classe que você usa.
+________________
+
+
+BLOCO HUD + LOGGER (colar no final do HTML da Duosat)
+<style>
+/* ===== FRAQ-HUD (escopado p/ não conflitar) ===== */
+#fraq-hud{position:fixed;right:12px;bottom:16px;z-index:99999;display:flex;gap:10px;align-items:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+.fraq-card{background:rgba(0,0,0,.35);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.fraq-pill{padding:6px 10px;color:#dff;letter-spacing:.2px}
+.fraq-btns{display:flex;gap:8px;padding:8px}
+.fraq-btn{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,rgba(0,255,255,.25),rgba(255,0,255,.25));display:grid;place-items:center;color:#fff;font-size:18px;cursor:pointer;user-select:none}
+.fraq-btn:active{transform:translateY(1px)}
+/* tema dinâmico por humor fractal */
+:root.theme-bem {--fraq-accent: #57ffd0}
+:root.theme-equilibrio {--fraq-accent: #7db2ff}
+:root.theme-triste {--fraq-accent: #ff6ea8}
+.fraq-led{width:10px;height:10px;border-radius:50%;background:var(--fraq-accent,#7db2ff);box-shadow:0 0 12px var(--fraq-accent,#7db2ff)}
+/* encaixe no painel da Duosat */
+#duosat-panel{position:relative}
+#duosat-panel #fraq-hud{position:absolute;right:12px;bottom:12px}
+</style>
+
+
+<div id="fraq-hud" class="fraq-card" role="toolbar" aria-label="Painel Fractal">
+  <div class="fraq-btns">
+    <div class="fraq-btn" id="fraq-rec" title="Gravar (toques, giro, zoom)"><span>⏺</span></div>
+    <div class="fraq-btn" id="fraq-mic" title="Microfone ON/OFF"><span>🎤</span></div>
+    <div class="fraq-btn" id="fraq-note" title="Adicionar nota"><span>✍️</span></div>
+    <div class="fraq-btn" id="fraq-save" title="Exportar JSON"><span>⇩</span></div>
+  </div>
+  <div class="fraq-pill fraq-card" style="margin-right:8px;display:flex;align-items:center;gap:8px">
+    <div class="fraq-led" id="fraq-led"></div>
+    <span id="fraq-score">EQ: 0.00</span>
+  </div>
+</div>
+
+
+<script>
+/* ===== FRAQ-HUD – Duosat Mount =====
+   – Monta dentro do #duosat-panel se existir; senão, fica fixo na tela. */
+(function(){
+  const mountSel = '#duosat-panel';
+  const mount = document.querySelector(mountSel);
+  const hud = document.getElementById('fraq-hud');
+  if(mount){ mount.appendChild(hud); }
+
+
+  // --- Estado & Utils
+  const FRAQ = window.FRAQ || (window.FRAQ = {});
+  FRAQ.logs = FRAQ.logs || [];
+  let recording = false, micOn=false, audioCtx=null, analyser=null, dataArr=null;
+  let lastTouchScale = 1, pinchBase = null;
+  const ema = (alpha) => { let v=null; return x => (v==null? (v=x):(v = alpha*x + (1-alpha)*v)); };
+  const ema3 = ema(0.5), ema6 = ema(0.3), ema9 = ema(0.2);
+  const led = document.getElementById('fraq-led');
+  const scoreEl = document.getElementById('fraq-score');
+
+
+  function moodTheme(score){
+    const r = document.documentElement;
+    if(score > 0.66){ r.classList.add('theme-bem'); r.classList.remove('theme-equilibrio','theme-triste'); }
+    else if(score < 0.33){ r.classList.add('theme-triste'); r.classList.remove('theme-equilibrio','theme-bem'); }
+    else{ r.classList.add('theme-equilibrio'); r.classList.remove('theme-bem','theme-triste'); }
+  }
+  function now(){ return new Date().toISOString(); }
+  function pushLog(type, payload){
+    FRAQ.logs.push({t:now(), type, ...payload});
+  }
+
+
+  // --- Microfone (energia RMS)
+  async function toggleMic(){
+    if(micOn){ micOn=false; if(audioCtx){ audioCtx.close(); audioCtx=null; } return; }
+    try{
+      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+      audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+      const src = audioCtx.createMediaStreamSource(stream);
+      analyser = audioCtx.createAnalyser(); analyser.fftSize=2048;
+      dataArr = new Uint8Array(analyser.frequencyBinCount);
+      src.connect(analyser);
+      micOn = true;
+      pushLog('mic_on',{});
+    }catch(e){ alert('Permita o microfone para humor fractal.'); }
+  }
+  function micEnergy(){
+    if(!analyser || !dataArr) return 0;
+    analyser.getByteTimeDomainData(dataArr);
+    // RMS normalizado 0..1
+    let sum=0; for(let i=0;i<dataArr.length;i++){ const v=(dataArr[i]-128)/128; sum+=v*v; }
+    return Math.min(1, Math.sqrt(sum/dataArr.length)*1.6);
+  }
+
+
+  // --- Gestos: pan/zoom/gyro
+  // zoom por pinça
+  document.addEventListener('touchstart', e=>{
+    if(e.touches.length===2){
+      const dx=e.touches[0].clientX - e.touches[1].clientX;
+      const dy=e.touches[0].clientY - e.touches[1].clientY;
+      pinchBase = Math.hypot(dx,dy);
+    }
+  }, {passive:true});
+  document.addEventListener('touchmove', e=>{
+    if(recording && e.touches.length===2 && pinchBase){
+      const dx=e.touches[0].clientX - e.touches[1].clientX;
+      const dy=e.touches[0].clientY - e.touches[1].clientY;
+      const d = Math.hypot(dx,dy);
+      const scale = d/pinchBase;
+      lastTouchScale = scale;
+      pushLog('pinch',{scale});
+    }
+  }, {passive:true});
+  // pan
+  let lastXY=null;
+  document.addEventListener('pointerdown', e=>{ lastXY=[e.clientX,e.clientY]; }, {passive:true});
+  document.addEventListener('pointermove', e=>{
+    if(recording && lastXY){
+      const dx = e.clientX - lastXY[0], dy = e.clientY - lastXY[1];
+      lastXY=[e.clientX,e.clientY];
+      pushLog('pan',{dx,dy});
+    }
+  }, {passive:true});
+  document.addEventListener('pointerup', ()=>{ lastXY=null; }, {passive:true});
+
+
+  // giroscópio (quando disponível)
+  function gyroPerm(){
+    if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function'){
+      DeviceMotionEvent.requestPermission().catch(()=>{}); // iOS-like
+    }
+  }
+  window.addEventListener('deviceorientation', (e)=>{
+    if(recording){
+      pushLog('gyro',{alpha:e.alpha, beta:e.beta, gamma:e.gamma});
+    }
+  });
+
+
+  // --- Loop de humor (3-6-9)
+  function loop(){
+    const energy = micOn ? micEnergy() : 0;
+    const motion = Math.min(1, Math.abs(lastTouchScale-1)*2); // 0..1
+    const x = (energy*0.6 + motion*0.4); // mistura simples
+    const s3 = ema3(x), s6 = ema6(x), s9 = ema9(x);
+    const score = (s3*0.5 + s6*0.3 + s9*0.2); // peso 3-6-9
+    // UI
+    led.style.background = `hsl(${Math.round(160*score)}, 90%, 60%)`;
+    led.style.boxShadow = `0 0 14px hsl(${Math.round(160*score)},90%,60%)`;
+    scoreEl.textContent = `EQ: ${score.toFixed(2)}`;
+    moodTheme(score);
+    if(recording){ pushLog('score',{score, energy, motion}); }
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+
+  // --- Controles HUD
+  document.getElementById('fraq-rec').onclick = ()=>{
+    recording = !recording;
+    pushLog(recording ? 'rec_on':'rec_off',{});
+    gyroPerm();
+    alert(recording ? 'Gravação ON' : 'Gravação OFF');
+  };
+  document.getElementById('fraq-mic').onclick = ()=>{ toggleMic(); };
+  document.getElementById('fraq-note').onclick = ()=>{
+    const txt = prompt('Nota (tags tipo #veeb #tetra):','');
+    if(txt){ pushLog('note',{txt}); }
+  };
+  document.getElementById('fraq-save').onclick = ()=>{
+    const blob = new Blob([JSON.stringify({when:now(), logs:FRAQ.logs}, null, 2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'fraquitais_giro_logs_'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
+    document.body.appendChild(a); a.click(); a.remove();
+  };
+
+
+  // marca inicial
+  pushLog('boot',{app:'Duosat', mount: !!mount});
+})();
+</script>
+
+
+________________
+
+
+Como usar no app (resumo)
+Garanta um contêiner do painel, por exemplo:
+<div id="duosat-panel"><!-- seu painel aqui --></div>
+                           1.                            2. Cole o bloco acima no final do arquivo HTML principal da Duosat.
+                           3. Abra o app/página → o HUD aparece dentro do painel.
+                           4. Toque 🎤 para liberar o mic (Android pede permissão).
+                           5. Toque ⏺ para iniciar a gravação de gestos/giros.
+                           6. ⇩ exporta o JSON para Downloads (o seu coletor pode mover para KOBLLUX_REPOS/fractais/logs/).
+________________
+
+
+Sobre arquivos que você enviou
+Alguns anexos antigos aqui já expiraram. Se quiser que eu faça o patch direto em um HTML específico (ex.: Dual_App_io100_0_BEST.html ou fraquitais_banco_local.html), reenvia o arquivo que eu devolvo já com o HUD embutido.
+Se algo não encaixar no seu layout da Duosat (posição, z-index, etc.), me diga o id/classe exatos do painel e eu ajusto o seletor e estilos pra ficar perfeito.
+
+
+
+
+Te mandando ele então deitou me mandar ele já corrigido
+
+
+feito ⚡
+Fundi o HUD fractal (com giro, pinch-zoom, mic “humor fractal”, notas e exportador de logs) direto no seu HTML — sem remover nada do que já existia, só agregando. Está tudo inline (CSS + JS) num único arquivo.
+Baixe e use assim:
+Dual_App_io100_0_BEST_fractal_merged_HUD.html
+O que entra de novo (no mesmo arquivo):
+Botões: ⏺ grava interações (toque/arraste, pinch, giroscópio), 🎤 liga/desliga áudio para “energia”/humor, ✍️ cria nota rápida (tags), ⇩ exporta JSON dos logs.
+LED/score “EQ”: indicador com média móvel 3-6-9; muda tema (cores) automaticamente (bem/equilíbrio/triste) sem bloquear UI.
+Montagem automática dentro do #duosat-panel (se o seu app tiver esse container, o HUD fica “acoplado” lá; se não, mantém fixo no canto).
+Exporta arquivo fraquitais_giro_logs_YYYY…json com todos os eventos (tempo, tipo e payload) para você versionar no Git.
+Como colocar no seu app Duosat
+                           1. Se o seu painel tem
+…
+, o HUD já se ancora dentro dele.
+
+                           2. Se ainda não tem, adicione essa div no layout (ou mantenha como está; o HUD funciona “flutuante”).
+
+                           3. Carregue este HTML pela sua WebView/engine — é single-file.
+
+Quer que eu gere também a variante “fraquitais_banco_local.html” (HUD + IndexedDB para guardar os logs localmente, sem precisar exportar)? É só falar que eu já te mando pronta no mesmo formato, 1 arquivo só.
+Me mande então em um só arquivo novamente que inspirou essa o que tava no chat
+Já até te mandei os arquivos aí para janela de contexto viu só faça
+
+
+
+
+
+
+feito ⚡
+Fundi o HUD fractal (com giro, pinch-zoom, mic “humor fractal”, notas e exportador de logs) direto no seu HTML — sem remover nada do que já existia, só agregando. Está tudo inline (CSS + JS) num único arquivo.
+Baixe e use assim:
+Dual_App_io100_0_BEST_fractal_merged_HUD.html
+O que entra de novo (no mesmo arquivo):
+Botões: ⏺ grava interações (toque/arraste, pinch, giroscópio), 🎤 liga/desliga áudio para “energia”/humor, ✍️ cria nota rápida (tags), ⇩ exporta JSON dos logs.
+LED/score “EQ”: indicador com média móvel 3-6-9; muda tema (cores) automaticamente (bem/equilíbrio/triste) sem bloquear UI.
+Montagem automática dentro do #duosat-panel (se o seu app tiver esse container, o HUD fica “acoplado” lá; se não, mantém fixo no canto).
+Exporta arquivo fraquitais_giro_logs_YYYY…json com todos os eventos (tempo, tipo e payload) para você versionar no Git.
+Como colocar no seu app Duosat
+                              1. Se o seu painel tem
+…
+, o HUD já se ancora dentro dele.
+
+                              2. Se ainda não tem, adicione essa div no layout (ou mantenha como está; o HUD funciona “flutuante”).
+
+                              3. Carregue este HTML pela sua WebView/engine — é single-file.
+
+Quer que eu gere também a variante “fraquitais_banco_local.html” (HUD + IndexedDB para guardar os logs localmente, sem precisar exportar)? É só falar que eu já te mando pronta no mesmo formato, 1 arquivo só.
+Me mande então em um só arquivo novamente que inspirou essa o que tava no chat
+Já até te mandei os arquivos aí para janela de contexto viu só faça
+
+
+
+
+perfeito, ✧⃝⚝! aqui estão os arquivos únicos prontos — só abrir na WebView do seu app (ou no navegador) e usar. Eu não removi nada; só agreguei.
+1) Versão com HUD acoplado ao painel + gravação e exportação de logs
+                                 * Dual_App_io100_0_BEST_fractal_merged_HUD.html
+2) Versão “banco local” (HUD + IndexedDB) — salva os logs automaticamente no aparelho
+                                 * fraquitais_banco_local.html
+Como usar no Duosat (WebView/app):
+                                 * Se o layout tiver <div id="duosat-panel">...</div>, o HUD ancora dentro dele.
+                                 * Sem esse container, o HUD fica flutuante (canto inferior direito).
+                                 * Botões: ⏺ grava toques/arrasto/pinch/giroscópio • 🎤 liga/desliga microfone (energia/humor) • ✍️ nota rápida • ⇩ exporta JSON (além do salvamento automático na versão “banco local”).
+                                 * O LED/“EQ” ajusta o tema (bem/equilíbrio/triste) via médias 3–6–9.
+Obs.: alguns arquivos antigos que você enviou já expiraram no chat; se quiser que eu re-funda/outros, manda de novo que eu injento o HUD neles também.
+
+
+
+
+⏺
+🎤
+✍️
+⇩
+EQ: 0.00
+
+
+lindo! peguei seu HUD e fiz um “v1.1” sem mudar a estética, só corrigindo e agregando (nada foi removido):
+                                 * mic ON/OFF agora fecha o AudioContext e para as trilhas do microfone (evita consumo/bug).
+                                 * deviceorientation com pedido de permissão iOS dentro de um clique (quando preciso).
+                                 * gravação sem alert() (vira toast discreto) → não interrompe gesto/voz.
+                                 * autosave opcional: se abrir com ?local=1, ele guarda o log continuamente em localStorage (fraq_autolog).
+                                 * “ancoragem Duosat” mais robusta: se existir #duosat-panel, vai dentro; senão, fica flutuante — igual ao seu.
+                                 * pequenos acertos (cleanup, utilidades, estilos acessíveis).
+Segue o arquivo único (cole inteiro no seu HTML ou substitua o bloco que você mandou):
+<style>
+/* ===== FRAQ-HUD (escopado p/ não conflitar) ===== */
+#fraq-hud{position:fixed;right:12px;bottom:16px;z-index:99999;display:flex;gap:10px;align-items:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+.fraq-card{background:rgba(0,0,0,.35);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.fraq-pill{padding:6px 10px;color:#dff;letter-spacing:.2px}
+.fraq-btns{display:flex;gap:8px;padding:8px}
+.fraq-btn{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,rgba(0,255,255,.25),rgba(255,0,255,.25));display:grid;place-items:center;color:#fff;font-size:18px;cursor:pointer;user-select:none}
+.fraq-btn:active{transform:translateY(1px)}
+/* tema dinâmico por humor fractal */
+:root.theme-bem {--fraq-accent: #57ffd0}
+:root.theme-equilibrio {--fraq-accent: #7db2ff}
+:root.theme-triste {--fraq-accent: #ff6ea8}
+.fraq-led{width:10px;height:10px;border-radius:50%;background:var(--fraq-accent,#7db2ff);box-shadow:0 0 12px var(--fraq-accent,#7db2ff)}
+/* encaixe no painel da Duosat */
+#duosat-panel{position:relative}
+#duosat-panel #fraq-hud{position:absolute;right:12px;bottom:12px}
+
+
+/* toasts */
+#fraq-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);padding:8px 12px;border-radius:10px;
+background:rgba(0,0,0,.6);color:#fff;font-size:13px;z-index:100000;opacity:0;pointer-events:none;transition:opacity .25s}
+#fraq-toast.show{opacity:1}
+</style>
+
+
+<div id="fraq-hud" class="fraq-card" role="toolbar" aria-label="Painel Fractal">
+  <div class="fraq-btns">
+    <div class="fraq-btn" id="fraq-rec" title="Gravar (toques, giro, zoom)"><span>⏺</span></div>
+    <div class="fraq-btn" id="fraq-mic" title="Microfone ON/OFF"><span>🎤</span></div>
+    <div class="fraq-btn" id="fraq-note" title="Adicionar nota"><span>✍️</span></div>
+    <div class="fraq-btn" id="fraq-save" title="Exportar JSON"><span>⇩</span></div>
+  </div>
+  <div class="fraq-pill fraq-card" style="margin-right:8px;display:flex;align-items:center;gap:8px">
+    <div class="fraq-led" id="fraq-led"></div>
+    <span id="fraq-score">EQ: 0.00</span>
+  </div>
+</div>
+<div id="fraq-toast" aria-live="polite"></div>
+
+
+<script>
+/* ===== FRAQ-HUD – Duosat Mount + melhorias v1.1 ===== */
+(function(){
+  const qs = new URLSearchParams(location.search);
+  const autosaveLocal = qs.get('local') === '1';
+
+
+  const mountSel = '#duosat-panel';
+  const mount = document.querySelector(mountSel);
+  const hud = document.getElementById('fraq-hud');
+  if(mount){ mount.appendChild(hud); }
+
+
+  // toast discreto
+  const toastEl = document.getElementById('fraq-toast');
+  let toastTimer=null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toastEl.classList.remove('show'), 1200);
+  }
+
+
+  // --- Estado & Utils
+  const FRAQ = window.FRAQ || (window.FRAQ = {});
+  FRAQ.logs = FRAQ.logs || [];
+  let recording = false, micOn=false, audioCtx=null, analyser=null, dataArr=null, micStream=null;
+  let lastTouchScale = 1, pinchBase = null;
+  const ema = (alpha) => { let v=null; return x => (v==null? (v=x):(v = alpha*x + (1-alpha)*v)); };
+  const ema3 = ema(0.5), ema6 = ema(0.3), ema9 = ema(0.2);
+  const led = document.getElementById('fraq-led');
+  const scoreEl = document.getElementById('fraq-score');
+
+
+  function moodTheme(score){
+    const r = document.documentElement;
+    if(score > 0.66){ r.classList.add('theme-bem'); r.classList.remove('theme-equilibrio','theme-triste'); }
+    else if(score < 0.33){ r.classList.add('theme-triste'); r.classList.remove('theme-equilibrio','theme-bem'); }
+    else{ r.classList.add('theme-equilibrio'); r.classList.remove('theme-bem','theme-triste'); }
+  }
+  function now(){ return new Date().toISOString(); }
+  function pushLog(type, payload){
+    FRAQ.logs.push({t:now(), type, ...payload});
+    if (autosaveLocal && FRAQ.logs.length % 8 === 0){
+      try{ localStorage.setItem('fraq_autolog', JSON.stringify(FRAQ.logs)); }catch(_){}
+    }
+  }
+
+
+  // --- Microfone (energia RMS) com cleanup correto
+  async function toggleMic(){
+    if(micOn){
+      micOn=false;
+      if(audioCtx){ try{await audioCtx.close();}catch(_){} audioCtx=null; }
+      if(micStream){ try{ micStream.getTracks().forEach(tr=>tr.stop()); }catch(_){} micStream=null; }
+      analyser=null; dataArr=null;
+      pushLog('mic_off',{});
+      toast('🎤 Microfone OFF');
+      return;
+    }
+    try{
+      micStream = await navigator.mediaDevices.getUserMedia({audio:true});
+      audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+      const src = audioCtx.createMediaStreamSource(micStream);
+      analyser = audioCtx.createAnalyser(); analyser.fftSize=2048;
+      dataArr = new Uint8Array(analyser.frequencyBinCount);
+      src.connect(analyser);
+      micOn = true;
+      pushLog('mic_on',{});
+      toast('🎤 Microfone ON');
+    }catch(e){ toast('Permita o microfone para humor fractal'); }
+  }
+  function micEnergy(){
+    if(!analyser || !dataArr) return 0;
+    analyser.getByteTimeDomainData(dataArr);
+    let sum=0; for(let i=0;i<dataArr.length;i++){ const v=(dataArr[i]-128)/128; sum+=v*v; }
+    return Math.min(1, Math.sqrt(sum/dataArr.length)*1.6);
+  }
+
+
+  // --- Gestos: pinch / pan
+  document.addEventListener('touchstart', e=>{
+    if(e.touches.length===2){
+      const dx=e.touches[0].clientX - e.touches[1].clientX;
+      const dy=e.touches[0].clientY - e.touches[1].clientY;
+      pinchBase = Math.hypot(dx,dy);
+    }
+  }, {passive:true});
+  document.addEventListener('touchmove', e=>{
+    if(recording && e.touches.length===2 && pinchBase){
+      const dx=e.touches[0].clientX - e.touches[1].clientX;
+      const dy=e.touches[0].clientY - e.touches[1].clientY;
+      const d = Math.hypot(dx,dy);
+      const scale = d/pinchBase;
+      lastTouchScale = scale;
+      pushLog('pinch',{scale});
+    }
+  }, {passive:true});
+
+
+  let lastXY=null;
+  document.addEventListener('pointerdown', e=>{ lastXY=[e.clientX,e.clientY]; }, {passive:true});
+  document.addEventListener('pointermove', e=>{
+    if(recording && lastXY){
+      const dx = e.clientX - lastXY[0], dy = e.clientY - lastXY[1];
+      lastXY=[e.clientX,e.clientY];
+      pushLog('pan',{dx,dy});
+    }
+  }, {passive:true});
+  document.addEventListener('pointerup', ()=>{ lastXY=null; }, {passive:true});
+
+
+  // --- Giroscópio com permissão iOS (somente ao iniciar gravação)
+  async function ensureGyroPermIfNeeded(){
+    try{
+      const DME = window.DeviceMotionEvent;
+      if (DME && typeof DME.requestPermission === 'function'){
+        const st = await DME.requestPermission();
+        pushLog('gyro_perm',{status:st});
+      }
+    }catch(_){}
+  }
+  window.addEventListener('deviceorientation', (e)=>{
+    if(recording){
+      pushLog('gyro',{alpha:e.alpha, beta:e.beta, gamma:e.gamma});
+    }
+  });
+
+
+  // --- Loop de humor (3-6-9)
+  function loop(){
+    const energy = micOn ? micEnergy() : 0;
+    const motion = Math.min(1, Math.abs(lastTouchScale-1)*2);
+    const x = (energy*0.6 + motion*0.4);
+    const s3 = ema3(x), s6 = ema6(x), s9 = ema9(x);
+    const score = (s3*0.5 + s6*0.3 + s9*0.2);
+    led.style.background = `hsl(${Math.round(160*score)}, 90%, 60%)`;
+    led.style.boxShadow = `0 0 14px hsl(${Math.round(160*score)},90%,60%)`;
+    scoreEl.textContent = `EQ: ${score.toFixed(2)}`;
+    moodTheme(score);
+    if(recording){ pushLog('score',{score, energy, motion}); }
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+
+  // --- Controles HUD
+  document.getElementById('fraq-rec').onclick = async ()=>{
+    recording = !recording;
+    if(recording){ await ensureGyroPermIfNeeded(); }
+    pushLog(recording ? 'rec_on':'rec_off',{});
+    toast(recording ? '⏺ Gravando' : '⏹ Parado');
+  };
+  document.getElementById('fraq-mic').onclick = ()=>{ toggleMic(); };
+  document.getElementById('fraq-note').onclick = ()=>{
+    const txt = prompt('Nota (tags tipo #veeb #tetra):','');
+    if(txt){ pushLog('note',{txt}); toast('✍️ Nota salva'); }
+  };
+  document.getElementById('fraq-save').onclick = ()=>{
+    const blob = new Blob([JSON.stringify({when:now(), logs:FRAQ.logs}, null, 2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'fraquitais_giro_logs_'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    toast('⇩ JSON exportado');
+  };
+
+
+  // marca inicial
+  pushLog('boot',{app:'Duosat', mount: !!mount, autosaveLocal});
+})();
+</script>
+
+
+Se quiser, eu também te mando essa mesma versão com IndexedDB embutido (além do localStorage), pra suportar logs maiores sem limite — ainda em 1 arquivo só.
