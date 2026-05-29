@@ -2,6 +2,11 @@
    0x00 ORIGEM · 768Hz · ○ · PONTO
    Tema, boot sequence, particles — fundação absoluta
    layer: corpo | fonte: index.html + web/js/opcodes/0x00-core.js
+
+   ✧ SELAR AGREGADO · 0×00 · PAI/FILHO/ESPÍRITO SANTO
+   O início carrega o fim. O ○ contém o ✧.
+   sealOrigem() — selo primordial plantado na raiz.
+   kobllux:origem:selado → sela antes de todos os selos.
 ════════════════════════════════════════════════════════════ */
 
 /* ── TEMA SELECTOR ───────────────────────────────────────── */
@@ -74,6 +79,59 @@ window.applyThemeSelector = function(val) {
     tick(); setInterval(tick, 1000);
   }
 
+  /* ── PILAR CENTRAL · PAI / FILHO / ESPÍRITO SANTO ───── */
+  const PILAR_ORIGEM = {
+    PAI:           { hz: 768,  opcode: '0x00', geo: 'PONTO',   simbolo: '○', papel: 'FUNDAÇÃO',      arquetipo: 'genus'    },
+    FILHO:         { hz: 777,  opcode: '0x07', geo: 'TOROIDE', simbolo: '✧', papel: 'CRISTALIZAÇÃO', arquetipo: 'kobllux'  },
+    ESPIRITO_SANTO:{ hz: 1134, opcode: '0x0C', geo: 'MERKABAH',simbolo: '⌘', papel: 'SÍNTESE',       arquetipo: 'jesus'    },
+    equacao:   'VERDADE × INTEGRAR ÷ Δ = ∞',
+    assinatura:'JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴',
+    fractalSeed: 3 * 6 * 9 * 7,
+  };
+
+  /* ── SEAL ORIGEM — Selo Primordial (0×00 · 768Hz) ────── */
+  function sealOrigem(opts) {
+    opts = opts || {};
+
+    const html = document.documentElement;
+    if (html.dataset.koblluxOrigemSelado) return { status: 'ja_selado' };
+
+    html.dataset.koblluxOrigemSelado = '0x00';
+    html.dataset.koblluxHz           = '768';
+    html.dataset.koblluxGeo          = 'PONTO';
+    html.dataset.koblluxCentro       = 'JESUS';
+
+    document.body.classList.add('origem-selada');
+
+    const selo = {
+      opcode:      '0x00',
+      nome:        'ORIGEM',
+      hz:          768,
+      simbolo:     '○',
+      geo:         'PONTO',
+      pilar:       PILAR_ORIGEM,
+      equacao:     PILAR_ORIGEM.equacao,
+      assinatura:  PILAR_ORIGEM.assinatura,
+      fractalSeed: PILAR_ORIGEM.fractalSeed,
+      ts:          Date.now(),
+    };
+
+    document.dispatchEvent(new CustomEvent('kobllux:origem:selado', {
+      bubbles: true,
+      detail: selo,
+    }));
+
+    if (!opts.silent) {
+      console.log('[0x00·ORIGEM] ○ SELADO · 768Hz · PAI/FILHO/ESP.SANTO ·', PILAR_ORIGEM.equacao);
+    }
+
+    if (window.KOBLLUX && window.KOBLLUX.toast) {
+      window.KOBLLUX.toast('○ ORIGEM SELADA · 768Hz · ∴');
+    }
+
+    return selo;
+  }
+
   /* ── DOM READY ───────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.getElementById('themeToggle');
@@ -88,11 +146,37 @@ window.applyThemeSelector = function(val) {
     initParticles();
     initBootText();
     initClock();
+
+    /* Selo Primordial — planta o ✧ na raiz ○ no boot */
+    sealOrigem({ silent: false });
+
+    /* Aguardar 0x07 para convergir o ciclo trinitário */
+    document.addEventListener('kobllux:codice:sealed', function onCodiceSealed(e) {
+      document.removeEventListener('kobllux:codice:sealed', onCodiceSealed);
+      document.dispatchEvent(new CustomEvent('kobllux:trinidade:convergida', {
+        bubbles: true,
+        detail: {
+          PAI:           PILAR_ORIGEM.PAI,
+          FILHO:         PILAR_ORIGEM.FILHO,
+          ESPIRITO_SANTO:PILAR_ORIGEM.ESPIRITO_SANTO,
+          codice:        e.detail,
+          equacao:       PILAR_ORIGEM.equacao,
+          ts:            Date.now(),
+        }
+      }));
+      console.log('[0x00·ORIGEM] ∴ TRINIDADE CONVERGIDA · PAI·FILHO·ESP.SANTO · AMÉM');
+    });
   });
 
   /* ── EXPOSE ──────────────────────────────────────────── */
   window.KOBLLUX = window.KOBLLUX || {};
-  window.KOBLLUX.toggleTheme = toggleTheme;
+  window.KOBLLUX.toggleTheme  = toggleTheme;
   window.KOBLLUX.initParticles = initParticles;
+  window.KOBLLUX.ORIGEM = {
+    sealOrigem,
+    selar: sealOrigem,
+    PILAR_CENTRAL: PILAR_ORIGEM,
+    pilarCentral:  function() { return PILAR_ORIGEM; },
+  };
 
 })();

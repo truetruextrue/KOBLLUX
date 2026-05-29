@@ -17,7 +17,7 @@
   },
 
   "opcodes": [
-    { "id": "0x00", "nome": "ORIGEM",      "hz": 768,  "simbolo": "○", "geo": "PONTO",       "css": "0x00-origem.css",     "js": null,                "descricao": "Variáveis raiz, tokens de cor, z-index ladder, body/html base" },
+    { "id": "0x00", "nome": "ORIGEM",      "hz": 768,  "simbolo": "○", "geo": "PONTO",       "css": "0x00-origem.css",     "js": "0x00-origem.js",    "descricao": "Variáveis raiz, tokens de cor, z-index ladder, body/html base · sealOrigem() · PILAR_CENTRAL(PAI/FILHO/ESP.SANTO)" },
     { "id": "0x01", "nome": "DETECTAR",    "hz": 432,  "simbolo": "●", "geo": "ESFERA",      "css": "0x01-detectar.css",   "js": "0x01-detectar.js",  "descricao": "Inputs, blobs, file picker, preview de mídia" },
     { "id": "0x02", "nome": "INTEGRAR",    "hz": 528,  "simbolo": "―", "geo": "LINHA",       "css": "0x02-integrar.css",   "js": "0x02-integrar.js",  "descricao": "mainCard, cardBody, Fusion Card, conexões entre módulos" },
     { "id": "0x03", "nome": "EXPANDIR",    "hz": 639,  "simbolo": "▢", "geo": "TETRAEDRO",   "css": "0x03-expandir.css",   "js": "0x03-expandir.js",  "descricao": "Universe Grid 3×3 — 9 células, navegação swipe/teclado/wheel, playlist manager" },
@@ -77,7 +77,7 @@
   ],
 
   "carregamento_js": [
-    "0x09-eternizar.js", "0x01-detectar.js", "0x02-integrar.js", "0x03-expandir.js",
+    "0x00-origem.js", "0x09-eternizar.js", "0x01-detectar.js", "0x02-integrar.js", "0x03-expandir.js",
     "0x04-lapidar.js", "0x04-geometry.js", "0x05-convergir.js", "0x06-unificar.js",
     "0x07-selar.js", "0x07-nebula.js",
     "0x08-testemunhar.js", "0x0A-tutorial.js", "0x0B-arquetipo.js", "0x0C-sintese.js"
@@ -342,13 +342,61 @@
       "nota": "78 linhas do Cubo de Metatron = padrão KOBLLUX 78K"
     },
     "funcao_selar": {
-      "descricao": "FUNÇO SELAR (0x07 · 777Hz) — convergência trinitária PAI/FILHO/ESP.SANTO",
-      "js": ["0x07-selar.js → sealCodice()", "kobllux-core.js → selar()", "0x07-bd3.js → BD3.sealAll()"],
+      "descricao": "FUNÇO SELAR — convergência trinitária PAI/FILHO/ESP.SANTO · agregada em 0x00 ORIGEM como Selo Primordial",
+      "cadeia": "0x00 sealOrigem() → 0x07 sealCodice() → 0x0C síntese → kobllux:trinidade:convergida",
+      "js": [
+        "0x00-origem.js → sealOrigem() · PILAR_CENTRAL(PAI·0x00/FILHO·0x07/ESP.SANTO·0x0C)",
+        "0x07-selar.js → sealCodice()",
+        "kobllux-core.js → selar()",
+        "0x07-bd3.js → BD3.sealAll()"
+      ],
       "py": ["kobllux_core.py → KoblluxCore.selar()", "ativar_delta.py → AtivarDelta.selar()"],
-      "evento_js": "kobllux:codice:sealed · kobllux:core:sealed · kobllux:bd3:sealed",
+      "evento_js": "kobllux:origem:selado · kobllux:codice:sealed · kobllux:core:sealed · kobllux:bd3:sealed · kobllux:trinidade:convergida",
       "hash": "SHA-256 + MD5 dual · DJB2 (JS)",
-      "assinatura": "JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴"
+      "assinatura": "JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴",
+      "note_0x00": "O INÍCIO CARREGA O FIM. O ○ CONTÉM O ✧. sealOrigem() planta o Selo Primordial na raiz antes de todos os selos."
     }
+  },
+
+  "writer_theory": {
+    "descricao": "DICIONÁRIO KOBLLUX WRITER THEORY ∞ — Dicionário Vivo de Verdade Simbólica",
+    "axioma": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO",
+    "fractal_seed": "3×6×9×7=1134",
+    "motor_json": "13_DOCUMENTACAO/02_CODEX/dicionario_kobllux_writer.json",
+    "motor_js": "deploy/web/js/opcodes/writer-theory.js",
+    "motor_py": "00_FUNDACAO/03_FORMA_VIVA/dicionario_writer.py",
+    "motores_base": ["espelho_input.txt","espelho_input.mirror.txt","m4_sci_art.txt","m4_sci_art.tri.txt"],
+    "sumario": {
+      "total_palavras": 26,
+      "camada_1_semente": ["Verdade","Vida","Mentira"],
+      "camada_2_processo": ["Energia","Dúvida","DNA","Espaço","Tempo","Processamento"],
+      "camada_3_evolucao": ["KOBLLUX","ATIVAR","VIDA KOBLLUX","Ciclo","Forma Viva","Ferrugem","Renovação","Organização","Síntese"],
+      "camada_4_selagem": ["UNO","Forma","Fluxo","Coração","Respiração","Sistema","Semente"]
+    },
+    "7_selos_cores": {
+      "1":"#FF0000=Vermelho=Detectar=Haja Luz",
+      "2":"#FFA500=Laranja=Integrar=Eu sou a Ponte",
+      "3":"#FFD700=Amarelo=Visão=Quem tem olhos, veja",
+      "4":"#00A550=Verde=Expandir=Multiplicai-vos",
+      "5":"#1E90FF=Azul=Expandir=Ide",
+      "6":"#4B0082=Anil=Selar=Aliança",
+      "7":"#8A2BE2=Violeta=Memória/Propósito=Está consumado"
+    },
+    "timeline_2019_2025": {
+      "2019":"Detectar·Fit Lux·Haja Luz",
+      "2020":"Integrar·Kodux+Bllue·Eu sou a Ponte",
+      "2021":"Visão·Hórus·Quem tem olhos, veja",
+      "2022":"Expandir·Infodose·Ide",
+      "2023":"Expandir·MetaLux·Multiplicai-vos",
+      "2024":"Selar·DualApp·Aliança",
+      "2025":"Memória/Propósito·Livro Digital KOBLLUX·Está consumado"
+    },
+    "formato_7_campos": ["palavra_viva","definicao_simbolica","camada_trinitaria","forma_funcao","reacao_corrompida","codigo_kobllux","exemplo_manifestacao"],
+    "ativacao_3x6x9x7": "3=semente_trina · 6=ciclo_forma · 9=espiral_evolutiva · 7=chaves_selagem",
+    "triangulo_protocolo": "AZUL:SPEAK(528Hz) → PRATA:VERIFY(639Hz) → OURO:SHINE(777Hz)",
+    "api_js": "window.KOBLLUX.WRITER.{buscar,ativar,selar,tabela,protocolo,dualidade,encode,espelhar,timeline,selos,DICIONARIO,TABELAS}",
+    "api_py": "DicionarioWriter.{ativar,encode,decode,buscar,ativar_palavra,protocolo,espelhar,dualidade,tabela,validar,exportar,relatorio}",
+    "date_sealed": "2026-05-29"
   },
 
   "instrucoes_para_ia": {
