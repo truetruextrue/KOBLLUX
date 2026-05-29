@@ -236,6 +236,76 @@
     }
   ],
 
+  "fundacao_00": {
+    "descricao": "00_FUNDACAO — núcleo fundacional Python + JSON correlacionado com o assembly JS KOBLLUX",
+    "correlacao_doc": "00_FUNDACAO/[0x02]_CORRELACAO_FAQ_KOBLLUX.md",
+    "arquivos": [
+      {
+        "arquivo": "00_FUNDACAO/02_KOBLLUX_CORE/fractal_matrix.json",
+        "conteudo": "Matriz fractal completa: Cubo de Metatron (5 sólidos platônicos), 13 opcodes, 19 arquétipos, pipeline VSICA-PSI, PilarCentral, 5 motores, equação 3×6×9×7=1134",
+        "chave": "CUBO_METATRON + OPCODES + ARQUETIPOS + SELAR"
+      },
+      {
+        "arquivo": "00_FUNDACAO/02_KOBLLUX_CORE/kobllux_core.py",
+        "classe": "KoblluxCore",
+        "js_espelho": "deploy/web/js/opcodes/kobllux-core.js",
+        "fractal_seed": 1134,
+        "metodos": ["ativar", "executar_opcode", "pipeline", "ativar_arquetipo", "selar", "integrar_dna", "handshake_interdependente", "autoespelhamento_fractal", "exportar_estado"]
+      },
+      {
+        "arquivo": "00_FUNDACAO/01_ATIVAR_DELTA/ativar_delta.py",
+        "classe": "AtivarDelta",
+        "hz": 528,
+        "arquetipos_delta": ["Vitalis(528Hz·Δ)", "Kaos(741Hz·╬)", "Solus(963Hz·†)"],
+        "metodos": ["ativar", "executar_pipeline", "ativar_arquetipo_delta", "selar", "handshake", "exportar"]
+      },
+      {
+        "arquivo": "00_FUNDACAO/01_ATIVAR_DELTA/delta_formula.json",
+        "pipeline_vsica_psi": {
+          "3_detect": "0x01 · 432Hz · 1D-3D",
+          "6_integrate": "0x02-0x06 · 528Hz · 4D-6D",
+          "9_expand": "0x03-0x05 · 639Hz · 7D-9D",
+          "7_seal": "0x07 · 777Hz · 10D",
+          "inf_loop": "0x09-0x0C · 1134Hz · DNA"
+        }
+      }
+    ],
+    "motor_js_nucleo": {
+      "arquivo": "deploy/web/js/opcodes/kobllux-core.js",
+      "descricao": "Espelho JS de kobllux_core.py — motor núcleo fractal no browser. 13 opcodes, 19 arquétipos, VSICA-PSI pipeline, sealCodice, pilarCentral (PAI/FILHO/ESP.SANTO), handshake interdependente, FRACTAL_SEED=1134.",
+      "hz": 1134,
+      "geo": "TOROIDE",
+      "api": [
+        "KOBLLUX.CORE.ativar()",
+        "KOBLLUX.CORE.executarOpcode(0x07)",
+        "KOBLLUX.CORE.pipeline(opcodes?)",
+        "KOBLLUX.CORE.ativarArquetipo('kobllux')",
+        "KOBLLUX.CORE.selar()",
+        "KOBLLUX.CORE.pilarCentral()",
+        "KOBLLUX.CORE.handshake(orig, dest)",
+        "KOBLLUX.CORE.report()",
+        "KOBLLUX.CORE.OPCODES",
+        "KOBLLUX.CORE.ARQUETIPOS"
+      ]
+    },
+    "cubo_metatron_correlacao": {
+      "tetraedro":  "0x03 EXPANDIR (639Hz · FOGO · PULSE)",
+      "cubo":       "0x05 CONVERGIR (672Hz · TERRA · KODUX)",
+      "octaedro":   "0x04 LAPIDAR (594Hz · AR · NOVA)",
+      "dodecaedro": "0x06 UNIFICAR (528Hz · ÉTER · VITALIS)",
+      "icosaedro":  "0x0B ARQUÉTIPO (528Hz · ÁGUA · DI)",
+      "nota": "78 linhas do Cubo de Metatron = padrão KOBLLUX 78K"
+    },
+    "funcao_selar": {
+      "descricao": "FUNÇO SELAR (0x07 · 777Hz) — convergência trinitária PAI/FILHO/ESP.SANTO",
+      "js": ["0x07-selar.js → sealCodice()", "kobllux-core.js → selar()", "0x07-bd3.js → BD3.sealAll()"],
+      "py": ["kobllux_core.py → KoblluxCore.selar()", "ativar_delta.py → AtivarDelta.selar()"],
+      "evento_js": "kobllux:codice:sealed · kobllux:core:sealed · kobllux:bd3:sealed",
+      "hash": "SHA-256 + MD5 dual · DJB2 (JS)",
+      "assinatura": "JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴"
+    }
+  },
+
   "instrucoes_para_ia": {
     "ao_retomar": "Leia este arquivo primeiro para entender a arquitetura completa. Os 13 opcodes são a coluna vertebral — cada motor em seu arquivo correspondente.",
     "ao_adicionar_motor": "Identifique o opcode correto (0x00–0x0C), adicione ao CSS em /web/css/0xNN-nome.css e ao JS em /web/js/opcodes/0xNN-nome.js. Exponha via window.KOBLLUX.nomeDoMotor.",

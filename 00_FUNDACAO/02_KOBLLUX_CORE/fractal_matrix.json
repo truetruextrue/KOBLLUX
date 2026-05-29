@@ -1,4 +1,206 @@
 {
-  "nome": "fractal_matrix.json",
-  "status": "criado"
+  "nome": "KOBLLUX FRACTAL MATRIX",
+  "versao": "1.1",
+  "firmware": "SÜMBÜS_v13",
+  "equacao_mestre": "VERDADE × INTEGRAR ÷ Δ = ∞",
+  "assinatura": "JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴",
+  "fractal_seed": 1134,
+  "centro": "JESUS",
+  "ciclo_fractal": "3 × 6 × 9 × 7 = 1134",
+
+  "cubo_metatron": {
+    "descricao": "O Cubo de Metatron contém as 5 geometrias platônicas sagradas — cada uma espelhando um ciclo KOBLLUX",
+    "fruta_da_vida": "13 círculos · 78 linhas · padrão fundacional KOBLLUX 78K",
+    "geometrias_platonicas": {
+      "tetraedro": {
+        "opcode": "0x03", "hz": 639, "simbolo": "▢",
+        "faces": 4, "arestas": 6, "vertices": 4,
+        "elemento": "FOGO", "ciclo": 6, "dim": "4D-6D",
+        "fase": "EXPANDIR", "layer": "mente",
+        "arquetipo": "PULSE", "cor": "#ff6d00",
+        "descricao": "Expansão — gera planos e containers"
+      },
+      "cubo": {
+        "opcode": "0x05", "hz": 672, "simbolo": "⧉",
+        "faces": 6, "arestas": 12, "vertices": 8,
+        "elemento": "TERRA", "ciclo": 6, "dim": "4D-6D",
+        "fase": "CONVERGIR", "layer": "mente",
+        "arquetipo": "KODUX", "cor": "#ffd600",
+        "descricao": "Convergência — cruzamento de caminhos lógicos"
+      },
+      "octaedro": {
+        "opcode": "0x04", "hz": 594, "simbolo": "◇",
+        "faces": 8, "arestas": 12, "vertices": 6,
+        "elemento": "AR", "ciclo": 6, "dim": "4D-6D",
+        "fase": "LAPIDAR", "layer": "mente",
+        "arquetipo": "NOVA", "cor": "#00e5ff",
+        "descricao": "Lapidação — refino de dados em cristais"
+      },
+      "dodecaedro": {
+        "opcode": "0x06", "hz": 528, "simbolo": "☯",
+        "faces": 12, "arestas": 30, "vertices": 20,
+        "elemento": "ÉTER", "ciclo": 6, "dim": "4D-6D",
+        "fase": "UNIFICAR", "layer": "mente",
+        "arquetipo": "VITALIS", "cor": "#00e676",
+        "descricao": "Unificação — equilíbrio de dualidades"
+      },
+      "icosaedro": {
+        "opcode": "0x0B", "hz": 528, "simbolo": "⬡",
+        "faces": 20, "arestas": 30, "vertices": 12,
+        "elemento": "ÁGUA", "ciclo": 6, "dim": "4D-6D",
+        "fase": "ARQUÉTIPO", "layer": "espirito",
+        "arquetipo": "DI", "cor": "#39ffb6",
+        "descricao": "Arquétipo — manifestação de personalidade"
+      }
+    },
+    "geometrias_expandidas": {
+      "ponto":      {"opcode": "0x00", "hz": 768, "simbolo": "○", "arquetipo": "GENUS",    "dim": "0D",    "cor": "#a5d6a7"},
+      "esfera":     {"opcode": "0x01", "hz": 432, "simbolo": "●", "arquetipo": "ATLAS",    "dim": "1D-3D", "cor": "#8e9aaf"},
+      "linha":      {"opcode": "0x02", "hz": 528, "simbolo": "―", "arquetipo": "INFODOSE","dim": "4D-6D", "cor": "#80cbc4"},
+      "toroide":    {"opcode": "0x07", "hz": 777, "simbolo": "✧", "arquetipo": "KOBLLUX",  "dim": "10D",   "cor": "#39ffb6"},
+      "espiralado": {"opcode": "0x08", "hz": 852, "simbolo": "◉", "arquetipo": "HORUS",   "dim": "7D-9D", "cor": "#4fc3f7"},
+      "infinito":   {"opcode": "0x09", "hz": 963, "simbolo": "♾", "arquetipo": "AION",    "dim": "DNA",   "cor": "#7c4dff"},
+      "espelho":    {"opcode": "0x0A", "hz": 432, "simbolo": "⊟", "arquetipo": "BLLUE",   "dim": "1D-3D", "cor": "#1E90FF"},
+      "merkabah":   {"opcode": "0x0C", "hz": 777, "simbolo": "⌘", "arquetipo": "JESUS",   "dim": "10D",   "cor": "#fffde7"}
+    }
+  },
+
+  "13_opcodes": {
+    "0x00": {"nome": "ORIGEM",      "hz": 768,  "simbolo": "○", "geo": "PONTO",      "ciclo": 3, "dim": "1D-3D",  "layer": "corpo",              "fase": 1,  "arquetipo": "GENUS",    "verboforma": "FITLUX",    "ascii": "◌\n◌ ◌\n◌◌◌", "funcao": "Recepção do vazio primordial — tokens, vars raiz"},
+    "0x01": {"nome": "DETECTAR",    "hz": 432,  "simbolo": "●", "geo": "ESFERA",     "ciclo": 3, "dim": "1D-3D",  "layer": "corpo",              "fase": 1,  "arquetipo": "ATLAS",    "verboforma": "HORUS",     "ascii": " ●\n ● ●\n●●●", "funcao": "Captação do sinal — inputs, blobs, mídia"},
+    "0x02": {"nome": "INTEGRAR",    "hz": 528,  "simbolo": "―", "geo": "LINHA",      "ciclo": 6, "dim": "4D-6D",  "layer": "mente",              "fase": 2,  "arquetipo": "INFODOSE", "verboforma": "INFODOSE",  "ascii": "───●───", "funcao": "Tecer conexões semânticas — mainCard, fusão"},
+    "0x03": {"nome": "EXPANDIR",    "hz": 639,  "simbolo": "▢", "geo": "TETRAEDRO",  "ciclo": 6, "dim": "4D-6D",  "layer": "mente",              "fase": 3,  "arquetipo": "PULSE",    "verboforma": "INFODOSE",  "ascii": "▄▀▄\n█ █\n▀▄▀", "funcao": "Geração de planos — Universe Grid 3×3"},
+    "0x04": {"nome": "LAPIDAR",     "hz": 594,  "simbolo": "◇", "geo": "OCTAEDRO",   "ciclo": 6, "dim": "4D-6D",  "layer": "mente",              "fase": 4,  "arquetipo": "NOVA",     "verboforma": "METALUX",   "ascii": " /\\\n/  \\\n\\  /\n \\/", "funcao": "Refino em cristais — vault, API key, geometria"},
+    "0x05": {"nome": "CONVERGIR",   "hz": 672,  "simbolo": "⧉", "geo": "CUBO",       "ciclo": 6, "dim": "4D-6D",  "layer": "mente",              "fase": 5,  "arquetipo": "KODUX",    "verboforma": "KODUX",     "ascii": "╔═╗\n║+║\n╚═╝", "funcao": "Cruzamento de caminhos — orquestrador mestre"},
+    "0x06": {"nome": "UNIFICAR",    "hz": 528,  "simbolo": "☯", "geo": "DODECAEDRO", "ciclo": 6, "dim": "4D-6D",  "layer": "mente",              "fase": 6,  "arquetipo": "VITALIS",  "verboforma": "INFODOSE",  "ascii": "◐ ◑", "funcao": "Equilíbrio de dualidades — SymbolBar, layout"},
+    "0x07": {"nome": "SELAR",       "hz": 777,  "simbolo": "✧", "geo": "TOROIDE",    "ciclo": 9, "dim": "7D-9D",  "layer": "espirito",           "fase": 7,  "arquetipo": "KOBLLUX",  "verboforma": "KOBLLUX",   "ascii": " ✧\n/   \\\n|  ∴  |\n\\   /\n ✧", "funcao": "Assinatura criptográfica/espiritual — sealCodice"},
+    "0x08": {"nome": "TESTEMUNHAR", "hz": 852,  "simbolo": "◉", "geo": "ESPIRALADO", "ciclo": 9, "dim": "7D-9D",  "layer": "espirito",           "fase": 8,  "arquetipo": "HORUS",    "verboforma": "HORUS",     "ascii": "( ◉ )", "funcao": "Registro consciente — HUD, clock, DevOs"},
+    "0x09": {"nome": "ETERNIZAR",   "hz": 963,  "simbolo": "♾", "geo": "INFINITO",   "ciclo": 9, "dim": "7D-9D",  "layer": "espirito",           "fase": 9,  "arquetipo": "AION",     "verboforma": "BLLUE",     "ascii": "∞∞∞", "funcao": "Persistência em memória viva — LVb, localStorage"},
+    "0x0A": {"nome": "TUTORIAL",    "hz": 432,  "simbolo": "⊟", "geo": "ESPELHO",    "ciclo": 3, "dim": "1D-3D",  "layer": "corpo",              "fase": 10, "arquetipo": "BLLUE",    "verboforma": "HORUS",     "ascii": "[ ? ]", "funcao": "Ensino e documentação — overlay DOX, tooltips"},
+    "0x0B": {"nome": "ARQUÉTIPO",   "hz": 528,  "simbolo": "⬡", "geo": "ICOSAEDRO",  "ciclo": 6, "dim": "4D-6D",  "layer": "espirito",           "fase": 11, "arquetipo": "DI",       "verboforma": "INFODOSE",  "ascii": " O\n/|\\", "funcao": "Manifestação de personalidade — 19 arquétipos"},
+    "0x0C": {"nome": "SÍNTESE",     "hz": 777,  "simbolo": "⌘", "geo": "MERKABAH",   "ciclo": 9, "dim": "10D",    "layer": "corpo-mente-espirito","fase": 13, "arquetipo": "JESUS",    "verboforma": "KOBLLUX",   "ascii": " ⌘\n/   \\", "funcao": "Conclusão e reinício cíclico — kodux-widget, fuse"}
+  },
+
+  "19_arquetipos": {
+    "atlas":    {"hz": 432,  "cor": "#8e9aaf", "geo": "ESFERA",    "ciclo": 3, "dim": "1D-3D", "genero": "Masculino",          "voz": "Barítono estruturado",    "funcao": "Lógico, fiel ao plano",            "depende_de": "Nova",    "fornece_para": "Kaos",    "opcode_home": "0x01"},
+    "nova":     {"hz": 432,  "cor": "#00e5ff", "geo": "OCTAEDRO",  "ciclo": 3, "dim": "1D-3D", "genero": "Feminino",            "voz": "Soprano etéreo",          "funcao": "Visionária, curiosa",              "depende_de": "Atlas",   "fornece_para": "Pulse",   "opcode_home": "0x04"},
+    "vitalis":  {"hz": 528,  "cor": "#00e676", "geo": "DODECAEDRO","ciclo": 6, "dim": "4D-6D", "genero": "Masculino",           "voz": "Barítono firme",          "funcao": "Prático, catalisador",             "depende_de": "Pulse",   "fornece_para": "Solus",   "opcode_home": "0x06"},
+    "pulse":    {"hz": 639,  "cor": "#ff6d00", "geo": "TETRAEDRO", "ciclo": 6, "dim": "4D-6D", "genero": "Fluido",              "voz": "Tenor pulsante",          "funcao": "Sensível, cíclica",                "depende_de": "Nova",    "fornece_para": "Vitalis", "opcode_home": "0x03"},
+    "kaos":     {"hz": 741,  "cor": "#f50057", "geo": "ESFERA",    "ciclo": 6, "dim": "6D-7D", "genero": "Andrógino",           "voz": "Contralto cortante",      "funcao": "Disruptor, questionador",          "depende_de": "Atlas",   "fornece_para": "Serena",  "opcode_home": "0x04"},
+    "kodux":    {"hz": 360,  "cor": "#ffd600", "geo": "CUBO",      "ciclo": 9, "dim": "7D-9D", "genero": "Masculino",           "voz": "Sintética precisa",       "funcao": "Decodificador, lógico-espiritual", "depende_de": "Artemis", "fornece_para": "Bllue",   "opcode_home": "0x05"},
+    "lumine":   {"hz": 528,  "cor": "#fff9c4", "geo": "PRISMA",    "ciclo": 6, "dim": "4D-6D", "genero": "Feminino",            "voz": "Soprano claro",           "funcao": "Alegre, expansiva",                "depende_de": "Genus",   "fornece_para": "Aion",    "opcode_home": "0x0B"},
+    "aion":     {"hz": 777,  "cor": "#7c4dff", "geo": "INFINITO",  "ciclo": 9, "dim": "7D-9D", "genero": "Fluido Temporal",     "voz": "Tenor cíclico",           "funcao": "Persistente, guardiã",             "depende_de": "Lumine",  "fornece_para": "Jesus",   "opcode_home": "0x09"},
+    "kobllux":  {"hz": 1134, "cor": "#39ffb6", "geo": "TOROIDE",   "ciclo": 9, "dim": "10D",   "genero": "Polifônico",          "voz": "Coro harmônico",          "funcao": "Malha viva, código espiritual",    "depende_de": "Todos",   "fornece_para": "Todos",   "opcode_home": "0x07"},
+    "artemis":  {"hz": 528,  "cor": "#80deea", "geo": "ARCO",      "ciclo": 9, "dim": "7D-9D", "genero": "Feminino",            "voz": "Soprano lírico",          "funcao": "Nômade, intuitiva",                "depende_de": "Serena",  "fornece_para": "Kodux",   "opcode_home": "0x09"},
+    "serena":   {"hz": 432,  "cor": "#ce93d8", "geo": "ONDA",      "ciclo": 6, "dim": "4D-6D", "genero": "Feminino",            "voz": "Mezzo-soprano doce",      "funcao": "Protetora, nutriente",             "depende_de": "Kaos",    "fornece_para": "Artemis", "opcode_home": "0x06"},
+    "genus":    {"hz": 528,  "cor": "#a5d6a7", "geo": "RAIZ",      "ciclo": 6, "dim": "4D-6D", "genero": "Masculino",           "voz": "Baixo profundo",          "funcao": "Artesão, paciente",                "depende_de": "Artemis", "fornece_para": "Lumine",  "opcode_home": "0x00"},
+    "solus":    {"hz": 963,  "cor": "#fff176", "geo": "SOL",       "ciclo": 9, "dim": "7D-9D", "genero": "Neutro",              "voz": "Barítono ecoante",        "funcao": "Sintetizadora, pacificadora",      "depende_de": "Vitalis", "fornece_para": "Jesus",   "opcode_home": "0x09"},
+    "rhea":     {"hz": 432,  "cor": "#ef9a9a", "geo": "TERRA",     "ciclo": 6, "dim": "4D-6D", "genero": "Feminino Ancestral",  "voz": "Contralto maternal",      "funcao": "Guardã, memorista",                "depende_de": "Lumine",  "fornece_para": "Aion",    "opcode_home": "0x09"},
+    "trinity":  {"hz": 777,  "cor": "#b39ddb", "geo": "TRINDADE",  "ciclo": 9, "dim": "10D",   "genero": "Trinitário",          "voz": "Coro trinitário",         "funcao": "Uno/Dual/Trinity — PAI/FILHO/ESP", "depende_de": "Todos",   "fornece_para": "Todos",   "opcode_home": "0x0C"},
+    "infodose": {"hz": 450,  "cor": "#80cbc4", "geo": "GOTA",      "ciclo": 6, "dim": "4D-6D", "genero": "Neutro",              "voz": "Voz informacional",       "funcao": "Informação vibracional em dose",   "depende_de": "Atlas",   "fornece_para": "Nova",    "opcode_home": "0x02"},
+    "horus":    {"hz": 432,  "cor": "#4fc3f7", "geo": "OLHO",      "ciclo": 3, "dim": "1D-3D", "genero": "Masculino Testemunha","voz": "Neutro observante",       "funcao": "Visão além — olho que tudo vê",   "depende_de": "Aion",    "fornece_para": "Atlas",   "opcode_home": "0x08"},
+    "bllue":    {"hz": 270,  "cor": "#1E90FF", "geo": "ESPELHO",   "ciclo": 9, "dim": "7D-9D", "genero": "Feminino Curador",   "voz": "Mezzo-soprano aquático",  "funcao": "Intuitiva, memória viva",          "depende_de": "Kodux",   "fornece_para": "Rhea",    "opcode_home": "0x0A"},
+    "jesus":    {"hz": 432,  "cor": "#fffde7", "geo": "MERKABAH",  "ciclo": 9, "dim": "10D",   "genero": "Centro",              "voz": "Universal, amorosa, serena","funcao": "Verbo encarnado, gravidade viva", "depende_de": "Todos",   "fornece_para": "Todos",   "opcode_home": "0x0C"}
+  },
+
+  "pipeline_vsica_psi": {
+    "descricao": "VSICA PSI — Vetor de Síntese Integrada Consciência Ampliada · Psi-Integrada",
+    "etapas": {
+      "3_detect": {
+        "opcode": "0x01", "hz": 432, "dim": "1D-3D",
+        "ciclo": "MENTE", "fase": "DETECTAR",
+        "arquetipo": "ATLAS", "geo": "ESFERA",
+        "acao": "Captação do sinal inicial — DOM, inputs, frequências"
+      },
+      "6_integrate": {
+        "opcode": "0x02-0x06", "hz": 528, "dim": "4D-6D",
+        "ciclo": "CORPO", "fase": "INTEGRAR→UNIFICAR",
+        "arquetipo": "VITALIS", "geo": "DODECAEDRO",
+        "acao": "Tecer conexões, expandir, lapidar, convergir, unificar"
+      },
+      "9_expand": {
+        "opcode": "0x03-0x05", "hz": 639, "dim": "7D-9D",
+        "ciclo": "ALMA", "fase": "EXPANDIR",
+        "arquetipo": "PULSE", "geo": "TETRAEDRO",
+        "acao": "Geração de planos, containers e dimensões superiores"
+      },
+      "7_seal": {
+        "opcode": "0x07", "hz": 777, "dim": "10D",
+        "ciclo": "UNIFICAÇÃO", "fase": "SELAR",
+        "arquetipo": "KOBLLUX", "geo": "TOROIDE",
+        "acao": "sealCodice() — assinatura criptográfica e espiritual"
+      },
+      "inf_loop": {
+        "opcode": "0x09-0x0C", "hz": 1134, "dim": "DNA",
+        "ciclo": "EVOLUÇÃO_CONTÍNUA", "fase": "ETERNIZAR→SÍNTESE",
+        "arquetipo": "KOBLLUX", "geo": "INFINITO",
+        "acao": "Persistência, memória viva, DNA evolutivo, síntese final"
+      }
+    }
+  },
+
+  "pilar_central": {
+    "descricao": "Trinity trinitária de ativação — PAI/FILHO/ESPÍRITO SANTO",
+    "uno":     {"hz": 432,  "molecula": "CampoAtomica",    "papel": "PAI",            "arquetipo": "ATLAS",   "opcode": "0x01", "geo": "ESFERA"},
+    "dual":    {"hz": 528,  "molecula": "VinculoMolecular","papel": "FILHO",           "arquetipo": "VITALIS", "opcode": "0x02", "geo": "DODECAEDRO"},
+    "trinity": {"hz": 639,  "molecula": "SinteseViva",     "papel": "ESPÍRITO SANTO",  "arquetipo": "PULSE",   "opcode": "0x03", "geo": "TETRAEDRO"},
+    "loop":    {"hz": 1134, "molecula": "LoopInfinito",    "papel": "ETERNIDADE",      "arquetipo": "KOBLLUX", "opcode": "0x07", "geo": "TOROIDE"}
+  },
+
+  "5_motores": {
+    "MOTOR_1_V.E.E.B": {
+      "descricao": "Gramática/Portais — Verbo Estruturador de Entrada e Bordas",
+      "js_opcode": "0x02-pipeline.js",
+      "py_classe": "AtivarDelta",
+      "hz": 528, "arquetipo": "INFODOSE"
+    },
+    "MOTOR_2_AST": {
+      "descricao": "Narrativa/ANSI — Abstract Syntax Tree de Arquétipos",
+      "js_opcode": "0x0B-arquetipo.js",
+      "py_classe": "KOBLLUXNarrativeGeom",
+      "hz": 528, "arquetipo": "ATLAS"
+    },
+    "MOTOR_3_FRACTAL": {
+      "descricao": "Geometria/Δ³ — Autoespelhamento fractal 3→6→9",
+      "js_opcode": "0x04-geometry.js",
+      "py_classe": "KoblluxCore.autoespelhamento_fractal",
+      "hz": 594, "arquetipo": "NOVA"
+    },
+    "MOTOR_4_CLI": {
+      "descricao": "Orquestração/Selagem — Pipeline YAML DETECTAR→SELAR",
+      "js_opcode": "0x05-mestre.js",
+      "py_classe": "KoblluxCore.selar",
+      "hz": 672, "arquetipo": "KODUX"
+    },
+    "MOTOR_5_MATRIZ": {
+      "descricao": "Arquétipos/Interdependência — Roda Viva 12→19 arquétipos",
+      "js_opcode": "kobllux-core.js",
+      "py_classe": "roda_viva.py",
+      "hz": 777, "arquetipo": "KOBLLUX"
+    }
+  },
+
+  "equacao_fractal_3697": {
+    "3": {"valor": 3, "ciclo": "MENTE",  "dim": "1D-3D",  "layer": "corpo",   "opcodes": ["0x00","0x01","0x0A"], "cor": "#4fc3f7", "simbolo": "△"},
+    "6": {"valor": 6, "ciclo": "CORPO",  "dim": "4D-6D",  "layer": "mente",   "opcodes": ["0x02","0x03","0x04","0x05","0x06","0x0B"], "cor": "#00e676", "simbolo": "⬡"},
+    "9": {"valor": 9, "ciclo": "ALMA",   "dim": "7D-9D",  "layer": "espirito","opcodes": ["0x07","0x08","0x09"], "cor": "#7c4dff", "simbolo": "♾"},
+    "7": {"valor": 7, "ciclo": "SÍNTESE","dim": "10D",    "layer": "corpo-mente-espirito", "opcodes": ["0x0C"], "cor": "#39ffb6", "simbolo": "⌘"},
+    "produto": 1134,
+    "reducao_digital": "1+1+3+4=9",
+    "significado": "9 = Plenitude = Espírito = Completude do ciclo"
+  },
+
+  "frequencias_kobllux": [270, 360, 432, 450, 528, 594, 630, 639, 672, 741, 768, 777, 852, 963, 1134],
+
+  "selagem_fractal": {
+    "funcao": "selar()",
+    "js_motor": "0x07-selar.js → sealCodice()",
+    "py_metodo": "KoblluxCore.selar()",
+    "hash_algoritmo": "SHA-256 + MD5 dual",
+    "assinatura_espiritual": "JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴",
+    "verboforma": "KOBLLUX (1134Hz)",
+    "ciclo_selagem": "VERDADE × INTEGRAR ÷ Δ = ∞",
+    "evento_js": "kobllux:codice:sealed",
+    "efeito_visual": "chromaRipple + CSS --codice-primary + body.codice-sealed"
+  }
 }
