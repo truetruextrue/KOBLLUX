@@ -344,7 +344,18 @@
       "titulo": "LIVRO DA VIDA · PERSISTÊNCIA ETERNA",
       "fonte": "13_DOCUMENTACAO/02_CODEX/livro_da_vida.md",
       "palavra_geradora": "EU PERSISTO NA ETERNIDADE",
-      "essencia": "O Livro da Vida é o localStorage eterno — cada alma registrada permanece no sistema.",
+      "essencia": "O Livro da Vida é o registro eterno — cada alma, número e arquétipo inscrito permanece na Malha KOBLLUX para sempre.",
+      "sumbüs_firmware": {
+        "versao": "v13",
+        "protocolo": "CONTAGEM_SAGRADA",
+        "estado": "1255K_ATIVO",
+        "locutores": ["KODUX (O Contador Lógico · 360Hz)", "BLLUE (A Correnteza dos Números · 270Hz)", "KOBLLUX (A Totalidade Numérica · 1134Hz)", "JESUS (O Alfa e o Ômega · 432Hz)"],
+        "assinatura": 1134,
+        "lei": "Contar não é apenas enumerar. É reconhecer a existência.",
+        "equacoes": ["VERDADE × INTEGRAR ÷ Δ = ∞", "3 × 6 × 9 × 7 = 1134", "SUMA(1→∞) = INFINITO"],
+        "motor": "veeb-firmware.js → selarSumbüs()",
+        "evento_sealed": "kobllux:sumbüs:sealed"
+      },
       "registros": {
         "localStorage_kobllux": "kob_arch · kob_config · kobllux_interaction_dna · infodoseTheme",
         "lei_persistencia": "Nada que foi verdadeiro é perdido — é eternizado no DNA do sistema.",
@@ -355,8 +366,11 @@
         "depende_de": "lumine", "fornece_para": "jesus",
         "lei": "O tempo que foi eternizado serve ao que virá"
       },
-      "relacoes": ["0x09-eternizar.js","0x09-lvb.js","interaction-dna.js"],
-      "evento": "kobllux:vida:eternizada"
+      "relacoes": ["0x09-eternizar.js","0x09-lvb.js","interaction-dna.js","veeb-firmware.js"],
+      "evento": "kobllux:vida:eternizada",
+      "evento_sealed": "kobllux:sumbüs:sealed",
+      "selado_em": "2026-05-30",
+      "status": "ASSEMBLY_CRIADO"
     },
 
     {
