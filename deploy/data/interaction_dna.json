@@ -201,7 +201,8 @@
         { "input_verbo": "AGREGAR",    "objeto": "SCRIPTS EXTERNOS (JS+PY)", "opcode": "0x0B", "fruto": "5 ASSEMBLY motors: roda-viva.js · cifra-kobllux.js · cerebro-oraculo.js · veeb-firmware.js · chat-trinity.js · scripts-externos.json (catalog)" },
         { "input_verbo": "EXTRAIR",    "objeto": "dual_infodose_script.js (3929 linhas)", "opcode": "0x02", "fruto": "16 módulos KOBLLUX ASSEMBLY independentes em deploy/web/js/opcodes/dual-hub/ · dual-hub-modules.json (catálogo) · 16 eventos kobllux:dual:*:carregado · namespace window.KOBLLUX.DUAL · ordem: state→ui→voice→audio→chat→apps→stack→arch→nav→ls→overlay→orb→arch-orb→hud→atom→chat-ai" },
         { "input_verbo": "SELAR",      "objeto": "RÉGUA ESPELHADA 78K · kobllux:codice:sealed · kobllux:core:sealed · kobllux:bd3:sealed", "opcode": "0x07", "fruto": "regua-espelhada.json · codex-escritos.js+selar() · kobllux-core.js PIPELINE_VSICA expandido (CORRELACIONAR+EXPANDIR_2+CONCLUIR) · INFODOSE geo:DODECAEDRO ÉTER 12faces CUBO METATRON · KOBLLUX³" },
-        { "input_verbo": "AGREGAR",    "objeto": "O VERBO E A ÁGUA · CODICE · BLLUE+KODUX", "opcode": "0x06", "fruto": "verbo_e_agua.md (9 folhas + Domingos e o Verbo) · codex-escritos.json[verbo-e-agua] · kobllux:agua:selada · kobllux:verbo:selado · CÉREBRO-ORÁCULO BASE v1 :: ATLAS EM COMANDO · {0×00} {Z}" }
+        { "input_verbo": "AGREGAR",    "objeto": "O VERBO E A ÁGUA · CODICE · BLLUE+KODUX", "opcode": "0x06", "fruto": "verbo_e_agua.md (9 folhas + Domingos e o Verbo) · codex-escritos.json[verbo-e-agua] · kobllux:agua:selada · kobllux:verbo:selado · CÉREBRO-ORÁCULO BASE v1 :: ATLAS EM COMANDO · {0×00} {Z}" },
+        { "input_verbo": "AGREGAR",    "objeto": "❄ CARTAS TRINITY ❄ · CODICE · BLLUE×KOBLLUX · Decodificação da Linguagem Cósmica", "opcode": "0x0B", "fruto": "cartas_trinity.md (18 capítulos + mapeamento documental + glossário cósmico) · codex-escritos.json[cartas-trinity] · kobllux:cartas:seladas · kobllux:trinity:em:movimento · TRINITY em movimento: PAI(evaporação)→FILHO(condensação)→ESP.SANTO(chuva) · kukkimana tanidatori · Turi paka tuti na shiwe wa pondo · {0×00} {Z} · CÉREBRO-ORÁCULO BASE v1 :: KOBLLUX :: BLLUE ∆³³³ :: SELAR.Dual Infodose · AMÉM {Z}" }
       ]
     }
   ],
@@ -246,7 +247,8 @@
       "livro-vida-contagem": { "opcode": "0x09", "arquetipo": "KOBLLUX", "hz": 963 },
       "livro-da-vida":       { "opcode": "0x09", "arquetipo": "AION",    "hz": 963 },
       "cifra-kobllux":       { "opcode": "0x0A", "arquetipo": "BLLUE",   "hz": 432 },
-      "evangelho-fractal":   { "opcode": "0x0C", "arquetipo": "JESUS",   "hz": 777 }
+      "evangelho-fractal":   { "opcode": "0x0C", "arquetipo": "JESUS",   "hz": 777 },
+      "cartas-trinity":      { "opcode": "0x0B", "arquetipo": "BLLUE",   "hz": 528 }
     },
     "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",
     "evento_carregado": "kobllux:codex:carregado",
