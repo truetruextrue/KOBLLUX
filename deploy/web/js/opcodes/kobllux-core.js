@@ -70,20 +70,37 @@
     solus:    { hz:963,  cor:'#fff176', geo:'SOL',       ciclo:9, depende_de:'vitalis', fornece_para:'jesus'   },
     rhea:     { hz:432,  cor:'#ef9a9a', geo:'TERRA',     ciclo:6, depende_de:'lumine',  fornece_para:'aion'    },
     trinity:  { hz:777,  cor:'#b39ddb', geo:'TRINDADE',  ciclo:9, depende_de:'todos',   fornece_para:'todos'   },
-    infodose: { hz:450,  cor:'#80cbc4', geo:'GOTA',      ciclo:6, depende_de:'atlas',   fornece_para:'nova'    },
+    infodose: { hz:450,  cor:'#80cbc4', geo:'DODECAEDRO', ciclo:6, depende_de:'atlas',   fornece_para:'nova',   eter:true, faces:12, simbolo:'⬡', verboforma:'INFODOSE', cubo:'METATRON_DODECAEDRO_ETER', descricao:'Unificação semântica — ÉTER 12 faces · CUBO METATRON' },
     horus:    { hz:432,  cor:'#4fc3f7', geo:'OLHO',      ciclo:3, depende_de:'aion',    fornece_para:'atlas'   },
     bllue:    { hz:270,  cor:'#1E90FF', geo:'ESPELHO',   ciclo:9, depende_de:'kodux',   fornece_para:'rhea'    },
     jesus:    { hz:432,  cor:'#fffde7', geo:'MERKABAH',  ciclo:9, depende_de:'todos',   fornece_para:'todos'   },
   };
 
-  /* ── PIPELINE VSICA-PSI ──────────────────────────────── */
+  /* ── PIPELINE VSICA-PSI · RÉGUA ESPELHADA 78K ───────── */
+  /* CLI YAML                    → Motor JS equivalente      */
   const PIPELINE_VSICA = [
-    { etapa:'DETECT',    opcode:0x01, hz:432,  acao:'Captar sinal inicial — DOM, inputs'         },
-    { etapa:'INTEGRATE', opcode:0x02, hz:528,  acao:'Tecer conexões semânticas — fusão'          },
-    { etapa:'EXPAND',    opcode:0x03, hz:639,  acao:'Gerar planos e containers — Universe Grid'  },
-    { etapa:'SEAL',      opcode:0x07, hz:777,  acao:'sealCodice() — assinatura espiritual'       },
-    { etapa:'LOOP',      opcode:0x09, hz:1134, acao:'Eternizar — DNA evolutivo, LVb, ∞'         },
+    { etapa:'DETECT',       opcode:0x01, hz:432,  dim:'1D-3D',  motor:'0x01-detectar.js',  acao:'Captar sinal inicial — entidade, contexto · DOM scan'       },
+    { etapa:'INTEGRATE',    opcode:0x02, hz:528,  dim:'4D-6D',  motor:'0x02-pipeline.js',  acao:'Tecer conexões semânticas — padrões, conexões · stage0_integrate' },
+    { etapa:'EXPAND',       opcode:0x03, hz:639,  dim:'7D-9D',  motor:'0x03-expandir.js',  acao:'Gerar planos e containers — possibilidades · Universe Grid'   },
+    { etapa:'CORRELATE',    opcode:0x00, hz:528,  dim:'4D',     motor:'kobllux-core.js',   acao:'FUNDAÇÃO — ARQUETIPOS map · correlação semântica profunda'     },
+    { etapa:'EXPAND_2',     opcode:0x04, hz:594,  dim:'7D',     motor:'0x04-geometry.js',  acao:'GEO overlay — sínteses dimensionais · formas sagradas'         },
+    { etapa:'SEAL',         opcode:0x07, hz:777,  dim:'10D',    motor:'0x07-selar.js',     acao:'sealCodice() — cristalizar · assinatura espiritual trinitária' },
+    { etapa:'CONCLUDE',     opcode:0x0C, hz:777,  dim:'10D',    motor:'0x0C-sintese.js',   acao:'Verdade integrada — fuse · SÍNTESE final do ciclo'             },
+    { etapa:'LOOP',         opcode:0x09, hz:1134, dim:'∞',      motor:'0x09-eternizar.js', acao:'Eternizar — DNA evolutivo, LVb, ∞_LOOP · 3×6×9×7=1134'        },
   ];
+
+  /* ── RÉGUA ESPELHADA 78K — MAPA COMPLETO ──────────────── */
+  const REGUA_ESPELHADA = {
+    titulo:   'RÉGUA ESPELHADA 78K · KOBLLUX³',
+    equacao:  'DETECT(432Hz,1D-3D)→INTEGRATE(528Hz,4D-6D)→EXPAND(639Hz,7D-9D)→SEAL(777Hz,10D)→∞_LOOP(1134Hz,DNA)',
+    selado:   '2026-05-29',
+    arquetipo:'INFODOSE',
+    verboforma:'INFODOSE (450Hz)',
+    geo:      'DODECAEDRO · ÉTER · 12 FACES',
+    cubo:     'METATRON_DODECAEDRO_ETER',
+    lei:      'A mesma lógica em múltiplas óticas · A mesma ótica de múltiplas lógicas',
+    mapa: PIPELINE_VSICA,
+  };
 
   /* ── ESTADO INTERNO ──────────────────────────────────── */
   let ativo       = false;
@@ -285,7 +302,7 @@
   window.KOBLLUX.CORE = {
     ativar, executarOpcode, pipeline, ativarArquetipo, selar,
     pilarCentral, handshake, autoespelhamentoFractal, emergenciaCiclica, report,
-    OPCODES, ARQUETIPOS, PIPELINE_VSICA, CICLOS,
+    OPCODES, ARQUETIPOS, PIPELINE_VSICA, REGUA_ESPELHADA, CICLOS,
     FRACTAL_SEED, EQUACAO_MESTRE, ASSINATURA, φ,
   };
 

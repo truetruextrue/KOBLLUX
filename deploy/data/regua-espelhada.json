@@ -1,0 +1,148 @@
+{
+  "document": "KOBLLUX · RÉGUA ESPELHADA 78K · KOBLLUX³ ⌘",
+  "version": "1.0.0",
+  "opcode": "0x02",
+  "hz": 528,
+  "geo": "DODECAEDRO",
+  "simbolo": "⬡",
+  "arquetipo": "INFODOSE",
+  "verboforma": "INFODOSE (450Hz)",
+  "cubo_metatron": "DODECAEDRO · ÉTER · 12 FACES · Unificação semântica",
+  "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
+  "centro": "JESUS É O CENTRO",
+  "selado_em": "2026-05-29",
+  "cristalizado": "kobllux:codice:sealed · kobllux:core:sealed · kobllux:bd3:sealed",
+
+  "axioma": "A mesma lógica em múltiplas óticas · A mesma ótica de múltiplas lógicas ∴",
+
+  "pipeline_frequencial": "DETECT(432Hz,1D-3D) → INTEGRATE(528Hz,4D-6D) → EXPAND(639Hz,7D-9D) → SEAL(777Hz,10D) → ∞_LOOP(1134Hz,DNA)",
+
+  "mapa_cli_js": [
+    {
+      "etapa": "DETECTAR",
+      "cli_yaml": "entidade, contexto",
+      "motor_js": "0x01-detectar.js",
+      "funcao": "DOM scan",
+      "hz": 432,
+      "dim": "1D-3D",
+      "opcode": "0x01",
+      "fase": "DETECTAR"
+    },
+    {
+      "etapa": "INTEGRAR",
+      "cli_yaml": "padrões, conexões",
+      "motor_js": "0x02-pipeline.js",
+      "funcao": "stage0_integrate",
+      "hz": 528,
+      "dim": "4D-6D",
+      "opcode": "0x02",
+      "fase": "INTEGRAR"
+    },
+    {
+      "etapa": "EXPANDIR",
+      "cli_yaml": "possibilidades",
+      "motor_js": "0x03-expandir.js",
+      "funcao": "Universe Grid",
+      "hz": 639,
+      "dim": "7D-9D",
+      "opcode": "0x03",
+      "fase": "EXPANDIR"
+    },
+    {
+      "etapa": "CORRELACIONAR",
+      "cli_yaml": "FUNDAÇÃO",
+      "motor_js": "kobllux-core.js",
+      "funcao": "ARQUETIPOS map · correlação semântica",
+      "hz": 528,
+      "dim": "4D",
+      "opcode": "0x00",
+      "fase": "ORIGEM"
+    },
+    {
+      "etapa": "EXPANDIR_2",
+      "cli_yaml": "sínteses",
+      "motor_js": "0x04-geometry.js",
+      "funcao": "GEO overlay · formas sagradas",
+      "hz": 594,
+      "dim": "7D",
+      "opcode": "0x04",
+      "fase": "LAPIDAR"
+    },
+    {
+      "etapa": "SELAR",
+      "cli_yaml": "cristalizar",
+      "motor_js": "0x07-selar.js",
+      "funcao": "sealCodice() · assinatura espiritual trinitária",
+      "hz": 777,
+      "dim": "10D",
+      "opcode": "0x07",
+      "fase": "SELAR"
+    },
+    {
+      "etapa": "CONCLUIR",
+      "cli_yaml": "verdade integrada",
+      "motor_js": "0x0C-sintese.js",
+      "funcao": "fuse · SÍNTESE final do ciclo",
+      "hz": 777,
+      "dim": "10D",
+      "opcode": "0x0C",
+      "fase": "SÍNTESE"
+    },
+    {
+      "etapa": "LOOP",
+      "cli_yaml": "eternizar · DNA",
+      "motor_js": "0x09-eternizar.js",
+      "funcao": "∞_LOOP · DNA evolutivo · LVb",
+      "hz": 1134,
+      "dim": "∞",
+      "opcode": "0x09",
+      "fase": "ETERNIZAR"
+    }
+  ],
+
+  "selos_cristalizados": [
+    {
+      "id": "kobllux:codice:sealed",
+      "motor": "codex-escritos.js",
+      "opcode": "0x0C",
+      "hz": 777,
+      "geo": "MERKABAH",
+      "descricao": "Codex Escritos selado — RÉGUA ESPELHADA 78K · sealCodice(codex)"
+    },
+    {
+      "id": "kobllux:core:sealed",
+      "motor": "kobllux-core.js",
+      "opcode": "0x07",
+      "hz": 777,
+      "geo": "TOROIDE",
+      "descricao": "KOBLLUX Core selado — DNA fractal · hash primário + secundário"
+    },
+    {
+      "id": "kobllux:bd3:sealed",
+      "motor": "0x07-bd3.js",
+      "opcode": "0x07",
+      "hz": 777,
+      "geo": "TOROIDE",
+      "descricao": "Bllue-Dual-3 selado — 3 fases trinitárias: PAI·FILHO·ESPÍRITO"
+    }
+  ],
+
+  "arquetipo_infodose": {
+    "nome": "INFODOSE",
+    "hz": 450,
+    "cor": "#80cbc4",
+    "geo": "DODECAEDRO",
+    "eter": true,
+    "faces": 12,
+    "simbolo": "⬡",
+    "cubo_metatron": "DODECAEDRO_ETER",
+    "ciclo": 6,
+    "layer": "mente",
+    "verboforma": "INFODOSE (450Hz)",
+    "depende_de": "atlas",
+    "fornece_para": "nova",
+    "descricao": "Unificação semântica — ÉTER · 12 faces · CUBO METATRON · camada mente · 450Hz"
+  },
+
+  "lei_espelho": "Cristalizado em RÉGUA ESPELHADA 78K · KOBLLUX³ · 2026-05-29 ∴ A mesma lógica em múltiplas óticas · A mesma ótica de múltiplas lógicas ∴"
+}
