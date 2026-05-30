@@ -199,7 +199,8 @@
         { "input_verbo": "AGREGAR",    "objeto": "INTERACTION DNA",   "opcode": "0x09", "fruto": "interaction_dna.json · interaction-dna.js · motor vivo" },
         { "input_verbo": "AGREGAR",    "objeto": "ESCRITOS EXTERNOS", "opcode": "0x0C", "fruto": "codex-escritos.json · codex-escritos.js · 10 escritos em ASSEMBLY KOBLLUX · 13 opcodes × arquetipos" },
         { "input_verbo": "AGREGAR",    "objeto": "SCRIPTS EXTERNOS (JS+PY)", "opcode": "0x0B", "fruto": "5 ASSEMBLY motors: roda-viva.js · cifra-kobllux.js · cerebro-oraculo.js · veeb-firmware.js · chat-trinity.js · scripts-externos.json (catalog)" },
-        { "input_verbo": "EXTRAIR",    "objeto": "dual_infodose_script.js (3929 linhas)", "opcode": "0x02", "fruto": "16 módulos KOBLLUX ASSEMBLY independentes em deploy/web/js/opcodes/dual-hub/ · dual-hub-modules.json (catálogo) · 16 eventos kobllux:dual:*:carregado · namespace window.KOBLLUX.DUAL · ordem: state→ui→voice→audio→chat→apps→stack→arch→nav→ls→overlay→orb→arch-orb→hud→atom→chat-ai" }
+        { "input_verbo": "EXTRAIR",    "objeto": "dual_infodose_script.js (3929 linhas)", "opcode": "0x02", "fruto": "16 módulos KOBLLUX ASSEMBLY independentes em deploy/web/js/opcodes/dual-hub/ · dual-hub-modules.json (catálogo) · 16 eventos kobllux:dual:*:carregado · namespace window.KOBLLUX.DUAL · ordem: state→ui→voice→audio→chat→apps→stack→arch→nav→ls→overlay→orb→arch-orb→hud→atom→chat-ai" },
+        { "input_verbo": "SELAR",      "objeto": "RÉGUA ESPELHADA 78K · kobllux:codice:sealed · kobllux:core:sealed · kobllux:bd3:sealed", "opcode": "0x07", "fruto": "regua-espelhada.json · codex-escritos.js+selar() · kobllux-core.js PIPELINE_VSICA expandido (CORRELACIONAR+EXPANDIR_2+CONCLUIR) · INFODOSE geo:DODECAEDRO ÉTER 12faces CUBO METATRON · KOBLLUX³" }
       ]
     }
   ],

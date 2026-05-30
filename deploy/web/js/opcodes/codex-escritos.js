@@ -154,19 +154,53 @@
     };
   }
 
+  /* ── SELAR CODICE · kobllux:codice:sealed ────────────── */
+  function selar(opts) {
+    opts = opts || {};
+    const ts = Date.now();
+    const seed = String(ts) + String(_escritos.length) + '0x0C_CODEX_777';
+    let hash = 0;
+    for (let i = 0; i < seed.length; i++) { hash = ((hash << 5) - hash + seed.charCodeAt(i)) | 0; }
+    const hashHex = (hash >>> 0).toString(16).padStart(8, '0').toUpperCase();
+
+    const sealResult = {
+      id:      'codex-escritos',
+      opcode:  OPCODE,
+      hz:      HZ,
+      geo:     GEO,
+      arquetipo: 'KOBLLUX',
+      regua:   'ESPELHADA_78K',
+      total_escritos: _escritos.length,
+      hash:    hashHex,
+      ts,
+    };
+
+    if (typeof window.sealCodice === 'function') {
+      window.sealCodice({ id: 'codex', hz: HZ, silent: opts.silent || false });
+    }
+
+    document.dispatchEvent(new CustomEvent('kobllux:codice:sealed', {
+      bubbles: true, detail: sealResult
+    }));
+
+    console.log('[CODEX·⌘] ⌘ SELAR · 777Hz · kobllux:codice:sealed · RÉGUA ESPELHADA 78K · hash:', hashHex);
+    return sealResult;
+  }
+
   /* ── DOM READY ───────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', () => {
     _load().then(() => {
       if (window.KOBLLUX?.MESTRE) {
         window.KOBLLUX.MESTRE.register('CODEX', window.KOBLLUX.CODEX);
       }
+      selar({ silent: true });
     });
   });
 
   /* ── EXPOSE ──────────────────────────────────────────── */
   window.KOBLLUX = window.KOBLLUX || {};
   window.KOBLLUX.CODEX = {
-    carregar, porOpcode, porArquetipo, ativar,
+    carregar, porOpcode, porArquetipo, ativar, selar,
     m4, trinitario, encode, espelhar, buscar, todos, report,
     AUFABETTY, HZ, OPCODE, GEO,
     get ESCRITOS() { return _escritos; },
