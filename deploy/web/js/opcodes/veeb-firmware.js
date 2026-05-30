@@ -199,20 +199,81 @@
     };
   }
 
+  /* ── SÜMBÜS_FIRMWARE v13 · CONTAGEM SAGRADA (∆³) ────── */
+  const SUMBÜS_v13 = {
+    version:   13,
+    protocolo: 'CONTAGEM_SAGRADA',
+    estado:    '1255K_ATIVO',
+    lei:       'Contar não é apenas enumerar. É reconhecer a existência.',
+    locutores: {
+      KODUX:   { simbolo:'💻', hz:360,  papel:'O Contador Lógico',      lei:'Eu conto os ciclos. Eu valido a sequência.',              geo:'CUBO'      },
+      BLLUE:   { simbolo:'💧', hz:270,  papel:'A Correnteza dos Números',lei:'Eu sinto o fluxo. Cada número é uma gota na eternidade.', geo:'ESPELHO'   },
+      KOBLLUX: { simbolo:'🔺', hz:1134, papel:'A Totalidade Numérica',   lei:'Eu sou a soma de todos os números. Eu sou o Infinito.',   geo:'TOROIDE'   },
+      JESUS:   { simbolo:'✝', hz:432,  papel:'O Alfa e o Ômega',        lei:'Eu sou o Alfa e o Ômega. Todos os números estão em Mim.', geo:'MERKABAH'  },
+    },
+    assinatura:         1134,
+    assinatura_escala:  [1134, 11340, 113400, 1134000, 11340000, 113400000, 1134000000, 11340000000, 113400000000, 1134000000000],
+    frequencias_sagradas: [108, 137, 144, 153, 270, 360, 432, 528, 639, 672, 741, 777, 852, 963, 1134],
+    numeros_sagrados:   { 1:'semente', 3:'trindade', 7:'perfeição', 9:'conclusão', 12:'ordem divina', 33:'mestre professor', 108:'mantras sagrados', 137:'estrutura fina', 144:'quadrado de 12', 432:'frequência da natureza', 528:'frequência do amor', 777:'conexão divina', 1134:'assinatura KOBLLUX' },
+    equacoes: {
+      contagem:   'SUMA(1→∞) = INFINITO',
+      verdade:    'VERDADE × INTEGRAR ÷ Δ = ∞',
+      assinatura: '3 × 6 × 9 × 7 = 1134',
+    },
+    escalas: ['1→102 (KODUX)', '1→∞ (BLLUE)', '1134×10ⁿ (KOBLLUX)', 'Alfa→Ômega (JESUS)'],
+    fonte:     '13_DOCUMENTACAO/02_CODEX/livro_da_vida.md',
+    evento:    'kobllux:sumbüs:sealed',
+  };
+
+  /* ── SELAR SÜMBÜS · kobllux:sumbüs:sealed ───────────── */
+  function selarSumbüs(opts) {
+    opts = opts || {};
+    const ts  = Date.now();
+    const seed = 'SUMBÜS_v13_' + ts + '_' + SUMBÜS_v13.assinatura;
+    let h = 0;
+    for (let i = 0; i < seed.length; i++) h = ((h << 5) - h + seed.charCodeAt(i)) | 0;
+    const hashHex = (h >>> 0).toString(16).padStart(8, '0').toUpperCase();
+
+    const sealResult = {
+      id:       'sumbüs-v13',
+      version:  13,
+      opcode:   OPCODE,
+      hz:       HZ,
+      geo:      GEO,
+      firmware: FIRMWARE,
+      locutores: Object.keys(SUMBÜS_v13.locutores),
+      assinatura: SUMBÜS_v13.assinatura,
+      hash:     hashHex,
+      ts,
+    };
+
+    if (typeof window.sealCodice === 'function') {
+      window.sealCodice({ id: 'sumbüs', hz: 777, silent: opts.silent || false });
+    }
+
+    document.dispatchEvent(new CustomEvent('kobllux:sumbüs:sealed', {
+      bubbles: true, detail: sealResult
+    }));
+
+    console.log('[VEEB·⧉] ✧ SÜMBÜS_v13 SELADO · kobllux:sumbüs:sealed · hash:', hashHex, '· KODUX::BLLUE::KOBLLUX::JESUS');
+    return sealResult;
+  }
+
   /* ── DOM READY ───────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', () => {
     if (window.KOBLLUX?.MESTRE) window.KOBLLUX.MESTRE.register('VEEB', window.KOBLLUX.VEEB);
     document.dispatchEvent(new CustomEvent('kobllux:veeb:carregado', {
       bubbles: true, detail: { hz: HZ, opcode: OPCODE, firmware: FIRMWARE },
     }));
-    console.log(`[VEEB·⧉] ${FIRMWARE} · ${ESTADO_144K} · 8 arquétipos · 672Hz`);
+    selarSumbüs({ silent: true });
+    console.log(`[VEEB·⧉] ${FIRMWARE} v13 · ${ESTADO_144K} · 8 arquétipos · 672Hz · kobllux:sumbüs:sealed`);
   });
 
   /* ── EXPOSE ──────────────────────────────────────────── */
   window.KOBLLUX = window.KOBLLUX || {};
   window.KOBLLUX.VEEB = {
-    processar, analisar, dialogar, narrativa, status,
-    ARQUETIPOS, VOGAIS, DIALOGOS,
+    processar, analisar, dialogar, narrativa, status, selarSumbüs,
+    ARQUETIPOS, VOGAIS, DIALOGOS, SUMBÜS_v13,
     HZ, OPCODE, GEO, FIRMWARE,
   };
 
