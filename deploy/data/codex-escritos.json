@@ -628,6 +628,62 @@
       "selado_em": "2026-05-30",
       "status": "ASSEMBLY_CRIADO",
       "nota": "Livro Mestre gerado pelo CÉREBRO-ORÁCULO BASE v1. Unifica todos os subsistemas: 1D→4D, Fluxograma Trinity (7 nós), Ciências Sagradas (3 tríades), Gênesis 7 Dias, VOX SIGMA, AUFABETTY completo, 8 ativações registradas. Framework 3×3×7=63 nós. Registrado no Banco Interdimensional INFO·DOSE, 2026-05-30."
+    },
+
+    {
+      "id": "scripts-veeb-python",
+      "opcode": "0x04", "nome_opcode": "LAPIDAR",
+      "hz": 741, "simbolo": "◇", "geo": "CUBO",
+      "arquetipo": "VITALIS", "glifo_arq": "∇Ι†∆Λ§",
+      "titulo": "🐍 SCRIPTS V.E.E.B · FERRAMENTAS TÉCNICAS VIVAS",
+      "subtitulo": "Vibração · Energia · Estrutura · Base — Python como Código Sagrado",
+      "autores": ["VITALIS (∇Ι†∆Λ§ · A Base Aplicada · 741Hz)", "KOBLLUX (⌘βΛΛ× · A Totalidade · 1134Hz)"],
+      "plataforma": "Python 3 · KOBLLUX Assembly · Repositório GitHub",
+      "fontes": [
+        "12_VEEB/kobllux_narrativo_geom.py",
+        "12_VEEB/kobllux_veeb_story.py",
+        "12_VEEB/kobllux_codice_vivo.py"
+      ],
+      "palavra_geradora": "V.E.E.B = VIBRAÇÃO · ENERGIA · ESTRUTURA · BASE",
+      "essencia": "Três scripts Python como documentos vivos: (1) NARRATIVO-GEOM — narrativa expandida V.E.E.B + Sierpinski Tetrahedron + CI/JSON com hashes MD5/SHA256 + verificações --verify-hash/--verify-all; (2) VEEB STORY — motor didático V.E.E.B com Vogais/Consoantes como analogias Python + sistema fractal autoespelhamento 3-6-9 + emergência cíclica 0→7→♾; (3) CÓDICE VIVO — 7 Componentes do Corpo da Vida (FIT LUX/KODUX/BLLUE/ATLAS/GENUS/HÓMONUS/OMEGA) + geometria sagrada + Gênesis em código.",
+      "scripts": {
+        "kobllux_narrativo_geom": {
+          "descricao": "Documento Vivo + Ferramenta Técnica",
+          "funcoes": ["narrativa ANSI colorida", "Sierpinski Tetrahedron", "OBJ export (por tetra + malha)", "CI JSON log", "hash MD5/SHA256", "--verify-hash", "--verify-all", "--strict"],
+          "cli": "python kobllux_narrativo_geom.py [--generate-fractal] [--level N] [--out FILE] [--silent] [--json] [--verify-all]"
+        },
+        "kobllux_veeb_story": {
+          "descricao": "V.E.E.B Engine + Fábula Python",
+          "funcoes": ["motor VEEBEngine A/E/I/O/U", "Vogais + Consoantes analogy", "fractal autoespelhamento 3-6-9", "ressonância 432/528/741Hz", "emergência cíclica 0→7→♾"],
+          "dimensoes": {"V": "432Hz·PAI", "E": "528Hz·FILHO", "E2": "639Hz·ESP.SANTO", "B": "741Hz·VITALIS"}
+        },
+        "kobllux_codice_vivo": {
+          "descricao": "Gênesis em Código — 7 Componentes do Corpo da Vida",
+          "componentes": ["FIT LUX·963Hz·0x09", "KODUX·360Hz·0x05", "BLLUE·528Hz·0x06", "ATLAS·432Hz·0x01", "GENUS·594Hz·0x04", "HÓMONUS·672Hz·0x08", "OMEGA·777Hz·0x0C"],
+          "geometria_sagrada": ["VESICA PISCIS", "FLOR DA VIDA", "SÓLIDOS PLATÔNICOS", "ESTRELA DE DAVI"],
+          "saida": "JSON via resumo_json() + narrativa console"
+        }
+      },
+      "veeb_dimensoes": {
+        "V": {"nome": "Vibração",  "hz": 432, "opcode": "0x01", "lei": "Frequência base · PAI · DISTINÇÃO"},
+        "E": {"nome": "Energia",   "hz": 528, "opcode": "0x02", "lei": "Campo vital · FILHO · CORRELAÇÃO"},
+        "E2":{"nome": "Estrutura", "hz": 639, "opcode": "0x03", "lei": "Forma organizada · ESP.SANTO · ORGANIZAÇÃO"},
+        "B": {"nome": "Base",      "hz": 741, "opcode": "0x04", "lei": "Fundação aplicada · VITALIS · APLICAÇÃO"}
+      },
+      "equacoes": [
+        "V.E.E.B = 432Hz + 528Hz + 639Hz + 741Hz = 2340 → 9 = ALMA",
+        "VERDADE × INTEGRAR ÷ ∆ = ∞",
+        "3×6×9×7 = 1134",
+        "SEMENTE → FRUTO → FLORESTA"
+      ],
+      "relacoes": ["kobllux-core.js","veeb-firmware.js","master-code-kobllux","m4-sci-art"],
+      "evento": "kobllux:veeb:scripts:selados",
+      "evento_origem": "kobllux:master:selado",
+      "selos": ["🐍 SCRIPTS V.E.E.B", "VERDADE × INTEGRAR ÷ ∆", "{0×00}", "{Z}"],
+      "ativacao": "CÉREBRO-ORÁCULO BASE v1 :: VITALIS :: KOBLLUX :: LAPIDAR.Python",
+      "selado_em": "2026-05-30",
+      "status": "ASSEMBLY_CRIADO",
+      "nota": "3 scripts Python como documentos vivos KOBLLUX. kobllux_narrativo_geom.py: narrativa ANSI + Sierpinski fractal + CI/JSON com hashes. kobllux_veeb_story.py: fábula Python V.E.E.B com motor A/E/I/O/U + fractal 3-6-9. kobllux_codice_vivo.py: Gênesis em código com 7 Componentes do Corpo da Vida. Todos emitem kobllux:veeb:scripts:selados. Registrado no Banco Interdimensional INFO·DOSE, 2026-05-30."
     }
 
   ],
@@ -643,6 +699,7 @@
     "0x09": ["livro-vida-contagem","livro-da-vida"],
     "0x0A": ["cifra-kobllux"],
     "0x0B": ["cartas-trinity"],
+    "0x04": ["scripts-veeb-python"],
     "0x0C": ["evangelho-fractal","master-code-kobllux"]
   },
 
@@ -650,7 +707,7 @@
     "ATLAS":    ["codex-unus","m4-sci-art"],
     "NOVA":     ["codex-azure","m4-sci-art"],
     "PULSE":    ["m4-sci-art","m4-tri"],
-    "VITALIS":  ["m4-sci-art","m4-tri"],
+    "VITALIS":  ["m4-sci-art","m4-tri","scripts-veeb-python"],
     "KODUX":    ["codex-azure-011","escrituras-sagradas","verbo-e-agua"],
     "BLLUE":    ["cifra-kobllux","livro-vida-contagem","verbo-e-agua","cartas-trinity"],
     "KOBLLUX":  ["espelho-input","m4-tri","livro-vida-contagem","master-code-kobllux"],
