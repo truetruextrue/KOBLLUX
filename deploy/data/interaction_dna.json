@@ -264,7 +264,8 @@
       "copilot-chat-kobllux-analise":    { "opcode": "0x08", "arquetipo": "HORUS",   "hz": 852 },
       "kodux-v79-ente-trinity":          { "opcode": "0x06", "arquetipo": "KODUX",   "hz": 1134 },
       "leitura-manifesto-sumbüs":        { "opcode": "0x09", "arquetipo": "AION",    "hz": 963 },
-      "dimensoes-ciclo-kobllux":         { "opcode": "0x02", "arquetipo": "ATLAS",   "hz": 528 }
+      "dimensoes-ciclo-kobllux":         { "opcode": "0x02", "arquetipo": "ATLAS",   "hz": 528 },
+      "fases-04-06-kobllux":             { "opcode": "0x04", "arquetipo": "VITALIS", "hz": 594 }
     },
     "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",
     "evento_carregado": "kobllux:codex:carregado",
