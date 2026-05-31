@@ -141,17 +141,49 @@
           "stderr_tail": ""
         }
       ]
+    },
+    {
+      "timestamp": "2026-05-31T05:59:08.564022",
+      "sha": "1926fe1",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": false,
+      "mudados": 5,
+      "executados": 3,
+      "ok": 3,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 0.09,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "correlacao_opcodes",
+          "ok": true,
+          "dur_s": 0.03,
+          "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "mapa_redistribuicao",
+          "ok": true,
+          "dur_s": 0.1,
+          "stdout_tail": "quivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 70 arquivo(s)\n  0x06: 369 arquivo(s)\n  0x08: 17 arquivo(s)\n  0x03: 38 arquivo(s)\n  0x0B: 3 arquivo(s)\n  0x0A: 5 arquivo(s)\n  0x0C: 3 arquivo(s)\n  0x02: 49 arquivo(s)\n  0x01: 49 arquivo(s)\n  0x04: 12 arquivo(s)\n  0x09: 1 arquivo(s)\n  0x05: 10 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
     }
   ],
   "hashes_saida": {
-    "veeb_catalog": "3e7a7f53a5ec",
-    "correlacao_opcodes": "d53a18fc6346",
-    "mapa_redistribuicao": "974f23ed5cc2",
+    "veeb_catalog": "61d88a49af02",
+    "correlacao_opcodes": "818286a2bcac",
+    "mapa_redistribuicao": "e89a8c332a7a",
     "archetypes_scanner": "2607daf59a94"
   },
   "ultima_execucao": {
-    "timestamp": "2026-05-31T05:58:12.447865",
-    "sha": "331e858",
+    "timestamp": "2026-05-31T05:59:08.564022",
+    "sha": "1926fe1",
     "branch": "claude/adoring-cerf-zo03e",
     "full": false,
     "mudados": 5,
@@ -168,14 +200,14 @@
       {
         "id": "correlacao_opcodes",
         "ok": true,
-        "dur_s": 0.04,
+        "dur_s": 0.03,
         "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
         "stderr_tail": ""
       },
       {
         "id": "mapa_redistribuicao",
         "ok": true,
-        "dur_s": 0.12,
+        "dur_s": 0.1,
         "stdout_tail": "quivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 70 arquivo(s)\n  0x06: 369 arquivo(s)\n  0x08: 17 arquivo(s)\n  0x03: 38 arquivo(s)\n  0x0B: 3 arquivo(s)\n  0x0A: 5 arquivo(s)\n  0x0C: 3 arquivo(s)\n  0x02: 49 arquivo(s)\n  0x01: 49 arquivo(s)\n  0x04: 12 arquivo(s)\n  0x09: 1 arquivo(s)\n  0x05: 10 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
         "stderr_tail": ""
       }
