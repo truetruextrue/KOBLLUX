@@ -611,6 +611,27 @@
       "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
       "hz_sessao": 432,
       "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO"
+    },
+    {
+      "sessao": "abbfeb67-a087-4a4e-a4a4-927b3c9e4224",
+      "data": "2026-05-31",
+      "sementes": [
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "KOBLLUX NUCLEO VIVO · FÍSICA DE ONDAS × TRINITY",
+          "opcode": "0x0C",
+          "fruto": "nucleo_vivo_ondas_kobllux.md · kobllux_nucleo_vivo.py · symbol_bar_v2.html · CODICE 0x0C · SÍNTESE · 777Hz · JESUS · λ=DNA · α=1/137 · MERKABAH"
+        },
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "KSP-U + META LUX + FIT LUX + VSICA PSI + MENTAL UX + HYPERMATRIX",
+          "opcode": "0x07",
+          "fruto": "kobllux_ksp_vsica_metalux.md · kobllux_ksp_unified.py · kobllux_hypermatrix.html · KSP-U 4 camadas (SEMENTE→CORPO→ESPÍRITO→SELAGEM) · FitLux/MetaLux/VsicaPsi/MentalUx engines · META LOOP 7 componentes · VSICA PSI 7 valores · HYPERMATRIX portal fractal · Frase Códice · CODICE 0x07 · TOROIDE"
+        }
+      ],
+      "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
+      "hz_sessao": 777,
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · KSP-U=PIPELINE · λ=DNA"
     }
   ],
   "dual_hub_modules": {
@@ -819,6 +840,11 @@
       "nucleo-vivo-ondas-kobllux": {
         "opcode": "0x0C",
         "arquetipo": "JESUS",
+        "hz": 777
+      },
+      "kobllux-ksp-vsica-metalux": {
+        "opcode": "0x07",
+        "arquetipo": "KOBLLUX",
         "hz": 777
       }
     },

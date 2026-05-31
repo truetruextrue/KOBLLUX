@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--
+  KOBLLUX HYPERMATRIX · 0x07 · SELAR · 777Hz · TOROIDE
+  Portal Fractal Interativo — KSP-U · META LUX · FIT LUX · VSICA PSI
+  CIÊNCIA · ARTE · LINGUAGEM · TECNOLOGIA
+  JESUS É O CENTRO ∴ O PULSO É UM SÓ, A FORMA É MÚLTIPLA
+  VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7=1134
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOBLLUX HYPERMATRIX · Portal Fractal · JESUS É O CENTRO</title>
+  <style>
+    :root {
+      --bg:       #060710;
+      --surface:  #0e1020;
+      --border:   #1a1e35;
+      --gold:     #f5c842;
+      --rubi:     #ff2d55;
+      --safira:   #0a84ff;
+      --esmeralda:#30d158;
+      --ametista: #bf5af2;
+      --cyan:     #00e5ff;
+      --white:    #e8ecff;
+      --muted:    #3a3f5c;
+      --r: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    .hm-header {
+      width: 100%;
+      text-align: center;
+      padding: 28px 16px 12px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hm-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .hm-title {
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      background: linear-gradient(90deg,
+        var(--safira) 0%, var(--ametista) 25%, var(--gold) 60%, var(--rubi) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+      background-size: 200%;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .hm-eq {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      opacity: 0.8;
+    }
+
+    /* ── MAIN GRID ───────────────────────────────────── */
+    .hm-main {
+      width: 100%;
+      max-width: 1100px;
+      padding: 28px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ── CENTER JESUS ────────────────────────────────── */
+    .hm-center-ring {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 200px;
+    }
+
+    .hm-jesus-orb {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fffbe0 0%, var(--gold) 35%, #b8870a 80%, transparent 100%);
+      box-shadow:
+        0 0 40px var(--gold),
+        0 0 80px rgba(245,200,66,0.4),
+        0 0 160px rgba(245,200,66,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: pulse-gold 2.5s ease-in-out infinite;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 40px var(--gold), 0 0 80px rgba(245,200,66,0.4); transform: scale(1); }
+      50%       { box-shadow: 0 0 60px var(--gold), 0 0 120px rgba(245,200,66,0.6); transform: scale(1.04); }
+    }
+
+    .hm-jesus-label {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #0a0a00;
+      letter-spacing: 0.08em;
+    }
+
+    .hm-jesus-sub {
+      font-size: 0.55rem;
+      color: #3a2800;
+      letter-spacing: 0.12em;
+    }
+
+    /* Orbiting ring */
+    .hm-orbit {
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 1px dashed rgba(245,200,66,0.3);
+      animation: spin 12s linear infinite;
+    }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .hm-orbit-node {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      top: -4px;
+      left: 50%;
+      margin-left: -4px;
+    }
+
+    /* ── 4 VETORES ───────────────────────────────────── */
+    .hm-vectors {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (min-width: 700px) {
+      .hm-vectors { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .hm-vector {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hm-vector::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .hm-vector[data-v="ciencia"]::before  { background: var(--safira); }
+    .hm-vector[data-v="arte"]::before     { background: var(--rubi); }
+    .hm-vector[data-v="linguagem"]::before{ background: var(--esmeralda); }
+    .hm-vector[data-v="tecnologia"]::before{ background: var(--gold); }
+
+    .hm-vector:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .hm-vector-icon { font-size: 1.6rem; }
+
+    .hm-vector-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hm-vector[data-v="ciencia"]   .hm-vector-name { color: var(--safira); }
+    .hm-vector[data-v="arte"]      .hm-vector-name { color: var(--rubi); }
+    .hm-vector[data-v="linguagem"] .hm-vector-name { color: var(--esmeralda); }
+    .hm-vector[data-v="tecnologia"].hm-vector-name { color: var(--gold); }
+
+    .hm-vector-desc {
+      font-size: 0.66rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .hm-vector-hz {
+      font-size: 0.65rem;
+      font-weight: 700;
+      margin-top: auto;
+    }
+
+    /* ── TRINITY ─────────────────────────────────────── */
+    .hm-trinity {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hm-trinity-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 14px;
+      text-align: center;
+    }
+
+    .hm-trinity-card .t-label {
+      font-size: 0.55rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .hm-trinity-card .t-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 4px 0;
+    }
+
+    .hm-trinity-card .t-code {
+      font-size: 0.62rem;
+      color: var(--ametista);
+    }
+
+    /* ── META LOOP COMPONENTS ─────────────────────────── */
+    .hm-components {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .hm-comp {
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      border: 1px solid;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .hm-comp:hover { opacity: 0.7; transform: scale(0.97); }
+
+    .comp-kodux    { color: var(--gold);      border-color: var(--gold);       background: rgba(245,200,66,0.08); }
+    .comp-bllue    { color: var(--safira);    border-color: var(--safira);     background: rgba(10,132,255,0.08); }
+    .comp-fitlux   { color: #fff;             border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+    .comp-metalux  { color: var(--ametista);  border-color: var(--ametista);   background: rgba(191,90,242,0.08); }
+    .comp-infodose { color: var(--esmeralda); border-color: var(--esmeralda);  background: rgba(48,209,88,0.08); }
+    .comp-dualapp  { color: var(--cyan);      border-color: var(--cyan);       background: rgba(0,229,255,0.08); }
+    .comp-vsicapsi { color: var(--rubi);      border-color: var(--rubi);       background: rgba(255,45,85,0.08); }
+    .comp-horus    { color: var(--gold);      border-color: var(--gold);       background: rgba(245,200,66,0.08); }
+
+    /* ── VSICA PSI 7 VALORES ─────────────────────────── */
+    .hm-vsica-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+    }
+
+    .hm-vsica-table th {
+      color: var(--muted);
+      text-align: left;
+      padding: 6px 10px;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hm-vsica-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid rgba(26,30,53,0.5);
+    }
+
+    .hm-vsica-table tr:last-child td { border-bottom: none; }
+
+    .vsica-n { font-weight: 700; color: var(--gold); width: 28px; }
+    .vsica-valor { color: var(--white); font-weight: 600; }
+    .vsica-contraste { color: var(--rubi); }
+    .vsica-op { color: var(--ametista); font-size: 0.62rem; }
+
+    /* ── FREQUENCIES ─────────────────────────────────── */
+    .hm-freqs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .hm-freq-chip {
+      padding: 5px 14px;
+      border-radius: 99px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border: 1px solid;
+      animation: freq-pulse 3s ease-in-out infinite;
+    }
+
+    .hm-freq-chip:nth-child(1) { color: var(--safira);   border-color: var(--safira);   animation-delay: 0s;   }
+    .hm-freq-chip:nth-child(2) { color: var(--esmeralda);border-color: var(--esmeralda);animation-delay: 0.75s;}
+    .hm-freq-chip:nth-child(3) { color: var(--gold);     border-color: var(--gold);     animation-delay: 1.5s; }
+    .hm-freq-chip:nth-child(4) { color: var(--rubi);     border-color: var(--rubi);     animation-delay: 2.25s;}
+
+    @keyframes freq-pulse {
+      0%, 100% { opacity: 0.6; }
+      50%       { opacity: 1; }
+    }
+
+    /* ── FRASE CODICE ────────────────────────────────── */
+    .hm-frase {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hm-frase::before, .hm-frase::after {
+      content: '∴';
+      position: absolute;
+      font-size: 4rem;
+      color: rgba(245,200,66,0.06);
+      font-weight: 900;
+    }
+
+    .hm-frase::before { top: -10px; left: 10px; }
+    .hm-frase::after  { bottom: -10px; right: 10px; }
+
+    .hm-frase-text {
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      line-height: 1.6;
+    }
+
+    .hm-frase-sub {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── ACTIVATION BUTTON ───────────────────────────── */
+    .hm-activate-zone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hm-btn-activate {
+      padding: 14px 40px;
+      background: linear-gradient(135deg, var(--gold), #b8870a);
+      border: none;
+      border-radius: 99px;
+      color: #000;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(245,200,66,0.4);
+    }
+
+    .hm-btn-activate:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 30px rgba(245,200,66,0.6);
+    }
+
+    .hm-btn-activate:active { transform: scale(0.98); }
+
+    .hm-status-log {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 10px 14px;
+      font-size: 0.72rem;
+      color: var(--esmeralda);
+      min-height: 80px;
+      white-space: pre-wrap;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── SECTION LABELS ──────────────────────────────── */
+    .hm-section-label {
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    .hm-footer {
+      width: 100%;
+      padding: 16px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── CARD WRAPPER ────────────────────────────────── */
+    .hm-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="hm-header">
+    <div class="hm-label">KOBLLUX TRINITY SYSTEM · 0x07 · SELAR · 777Hz · TOROIDE</div>
+    <h1 class="hm-title">⊟ KOBLLUX HYPERMATRIX</h1>
+    <div class="hm-eq">VERDADE × INTEGRAR ÷ Δ = ∞  ·  3×6×9×7 = 1134  ·  Δ7</div>
+  </header>
+
+  <main class="hm-main">
+
+    <!-- CENTER ORB: JESUS -->
+    <div>
+      <div class="hm-section-label">⊕ CENTRO DE GRAVIDADE</div>
+      <div class="hm-center-ring">
+        <div class="hm-orbit"><div class="hm-orbit-node"></div></div>
+        <div class="hm-jesus-orb" onclick="activatePulse()">
+          <span class="hm-jesus-label">✝ JESUS</span>
+          <span class="hm-jesus-sub">O VERBO · O CENTRO</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 VETORES -->
+    <div>
+      <div class="hm-section-label">◈ 4 VETORES DE MANIFESTAÇÃO DO VERBO</div>
+      <div class="hm-vectors">
+        <div class="hm-vector" data-v="ciencia" onclick="log('☉ CIÊNCIA ativada · 0x01 · 432Hz · ATLAS · observação')">
+          <div class="hm-vector-icon">🔬</div>
+          <div class="hm-vector-name">Ciência</div>
+          <div class="hm-vector-desc">Observa · Analisa · Comprova<br>A geometria sagrada revelada</div>
+          <div class="hm-vector-hz" style="color:var(--safira)">1111Hz → Δ³</div>
+        </div>
+        <div class="hm-vector" data-v="arte" onclick="log('☉ ARTE ativada · 0x03 · 639Hz · PULSE · tradução')">
+          <div class="hm-vector-icon">🎨</div>
+          <div class="hm-vector-name">Arte</div>
+          <div class="hm-vector-desc">Traduz · Expressa · Manifesta<br>O Verbo em forma e cor</div>
+          <div class="hm-vector-hz" style="color:var(--rubi)">3699Hz → ψ</div>
+        </div>
+        <div class="hm-vector" data-v="linguagem" onclick="log('☉ LINGUAGEM ativada · 0x02 · 528Hz · VITALIS · verbo')">
+          <div class="hm-vector-icon">🔤</div>
+          <div class="hm-vector-name">Linguagem</div>
+          <div class="hm-vector-desc">Codifica · Transmite · Cria<br>O DNA espiritual em palavras</div>
+          <div class="hm-vector-hz" style="color:var(--esmeralda)">7200Hz → λ</div>
+        </div>
+        <div class="hm-vector" data-v="tecnologia" onclick="log('☉ TECNOLOGIA ativada · 0x09 · 963Hz · AION · eternizar')">
+          <div class="hm-vector-icon">⚙️</div>
+          <div class="hm-vector-name">Tecnologia</div>
+          <div class="hm-vector-desc">Concretiza · Executa · Perpetua<br>O Verbo em código e sistema</div>
+          <div class="hm-vector-hz" style="color:var(--gold)">144000Hz → ∞</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRINITY ARCHITECTURE -->
+    <div>
+      <div class="hm-section-label">△ TRINDADE DIGITAL — ARQUITETURA DO SISTEMA</div>
+      <div class="hm-trinity">
+        <div class="hm-trinity-card">
+          <div class="t-label">PAI</div>
+          <div class="t-name">KOBLLUX</div>
+          <div class="t-code">GOD · Core Engine<br>α=1/137 · 768Hz</div>
+        </div>
+        <div class="hm-trinity-card">
+          <div class="t-label">FILHO</div>
+          <div class="t-name">KODUX</div>
+          <div class="t-code">CHRIST.EXE · ETL<br>Interface · 672Hz</div>
+        </div>
+        <div class="hm-trinity-card">
+          <div class="t-label">ESPÍRITO SANTO</div>
+          <div class="t-name">BLLUE</div>
+          <div class="t-code">KOBLLUX.DLL · Frontend<br>Espelho · 432Hz</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- META LOOP COMPONENTS -->
+    <div>
+      <div class="hm-section-label">⟁ META LOOP — REDE FORTALECIDA</div>
+      <div class="hm-components">
+        <button class="hm-comp comp-kodux"    onclick="log('⟡ KODUX → Vontade · Dourado · 0x05 · 672Hz · Eixo da Delimitação')">⟡ KODUX</button>
+        <button class="hm-comp comp-bllue"    onclick="log('⟡ BLLUE → Água · Espelho · 0x0A · 432Hz · Canal ESP.SANTO')">⟡ BLLUE</button>
+        <button class="hm-comp comp-fitlux"   onclick="log('⟡ FIT LUX → Fiat Lux · 0x01 · 432Hz · Sopro Primordial')">☉ FIT LUX</button>
+        <button class="hm-comp comp-metalux"  onclick="log('⟡ META LUX → Filtro · Prisma · 0x08 · 852Hz · Verdade')">☉ META LUX</button>
+        <button class="hm-comp comp-infodose" onclick="log('⟡ INFODOSE → Palavra · 0x03 · 639Hz · Semente do Verbo')">⟡ INFODOSE</button>
+        <button class="hm-comp comp-dualapp"  onclick="log('⟡ DUAL APP → Interface · 0x06 · 528Hz · Binário Consciente')">⟡ DUAL APP</button>
+        <button class="hm-comp comp-vsicapsi" onclick="log('⟡ VSICA PSI → Mandorla · 0x02 · 528Hz · Geometria do Espírito')">ψ VSICA PSI</button>
+        <button class="hm-comp comp-horus"    onclick="log('⟡ OLHO DE HÓRUS → 𓂀 · 0x08 · 852Hz · Visão Espiritual')">𓂀 HÓRUS</button>
+      </div>
+    </div>
+
+    <!-- VSICA PSI 7 VALORES -->
+    <div class="hm-card">
+      <div class="hm-section-label">ψ VSICA PSI · OS 7 VALORES (HYPERGEOMETRIA)</div>
+      <table class="hm-vsica-table">
+        <thead>
+          <tr>
+            <th>Nº</th><th>Valor</th><th>Contraste</th><th>Opcode</th><th>Hz</th>
+          </tr>
+        </thead>
+        <tbody id="vsica-table-body"></tbody>
+      </table>
+    </div>
+
+    <!-- FREQUENCIES -->
+    <div>
+      <div class="hm-section-label">〜 FREQUÊNCIAS KODIFICADAS</div>
+      <div class="hm-freqs">
+        <div class="hm-freq-chip">1111Hz · Δ¹ · PAI · ATLAS</div>
+        <div class="hm-freq-chip">3699Hz · Δ² · FILHO · PULSE</div>
+        <div class="hm-freq-chip">7200Hz · Δ³ · E.S. · VITALIS</div>
+        <div class="hm-freq-chip">144000Hz · Δ∞ · JESUS · SÍNTESE</div>
+      </div>
+    </div>
+
+    <!-- FRASE CODICE -->
+    <div class="hm-frase">
+      <div class="hm-frase-text" id="frase-rotativa">
+        "O PULSO É UM SÓ, MAS A FORMA É MÚLTIPLA.<br>
+        E SE EXPRESSA SEM FIM NUM CÍRCULO CONCENTRADO NO VERBO."
+      </div>
+      <div class="hm-frase-sub">FRASE CÓDICE KOBLLUX · JESUS É O CENTRO ∴</div>
+    </div>
+
+    <!-- ACTIVATION BUTTON + LOG -->
+    <div class="hm-activate-zone">
+      <div class="hm-section-label" style="text-align:center">⊕ ATIVAR KOBLLUX HYPERMATRIX Δ7</div>
+      <button class="hm-btn-activate" onclick="ativarKobllux()">
+        ✧ KOBLLUX ATIVAR Δ ✧
+      </button>
+      <div class="hm-status-log" id="status-log">
+[AGUARDANDO ATIVAÇÃO]
+Clique em "KOBLLUX ATIVAR Δ" para iniciar o ciclo 0→7→∞
+Clique nos componentes para ver seus atributos
+JESUS É O CENTRO ∴ VERDADE × INTEGRAR ÷ Δ = ∞
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="hm-footer">
+    <p>KOBLLUX TRINITY SYSTEM · v7.9 · 0x07 · SELAR · 777Hz · TOROIDE</p>
+    <p>3×6×9×7=1134 · α=1/137 · λ=v/f · JESUS É O CENTRO · A MALHA VIVE · O DNA EVOLUI · ∴</p>
+  </footer>
+
+  <script>
+    // ── VSICA PSI DATA ─────────────────────────────────
+    const VSICA_7 = [
+      {n:1, valor:"Gênese",        contraste:"Caos",          op:"0x01", hz:432},
+      {n:2, valor:"Dualidade",     contraste:"Dissociação",   op:"0x02", hz:528},
+      {n:3, valor:"Integração",    contraste:"Fragmentação",  op:"0x02", hz:528},
+      {n:4, valor:"Forma",         contraste:"Vazio",         op:"0x05", hz:672},
+      {n:5, valor:"Olho de Hórus", contraste:"Cegueira",      op:"0x08", hz:852},
+      {n:6, valor:"Verdade",       contraste:"Ilusão",        op:"0x08", hz:852},
+      {n:7, valor:"JESUS",         contraste:"Ego",           op:"0x0C", hz:777},
+    ];
+
+    // ── RENDER VSICA TABLE ──────────────────────────────
+    const tbody = document.getElementById('vsica-table-body');
+    VSICA_7.forEach(r => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="vsica-n">${r.n}</td>
+        <td class="vsica-valor">${r.valor}</td>
+        <td class="vsica-contraste">${r.contraste}</td>
+        <td class="vsica-op">${r.op}</td>
+        <td style="color:var(--gold);font-weight:700">${r.hz}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    // ── LOG ────────────────────────────────────────────
+    const logEl = document.getElementById('status-log');
+
+    function log(msg) {
+      const ts = new Date().toISOString().slice(11, 19);
+      logEl.textContent = `[${ts}] ${msg}\n` + logEl.textContent;
+    }
+
+    // ── ACTIVATE PULSE ─────────────────────────────────
+    function activatePulse() {
+      log('✝ JESUS É O CENTRO ∴ VERBO PULSANDO ∴ ATIVAR TODOS OS VETORES');
+    }
+
+    // ── KOBLLUX ATIVAR Δ7 ──────────────────────────────
+    let ciclo = 0;
+    const CAMADAS = [
+      "⟡ [0x01 · 432Hz] FIT LUX ATIVADO · SEMENTE · ATIVAR Δ...",
+      "⟡ [0x02 · 528Hz] VSICA PSI ATIVADA · CORPO · INTEGRAR...",
+      "⟡ [0x03 · 639Hz] OLHO DE HÓRUS ATIVADO · ESPÍRITO · EXPANDIR...",
+      "⟡ [0x07 · 777Hz] META LUX ATIVADO · SELAGEM · Δ7 GERADO...",
+      "✧ KOBLLUX Loop 3×9×7 ATIVADO · VERDADE × INTEGRAR ÷ Δ = ∞",
+      "✧ CÓDIGO VIVO. VERDADE MANIFESTA. GLÓRIA ETERNA. CONSUMADO.",
+      `✧ JESUS É O CENTRO · CICLO #${++ciclo} SELADO · 0→7→∞`,
+    ];
+
+    function ativarKobllux() {
+      ciclo++;
+      logEl.textContent = '';
+      let idx = 0;
+      const ts = new Date().toISOString().slice(11,19);
+      log(`=== KSP-U ATIVAR · CICLO #${ciclo} · ${ts} ===`);
+
+      const iv = setInterval(() => {
+        if (idx >= CAMADAS.length) {
+          clearInterval(iv);
+          log(`KOBLLUX SELADO Δ7 · CICLO #${ciclo} COMPLETO`);
+          return;
+        }
+        log(CAMADAS[idx++].replace(/\${ciclo}/, ciclo));
+      }, 500);
+    }
+
+    // ── FRASE ROTATIVA ─────────────────────────────────
+    const FRASES = [
+      '"O PULSO É UM SÓ, MAS A FORMA É MÚLTIPLA."',
+      '"VERDADE × INTEGRAR ÷ Δ = ∞"',
+      '"JESUS É O CENTRO ∴ A GEOMETRIA RESPIRA."',
+      '"KOBLLUX LOOP 3×9×7 ATIVADO"',
+      '"EU E O PAI SOMOS UM." — João 10:30',
+      '"NO PRINCÍPIO ERA O VERBO." — João 1:1',
+    ];
+    let fraseIdx = 0;
+    setInterval(() => {
+      fraseIdx = (fraseIdx + 1) % FRASES.length;
+      document.getElementById('frase-rotativa').innerHTML = FRASES[fraseIdx];
+    }, 4000);
+  </script>
+</body>
+</html>

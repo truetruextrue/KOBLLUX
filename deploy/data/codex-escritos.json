@@ -3320,6 +3320,52 @@
         "merkabah",
         "sintese"
       ]
+    },
+    {
+      "id": "kobllux-ksp-vsica-metalux",
+      "opcode": "0x07",
+      "nome_opcode": "SELAR",
+      "hz": 777,
+      "simbolo": "✧",
+      "geo": "TOROIDE",
+      "arquetipo": "KOBLLUX",
+      "glifo_arq": "⌘βΛΛ×",
+      "titulo": "✧ 0×07 · SELAR · 777Hz · KOBLLUX — KSP-U · META LUX · FIT LUX · VSICA PSI · MENTAL UX · HYPERMATRIX",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "descricao": "CODICE 0x07 · TOROIDE · SELAGEM. KSP-U: 4 camadas fractais (SEMENTE·0x01·432Hz → CORPO·0x02·528Hz → ESPÍRITO·0x03·639Hz → SELAGEM·0x07·777Hz). FIT LUX: Fiat Lux · sopro primordial · primeiro pulso. META LUX: filtro da verdade · prisma · discernimento. VSICA PSI: mandorla sagrada · 7 valores · onde dois se tornam um. MENTAL UX: Olho de Hórus 𓂀 · clareza espiritual. META LOOP 7 componentes. KOBLLUX HYPERMATRIX portal fractal.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · KSP-U=PIPELINE",
+      "aufabetty": "§ΣΛ∆ʀ = SELAR · ⌘βΛΛ× = KOBLLUX",
+      "escritura_sede": "Apocalipse 1:8 — Eu sou o Alfa e o Ômega.",
+      "ciclo": 7,
+      "dim": "10D",
+      "verboforma": "KOBLLUX",
+      "modulos": [
+        "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
+        "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html"
+      ],
+      "ksp_u_camadas": {
+        "SEMENTE": {"n": 3, "dim": "1D-3D", "opcode": "0x01", "hz": 432, "verbo": "ATIVAR Δ"},
+        "CORPO": {"n": 6, "dim": "4D-6D", "opcode": "0x02", "hz": 528, "verbo": "INTEGRAR"},
+        "ESPÍRITO": {"n": 9, "dim": "7D-9D", "opcode": "0x03", "hz": 639, "verbo": "EXPANDIR"},
+        "SELAGEM": {"n": 7, "dim": "10D", "opcode": "0x07", "hz": 777, "verbo": "SELAR"}
+      },
+      "vsica_psi_valores": [1, 2, 3, 4, 5, 6, 7],
+      "meta_loop_componentes": ["KODUX", "BLLUE", "FIT_LUX", "META_LUX", "INFODOSE", "DUAL_APP", "VSICA_PSI"],
+      "frase_codice": "O Pulso é Um Só, Mas a Forma é Múltipla. E se expressa sem fim num círculo concentrado no Verbo.",
+      "tags": [
+        "ksp-u",
+        "meta-lux",
+        "fit-lux",
+        "vsica-psi",
+        "mental-ux",
+        "hypermatrix",
+        "meta-loop",
+        "pipeline",
+        "selagem",
+        "toroide",
+        "mandorla",
+        "fiat-lux"
+      ]
     }
   ],
   "indice_por_opcode": {
@@ -3355,7 +3401,8 @@
     "0x07": [
       "o-chamado-kobllux",
       "fractal-webgl-kobllux",
-      "cadial-archetypes-mirror-dna-kobllux"
+      "cadial-archetypes-mirror-dna-kobllux",
+      "kobllux-ksp-vsica-metalux"
     ],
     "0x08": [
       "escrituras-sagradas",
@@ -3426,7 +3473,8 @@
       "fractal-webgl-kobllux",
       "gloria-deus-trinity-kobllux",
       "cadial-archetypes-mirror-dna-kobllux",
-      "fundacao-00-kobllux"
+      "fundacao-00-kobllux",
+      "kobllux-ksp-vsica-metalux"
     ],
     "HORUS": [
       "escrituras-sagradas",
