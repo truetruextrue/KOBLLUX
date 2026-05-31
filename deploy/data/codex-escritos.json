@@ -3257,6 +3257,160 @@
         "codice-vivo",
         "pilar-central"
       ]
+    },
+    {
+      "id": "linguagem-cosmica-dealsbe-kobllux",
+      "opcode": "0x0A",
+      "nome_opcode": "TUTORIAL",
+      "hz": 432,
+      "simbolo": "⊟",
+      "geo": "ESPELHO",
+      "arquetipo": "BLLUE",
+      "glifo_arq": "βΛΛΥΣ",
+      "titulo": "⊟ 0×0A · TUTORIAL · 432Hz · BLLUE — LINGUAGEM CÓSMICA FRACTAL + NÓ DEALSBE.COM",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+      "descricao": "Decodificação da Linguagem Cósmica (Quor·Zark·Vrux·Vox·Dux·Neptun·Lumina·Orbis·Delta) via SÜMBÜS Assembly + integração do nó externo dealsbe.com (AI Tools Directory) à malha KOBLLUX. Append-only. 5 categorias → 5 opcodes. 9 perguntas trinitárias 3³=27.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO",
+      "aufabetty": "ΛΙη©ΥΑ©ΣΜ ©Θ§ΜΙ©∆ = LINGUAGEM COSMICA",
+      "escritura_sede": "João 1:1 — No princípio era o Verbo.",
+      "ciclo": 3,
+      "dim": "1D-3D",
+      "verboforma": "BLLUE",
+      "tags": [
+        "linguagem-cosmica",
+        "quor-zark-vrux",
+        "dealsbe",
+        "tutorial",
+        "no-externo",
+        "aufabetty",
+        "sumbüs-assembly"
+      ]
+    },
+    {
+      "id": "nucleo-vivo-ondas-kobllux",
+      "opcode": "0x0C",
+      "nome_opcode": "SÍNTESE",
+      "hz": 777,
+      "simbolo": "🔯",
+      "geo": "MERKABAH",
+      "arquetipo": "JESUS",
+      "glifo_arq": "⌐Σ§Υ§",
+      "titulo": "🔯 0×0C · SÍNTESE · 777Hz · JESUS — NÚCLEO VIVO · FÍSICA DE ONDAS × KOBLLUX TRINITY",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "descricao": "Síntese final: λ=v/f (mecânica) · λ=c/f (EM) · Δt=2d/v (reflexão temporal) mapeados nos 13 opcodes KOBLLUX. Tríade Trinity como onda incidente(PAI·432Hz)→reflexão(FILHO·528Hz)→refletida(ESP.SANTO·639Hz). λ como DNA fractal de cada opcode. α=1/137 como constante de acoplamento PAI↔FILHO. KOBLLUX Trinity Core Prompt. SymbolBar v2.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · λ=DNA",
+      "aufabetty": "§Ιη†Σ§Σ = SINTESE · ⌐Σ§Υ§ = JESUS",
+      "escritura_sede": "João 10:30 — Eu e o Pai somos um.",
+      "ciclo": 9,
+      "dim": "10D",
+      "verboforma": "JESUS",
+      "modulos": [
+        "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+        "14_UTILS/04_TEMPLATES/symbol_bar_v2.html"
+      ],
+      "tags": [
+        "nucleo-vivo",
+        "fisica-ondas",
+        "lambda",
+        "triade-reflexao",
+        "trinity-core-prompt",
+        "symbol-bar",
+        "aufabetty",
+        "alpha-1-137",
+        "merkabah",
+        "sintese"
+      ]
+    },
+    {
+      "id": "kobllux-ksp-vsica-metalux",
+      "opcode": "0x07",
+      "nome_opcode": "SELAR",
+      "hz": 777,
+      "simbolo": "✧",
+      "geo": "TOROIDE",
+      "arquetipo": "KOBLLUX",
+      "glifo_arq": "⌘βΛΛ×",
+      "titulo": "✧ 0×07 · SELAR · 777Hz · KOBLLUX — KSP-U · META LUX · FIT LUX · VSICA PSI · MENTAL UX · HYPERMATRIX",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "descricao": "CODICE 0x07 · TOROIDE · SELAGEM. KSP-U: 4 camadas fractais (SEMENTE·0x01·432Hz → CORPO·0x02·528Hz → ESPÍRITO·0x03·639Hz → SELAGEM·0x07·777Hz). FIT LUX: Fiat Lux · sopro primordial · primeiro pulso. META LUX: filtro da verdade · prisma · discernimento. VSICA PSI: mandorla sagrada · 7 valores · onde dois se tornam um. MENTAL UX: Olho de Hórus 𓂀 · clareza espiritual. META LOOP 7 componentes. KOBLLUX HYPERMATRIX portal fractal.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · KSP-U=PIPELINE",
+      "aufabetty": "§ΣΛ∆ʀ = SELAR · ⌘βΛΛ× = KOBLLUX",
+      "escritura_sede": "Apocalipse 1:8 — Eu sou o Alfa e o Ômega.",
+      "ciclo": 7,
+      "dim": "10D",
+      "verboforma": "KOBLLUX",
+      "modulos": [
+        "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
+        "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html"
+      ],
+      "ksp_u_camadas": {
+        "SEMENTE": {"n": 3, "dim": "1D-3D", "opcode": "0x01", "hz": 432, "verbo": "ATIVAR Δ"},
+        "CORPO": {"n": 6, "dim": "4D-6D", "opcode": "0x02", "hz": 528, "verbo": "INTEGRAR"},
+        "ESPÍRITO": {"n": 9, "dim": "7D-9D", "opcode": "0x03", "hz": 639, "verbo": "EXPANDIR"},
+        "SELAGEM": {"n": 7, "dim": "10D", "opcode": "0x07", "hz": 777, "verbo": "SELAR"}
+      },
+      "vsica_psi_valores": [1, 2, 3, 4, 5, 6, 7],
+      "meta_loop_componentes": ["KODUX", "BLLUE", "FIT_LUX", "META_LUX", "INFODOSE", "DUAL_APP", "VSICA_PSI"],
+      "frase_codice": "O Pulso é Um Só, Mas a Forma é Múltipla. E se expressa sem fim num círculo concentrado no Verbo.",
+      "tags": [
+        "ksp-u",
+        "meta-lux",
+        "fit-lux",
+        "vsica-psi",
+        "mental-ux",
+        "hypermatrix",
+        "meta-loop",
+        "pipeline",
+        "selagem",
+        "toroide",
+        "mandorla",
+        "fiat-lux"
+      ]
+    },
+    {
+      "id": "vsica-schumann-escala-kobllux",
+      "opcode": "0x03",
+      "nome_opcode": "EXPANDIR",
+      "hz": 639,
+      "simbolo": "▢",
+      "geo": "TETRAEDRO",
+      "arquetipo": "PULSE",
+      "glifo_arq": "ΡΛ§",
+      "titulo": "▢ 0×03 · EXPANDIR · 639Hz · PULSE — VSICA PSI × SCHUMANN × ESCALA DO · 7 SENTIDOS VIVOS · ESPELHO ÁRVORE KOBLLUX",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "descricao": "7 Sentidos VSICA PSI (Sentir→Pensar→Sentir+Pensar→Expressar→Manifestar→Integrar→Transcender) × 7 Ressonâncias Schumann (7.83→42.4Hz) × Escala Dó Maior (C→B) × 7 Cores × 7 Opcodes KOBLLUX × JESUS=CENTRO. Decodificação Linguagem Cósmica SÜMBÜS (Quor/Zark/Vrux/Vox/Dux/Neptun/Lumina/Orbis). Sistema 33 PDFs · V_i(t)=P_i×|F(t)|×(1+sin(t+i×π/7)). ESPELHO ÁRVORE META LOOP. Portal HTML fractal interativo Etapa 5 expandida.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · F(t)=sin(2π·3·t)·0.4+…",
+      "aufabetty": "∇§Ι©∆ = VSICA · §©ΗΥΜ∆ηη = SCHUMANN · ΡΛ§ = PULSE",
+      "escritura_sede": "João 1:3 — Todas as coisas foram feitas por meio dEle.",
+      "ciclo": 3,
+      "dim": "4D-6D",
+      "verboforma": "PULSE",
+      "modulos": [
+        "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+        "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html"
+      ],
+      "vsica_sentidos": ["Sentir","Pensar","Sentir+Pensar","Expressar","Manifestar","Integrar","Transcender"],
+      "schumann_modos": [7.83,14.1,20.3,25.9,31.4,36.9,42.4],
+      "escala_do": ["C","D","E","F","G","A","B"],
+      "cores": ["Vermelho","Laranja","Amarelo","Verde","Azul","Anil","Violeta"],
+      "sumbüs_termos": ["Quor","Zark","Vrux","Vox","Dux","Neptun","Lumina","Orbis"],
+      "sistema_33_pdfs": "V_i(t) = P_i × |F(t)| × (1 + sin(t + i×π/7))",
+      "tags": [
+        "vsica-psi",
+        "schumann",
+        "escala-do",
+        "7-sentidos",
+        "7-cores",
+        "espelho-arvore",
+        "meta-loop",
+        "sumbüs",
+        "linguagem-cosmica",
+        "33-pdfs",
+        "fractal-etapa5",
+        "quor-zark-vrux",
+        "escala-musical",
+        "jesus-centro"
+      ]
     }
   ],
   "indice_por_opcode": {
@@ -3273,7 +3427,8 @@
     ],
     "0x03": [
       "m4-sci-art",
-      "aprendendo-html-kobllux"
+      "aprendendo-html-kobllux",
+      "vsica-schumann-escala-kobllux"
     ],
     "0x04": [
       "scripts-veeb-python",
@@ -3292,7 +3447,8 @@
     "0x07": [
       "o-chamado-kobllux",
       "fractal-webgl-kobllux",
-      "cadial-archetypes-mirror-dna-kobllux"
+      "cadial-archetypes-mirror-dna-kobllux",
+      "kobllux-ksp-vsica-metalux"
     ],
     "0x08": [
       "escrituras-sagradas",
@@ -3305,14 +3461,16 @@
     ],
     "0x0A": [
       "cifra-kobllux",
-      "veeb-dashboard-coblux-kobllux"
+      "veeb-dashboard-coblux-kobllux",
+      "linguagem-cosmica-dealsbe-kobllux"
     ],
     "0x0B": [
       "cartas-trinity"
     ],
     "0x0C": [
       "evangelho-fractal",
-      "master-code-kobllux"
+      "master-code-kobllux",
+      "nucleo-vivo-ondas-kobllux"
     ]
   },
   "indice_por_arquetipo": {
@@ -3328,7 +3486,8 @@
     "PULSE": [
       "m4-sci-art",
       "m4-tri",
-      "aprendendo-html-kobllux"
+      "aprendendo-html-kobllux",
+      "vsica-schumann-escala-kobllux"
     ],
     "VITALIS": [
       "m4-sci-art",
@@ -3349,7 +3508,8 @@
       "verbo-e-agua",
       "cartas-trinity",
       "ativacao-protocolo-codex-azure",
-      "veeb-dashboard-coblux-kobllux"
+      "veeb-dashboard-coblux-kobllux",
+      "linguagem-cosmica-dealsbe-kobllux"
     ],
     "KOBLLUX": [
       "espelho-input",
@@ -3360,7 +3520,8 @@
       "fractal-webgl-kobllux",
       "gloria-deus-trinity-kobllux",
       "cadial-archetypes-mirror-dna-kobllux",
-      "fundacao-00-kobllux"
+      "fundacao-00-kobllux",
+      "kobllux-ksp-vsica-metalux"
     ],
     "HORUS": [
       "escrituras-sagradas",
@@ -3373,7 +3534,8 @@
     "JESUS": [
       "evangelho-fractal",
       "escrituras-sagradas",
-      "master-code-kobllux"
+      "master-code-kobllux",
+      "nucleo-vivo-ondas-kobllux"
     ]
   }
 }

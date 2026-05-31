@@ -2,12 +2,12 @@
   "documento": "KOBLLUX · Mapa de Redistribuição Sinérgica Modular",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T20:26:28.432252",
+  "gerado_em": "2026-05-31T23:07:04.188646",
   "nota_seguranca": "ESTE ARQUIVO É UMA PROPOSTA. Nenhum arquivo foi movido ou renomeado. Execute o mapa com supervisão humana.",
   "estatisticas": {
-    "total_analisado": 1238,
+    "total_analisado": 1249,
     "ja_no_lugar": 1,
-    "com_proposta_mover": 1237,
+    "com_proposta_mover": 1248,
     "percentual_otimo": 0.1
   },
   "principio_distribuicao": {
@@ -1693,6 +1693,14 @@
         "para": "06_ATIVACAO/kob_06_backup.py"
       },
       {
+        "de": "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+        "para": "06_ATIVACAO/kob_06_kobllux_nucleo_vivo.py"
+      },
+      {
+        "de": "14_UTILS/01_SCRIPTS/integrar_dealsbe.py",
+        "para": "06_ATIVACAO/kob_06_integrar_dealsbe.py"
+      },
+      {
         "de": "14_UTILS/01_SCRIPTS/README.md",
         "para": "06_ATIVACAO/kob_06_README.md"
       },
@@ -1731,6 +1739,14 @@
       {
         "de": "14_UTILS/04_TEMPLATES/README.md",
         "para": "06_ATIVACAO/kob_06_README.md"
+      },
+      {
+        "de": "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
+        "para": "06_ATIVACAO/kob_06_kobllux_fractal_etapa5_espelho.html"
+      },
+      {
+        "de": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
+        "para": "06_ATIVACAO/kob_06_symbol_bar_v2.html"
       },
       {
         "de": "14_UTILS/04_TEMPLATES/template.json",
@@ -3935,8 +3951,20 @@
         "para": "13_DOCUMENTACAO/m4_sci_art.txt"
       },
       {
+        "de": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+        "para": "13_DOCUMENTACAO/kob_0B_nucleo_vivo_ondas_kobllux.md"
+      },
+      {
+        "de": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+        "para": "13_DOCUMENTACAO/kob_0B_linguagem_cosmica_dealsbe_kobllux.md"
+      },
+      {
         "de": "00_FUNDACAO/m4_sci_art.txt",
         "para": "13_DOCUMENTACAO/m4_sci_art.txt"
+      },
+      {
+        "de": "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+        "para": "13_DOCUMENTACAO/kob_0B_kobllux_vsica_schumann.py"
       },
       {
         "de": "inbox/m4_sci_art.txt",
@@ -4439,8 +4467,16 @@
         "para": "01_DIMENSOES/kob_01_ativacao_protocolo_codex_azure.md"
       },
       {
+        "de": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+        "para": "01_DIMENSOES/kob_01_vsica_schumann_escala_kobllux.md"
+      },
+      {
         "de": "13_DOCUMENTACAO/02_CODEX/master_code_kobllux.md",
         "para": "01_DIMENSOES/kob_01_master_code_kobllux.md"
+      },
+      {
+        "de": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+        "para": "01_DIMENSOES/kob_01_kobllux_ksp_vsica_metalux.md"
       },
       {
         "de": "13_DOCUMENTACAO/02_CODEX/cadial_archetypes_mirror_dna.md",
@@ -4601,6 +4637,14 @@
       {
         "de": "01_DIMENSOES/07_7D_TORO/toro.py",
         "para": "01_DIMENSOES/kob_01_toro.py"
+      },
+      {
+        "de": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
+        "para": "01_DIMENSOES/kob_01_kobllux_ksp_unified.py"
+      },
+      {
+        "de": "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html",
+        "para": "01_DIMENSOES/kob_01_kobllux_hypermatrix.html"
       },
       {
         "de": "14_UTILS/03_CONFIG/dimensoes.json",
@@ -5980,6 +6024,18 @@
       "proposta_destino": "06_ATIVACAO/kob_06_cartas_trinity.md"
     },
     {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "nome": "nucleo_vivo_ondas_kobllux.md",
+      "ext": "md",
+      "opcode_inferido": "0x0B",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "13_DOCUMENTACAO",
+      "ja_no_lugar": true,
+      "nome_sinergico": "kob_0B_nucleo_vivo_ondas_kobllux.md",
+      "nome_mudou": true,
+      "proposta_destino": "13_DOCUMENTACAO/kob_0B_nucleo_vivo_ondas_kobllux.md"
+    },
+    {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/evangelho_fractal.md",
       "nome": "evangelho_fractal.md",
       "ext": "md",
@@ -6016,6 +6072,18 @@
       "proposta_destino": "06_ATIVACAO/kob_06_copilot_chat_kobllux_analise.md"
     },
     {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "nome": "vsica_schumann_escala_kobllux.md",
+      "ext": "md",
+      "opcode_inferido": "0x01",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "01_DIMENSOES",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_01_vsica_schumann_escala_kobllux.md",
+      "nome_mudou": true,
+      "proposta_destino": "01_DIMENSOES/kob_01_vsica_schumann_escala_kobllux.md"
+    },
+    {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/dicionario_kobllux_writer.json",
       "nome": "dicionario_kobllux_writer.json",
       "ext": "json",
@@ -6026,6 +6094,18 @@
       "nome_sinergico": "kob_06_dicionario_kobllux_writer.json",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_dicionario_kobllux_writer.json"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+      "nome": "linguagem_cosmica_dealsbe_kobllux.md",
+      "ext": "md",
+      "opcode_inferido": "0x0B",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "13_DOCUMENTACAO",
+      "ja_no_lugar": true,
+      "nome_sinergico": "kob_0B_linguagem_cosmica_dealsbe_kobllux.md",
+      "nome_mudou": true,
+      "proposta_destino": "13_DOCUMENTACAO/kob_0B_linguagem_cosmica_dealsbe_kobllux.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/master_code_kobllux.md",
@@ -6086,6 +6166,18 @@
       "nome_sinergico": "kob_06_livro_da_vida.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_livro_da_vida.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "nome": "kobllux_ksp_vsica_metalux.md",
+      "ext": "md",
+      "opcode_inferido": "0x01",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "01_DIMENSOES",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_01_kobllux_ksp_vsica_metalux.md",
+      "nome_mudou": true,
+      "proposta_destino": "01_DIMENSOES/kob_01_kobllux_ksp_vsica_metalux.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/fases_04_06_kobllux.md",
@@ -11055,6 +11147,30 @@
       "proposta_destino": "06_ATIVACAO/kob_06_backup.py"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+      "nome": "kobllux_nucleo_vivo.py",
+      "ext": "py",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_kobllux_nucleo_vivo.py",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_kobllux_nucleo_vivo.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/integrar_dealsbe.py",
+      "nome": "integrar_dealsbe.py",
+      "ext": "py",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_integrar_dealsbe.py",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_integrar_dealsbe.py"
+    },
+    {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/README.md",
       "nome": "README.md",
       "ext": "md",
@@ -11065,6 +11181,18 @@
       "nome_sinergico": "kob_06_README.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_README.md"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
+      "nome": "kobllux_ksp_unified.py",
+      "ext": "py",
+      "opcode_inferido": "0x01",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "01_DIMENSOES",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_01_kobllux_ksp_unified.py",
+      "nome_mudou": true,
+      "proposta_destino": "01_DIMENSOES/kob_01_kobllux_ksp_unified.py"
     },
     {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/validate.py",
@@ -11175,6 +11303,18 @@
       "proposta_destino": "06_ATIVACAO/kob_06_rename_media_kobllux_v2.py"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+      "nome": "kobllux_vsica_schumann.py",
+      "ext": "py",
+      "opcode_inferido": "0x0B",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "13_DOCUMENTACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_0B_kobllux_vsica_schumann.py",
+      "nome_mudou": true,
+      "proposta_destino": "13_DOCUMENTACAO/kob_0B_kobllux_vsica_schumann.py"
+    },
+    {
       "arquivo_atual": "14_UTILS/04_TEMPLATES/README.md",
       "nome": "README.md",
       "ext": "md",
@@ -11185,6 +11325,30 @@
       "nome_sinergico": "kob_06_README.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_README.md"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
+      "nome": "kobllux_fractal_etapa5_espelho.html",
+      "ext": "html",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_kobllux_fractal_etapa5_espelho.html",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_kobllux_fractal_etapa5_espelho.html"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
+      "nome": "symbol_bar_v2.html",
+      "ext": "html",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_symbol_bar_v2.html",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_symbol_bar_v2.html"
     },
     {
       "arquivo_atual": "14_UTILS/04_TEMPLATES/template.json",
@@ -11233,6 +11397,18 @@
       "nome_sinergico": "kob_06_template.py",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_template.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html",
+      "nome": "kobllux_hypermatrix.html",
+      "ext": "html",
+      "opcode_inferido": "0x01",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "01_DIMENSOES",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_01_kobllux_hypermatrix.html",
+      "nome_mudou": true,
+      "proposta_destino": "01_DIMENSOES/kob_01_kobllux_hypermatrix.html"
     },
     {
       "arquivo_atual": "14_UTILS/03_CONFIG/frequencias.json",

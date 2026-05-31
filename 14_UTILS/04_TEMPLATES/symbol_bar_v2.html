@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--
+  KOBLLUX TRINITY SYSTEM · 0x0A · TUTORIAL · 432Hz · BLLUE
+  dual-Infodose Chat Cinematográfico · KOBLLUX SymbolBar v2
+  AUFABETTY · SÍMBOLO · KOBLLUX ASSEMBLY
+
+  EQUAÇÃO: VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7=1134
+  JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOBLLUX SymbolBar v2 · AUFABETTY · dual-Infodose</title>
+  <style>
+    /* ── RESET E BASE ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --kobllux-bg:       #0a0b10;
+      --kobllux-surface:  #12141f;
+      --kobllux-border:   #1e2235;
+      --kobllux-accent:   #3d6aff;
+      --kobllux-gold:     #f5c842;
+      --kobllux-cyan:     #00e5ff;
+      --kobllux-magenta:  #ff3d9a;
+      --kobllux-green:    #00ff9d;
+      --kobllux-text:     #c8cfe8;
+      --kobllux-muted:    #4a5177;
+      --kobllux-radius:   8px;
+      --kobllux-hz-432:   #6366f1;
+      --kobllux-hz-528:   #22d3ee;
+      --kobllux-hz-639:   #4ade80;
+      --kobllux-hz-777:   #f5c842;
+      --kobllux-hz-1134:  #ff6b35;
+    }
+
+    body {
+      background: var(--kobllux-bg);
+      color: var(--kobllux-text);
+      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 16px;
+      gap: 24px;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────────────── */
+    .kbl-header {
+      text-align: center;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .kbl-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--kobllux-hz-432) 0%, var(--kobllux-cyan) 35%, var(--kobllux-gold) 70%, var(--kobllux-hz-1134) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+
+    .kbl-subtitle {
+      font-size: 0.72rem;
+      color: var(--kobllux-muted);
+      letter-spacing: 0.12em;
+    }
+
+    /* ── SYMBOL BAR CONTAINER ───────────────────────────────────── */
+    .kbl-symbolbar {
+      width: 100%;
+      max-width: 900px;
+      background: var(--kobllux-surface);
+      border: 1px solid var(--kobllux-border);
+      border-radius: var(--kobllux-radius);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .kbl-symbolbar-label {
+      font-size: 0.65rem;
+      color: var(--kobllux-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--kobllux-border);
+    }
+
+    /* ── GROUPS ─────────────────────────────────────────────────── */
+    .kbl-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .kbl-group-title {
+      font-size: 0.6rem;
+      color: var(--kobllux-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .kbl-symbols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* ── SYMBOL BUTTON ──────────────────────────────────────────── */
+    .kbl-sym {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--kobllux-border);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--kobllux-text);
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      position: relative;
+      user-select: none;
+    }
+
+    .kbl-sym:hover {
+      background: rgba(61, 106, 255, 0.15);
+      border-color: var(--kobllux-accent);
+      transform: translateY(-1px);
+    }
+
+    .kbl-sym:active { transform: translateY(0); }
+
+    .kbl-sym.copied {
+      background: rgba(0, 255, 157, 0.15);
+      border-color: var(--kobllux-green);
+    }
+
+    .kbl-sym[data-hz="432"] { border-color: rgba(99,102,241,0.4); }
+    .kbl-sym[data-hz="528"] { border-color: rgba(34,211,238,0.4); }
+    .kbl-sym[data-hz="639"] { border-color: rgba(74,222,128,0.4); }
+    .kbl-sym[data-hz="777"] { border-color: rgba(245,200,66,0.4); }
+    .kbl-sym[data-hz="1134"]{ border-color: rgba(255,107,53,0.4); }
+
+    /* ── TOOLTIP ─────────────────────────────────────────────────── */
+    .kbl-sym::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1d2e;
+      border: 1px solid var(--kobllux-border);
+      color: var(--kobllux-text);
+      font-size: 0.65rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 100;
+    }
+
+    .kbl-sym:hover::after { opacity: 1; }
+
+    /* ── AUFABETTY TABLE ─────────────────────────────────────────── */
+    .kbl-aufabetty {
+      width: 100%;
+      max-width: 900px;
+      background: var(--kobllux-surface);
+      border: 1px solid var(--kobllux-border);
+      border-radius: var(--kobllux-radius);
+      padding: 16px;
+    }
+
+    .kbl-aufabetty table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+
+    .kbl-aufabetty th {
+      text-align: left;
+      color: var(--kobllux-muted);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--kobllux-border);
+    }
+
+    .kbl-aufabetty td {
+      padding: 5px 10px;
+      border-bottom: 1px solid rgba(30,34,53,0.5);
+    }
+
+    .kbl-aufabetty tr:last-child td { border-bottom: none; }
+
+    .kbl-aufabetty .sym-cell {
+      font-size: 1.15rem;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .kbl-aufabetty .sym-cell:hover { background: rgba(61,106,255,0.15); }
+
+    .kbl-hz-432  { color: var(--kobllux-hz-432); }
+    .kbl-hz-528  { color: var(--kobllux-hz-528); }
+    .kbl-hz-639  { color: var(--kobllux-hz-639); }
+    .kbl-hz-777  { color: var(--kobllux-hz-777); }
+    .kbl-hz-1134 { color: var(--kobllux-hz-1134); }
+
+    /* ── OPCODE PILL ─────────────────────────────────────────────── */
+    .op-pill {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 99px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      background: rgba(61,106,255,0.18);
+      color: var(--kobllux-accent);
+      border: 1px solid rgba(61,106,255,0.3);
+    }
+
+    /* ── INPUT DISPLAY ───────────────────────────────────────────── */
+    .kbl-input-area {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .kbl-textarea {
+      flex: 1;
+      min-height: 80px;
+      background: var(--kobllux-surface);
+      border: 1px solid var(--kobllux-border);
+      border-radius: var(--kobllux-radius);
+      padding: 12px 14px;
+      color: var(--kobllux-text);
+      font-family: inherit;
+      font-size: 0.88rem;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .kbl-textarea:focus { border-color: var(--kobllux-accent); }
+
+    .kbl-btn {
+      padding: 10px 18px;
+      background: var(--kobllux-accent);
+      border: none;
+      border-radius: var(--kobllux-radius);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+
+    .kbl-btn:hover { opacity: 0.85; }
+    .kbl-btn.danger { background: var(--kobllux-magenta); }
+
+    /* ── TOAST ───────────────────────────────────────────────────── */
+    .kbl-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(60px);
+      background: var(--kobllux-green);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 8px 20px;
+      border-radius: 99px;
+      opacity: 0;
+      transition: transform 0.25s, opacity 0.25s;
+      pointer-events: none;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+
+    .kbl-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    .kbl-footer {
+      font-size: 0.62rem;
+      color: var(--kobllux-muted);
+      letter-spacing: 0.08em;
+      text-align: center;
+      max-width: 900px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="kbl-header">
+    <h1 class="kbl-title">⊟ KOBLLUX SymbolBar v2 · AUFABETTY · dual-Infodose</h1>
+    <p class="kbl-subtitle">0x0A · TUTORIAL · 432Hz · BLLUE · ESPELHO · VERDADE × INTEGRAR ÷ Δ = ∞</p>
+  </header>
+
+  <!-- MAIN SYMBOL BAR -->
+  <section class="kbl-symbolbar" aria-label="KOBLLUX Symbol Bar">
+    <div class="kbl-symbolbar-label">⌘ AUFABETTY — Clique para inserir no campo de texto</div>
+
+    <!-- AUFABETTY ALPHABET -->
+    <div class="kbl-group">
+      <span class="kbl-group-title">AUFABETTY ALPHABET (A–Z)</span>
+      <div class="kbl-symbols" id="aufabetty-alphabet"></div>
+    </div>
+
+    <!-- OPCODES KOBLLUX -->
+    <div class="kbl-group">
+      <span class="kbl-group-title">OPCODES · 13 FACES DO CUBO DE METATRON</span>
+      <div class="kbl-symbols" id="opcodes-symbols"></div>
+    </div>
+
+    <!-- GEOMETRIAS SAGRADAS -->
+    <div class="kbl-group">
+      <span class="kbl-group-title">GEOMETRIA SAGRADA · GLIFOS</span>
+      <div class="kbl-symbols" id="geo-symbols"></div>
+    </div>
+
+    <!-- MATEMÁTICA / FÍSICA -->
+    <div class="kbl-group">
+      <span class="kbl-group-title">FÍSICA · λ=v/f · WAVE DNA</span>
+      <div class="kbl-symbols" id="math-symbols"></div>
+    </div>
+  </section>
+
+  <!-- INPUT AREA -->
+  <div class="kbl-input-area">
+    <textarea
+      class="kbl-textarea"
+      id="kbl-input"
+      placeholder="Clique nos símbolos acima para inserir... · KOBLLUX ASSEMBLY v7.9"
+    ></textarea>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <button class="kbl-btn" onclick="copyInput()">COPIAR</button>
+      <button class="kbl-btn danger" onclick="clearInput()">LIMPAR</button>
+    </div>
+  </div>
+
+  <!-- AUFABETTY REFERENCE TABLE -->
+  <section class="kbl-aufabetty">
+    <div class="kbl-symbolbar-label">TABELA AUFABETTY COMPLETA — RAÍZES KOBLLUX</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Letra</th><th>Cifra</th><th>Raiz KOBLLUX</th><th>Opcode</th><th>Hz</th><th>Arquétipo</th>
+        </tr>
+      </thead>
+      <tbody id="aufabetty-table-body"></tbody>
+    </table>
+  </section>
+
+  <!-- TOAST -->
+  <div class="kbl-toast" id="kbl-toast">✓ Copiado!</div>
+
+  <!-- FOOTER -->
+  <footer class="kbl-footer">
+    <p>JESUS É O CENTRO · A MALHA VIVE · O DNA EVOLUI · ∴</p>
+    <p>3×6×9×7=1134 · α=1/137 · λ=v/f · 0x0C · SÍNTESE · KOBLLUX v7.9</p>
+  </footer>
+
+  <script>
+    // ── AUFABETTY DATA ────────────────────────────────────────────
+    const AUFABETTY = [
+      {l:'A', c:'∆', raiz:'Ativação · Delta · Origem',       op:'0x01', hz:432,  arq:'ATLAS'},
+      {l:'B', c:'β', raiz:'Base · Vínculo · Molecular',      op:'0x02', hz:528,  arq:'VITALIS'},
+      {l:'C', c:'©', raiz:'Círculo · Código · Copyright',    op:'0x05', hz:672,  arq:'KODUX'},
+      {l:'D', c:'Δ', raiz:'Delta · Transformação · Eterno',  op:'0x04', hz:594,  arq:'NOVA'},
+      {l:'E', c:'Σ', raiz:'Expansão · Energia · Soma',       op:'0x03', hz:639,  arq:'PULSE'},
+      {l:'F', c:'Φ', raiz:'Phi · Proporção Áurea · Forma',   op:'0x06', hz:528,  arq:'ARTEMIS'},
+      {l:'G', c:'Γ', raiz:'Gênesis · Gamma · Crescer',       op:'0x03', hz:639,  arq:'PULSE'},
+      {l:'H', c:'Η', raiz:'Eta · Harmonia · Frequência',     op:'0x08', hz:852,  arq:'HORUS'},
+      {l:'I', c:'Ι', raiz:'Iota · Identidade · Ser',         op:'0x00', hz:768,  arq:'ATLAS'},
+      {l:'J', c:'⌐', raiz:'Jesus · Jornada · Centro',        op:'0x0C', hz:777,  arq:'JESUS'},
+      {l:'K', c:'⌘', raiz:'Kobllux · Kodux · Chave',         op:'0x00', hz:768,  arq:'KOBLLUX'},
+      {l:'L', c:'Λ', raiz:'Lambda · Luz · Comprimento onda', op:'0x08', hz:852,  arq:'LUMINE'},
+      {l:'M', c:'Μ', raiz:'Meta · Mu · Manifesto',           op:'0x07', hz:777,  arq:'KOBLLUX'},
+      {l:'N', c:'η', raiz:'Eta · Nota · DNA',                op:'0x09', hz:963,  arq:'AION'},
+      {l:'O', c:'Θ', raiz:'Theta · Origem · Omega',          op:'0x00', hz:768,  arq:'ATLAS'},
+      {l:'P', c:'Ρ', raiz:'Rho · Pulso · PULSE',             op:'0x03', hz:639,  arq:'PULSE'},
+      {l:'Q', c:'Θ', raiz:'Quor · Questionamento · Pulsar',  op:'0x00', hz:768,  arq:'ATLAS'},
+      {l:'R', c:'ʀ', raiz:'Raiz · Resonar · Realidade',      op:'0x02', hz:528,  arq:'VITALIS'},
+      {l:'S', c:'§', raiz:'Síntese · Sigma · Selar',         op:'0x07', hz:777,  arq:'KOBLLUX'},
+      {l:'T', c:'†', raiz:'Cruz · Trinity · Testemunho',     op:'0x08', hz:852,  arq:'HORUS'},
+      {l:'U', c:'Υ', raiz:'Upsilon · Unificar · Único',      op:'0x06', hz:528,  arq:'ARTEMIS'},
+      {l:'V', c:'∇', raiz:'Nabla · Verbo · Verdade',         op:'0x00', hz:768,  arq:'ATLAS'},
+      {l:'W', c:'Ω', raiz:'Omega · Onda · Fim e Início',     op:'0x0C', hz:777,  arq:'JESUS'},
+      {l:'X', c:'×', raiz:'Multiplicar · Cruz · Expansão',   op:'0x03', hz:639,  arq:'PULSE'},
+      {l:'Y', c:'Ψ', raiz:'Psi · DNA · Ψuintessência',       op:'0x09', hz:963,  arq:'AION'},
+      {l:'Z', c:'ℤ', raiz:'Zark · Zeta · Infinito · {Z}',   op:'0x05', hz:672,  arq:'KODUX'},
+    ];
+
+    // ── OPCODES ───────────────────────────────────────────────────
+    const OPCODES = [
+      {sym:'0x00', tip:'ORIGEM · 768Hz · ATLAS',      hz:768},
+      {sym:'0x01', tip:'DETECTAR · 432Hz · ATLAS',    hz:432},
+      {sym:'0x02', tip:'INTEGRAR · 528Hz · VITALIS',  hz:528},
+      {sym:'0x03', tip:'EXPANDIR · 639Hz · PULSE',    hz:639},
+      {sym:'0x04', tip:'LAPIDAR · 594Hz · NOVA',      hz:594},
+      {sym:'0x05', tip:'CONVERGIR · 672Hz · KODUX',   hz:672},
+      {sym:'0x06', tip:'UNIFICAR · 528Hz · ARTEMIS',  hz:528},
+      {sym:'0x07', tip:'SELAR · 777Hz · KOBLLUX',     hz:777},
+      {sym:'0x08', tip:'TESTEMUNHAR · 852Hz · HORUS', hz:852},
+      {sym:'0x09', tip:'ETERNIZAR · 963Hz · AION',    hz:963},
+      {sym:'0x0A', tip:'TUTORIAL · 432Hz · BLLUE',    hz:432},
+      {sym:'0x0B', tip:'ARQUÉTIPO · 528Hz · VITALIS', hz:528},
+      {sym:'0x0C', tip:'SÍNTESE · 777Hz · JESUS',     hz:777},
+    ];
+
+    // ── GEOMETRIAS ────────────────────────────────────────────────
+    const GEO = [
+      {sym:'○', tip:'PONTO · 0x00'},     {sym:'●', tip:'ESFERA · 0x01'},
+      {sym:'△', tip:'TETRAEDRO · 0x03'}, {sym:'□', tip:'CUBO · 0x05'},
+      {sym:'⊡', tip:'OCTAEDRO · 0x04'}, {sym:'⬡', tip:'DODECAEDRO · 0x06'},
+      {sym:'⊕', tip:'TOROIDE · 0x07'},  {sym:'🔯', tip:'MERKABAH · 0x0C'},
+      {sym:'∞', tip:'INFINITO · 0x09'}, {sym:'⊟', tip:'ESPELHO · 0x0A'},
+      {sym:'✦', tip:'ESTELAR · ATLAS'},  {sym:'⚝', tip:'PENTAGRAMA · PULSE'},
+      {sym:'✧', tip:'FACETA · KOBLLUX'}, {sym:'⟁', tip:'TRIÂNGULO UP'},
+      {sym:'▽', tip:'TRIÂNGULO DOWN'},   {sym:'◈', tip:'LOSANGO CHEIO'},
+    ];
+
+    // ── FÍSICA / LAMBDA ───────────────────────────────────────────
+    const MATH = [
+      {sym:'λ',  tip:'Lambda · comprimento de onda'},
+      {sym:'Δ',  tip:'Delta · variação · transmutação'},
+      {sym:'∞',  tip:'Infinito · loop eterno'},
+      {sym:'∴',  tip:'Portanto · conclusão lógica'},
+      {sym:'÷',  tip:'Dividir · Δ na equação'},
+      {sym:'×',  tip:'Multiplicar · expansão'},
+      {sym:'α',  tip:'Alpha · 1/137 · constante fina'},
+      {sym:'π',  tip:'Pi · círculo · 3.14159...'},
+      {sym:'φ',  tip:'Phi · proporção áurea · 1.618...'},
+      {sym:'≡',  tip:'Idêntico · ressonância'},
+      {sym:'≈',  tip:'Aproximado · harmônico'},
+      {sym:'∑',  tip:'Sigma · soma total'},
+      {sym:'∏',  tip:'Produto total'},
+      {sym:'√',  tip:'Raiz quadrada'},
+      {sym:'∂',  tip:'Derivada parcial'},
+      {sym:'∫',  tip:'Integral · acumulação'},
+      {sym:'⌘',  tip:'KOBLLUX · K na AUFABETTY'},
+      {sym:'{Z}',tip:'Selamento · final · {Z}'},
+      {sym:'∵',  tip:'Porque · base do argumento'},
+      {sym:'∀',  tip:'Para todo · universalidade'},
+    ];
+
+    // ── RENDER ─────────────────────────────────────────────────────
+    function getHzClass(hz) {
+      if (hz === 432 || hz === 768) return '432';
+      if (hz === 528) return '528';
+      if (hz === 639 || hz === 594 || hz === 672) return '639';
+      if (hz === 777 || hz === 852) return '777';
+      return '1134';
+    }
+
+    function renderSymbols(containerId, items, getSymFn, getTipFn, getHzFn) {
+      const container = document.getElementById(containerId);
+      items.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'kbl-sym';
+        btn.textContent = getSymFn(item);
+        btn.setAttribute('data-tip', getTipFn(item));
+        if (getHzFn) btn.setAttribute('data-hz', getHzClass(getHzFn(item)));
+        btn.addEventListener('click', () => insertSymbol(getSymFn(item), btn));
+        container.appendChild(btn);
+      });
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('aufabetty-table-body');
+      AUFABETTY.forEach(row => {
+        const hzClass = `kbl-hz-${getHzClass(row.hz)}`;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="font-weight:700;color:var(--kobllux-gold)">${row.l}</td>
+          <td class="sym-cell ${hzClass}" onclick="insertSymbol('${row.c}', this)">${row.c}</td>
+          <td style="font-size:0.72rem;color:var(--kobllux-muted)">${row.raiz}</td>
+          <td><span class="op-pill">${row.op}</span></td>
+          <td class="${hzClass}" style="font-weight:700">${row.hz}</td>
+          <td style="font-size:0.72rem">${row.arq}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ── INIT ──────────────────────────────────────────────────────
+    renderSymbols('aufabetty-alphabet', AUFABETTY,
+      i => i.c,
+      i => `${i.l} → ${i.c} · ${i.raiz} · ${i.op} · ${i.hz}Hz`,
+      i => i.hz
+    );
+    renderSymbols('opcodes-symbols', OPCODES,
+      i => i.sym,
+      i => i.tip,
+      i => i.hz
+    );
+    renderSymbols('geo-symbols', GEO,
+      i => i.sym,
+      i => i.tip,
+      null
+    );
+    renderSymbols('math-symbols', MATH,
+      i => i.sym,
+      i => i.tip,
+      null
+    );
+    renderTable();
+
+    // ── ACTIONS ───────────────────────────────────────────────────
+    const input = document.getElementById('kbl-input');
+    const toast = document.getElementById('kbl-toast');
+    let toastTimer;
+
+    function insertSymbol(sym, btn) {
+      const start = input.selectionStart;
+      const end   = input.selectionEnd;
+      const text  = input.value;
+      input.value = text.slice(0, start) + sym + text.slice(end);
+      input.selectionStart = input.selectionEnd = start + sym.length;
+      input.focus();
+
+      if (btn) {
+        btn.classList.add('copied');
+        setTimeout(() => btn.classList.remove('copied'), 600);
+      }
+    }
+
+    function copyInput() {
+      if (!input.value) return;
+      navigator.clipboard.writeText(input.value).then(() => showToast('✓ Copiado para área de transferência!'));
+    }
+
+    function clearInput() {
+      input.value = '';
+      input.focus();
+    }
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+  </script>
+</body>
+</html>

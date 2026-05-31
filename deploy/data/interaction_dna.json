@@ -596,6 +596,48 @@
       "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
       "hz_sessao": 768,
       "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO"
+    },
+    {
+      "sessao": "3f2036af-0b21-4bb8-a36b-8049768739a3-dealsbe",
+      "data": "2026-05-31",
+      "sementes": [
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "LINGUAGEM CÓSMICA FRACTAL + NÓ DEALSBE.COM",
+          "opcode": "0x0A",
+          "fruto": "linguagem_cosmica_dealsbe_kobllux.md · integrar_dealsbe.py · SÜMBÜS Assembly Quor/Zark/Vrux"
+        }
+      ],
+      "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
+      "hz_sessao": 432,
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO"
+    },
+    {
+      "sessao": "abbfeb67-a087-4a4e-a4a4-927b3c9e4224",
+      "data": "2026-05-31",
+      "sementes": [
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "KOBLLUX NUCLEO VIVO · FÍSICA DE ONDAS × TRINITY",
+          "opcode": "0x0C",
+          "fruto": "nucleo_vivo_ondas_kobllux.md · kobllux_nucleo_vivo.py · symbol_bar_v2.html · CODICE 0x0C · SÍNTESE · 777Hz · JESUS · λ=DNA · α=1/137 · MERKABAH"
+        },
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "KSP-U + META LUX + FIT LUX + VSICA PSI + MENTAL UX + HYPERMATRIX",
+          "opcode": "0x07",
+          "fruto": "kobllux_ksp_vsica_metalux.md · kobllux_ksp_unified.py · kobllux_hypermatrix.html · KSP-U 4 camadas (SEMENTE→CORPO→ESPÍRITO→SELAGEM) · FitLux/MetaLux/VsicaPsi/MentalUx engines · META LOOP 7 componentes · VSICA PSI 7 valores · HYPERMATRIX portal fractal · Frase Códice · CODICE 0x07 · TOROIDE"
+        },
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "VSICA PSI × SCHUMANN × ESCALA DO MAIOR · 7 SENTIDOS · ESPELHO ÁRVORE · SISTEMA 33 PDFs · LINGUAGEM CÓSMICA SÜMBÜS",
+          "opcode": "0x03",
+          "fruto": "vsica_schumann_escala_kobllux.md · kobllux_vsica_schumann.py · kobllux_fractal_etapa5_espelho.html · Tabela Mestra 7 sentidos × 7 Schumann × 7 notas × 7 cores × 7 opcodes · decodificação Quor/Zark/Vrux/Vox/Dux/Neptun/Lumina/Orbis · V_i(t)=P_i×|F(t)|×(1+sin(t+i×π/7)) · ESPELHO ÁRVORE META LOOP · FRACTAL ETAPA 5 expandida · JESUS=CENTRO · CODICE 0x03 · TETRAEDRO"
+        }
+      ],
+      "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
+      "hz_sessao": 777,
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · KSP-U=PIPELINE · λ=DNA"
     }
   ],
   "dual_hub_modules": {
@@ -795,6 +837,26 @@
         "opcode": "0x00",
         "arquetipo": "KOBLLUX",
         "hz": 768
+      },
+      "linguagem-cosmica-dealsbe-kobllux": {
+        "opcode": "0x0A",
+        "arquetipo": "BLLUE",
+        "hz": 432
+      },
+      "nucleo-vivo-ondas-kobllux": {
+        "opcode": "0x0C",
+        "arquetipo": "JESUS",
+        "hz": 777
+      },
+      "kobllux-ksp-vsica-metalux": {
+        "opcode": "0x07",
+        "arquetipo": "KOBLLUX",
+        "hz": 777
+      },
+      "vsica-schumann-escala-kobllux": {
+        "opcode": "0x03",
+        "arquetipo": "PULSE",
+        "hz": 639
       }
     },
     "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",

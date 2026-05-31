@@ -2,14 +2,14 @@
   "documento": "KOBLLUX · CADIAL Archetypes Scanner + V.E.E.B. · Simulação Árvore Renomeada",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T20:26:29.220774",
+  "gerado_em": "2026-05-31T23:07:04.899602",
   "modo": "dry-run",
   "nota_seguranca": "SIMULAÇÃO — nenhum arquivo foi movido (use --executar para aplicar).",
   "estatisticas": {
-    "total_analisado": 1405,
+    "total_analisado": 1416,
     "ja_no_lugar": 0,
-    "com_proposta": 1405,
-    "score_medio_veeb": 4.681,
+    "com_proposta": 1416,
+    "score_medio_veeb": 4.691,
     "total_erros": 0
   },
   "top10_veeb_score": [
@@ -81,7 +81,7 @@
       "hz": 768,
       "rung": 1,
       "dir_ideal": "00_FUNDACAO",
-      "total": 573,
+      "total": 575,
       "arquivos": [
         "main.py",
         "tree.md",
@@ -111,7 +111,7 @@
       "hz": 528,
       "rung": 2,
       "dir_ideal": "02_CICLO_369",
-      "total": 125,
+      "total": 126,
       "arquivos": [
         "videos.json",
         "m4_sci_art.txt",
@@ -171,12 +171,13 @@
       "hz": 528,
       "rung": 4,
       "dir_ideal": "deploy",
-      "total": 36,
+      "total": 38,
       "arquivos": [
         "cerebro_oraculo.py",
         "scan_media_files.py",
         "CEREBRO_ORACULO_BASE_v1.md",
         "13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md",
+        "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
         "deploy/web/css/0x07-selar.css",
         "deploy/web/js/opcodes/0x0B-di.js",
         "deploy/web/js/opcodes/cerebro-oraculo.js",
@@ -191,8 +192,7 @@
         "00_FUNDACAO/Ativando KOBLLUX História real.json",
         "00_FUNDACAO/⚡️⭕️👁️ ANÁLISE MESTRA DA FASE FINAL INFODOSE 2.4.5 → 3.0.0 2.json",
         "00_FUNDACAO/Ativação azzira história 567.json",
-        "17_MIDIA_INFODOSE/.metadata/catalogo_midias.json",
-        "17_MIDIA_INFODOSE/.metadata/catalogo_geral.json"
+        "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py"
       ]
     },
     "Artemis": {
@@ -231,7 +231,7 @@
       "hz": 963,
       "rung": 6,
       "dir_ideal": "09_LINHA_DO_PULSO",
-      "total": 29,
+      "total": 30,
       "arquivos": [
         "catalogo_media.json",
         "13_DOCUMENTACAO/04_SIMBOLOS/KOBΦ-NODE: RECEBIDO. ANÁLISE GEOMÉTRICA DA FUNDAÇÃO.md",
@@ -246,13 +246,13 @@
         "00_FUNDACAO/FFC Full livro 📕.pdf.json",
         "00_FUNDACAO/⚡️⭕️📕 livro_dos_mestres.json",
         "09_LINHA_DO_PULSO/03_HISTORICO_VIVO/logs.json",
+        "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html",
         "docs/thu_apr_30_2026_git_hub_repository_assistance_guidelines.json",
         "docs/thu_apr_30_2026_integrando_painel_de_local_estojo_no.json",
         "17_MIDIA_INFODOSE/.metadata/catalogo.json",
         ".claude/worktrees/agent-a7f5c00c2c92fc06c/catalogo_media.json",
         ".claude/worktrees/agent-a7f5c00c2c92fc06c/13_DOCUMENTACAO/04_SIMBOLOS/KOBΦ-NODE: RECEBIDO. ANÁLISE GEOMÉTRICA DA FUNDAÇÃO.md",
-        ".claude/worktrees/agent-a7f5c00c2c92fc06c/deploy/web/css/0x08-testemunhar.css",
-        ".claude/worktrees/agent-a7f5c00c2c92fc06c/deploy/web/css/0x08-aura.css"
+        ".claude/worktrees/agent-a7f5c00c2c92fc06c/deploy/web/css/0x08-testemunhar.css"
       ]
     },
     "Kaos": {
@@ -291,9 +291,10 @@
       "hz": 777,
       "rung": 8,
       "dir_ideal": "07_NARRATIVA_TEMPORAL",
-      "total": 3,
+      "total": 4,
       "arquivos": [
         "13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md",
+        "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
         "16_ASCII_ART/01_SELOS/selo_genus.txt",
         ".claude/worktrees/agent-a7f5c00c2c92fc06c/16_ASCII_ART/01_SELOS/selo_genus.txt"
       ]
@@ -304,7 +305,7 @@
       "hz": 1134,
       "rung": 9,
       "dir_ideal": "12_VEEB",
-      "total": 172,
+      "total": 174,
       "arquivos": [
         "requirements.txt",
         "integracao_completa_kobllux.py",
@@ -320,12 +321,12 @@
         "13_DOCUMENTACAO/02_CODEX/espelho_input.mirror.txt",
         "13_DOCUMENTACAO/02_CODEX/cartas_trinity.md",
         "13_DOCUMENTACAO/02_CODEX/veeb_dashboard_coblux_kobllux.md",
+        "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
         "13_DOCUMENTACAO/02_CODEX/livro_da_vida.md",
         "13_DOCUMENTACAO/02_CODEX/espelho_input.txt",
         "13_DOCUMENTACAO/01_MANUAIS/[008]-ESTRUTURA DE ANÁLISE GEOMÉTRICA.txt",
         "13_DOCUMENTACAO/01_MANUAIS/guia_rapido.md",
-        "13_DOCUMENTACAO/01_MANUAIS/0×00-div_class_fusion_card_∅.md",
-        "13_DOCUMENTACAO/01_MANUAIS/[009]-ANÁLISE GEOMÉTRICA KOBLLUX ∆³.md"
+        "13_DOCUMENTACAO/01_MANUAIS/0×00-div_class_fusion_card_∅.md"
       ]
     },
     "Solus": {
@@ -334,7 +335,7 @@
       "hz": 1134,
       "rung": 10,
       "dir_ideal": "13_DOCUMENTACAO",
-      "total": 35,
+      "total": 36,
       "arquivos": [
         "arvore.html",
         "ANALISE_REPO_2026-04-30.md",
@@ -352,10 +353,10 @@
         "00_FUNDACAO/[0×00]_DOC_ANALISE.md",
         "output/cerebro_oraculo_v1.html",
         "01_DIMENSOES/05_5D_POLIEDRO/archetypes/solus.html",
+        "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
         "10_ARVORE_FRACTAL/01_TRIADE_DOCUMENTAL/03_LADO_C_FRUTO/codex_azure.py",
         "docs/fusion_card_geometrica_completa.html",
-        "docs/index.html.txt",
-        ".claude/worktrees/agent-a7f5c00c2c92fc06c/arvore.html"
+        "docs/index.html.txt"
       ]
     },
     "Rhea": {
@@ -364,8 +365,9 @@
       "hz": 672,
       "rung": 11,
       "dir_ideal": "04_APRENDIZADO",
-      "total": 27,
+      "total": 28,
       "arquivos": [
+        "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
         "13_DOCUMENTACAO/04_SIMBOLOS/[2]🌳 Estrutura Sugerida para o Repositório KOBLLUX.md",
         "08_REDE_INFODOSE/integracao_cerebro_rede.py",
         "deploy/web/js/opcodes/dual-hub/dual-hub-ui.js",
@@ -384,8 +386,7 @@
         "deploy/web/js/opcodes/dual-hub/dual-hub-audio.js",
         "deploy/web/js/opcodes/dual-hub/dual-hub-nav.js",
         "deploy/web/js/opcodes/dual-hub/dual-hub-orb.js",
-        "deploy/data/frequencias.json",
-        "deploy/data/dual-hub-modules.json"
+        "deploy/data/frequencias.json"
       ]
     },
     "Aion": {
@@ -974,6 +975,13 @@
       "executado": false
     },
     {
+      "de": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "para": "04_APRENDIZADO/INTEGRAR_0X04_nucleo_vivo_ondas_kobllux_VEEB-U_D11.md",
+      "arquetipo": "Rhea",
+      "veeb_score": 7.0,
+      "executado": false
+    },
+    {
       "de": "13_DOCUMENTACAO/02_CODEX/evangelho_fractal.md",
       "para": "00_FUNDACAO/BOOT_0X00_evangelho_fractal_VEEB-A_D1.md",
       "arquetipo": "Atlas",
@@ -995,10 +1003,24 @@
       "executado": false
     },
     {
+      "de": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "para": "deploy/PULSE_0X0B_vsica_schumann_escala_kobllux_VEEB-I_D4.md",
+      "arquetipo": "Pulse",
+      "veeb_score": 7.0,
+      "executado": false
+    },
+    {
       "de": "13_DOCUMENTACAO/02_CODEX/dicionario_kobllux_writer.json",
       "para": "13_DOCUMENTACAO/QA_0X0B_dicionario_kobllux_writer_VEEB-U_D10.json",
       "arquetipo": "Solus",
       "veeb_score": 8.25,
+      "executado": false
+    },
+    {
+      "de": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+      "para": "12_VEEB/RENDER_0X0A_linguagem_cosmica_dealsbe_kobllux_VEEB-Æ_D9.md",
+      "arquetipo": "Lumine",
+      "veeb_score": 7.0,
       "executado": false
     },
     {
@@ -1034,6 +1056,13 @@
       "para": "12_VEEB/RENDER_0X0A_livro_da_vida_VEEB-Æ_D9.md",
       "arquetipo": "Lumine",
       "veeb_score": 7.0,
+      "executado": false
+    },
+    {
+      "de": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "para": "07_NARRATIVA_TEMPORAL/SELAR_0X07_kobllux_ksp_vsica_metalux_VEEB-O_D8.md",
+      "arquetipo": "Genus",
+      "veeb_score": 7.5,
       "executado": false
     },
     {
@@ -1770,34 +1799,6 @@
       "arquetipo": "Serena",
       "veeb_score": 4.543,
       "executado": false
-    },
-    {
-      "de": "deploy/web/css/0x0A-tutorial.css",
-      "para": "02_CICLO_369/SEED_0X02_0x0A-tutorial_VEEB-Æ_D2.css",
-      "arquetipo": "Nova",
-      "veeb_score": 4.543,
-      "executado": false
-    },
-    {
-      "de": "deploy/web/js/opcodes/0x02-pipeline.js",
-      "para": "02_CICLO_369/SEED_0X02_0x02-pipeline_VEEB-Æ_D2.js",
-      "arquetipo": "Nova",
-      "veeb_score": 5.543,
-      "executado": false
-    },
-    {
-      "de": "deploy/web/js/opcodes/0x01-detectar.js",
-      "para": "02_CICLO_369/SEED_0X02_0x01-detectar_VEEB-Æ_D2.js",
-      "arquetipo": "Nova",
-      "veeb_score": 5.043,
-      "executado": false
-    },
-    {
-      "de": "deploy/web/js/opcodes/0x04-geometry.js",
-      "para": "12_VEEB/RENDER_0X0A_0x04-geometry_VEEB-Æ_D9.js",
-      "arquetipo": "Lumine",
-      "veeb_score": 5.543,
-      "executado": false
     }
   ],
   "todos_arquivos": [
@@ -2234,6 +2235,30 @@
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_kodux_v79_ente_trinity_VEEB-A_D1.md"
     },
     {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "nome": "kobllux_ksp_vsica_metalux.md",
+      "arquetipo": "Genus",
+      "opcode": "0x07",
+      "regra": "SELAR",
+      "vogal_veeb": "O",
+      "rung": 8,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "07_NARRATIVA_TEMPORAL",
+      "ja_no_lugar": false,
+      "nome_sinergico": "SELAR_0X07_kobllux_ksp_vsica_metalux_VEEB-O_D8.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 7,
+        "E2": 5,
+        "B": 9,
+        "score": 7.5,
+        "hz": 1134
+      },
+      "proposta_destino": "07_NARRATIVA_TEMPORAL/SELAR_0X07_kobllux_ksp_vsica_metalux_VEEB-O_D8.md"
+    },
+    {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/leitura_manifesto_sumbüs.md",
       "nome": "leitura_manifesto_sumbüs.md",
       "arquetipo": "Atlas",
@@ -2376,6 +2401,78 @@
         "hz": 1134
       },
       "proposta_destino": "01_DIMENSOES/DETECT_0X01_verbo_e_agua_VEEB-A_D5.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "nome": "nucleo_vivo_ondas_kobllux.md",
+      "arquetipo": "Rhea",
+      "opcode": "0x04",
+      "regra": "INTEGRAR",
+      "vogal_veeb": "U",
+      "rung": 11,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "04_APRENDIZADO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "INTEGRAR_0X04_nucleo_vivo_ondas_kobllux_VEEB-U_D11.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "04_APRENDIZADO/INTEGRAR_0X04_nucleo_vivo_ondas_kobllux_VEEB-U_D11.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "nome": "vsica_schumann_escala_kobllux.md",
+      "arquetipo": "Pulse",
+      "opcode": "0x0B",
+      "regra": "PULSE",
+      "vogal_veeb": "I",
+      "rung": 4,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "deploy",
+      "ja_no_lugar": false,
+      "nome_sinergico": "PULSE_0X0B_vsica_schumann_escala_kobllux_VEEB-I_D4.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "deploy/PULSE_0X0B_vsica_schumann_escala_kobllux_VEEB-I_D4.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+      "nome": "linguagem_cosmica_dealsbe_kobllux.md",
+      "arquetipo": "Lumine",
+      "opcode": "0x0A",
+      "regra": "RENDER",
+      "vogal_veeb": "Æ",
+      "rung": 9,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "12_VEEB",
+      "ja_no_lugar": false,
+      "nome_sinergico": "RENDER_0X0A_linguagem_cosmica_dealsbe_kobllux_VEEB-Æ_D9.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "12_VEEB/RENDER_0X0A_linguagem_cosmica_dealsbe_kobllux_VEEB-Æ_D9.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/1. A CIFRA KOBLLUX.md",
@@ -4368,6 +4465,30 @@
         "hz": 777
       },
       "proposta_destino": "04_APRENDIZADO/INTEGRAR_0X04_dual-hub-ls_VEEB-U_D11.js"
+    },
+    {
+      "arquivo_atual": "deploy/data/mirror_dna_log.json",
+      "nome": "mirror_dna_log.json",
+      "arquetipo": "Lumine",
+      "opcode": "0x0A",
+      "regra": "RENDER",
+      "vogal_veeb": "Æ",
+      "rung": 9,
+      "score_arq": 6.0,
+      "dir_atual": "deploy",
+      "dir_ideal": "12_VEEB",
+      "ja_no_lugar": false,
+      "nome_sinergico": "RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 6.17,
+        "E1": 7,
+        "E2": 6,
+        "B": 5,
+        "score": 6.043,
+        "hz": 777
+      },
+      "proposta_destino": "12_VEEB/RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json"
     },
     {
       "arquivo_atual": "deploy/data/reading.json",
@@ -7754,6 +7875,54 @@
       "proposta_destino": "06_ATIVACAO/UNIFICAR_0X06_Z_ATIVACAO_SUMBUS_FIRMWARE-_0x01212345_7_VEEB-E_D7.md"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
+      "nome": "kobllux_ksp_unified.py",
+      "arquetipo": "Nova",
+      "opcode": "0x02",
+      "regra": "SEED",
+      "vogal_veeb": "Æ",
+      "rung": 2,
+      "score_arq": 9.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "02_CICLO_369",
+      "ja_no_lugar": false,
+      "nome_sinergico": "SEED_0X02_kobllux_ksp_unified_VEEB-Æ_D2.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 7,
+        "B": 4,
+        "score": 5.548,
+        "hz": 528
+      },
+      "proposta_destino": "02_CICLO_369/SEED_0X02_kobllux_ksp_unified_VEEB-Æ_D2.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+      "nome": "kobllux_vsica_schumann.py",
+      "arquetipo": "Pulse",
+      "opcode": "0x0B",
+      "regra": "PULSE",
+      "vogal_veeb": "I",
+      "rung": 4,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "deploy",
+      "ja_no_lugar": false,
+      "nome_sinergico": "PULSE_0X0B_kobllux_vsica_schumann_VEEB-I_D4.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 7,
+        "B": 4,
+        "score": 5.548,
+        "hz": 528
+      },
+      "proposta_destino": "deploy/PULSE_0X0B_kobllux_vsica_schumann_VEEB-I_D4.py"
+    },
+    {
       "arquivo_atual": "docs/[0×00]_ANÁLISE GEOMÉTRICA ∆³ · CAPÍTULO 11 TABELA BASE UNIFICADA.md",
       "nome": "[0×00]_ANÁLISE GEOMÉTRICA ∆³ · CAPÍTULO 11 TABELA BASE UNIFICADA.md",
       "arquetipo": "Artemis",
@@ -9170,30 +9339,6 @@
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_codice_VEEB-A_D1.json"
     },
     {
-      "arquivo_atual": "deploy/data/mirror_dna_log.json",
-      "nome": "mirror_dna_log.json",
-      "arquetipo": "Lumine",
-      "opcode": "0x0A",
-      "regra": "RENDER",
-      "vogal_veeb": "Æ",
-      "rung": 9,
-      "score_arq": 6.0,
-      "dir_atual": "deploy",
-      "dir_ideal": "12_VEEB",
-      "ja_no_lugar": false,
-      "nome_sinergico": "RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json",
-      "nome_mudou": true,
-      "veeb": {
-        "V": 6.17,
-        "E1": 5,
-        "E2": 6,
-        "B": 5,
-        "score": 5.543,
-        "hz": 777
-      },
-      "proposta_destino": "12_VEEB/RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json"
-    },
-    {
       "arquivo_atual": "deploy/data/dual-hub-modules.json",
       "nome": "dual-hub-modules.json",
       "arquetipo": "Rhea",
@@ -10344,6 +10489,54 @@
         "hz": 528
       },
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_symbol-unified-orb-dual_VEEB-A_D1.html"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
+      "nome": "symbol_bar_v2.html",
+      "arquetipo": "Lumine",
+      "opcode": "0x0A",
+      "regra": "RENDER",
+      "vogal_veeb": "Æ",
+      "rung": 9,
+      "score_arq": 6.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "12_VEEB",
+      "ja_no_lugar": false,
+      "nome_sinergico": "RENDER_0X0A_symbol_bar_v2_VEEB-Æ_D9.html",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 6,
+        "B": 4,
+        "score": 5.298,
+        "hz": 528
+      },
+      "proposta_destino": "12_VEEB/RENDER_0X0A_symbol_bar_v2_VEEB-Æ_D9.html"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html",
+      "nome": "kobllux_hypermatrix.html",
+      "arquetipo": "Serena",
+      "opcode": "0x09",
+      "regra": "GUARD",
+      "vogal_veeb": "U",
+      "rung": 6,
+      "score_arq": 6.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "09_LINHA_DO_PULSO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "GUARD_0X09_kobllux_hypermatrix_VEEB-U_D6.html",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 6,
+        "B": 4,
+        "score": 5.298,
+        "hz": 528
+      },
+      "proposta_destino": "09_LINHA_DO_PULSO/GUARD_0X09_kobllux_hypermatrix_VEEB-U_D6.html"
     },
     {
       "arquivo_atual": "docs/_symbol-integrated-complete.html",
@@ -12192,6 +12385,54 @@
         "hz": 528
       },
       "proposta_destino": "12_VEEB/RENDER_0X0A_espelho_input_VEEB-Æ_D9.txt"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+      "nome": "kobllux_nucleo_vivo.py",
+      "arquetipo": "Atlas",
+      "opcode": "0x00",
+      "regra": "BOOT",
+      "vogal_veeb": "A",
+      "rung": 1,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "00_FUNDACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "BOOT_0X00_kobllux_nucleo_vivo_VEEB-A_D1.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 5,
+        "E2": 7,
+        "B": 4,
+        "score": 5.048,
+        "hz": 528
+      },
+      "proposta_destino": "00_FUNDACAO/BOOT_0X00_kobllux_nucleo_vivo_VEEB-A_D1.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/integrar_dealsbe.py",
+      "nome": "integrar_dealsbe.py",
+      "arquetipo": "Atlas",
+      "opcode": "0x00",
+      "regra": "BOOT",
+      "vogal_veeb": "A",
+      "rung": 1,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "00_FUNDACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "BOOT_0X00_integrar_dealsbe_VEEB-A_D1.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 5,
+        "E2": 7,
+        "B": 4,
+        "score": 5.048,
+        "hz": 528
+      },
+      "proposta_destino": "00_FUNDACAO/BOOT_0X00_integrar_dealsbe_VEEB-A_D1.py"
     },
     {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_media_processor_v4.py",
@@ -15720,6 +15961,30 @@
         "hz": 528
       },
       "proposta_destino": "06_ATIVACAO/UNIFICAR_0X06_psique_profunda_VEEB-E_D7.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
+      "nome": "kobllux_fractal_etapa5_espelho.html",
+      "arquetipo": "Solus",
+      "opcode": "0x0B",
+      "regra": "QA",
+      "vogal_veeb": "U",
+      "rung": 10,
+      "score_arq": 6.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "13_DOCUMENTACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "QA_0X0B_kobllux_fractal_etapa5_espelho_VEEB-U_D10.html",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 5,
+        "E2": 6,
+        "B": 4,
+        "score": 4.798,
+        "hz": 528
+      },
+      "proposta_destino": "13_DOCUMENTACAO/QA_0X0B_kobllux_fractal_etapa5_espelho_VEEB-U_D10.html"
     },
     {
       "arquivo_atual": "docs/fusion_card_geometrica_completa.html",

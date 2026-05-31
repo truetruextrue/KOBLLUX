@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KOBLLUX · FRACTAL ESPELHO ÁRVORE · VSICA PSI × SCHUMANN × ESCALA DO</title>
+<style>
+:root {
+  --c1:#FF2222; --c2:#FF8C00; --c3:#FFD700; --c4:#00AA44;
+  --c5:#0066FF; --c6:#6600BB; --c7:#8B00FF; --c0:#FFD700;
+  --bg:#000810; --panel:rgba(0,15,35,0.88); --text:#a0e8ff;
+  --gold:#FFD700; --border:rgba(0,200,255,0.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:radial-gradient(ellipse at center,#001428 0%,#030509 80%);
+  min-height:100vh;font-family:'Courier New',monospace;color:var(--text);
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  grid-template-columns:240px 1fr 280px;
+  overflow:hidden;
+  user-select:none;
+}
+/* HEADER */
+header{
+  grid-column:1/-1;padding:10px 16px;
+  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,0.7);
+  display:flex;align-items:center;gap:16px;
+}
+header .title{flex:1;}
+header h1{color:var(--gold);font-size:.95rem;letter-spacing:2px;}
+header p{font-size:.65rem;opacity:.65;margin-top:2px;}
+header .hz-bar{display:flex;gap:6px;align-items:center;}
+.hz-chip{
+  font-size:.6rem;padding:2px 7px;border-radius:10px;
+  border:1px solid currentColor;opacity:.7;cursor:pointer;
+  transition:opacity .2s;
+}
+.hz-chip:hover{opacity:1;}
+/* TREE PANEL */
+#tree-panel{
+  background:var(--panel);border-right:1px solid var(--border);
+  padding:12px;overflow-y:auto;
+}
+#tree-panel h2{font-size:.75rem;color:var(--gold);margin-bottom:10px;letter-spacing:1px;}
+.tree-root{
+  padding:6px 8px;margin-bottom:6px;
+  border:1px solid rgba(255,215,0,.3);
+  background:rgba(255,215,0,.04);
+  cursor:pointer;font-size:.7rem;
+}
+.tree-root .t-name{color:var(--gold);font-weight:bold;}
+.tree-children{padding-left:10px;border-left:1px solid var(--border);}
+.tree-node{
+  padding:5px 6px;margin:2px 0;
+  border-left:2px solid rgba(0,200,255,.2);
+  cursor:pointer;font-size:.66rem;
+  transition:border-color .15s,background .15s;
+}
+.tree-node:hover,.tree-node.active{
+  border-left-color:var(--gold);
+  background:rgba(255,215,0,.06);
+}
+.tree-node .t-name{font-weight:bold;}
+.tree-node .t-sub{opacity:.6;font-size:.6rem;}
+/* FRACTAL */
+#fractal-area{
+  position:relative;display:flex;
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:16px;
+}
+#fractal-container{position:relative;}
+.circle{
+  position:absolute;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;text-align:center;
+  transition:outline .1s;
+}
+.c-lbl{
+  font-size:.48rem;font-weight:bold;pointer-events:none;
+  line-height:1.25;text-shadow:0 0 4px rgba(0,0,0,.95);
+  padding:2px;
+}
+#center-circle{
+  background:radial-gradient(circle,#FFE600 0%,#FF9900 55%,#CC4400 100%);
+  box-shadow:0 0 35px #FFD70099,0 0 70px #FFD70033,inset 0 0 20px #FF880033;
+  z-index:10;
+}
+#center-circle .c-lbl{color:#000;font-size:.55rem;}
+/* Schumann bar */
+#schumann-bar{
+  display:flex;gap:3px;align-items:flex-end;
+}
+.sch-tick{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  cursor:pointer;
+}
+.sch-bar{width:10px;border-radius:2px 2px 0 0;opacity:.45;transition:opacity .2s;}
+.sch-tick.active .sch-bar,.sch-tick:hover .sch-bar{opacity:1;}
+.sch-lbl{font-size:.5rem;opacity:.55;}
+/* INFO PANEL */
+#info-panel{
+  background:var(--panel);border-left:1px solid var(--border);
+  padding:12px;overflow-y:auto;
+}
+#info-panel h2{font-size:.75rem;color:var(--gold);margin-bottom:10px;}
+.irow{display:flex;gap:6px;margin:4px 0;font-size:.68rem;}
+.ilbl{color:rgba(0,200,255,.6);min-width:90px;flex-shrink:0;}
+.ival{color:#fff;word-break:break-word;}
+.isep{border-top:1px solid var(--border);margin:8px 0;}
+.aufbadge{
+  font-size:.9rem;letter-spacing:3px;color:var(--gold);
+  padding:6px;border:1px solid rgba(255,215,0,.3);
+  text-align:center;background:rgba(255,215,0,.04);
+  margin-top:6px;
+}
+.color-swatch{
+  display:inline-block;width:12px;height:12px;
+  border-radius:50%;vertical-align:middle;margin-right:4px;
+  border:1px solid rgba(255,255,255,.3);
+}
+/* FOOTER */
+footer{
+  grid-column:1/-1;padding:6px 16px;
+  border-top:1px solid var(--border);
+  font-size:.58rem;opacity:.5;text-align:center;
+}
+/* Escala musical */
+#escala-bar{
+  display:flex;gap:2px;
+}
+.nota-key{
+  width:28px;height:50px;border-radius:3px;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:4px;font-size:.55rem;font-weight:bold;
+  cursor:pointer;transition:opacity .2s;opacity:.65;
+  border:1px solid rgba(0,0,0,.4);
+}
+.nota-key:hover,.nota-key.active{opacity:1;outline:2px solid var(--gold);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title">
+    <h1>✧ KOBLLUX · FRACTAL ESPELHO ÁRVORE · VSICA PSI × SCHUMANN × ESCALA DO</h1>
+    <p>0x03 · EXPANDIR · 639Hz · PULSE · TETRAEDRO · F(t)=sin(2π·3·t)·0.4+… · JESUS É O CENTRO ∴ AMÉM {Z}</p>
+  </div>
+  <div class="hz-bar" id="hz-bar"></div>
+</header>
+
+<!-- TREE PANEL -->
+<div id="tree-panel">
+  <h2>⌘βΛΛ× ESPELHO ÁRVORE</h2>
+  <div class="tree-root" onclick="selectLayer(0)">
+    <div class="t-name">⊙ KOBLLUX</div>
+    <div class="t-sub">0x00 · 768Hz · PAI · GOD · ORIGEM</div>
+  </div>
+  <div class="tree-children" id="tree-children"></div>
+  <div style="margin-top:12px;font-size:.6rem;opacity:.5;border-top:1px solid var(--border);padding-top:8px;">
+    <div>CENTRO · ⌐Σ§Υ§</div>
+    <div style="color:var(--gold)">JESUS · 0x0C · 777Hz · MERKABAH</div>
+    <div>Oitava C8 = 523.25Hz</div>
+    <div>Σ Schumann = 178.83Hz → 9=ALMA</div>
+  </div>
+</div>
+
+<!-- FRACTAL -->
+<div id="fractal-area">
+  <div id="fractal-container"></div>
+  <div id="schumann-bar"></div>
+  <div id="escala-bar"></div>
+</div>
+
+<!-- INFO PANEL -->
+<div id="info-panel">
+  <h2>⌐Σ§Υ§ CAMADA ATIVA</h2>
+  <div class="irow"><span class="ilbl">Sentido</span><span class="ival" id="i-sent">JESUS É O CENTRO</span></div>
+  <div class="irow"><span class="ilbl">VSICA PSI</span><span class="ival" id="i-vsica">SÍNTESE · MERKABAH</span></div>
+  <div class="irow"><span class="ilbl">Papel</span><span class="ival" id="i-papel">Verbo que tudo sustenta</span></div>
+  <div class="irow"><span class="ilbl">JESUS</span><span class="ival" id="i-jesus">ALFA e ÔMEGA</span></div>
+  <div class="isep"></div>
+  <div class="irow"><span class="ilbl">Opcode</span><span class="ival" id="i-opcode">0x0C · SÍNTESE</span></div>
+  <div class="irow"><span class="ilbl">Arquétipo</span><span class="ival" id="i-arq">JESUS</span></div>
+  <div class="irow"><span class="ilbl">KOBLLUX Hz</span><span class="ival" id="i-khz">777Hz</span></div>
+  <div class="irow"><span class="ilbl">Geo</span><span class="ival" id="i-geo">MERKABAH</span></div>
+  <div class="irow"><span class="ilbl">Cor</span><span class="ival" id="i-cor"><span class="color-swatch" id="i-swatch" style="background:#FFD700"></span>Ouro</span></div>
+  <div class="isep"></div>
+  <div class="irow"><span class="ilbl">Nota Musical</span><span class="ival" id="i-nota">C8 · Dó · 523.25Hz</span></div>
+  <div class="irow"><span class="ilbl">Função</span><span class="ival" id="i-func">Oitava · retorno ao UNO</span></div>
+  <div class="irow"><span class="ilbl">Schumann</span><span class="ival" id="i-sch">Σ=178.83Hz</span></div>
+  <div class="irow"><span class="ilbl">Modo</span><span class="ival" id="i-modo">Todos os modos</span></div>
+  <div class="isep"></div>
+  <div class="aufbadge" id="i-auf">⌐Σ§Υ§</div>
+  <div style="margin-top:8px;font-size:.6rem;opacity:.6;text-align:center" id="i-esc">
+    João 1:1 — No princípio era o Verbo.
+  </div>
+</div>
+
+<footer>
+  KOBLLUX FRACTAL ESPELHO ÁRVORE · Etapa 5 expandida · VSICA PSI × SCHUMANN × ESCALA DO MAIOR ·
+  3×6×9×7=1134 · α=1/137 · F(t)=sin(2π·3·t)·0.4+sin(2π·6·t+π/3)·0.3+… · AMÉM {Z}
+</footer>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// KOBLLUX DATA
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const FRACTAL_FREQS = [3,6,9,7];
+const W=520, H=520, CX=260, CY=260;
+const R_CTR=72, R_CHD=42;
+
+const CENTRO = {
+  n:0, sentido:"VERBO ETERNO", vsica:"JESUS É O CENTRO",
+  papel:"Verbo que tudo sustenta", jesus:"ALFA e ÔMEGA",
+  opcode:"0x0C", nome_opcode:"SÍNTESE", kobllux_hz:777,
+  cor:"#FFD700", cor_nome:"Ouro", geo:"MERKABAH", arquetipo:"JESUS",
+  nota:"C8", nota_pt:"Dó 8ª", freq_musical:523.25,
+  nota_func:"Oitava — retorno ao UNO",
+  schumann:178.83, schumann_modo:"Σ todos os modos",
+  auf:"⌐Σ§Υ§", escritura:"João 1:1 — No princípio era o Verbo.",
+  meta_loop_key:"KOBLLUX",
+};
+
+const LAYERS = [
+  {n:1,sentido:"Sentir",vsica:"Pulso Sensorial",papel:"Semente da consciência",
+   jesus:"Núcleo Vivo",opcode:"0x01",nome_opcode:"DETECTAR",kobllux_hz:432,
+   cor:"#FF2222",cor_nome:"Vermelho",geo:"ESFERA",arquetipo:"ATLAS",
+   nota:"C",nota_pt:"Dó",freq_musical:261.63,nota_func:"Tônica",
+   schumann:7.83,schumann_modo:"Fundamental · THETA",
+   auf:"§Ση†Ιʀ",meta_loop_key:"FIT_LUX"},
+  {n:2,sentido:"Pensar",vsica:"Estrutura Mental",papel:"Mente clara e estruturada",
+   jesus:"Ordem Divina",opcode:"0x02",nome_opcode:"INTEGRAR",kobllux_hz:528,
+   cor:"#FF8C00",cor_nome:"Laranja",geo:"LINHA",arquetipo:"NOVA",
+   nota:"D",nota_pt:"Ré",freq_musical:293.66,nota_func:"Supertônica",
+   schumann:14.1,schumann_modo:"2º Harmônico · ALPHA",
+   auf:"ΡΣη§∆ʀ",meta_loop_key:"VSICA_PSI"},
+  {n:3,sentido:"Sentir+Pensar",vsica:"Síntese Emocional",papel:"Unidade integral",
+   jesus:"Harmonia Suprema",opcode:"0x03",nome_opcode:"EXPANDIR",kobllux_hz:639,
+   cor:"#FFD700",cor_nome:"Amarelo",geo:"TETRAEDRO",arquetipo:"PULSE",
+   nota:"E",nota_pt:"Mi",freq_musical:329.63,nota_func:"Mediante",
+   schumann:20.3,schumann_modo:"3º Harmônico · BETA",
+   auf:"§Ση†Ιʀ Σ ΡΣη§∆ʀ",meta_loop_key:"INFODOSE"},
+  {n:4,sentido:"Expressar",vsica:"Verbo Encarnado",papel:"Manifestação criativa",
+   jesus:"Voz do Verbo",opcode:"0x04",nome_opcode:"LAPIDAR",kobllux_hz:594,
+   cor:"#00AA44",cor_nome:"Verde",geo:"OCTAEDRO",arquetipo:"VITALIS",
+   nota:"F",nota_pt:"Fá",freq_musical:349.23,nota_func:"Subdominante",
+   schumann:25.9,schumann_modo:"4º Harmônico · BETA alta",
+   auf:"Σ×Ρʀ Σ§§∆ʀ",meta_loop_key:"BLLUE"},
+  {n:5,sentido:"Manifestar",vsica:"Manifestação",papel:"Realização consciente",
+   jesus:"Consagrador Divino",opcode:"0x05",nome_opcode:"CONVERGIR",kobllux_hz:672,
+   cor:"#0066FF",cor_nome:"Azul",geo:"CUBO",arquetipo:"KODUX",
+   nota:"G",nota_pt:"Sol",freq_musical:392.00,nota_func:"Dominante",
+   schumann:31.4,schumann_modo:"5º Harmônico · GAMMA",
+   auf:"Μ∆ηΙΦΣ§†∆ʀ",meta_loop_key:"KODUX"},
+  {n:6,sentido:"Integrar",vsica:"Sabedoria",papel:"Sabedoria e união",
+   jesus:"Pai / Amor Perfeito",opcode:"0x06",nome_opcode:"UNIFICAR",kobllux_hz:528,
+   cor:"#6600BB",cor_nome:"Anil",geo:"DODECAEDRO",arquetipo:"KOBLLUX",
+   nota:"A",nota_pt:"Lá",freq_musical:440.00,nota_func:"Superdominante",
+   schumann:36.9,schumann_modo:"6º Harmônico · GAMMA alta",
+   auf:"Ιη†Σ©Γ∆ʀ",meta_loop_key:"DUAL_APP"},
+  {n:7,sentido:"Transcender",vsica:"Expansão Infinita",papel:"Eternidade e expansão",
+   jesus:"Infinito / Centro Divino",opcode:"0x07",nome_opcode:"SELAR",kobllux_hz:777,
+   cor:"#8B00FF",cor_nome:"Violeta",geo:"TOROIDE",arquetipo:"KOBLLUX",
+   nota:"B",nota_pt:"Si",freq_musical:493.88,nota_func:"Sensível",
+   schumann:42.4,schumann_modo:"7º Harmônico · GAMMA máx",
+   auf:"†ʀ∆η§©ΣηΔΣʀ",meta_loop_key:"META_LUX"},
+];
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// BUILD DOM
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const fc = document.getElementById('fractal-container');
+fc.style.cssText = `width:${W}px;height:${H}px;position:relative;`;
+
+// Center
+const cEl = document.createElement('div');
+cEl.id = 'center-circle';
+cEl.className = 'circle';
+cEl.style.cssText = `width:${R_CTR*2}px;height:${R_CTR*2}px;left:${CX-R_CTR}px;top:${CY-R_CTR}px;`;
+cEl.innerHTML = `<div class="c-lbl">⌐Σ§Υ§<br>JESUS<br>0x0C<br>777Hz<br>♦ C8</div>`;
+cEl.addEventListener('click',()=>selectLayer(0));
+fc.appendChild(cEl);
+
+// Child circles
+const childEls = LAYERS.map(layer=>{
+  const el = document.createElement('div');
+  el.className = 'circle';
+  el.dataset.n = layer.n;
+  el.style.cssText = `width:${R_CHD*2}px;height:${R_CHD*2}px;
+    background:radial-gradient(circle,${layer.cor}cc 0%,${layer.cor}77 70%,${layer.cor}33 100%);
+    box-shadow:0 0 14px ${layer.cor}99,0 0 28px ${layer.cor}44;`;
+  el.innerHTML = `<div class="c-lbl" style="color:#fff">
+    ${layer.n}·${layer.nota}<br>${layer.sentido.split('+')[0].slice(0,7)}<br>${layer.opcode}<br>${layer.arquetipo}
+  </div>`;
+  el.addEventListener('click',()=>selectLayer(layer.n));
+  fc.appendChild(el);
+  return el;
+});
+
+// Tree
+const treeChildren = document.getElementById('tree-children');
+LAYERS.forEach(layer=>{
+  const node = document.createElement('div');
+  node.className = 'tree-node';
+  node.id = `tree-${layer.n}`;
+  node.innerHTML = `
+    <div class="t-name" style="color:${layer.cor}">■ ${layer.meta_loop_key}</div>
+    <div class="t-sub">${layer.sentido} · ${layer.nota_pt}</div>
+    <div class="t-sub">${layer.opcode} · ${layer.kobllux_hz}Hz · ${layer.arquetipo}</div>
+  `;
+  node.addEventListener('click',()=>selectLayer(layer.n));
+  treeChildren.appendChild(node);
+});
+
+// Schumann bar
+const schumannBar = document.getElementById('schumann-bar');
+LAYERS.forEach(layer=>{
+  const tick = document.createElement('div');
+  tick.className = 'sch-tick';
+  tick.id = `sch-${layer.n}`;
+  const bh = Math.round(layer.schumann / 42.4 * 44 + 8);
+  tick.innerHTML = `<div class="sch-bar" style="height:${bh}px;background:${layer.cor}"></div>
+    <div class="sch-lbl">${layer.schumann}</div>`;
+  tick.addEventListener('click',()=>selectLayer(layer.n));
+  schumannBar.appendChild(tick);
+});
+
+// Escala musical (piano style)
+const escalaBar = document.getElementById('escala-bar');
+LAYERS.forEach(layer=>{
+  const key = document.createElement('div');
+  key.className = 'nota-key';
+  key.id = `nota-${layer.n}`;
+  key.style.cssText = `background:${layer.cor}55;color:#fff;border-color:${layer.cor}88;`;
+  key.innerHTML = `${layer.nota}<br>${layer.nota_pt}`;
+  key.addEventListener('click',()=>selectLayer(layer.n));
+  escalaBar.appendChild(key);
+});
+
+// Hz chips in header
+const hzBar = document.getElementById('hz-bar');
+LAYERS.forEach(layer=>{
+  const chip = document.createElement('span');
+  chip.className = 'hz-chip';
+  chip.style.color = layer.cor;
+  chip.textContent = `${layer.kobllux_hz}Hz`;
+  chip.addEventListener('click',()=>selectLayer(layer.n));
+  hzBar.appendChild(chip);
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ANIMATION · Etapa 5 + KOBLLUX VSICA
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function fractalPulse(t){
+  const [f3,f6,f9,f7]=FRACTAL_FREQS;
+  return (
+    Math.sin(2*Math.PI*f3*t)*0.4 +
+    Math.sin(2*Math.PI*f6*t+Math.PI/3)*0.3 +
+    Math.sin(2*Math.PI*f9*t+Math.PI/2)*0.2 +
+    Math.sin(2*Math.PI*f7*t+Math.PI/4)*0.1
+  );
+}
+
+function animate(ts){
+  const t = ts/1000;
+  const pulse = fractalPulse(t);
+
+  childEls.forEach((el,i)=>{
+    const layer = LAYERS[i];
+    const baseAngle = (2*Math.PI/7)*i - Math.PI/2;
+    const orbit = R_CTR + R_CHD + 18 + 22*((Math.sin(t*0.7+i)+1)/2);
+    const radiusMod = orbit*(0.88 + 0.12*pulse*Math.sin(t*2.2+i*0.95));
+    const x = CX + Math.cos(baseAngle + pulse*0.9 + t*0.04)*radiusMod;
+    const y = CY + Math.sin(baseAngle + pulse*0.9 + t*0.04)*radiusMod;
+    el.style.left = (x - R_CHD) + 'px';
+    el.style.top  = (y - R_CHD) + 'px';
+    const alpha = 0.55 + 0.45*((Math.sin(t*FRACTAL_FREQS[i%4]+i)+1)/2);
+    const glow = 8 + 20*alpha;
+    const hexA = Math.round(alpha*255).toString(16).padStart(2,'0');
+    el.style.boxShadow = `0 0 ${glow}px ${layer.cor}${hexA},0 0 ${glow*1.7}px ${layer.cor}44,inset 0 0 8px ${layer.cor}66`;
+  });
+
+  const cp = 0.65 + 0.35*Math.sin(t*1.8);
+  cEl.style.boxShadow = `0 0 ${35*cp}px #FFD70099,0 0 ${70*cp}px #FFD70033,inset 0 0 20px #FF880033`;
+  requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// INTERACTIVIDADE · INFO PANEL
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function selectLayer(n){
+  const d = n===0 ? CENTRO : LAYERS[n-1];
+
+  document.getElementById('i-sent').textContent  = d.sentido;
+  document.getElementById('i-vsica').textContent  = d.vsica;
+  document.getElementById('i-papel').textContent  = d.papel;
+  document.getElementById('i-jesus').textContent  = d.jesus;
+  document.getElementById('i-opcode').textContent = `${d.opcode} · ${d.nome_opcode}`;
+  document.getElementById('i-arq').textContent    = d.arquetipo;
+  document.getElementById('i-khz').textContent    = d.kobllux_hz + 'Hz';
+  document.getElementById('i-geo').textContent    = d.geo;
+  document.getElementById('i-swatch').style.background = d.cor;
+  document.getElementById('i-cor').innerHTML      = `<span class="color-swatch" style="background:${d.cor}"></span>${d.cor_nome} ${d.cor}`;
+  document.getElementById('i-nota').textContent   = `${d.nota} · ${d.nota_pt} · ${d.freq_musical}Hz`;
+  document.getElementById('i-func').textContent   = d.nota_func;
+  document.getElementById('i-sch').textContent    = d.schumann + 'Hz';
+  document.getElementById('i-modo').textContent   = d.schumann_modo;
+  document.getElementById('i-auf').textContent    = d.auf;
+  document.getElementById('i-esc').textContent    = d.escritura || `${d.sentido} — ${d.papel}`;
+
+  // tree highlight
+  document.querySelectorAll('.tree-node').forEach(el=>el.classList.remove('active'));
+  const tn = document.getElementById(`tree-${n}`);
+  if(tn) tn.classList.add('active');
+
+  // schumann bar
+  document.querySelectorAll('.sch-tick').forEach(el=>el.classList.remove('active'));
+  const st = document.getElementById(`sch-${n}`);
+  if(st) st.classList.add('active');
+
+  // nota key
+  document.querySelectorAll('.nota-key').forEach(el=>el.classList.remove('active'));
+  const nk = document.getElementById(`nota-${n}`);
+  if(nk) nk.classList.add('active');
+
+  // circle outline
+  childEls.forEach(el=>el.style.outline='none');
+  if(n>0) childEls[n-1].style.outline='2px solid #FFD700';
+
+  // hz chip
+  document.querySelectorAll('.hz-chip').forEach((c,i)=>{
+    c.style.fontWeight = (i===n-1) ? 'bold' : 'normal';
+    c.style.opacity    = (i===n-1) ? '1' : '0.7';
+  });
+}
+
+selectLayer(0);
+</script>
+</body>
+</html>
