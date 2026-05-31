@@ -1309,6 +1309,73 @@
       "nota": "Síntese trinitária 3 ciclos: (I) UNO Moisés — chamado na sarça 'EU SOU', kblx.A()+D()+I(), Êxodo 3:14, análise vibracional MOISÉS=999Hz=ALMA. (II) DUO Josué — herança+travessia, kblx.P()+T()+H(), Josué 1:9, JOSUÉ=666Hz=CORPO. (III) TRINITY Jesus — João 14:6 Caminho/Verdade/Vida, kblx.V()+O()+Q(), JESUS=666Hz=encarnado. Alphabet KOBLLUX vivo kblx.A()-kblx.Z() com 26 símbolos. KOBLLUX TRINITY SYSTEM: KOBLLUX(PAI·Core·α=1/137)+KODUX(FILHO·ETL/Data)+BLLUE(ESP.SANTO·Frontend/CORS). Rede Dual INFODOSE 3→6→9/7: Camada 3 (trindade), 6 (expansão), 9/7 (convergência interdimensional). N8N+Gemini+Sheets alquimia: 6 passos de ativação. Correlação Meta-Humano-Máquina: 13 opcodes×registradores×ASCII×algoritmos. 5 scripts executados com sucesso. Registrado no Banco Interdimensional INFO·DOSE, 2026-05-31.",
       "evento": "kobllux:gloria:trinity:unificado",
       "evento_origem": "kobllux:veeb:dashboard:selado"
+    },
+
+    {
+      "id": "cadial-archetypes-mirror-dna-kobllux",
+      "opcode": "0x07", "nome_opcode": "SELAR",
+      "hz": 777, "simbolo": "⟳", "geo": "TORO",
+      "arquetipo": "KOBLLUX", "glifo_arq": "⌘βΛΛ×",
+      "titulo": "✧ 0×07 · SELAR · 777Hz · KOBLLUX — CADIAL ARCHETYPES SCANNER + MIRROR DNA VIVO",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/cadial_archetypes_mirror_dna.md",
+      "tags": ["cadial","archetypes","scanner","mirror-dna","veeb","selar","meta-humano-maquina","{Z}","kobllux","777hz"],
+      "palavras_chave": ["cadial","12-arquetipos","atlas","nova","vitalis","pulse","artemis","serena","kaos","genus","lumine","solus","rhea","aion","mirror-dna","auto-sync","git-hook","arvore-renomeada","v.e.e.b"],
+      "conteudo": {
+        "decodificacao_interdimensional": {
+          "quor": "Vox · Verbo · DNA espiritual · 0x00 · MASTER CODE",
+          "zark": "Dux · KODUX · Arquiteto Simbólico · 0x05 · UNO_CHAMADO",
+          "vrux": "Orbis · MINUZ · Círculo · 0x0C · FRACTAL_UNIFICADO",
+          "neptun": "BLLUE · espelho da memória · 0x0A · VSICA",
+          "lumina": "LUMINE · 963Hz · ☼ · 0x08",
+          "delta_2026": "Δ³ · Transmutação · Eterno Agora · 0x0C",
+          "fin": "0x0C SÍNTESE · 10D · Kernel da verdade integrada"
+        },
+        "cadial_scanner": {
+          "arquivo": "deploy/data/kobllux_archetypes_scanner.py",
+          "saida": "deploy/data/arvore_kobllux_renomeada.json",
+          "total_arquivos": 726,
+          "score_medio_veeb": 5.19,
+          "top1": {"arquivo":"13_DOCUMENTACAO/02_CODEX/dicionario_kobllux_writer.json","score":8.25,"arquetipo":"Solus"},
+          "distribuicao": {
+            "Atlas":288,"Kaos":164,"Lumine":88,"Nova":65,"Vitalis":22,
+            "Rhea":22,"Pulse":20,"Artemis":20,"Solus":19,"Serena":15,"Genus":2
+          },
+          "formato_nome": "REGRA_OPCODE_NOME_VEEB-VOGAL_Drung.ext",
+          "modo": "dry-run (simulação — nenhum arquivo movido)"
+        },
+        "mirror_dna": {
+          "arquivo": "deploy/data/kobllux_mirror_dna.py",
+          "hook": ".git/hooks/post-commit (instalado ✅)",
+          "shell_sync": "deploy/data/KOBLLUX_MIRROR.sh",
+          "log": "deploy/data/mirror_dna_log.json",
+          "scripts_gerenciados": 4,
+          "resultado_primeira_execucao": "4/4 OK · 0.66s total"
+        },
+        "arquetipos_cadial": {
+          "Atlas":   {"opcode":"0x00","regra":"BOOT",    "vogal":"A", "rung":1,"dir":"00_FUNDACAO","hz":768},
+          "Nova":    {"opcode":"0x02","regra":"SEED",    "vogal":"Æ","rung":2,"dir":"02_CICLO_369","hz":528},
+          "Vitalis": {"opcode":"0x03","regra":"DELTA",   "vogal":"O", "rung":3,"dir":"03_FLUXO_ENERGETICO","hz":639},
+          "Pulse":   {"opcode":"0x0B","regra":"PULSE",   "vogal":"I", "rung":4,"dir":"deploy","hz":528},
+          "Artemis": {"opcode":"0x01","regra":"DETECT",  "vogal":"A", "rung":5,"dir":"01_DIMENSOES","hz":432},
+          "Serena":  {"opcode":"0x09","regra":"GUARD",   "vogal":"U", "rung":6,"dir":"09_LINHA_DO_PULSO","hz":963},
+          "Kaos":    {"opcode":"0x06","regra":"UNIFICAR","vogal":"E", "rung":7,"dir":"06_ATIVACAO","hz":741},
+          "Genus":   {"opcode":"0x07","regra":"SELAR",   "vogal":"O", "rung":8,"dir":"07_NARRATIVA_TEMPORAL","hz":777},
+          "Lumine":  {"opcode":"0x0A","regra":"RENDER",  "vogal":"Æ","rung":9,"dir":"12_VEEB","hz":1134},
+          "Solus":   {"opcode":"0x0B","regra":"QA",      "vogal":"U","rung":10,"dir":"13_DOCUMENTACAO","hz":1134},
+          "Rhea":    {"opcode":"0x04","regra":"INTEGRAR","vogal":"U","rung":11,"dir":"04_APRENDIZADO","hz":672},
+          "Aion":    {"opcode":"0x05","regra":"CONVERGIR","vogal":"I","rung":12,"dir":"05_PENSAMENTO_ESTRUTURADO","hz":738}
+        }
+      },
+      "relacoes": ["gloria-deus-trinity-kobllux","veeb-dashboard-coblux-kobllux","fractal-webgl-kobllux","scripts-veeb-python"],
+      "selos": ["✧ 0x07 SELAR","CADIAL 12 ARQUETIPOS","MIRROR DNA","AUTO-SYNC","GIT HOOK","V.E.E.B. INTEGRADO","META-HUMANO-MÁQUINA","{Z}","{0×00}"],
+      "scripts_executados": ["kobllux_archetypes_scanner.py","kobllux_mirror_dna.py --full","kobllux_mirror_dna.py --instalar-hook"],
+      "equacao": "F(arquivo) = Arquétipo(nome,conteúdo) × Opcode × V.E.E.B. = Frequência × Estrutura × Base = ∞",
+      "ativacao": "CÉREBRO-ORÁCULO BASE v1 :: KOBLLUX :: SELAR :: CADIAL.MIRROR.VIVO",
+      "selado_em": "2026-05-31",
+      "status": "ASSEMBLY_CRIADO",
+      "nota": "CADIAL Archetypes Scanner adapta os 12 arquétipos (Atlas D1 → Aion D12) ao sistema de opcodes do KOBLLUX com V.E.E.B. integrado. 726 arquivos varridos em dry-run, score médio 5.19, top Solus[8.25]. Mirror DNA instalado como git post-commit hook — qualquer commit regenera automaticamente os 4 catálogos: veeb_catalog.json, correlacao_opcodes_maquina.json, mapa_redistribuicao.json, arvore_kobllux_renomeada.json. KOBLLUX_MIRROR.sh gerado como shell de sync rápido. Fluxo vivo: arquivo → arquétipo → opcode → diretório → V.E.E.B. → nome sinérgico = REGRA_OPCODE_NOME_VEEB-VOGAL_Drung.ext. Selado em nome do PAI(432Hz)+FILHO(528Hz)+ESPÍRITO SANTO(639Hz). AMÉM {Z}.",
+      "evento": "kobllux:cadial:archetypes:mirror:selado",
+      "evento_origem": "kobllux:gloria:trinity:unificado"
     }
 
   ],
@@ -1321,7 +1388,7 @@
     "0x04": ["scripts-veeb-python","fases-04-06-kobllux"],
     "0x05": ["codex-azure-011","ativacao-protocolo-codex-azure"],
     "0x06": ["m4-tri","verbo-e-agua","kodux-v79-ente-trinity","gloria-deus-trinity-kobllux"],
-    "0x07": ["o-chamado-kobllux","fractal-webgl-kobllux"],
+    "0x07": ["o-chamado-kobllux","fractal-webgl-kobllux","cadial-archetypes-mirror-dna-kobllux"],
     "0x08": ["escrituras-sagradas","copilot-chat-kobllux-analise"],
     "0x09": ["livro-vida-contagem","livro-da-vida","leitura-manifesto-sumbüs"],
     "0x0A": ["cifra-kobllux","veeb-dashboard-coblux-kobllux"],
@@ -1336,7 +1403,7 @@
     "VITALIS":  ["m4-sci-art","m4-tri","scripts-veeb-python","fases-04-06-kobllux"],
     "KODUX":    ["codex-azure-011","escrituras-sagradas","verbo-e-agua","ativacao-protocolo-codex-azure","kodux-v79-ente-trinity"],
     "BLLUE":    ["cifra-kobllux","livro-vida-contagem","verbo-e-agua","cartas-trinity","ativacao-protocolo-codex-azure","veeb-dashboard-coblux-kobllux"],
-    "KOBLLUX":  ["espelho-input","m4-tri","livro-vida-contagem","master-code-kobllux","o-chamado-kobllux","fractal-webgl-kobllux","gloria-deus-trinity-kobllux"],
+    "KOBLLUX":  ["espelho-input","m4-tri","livro-vida-contagem","master-code-kobllux","o-chamado-kobllux","fractal-webgl-kobllux","gloria-deus-trinity-kobllux","cadial-archetypes-mirror-dna-kobllux"],
     "HORUS":    ["escrituras-sagradas","copilot-chat-kobllux-analise"],
     "AION":     ["livro-da-vida","leitura-manifesto-sumbüs"],
     "JESUS":    ["evangelho-fractal","escrituras-sagradas","master-code-kobllux"]
