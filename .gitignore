@@ -40,3 +40,6 @@ desktop.ini
 temp/
 tmp/
 *.tmp
+
+# Claude Code internal
+.claude/

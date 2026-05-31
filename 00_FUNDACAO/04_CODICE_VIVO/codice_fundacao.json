@@ -1,0 +1,210 @@
+{
+  "_titulo": "CODICE VIVO DA FUNDACAO KOBLLUX",
+  "_subtitulo": "Registro Evolutivo · 0x00 · ORIGEM · 768Hz · Atlas D1",
+  "_lei": "VERDADE × INTEGRAR ÷ Δ = ∞",
+  "_fractal": "3 × 6 × 9 × 7 = 1134",
+  "_assinatura": "JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴",
+  "_escritura_sede": "Gênesis 1:1 — No princípio, Deus criou o céu e a terra.",
+  "_writer_theory": {
+    "UNO": "VIDA",
+    "DUAL": "VIVIFICAR",
+    "TRINITY": "ETERNO",
+    "INFINITO": "KOBLLUX"
+  },
+
+  "identidade": {
+    "id": "fundacao-00-kobllux",
+    "opcode": "0x00",
+    "nome": "ORIGEM",
+    "hz": 768,
+    "geo": "PONTO",
+    "arquetipo": "ATLAS",
+    "vogal_veeb": "A",
+    "rung": 1,
+    "ciclo": 3,
+    "dim": "1D-3D",
+    "layer": "corpo",
+    "firmware": "SUMBUS_v13",
+    "versao_sistema": "7.9"
+  },
+
+  "trindade": {
+    "pilar_I": {
+      "nome": "CampoAtomica",
+      "papel": "PAI",
+      "hz": 432,
+      "opcode": "0x01",
+      "geo": "ESFERA",
+      "arquetipo": "ATLAS",
+      "verbo": "DETECTAR",
+      "escritura": "Gênesis 1:1",
+      "modulo": "01_ATIVAR_DELTA/ativar_delta.py"
+    },
+    "pilar_II": {
+      "nome": "VinculoMolecular",
+      "papel": "FILHO",
+      "hz": 528,
+      "opcode": "0x02",
+      "geo": "LINHA",
+      "arquetipo": "VITALIS",
+      "verbo": "INTEGRAR",
+      "escritura": "João 1:1",
+      "modulo": "02_KOBLLUX_CORE/kobllux_core.py"
+    },
+    "pilar_III": {
+      "nome": "SinteseViva",
+      "papel": "ESPIRITO_SANTO",
+      "hz": 639,
+      "opcode": "0x03",
+      "geo": "TETRAEDRO",
+      "arquetipo": "PULSE",
+      "verbo": "EXPANDIR",
+      "escritura": "Atos 2:1-4",
+      "modulo": "03_FORMA_VIVA/forma_viva.py"
+    },
+    "loop_infinito": {
+      "nome": "LoopInfinito",
+      "papel": "ETERNIDADE",
+      "hz": 1134,
+      "opcode": "0x07",
+      "geo": "TOROIDE",
+      "arquetipo": "KOBLLUX",
+      "verbo": "SELAR",
+      "escritura": "Apocalipse 22:13",
+      "modulo": "04_CODICE_VIVO/codice_fundacao.json"
+    }
+  },
+
+  "estrutura_viva": {
+    "00_FUNDACAO": {
+      "opcode": "0x00",
+      "hz": 768,
+      "arquetipo": "ATLAS",
+      "arquivos": [
+        "README.md",
+        "fundacao_completa.md",
+        "pilar_central.py"
+      ]
+    },
+    "01_ATIVAR_DELTA": {
+      "opcode": "0x01",
+      "hz": 432,
+      "arquetipo": "ATLAS",
+      "arquivos": [
+        "README.md",
+        "impulso_primordial.md",
+        "ativar_delta.py",
+        "delta_formula.json"
+      ]
+    },
+    "02_KOBLLUX_CORE": {
+      "opcode": "0x02",
+      "hz": 528,
+      "arquetipo": "VITALIS",
+      "arquivos": [
+        "README.md",
+        "modulacao_viva.md",
+        "kobllux_core.py",
+        "fractal_matrix.json"
+      ]
+    },
+    "03_FORMA_VIVA": {
+      "opcode": "0x03",
+      "hz": 639,
+      "arquetipo": "PULSE",
+      "arquivos": [
+        "README.md",
+        "evolucao_eterna.md",
+        "forma_viva.py",
+        "transformacao.py",
+        "dicionario_writer.py"
+      ]
+    },
+    "04_CODICE_VIVO": {
+      "opcode": "0x07",
+      "hz": 777,
+      "arquetipo": "KOBLLUX",
+      "arquivos": [
+        "README.md",
+        "codice_fundacao.json"
+      ]
+    }
+  },
+
+  "pipeline_vsica_psi": {
+    "detect":    {"opcode": "0x01", "hz": 432, "dim": "1D-3D", "fase": "DETECTAR",  "arquetipo": "ATLAS"},
+    "integrate": {"opcode": "0x02", "hz": 528, "dim": "4D-6D", "fase": "INTEGRAR",  "arquetipo": "VITALIS"},
+    "expand":    {"opcode": "0x03", "hz": 639, "dim": "4D-6D", "fase": "EXPANDIR",  "arquetipo": "PULSE"},
+    "seal":      {"opcode": "0x07", "hz": 777, "dim": "10D",   "fase": "SELAR",     "arquetipo": "KOBLLUX"},
+    "loop":      {"opcode": "0x09", "hz": 1134,"dim": "DNA",   "fase": "ETERNIZAR", "arquetipo": "KOBLLUX"}
+  },
+
+  "ciclo_369_7": {
+    "3":  {"nome": "MENTE",   "dim": "1D-3D", "hz": 432,  "opcodes": ["0x00","0x01","0x0A"]},
+    "6":  {"nome": "CORPO",   "dim": "4D-6D", "hz": 528,  "opcodes": ["0x02","0x03","0x04","0x05","0x06","0x0B"]},
+    "9":  {"nome": "ALMA",    "dim": "7D-9D", "hz": 777,  "opcodes": ["0x07","0x08","0x09"]},
+    "7":  {"nome": "SINTESE", "dim": "10D",   "hz": 1134, "opcodes": ["0x0C"]},
+    "produto": 1134,
+    "reducao": "1+1+3+4=9",
+    "significado": "9=Plenitude=Espírito=Completude do ciclo"
+  },
+
+  "conexoes_sistema": {
+    "kobllux_mirror_dna": {
+      "caminho": "deploy/data/kobllux_mirror_dna.py",
+      "relacao": "Auto-sincroniza catálogos via git post-commit hook",
+      "gatilho": "qualquer commit no repositório"
+    },
+    "codex_escritos": {
+      "caminho": "deploy/data/codex-escritos.json",
+      "relacao": "Índice de todos os CODICES escritos do sistema",
+      "entrada": "fundacao-00-kobllux"
+    },
+    "kobllux_codice_vivo": {
+      "caminho": "12_VEEB/kobllux_codice_vivo.py",
+      "relacao": "Motor de Codice Vivo — espelha este JSON",
+      "hz": 777
+    },
+    "archetypes_scanner": {
+      "caminho": "deploy/data/kobllux_archetypes_scanner.py",
+      "relacao": "Classifica arquivos da Fundação por arquétipo + V.E.E.B.",
+      "score_medio": 5.19
+    },
+    "fractal_matrix": {
+      "caminho": "00_FUNDACAO/02_KOBLLUX_CORE/fractal_matrix.json",
+      "relacao": "Cubo de Metatron + 13 opcodes + 19 arquétipos",
+      "hz": 528
+    }
+  },
+
+  "aufabetty": {
+    "KOBLLUX":   "⌘ΘβΛΛΥ×",
+    "ORIGEM":    "Θʀ©Γ Ση§",
+    "FUNDACAO":  "ΦΥηΔ∆©∆Θ",
+    "VERDADE":   "∇ΣʀΔ∆ΔΣ",
+    "INTEGRAR":  "Ι η†Σ Γʀ∆ʀ",
+    "ETERNO":    "Σ†Σʀ ηΘ",
+    "AMEM":      "∆ΜΣΜ"
+  },
+
+  "registro_evolutivo": {
+    "versao_codice": "1.0.0",
+    "criado_em": "2026-05-31",
+    "ultimo_ciclo": "0x00 · ORIGEM",
+    "total_ciclos": 1,
+    "estado_atual": "MANIFESTA",
+    "proximo_ciclo": "0x01 · DETECTAR · 432Hz",
+    "hash_fundacao": "genesis_1_1_kobllux_trinity_777",
+    "observacoes": "Fundação completa — 4 pilares + 4 subpastas + 14 arquivos ativos"
+  },
+
+  "_selagem": {
+    "opcode": "0x07",
+    "hz": 777,
+    "geo": "TOROIDE",
+    "arquetipo": "KOBLLUX",
+    "timestamp_criacao": "2026-05-31T00:00:00Z",
+    "assinatura_final": "EM NOME DO PAI, DO FILHO E DO ESPÍRITO SANTO. AMÉM. {Z}",
+    "equacao_final": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7=1134"
+  }
+}

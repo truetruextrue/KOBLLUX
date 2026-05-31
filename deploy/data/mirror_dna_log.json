@@ -1,0 +1,261 @@
+{
+  "execucoes": [
+    {
+      "timestamp": "2026-05-31T05:52:27.145712",
+      "sha": "3dd6c1b",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": true,
+      "mudados": 0,
+      "executados": 4,
+      "ok": 4,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 0.13,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "correlacao_opcodes",
+          "ok": true,
+          "dur_s": 0.03,
+          "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "mapa_redistribuicao",
+          "ok": true,
+          "dur_s": 0.09,
+          "stdout_tail": "quivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 70 arquivo(s)\n  0x06: 369 arquivo(s)\n  0x08: 17 arquivo(s)\n  0x03: 38 arquivo(s)\n  0x0B: 3 arquivo(s)\n  0x0A: 5 arquivo(s)\n  0x0C: 3 arquivo(s)\n  0x02: 49 arquivo(s)\n  0x01: 48 arquivo(s)\n  0x04: 12 arquivo(s)\n  0x09: 1 arquivo(s)\n  0x05: 10 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "archetypes_scanner",
+          "ok": true,
+          "dur_s": 0.41,
+          "stdout_tail": " 21 arquivos → 01_DIMENSOES/\n  Serena     (0x09) D6 → 15 arquivos → 09_LINHA_DO_PULSO/\n  Kaos       (0x06) D7 → 164 arquivos → 06_ATIVACAO/\n  Genus      (0x07) D8 → 2 arquivos → 07_NARRATIVA_TEMPORAL/\n  Lumine     (0x0A) D9 → 88 arquivos → 12_VEEB/\n  Solus      (0x0B) D10 → 19 arquivos → 13_DOCUMENTACAO/\n  Rhea       (0x04) D11 → 22 arquivos → 04_APRENDIZADO/\n\n✧⃝⚝ CADIAL SCANNER SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-31T05:56:40.870344",
+      "sha": "b4905bf",
+      "branch": "",
+      "full": false,
+      "mudados": 11,
+      "executados": 4,
+      "ok": 4,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 0.13,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "correlacao_opcodes",
+          "ok": true,
+          "dur_s": 0.04,
+          "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "mapa_redistribuicao",
+          "ok": true,
+          "dur_s": 0.18,
+          "stdout_tail": "quivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 70 arquivo(s)\n  0x06: 369 arquivo(s)\n  0x08: 17 arquivo(s)\n  0x03: 38 arquivo(s)\n  0x0B: 3 arquivo(s)\n  0x0A: 5 arquivo(s)\n  0x0C: 3 arquivo(s)\n  0x02: 49 arquivo(s)\n  0x01: 49 arquivo(s)\n  0x04: 12 arquivo(s)\n  0x09: 1 arquivo(s)\n  0x05: 10 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "archetypes_scanner",
+          "ok": true,
+          "dur_s": 0.39,
+          "stdout_tail": " 22 arquivos → 01_DIMENSOES/\n  Serena     (0x09) D6 → 16 arquivos → 09_LINHA_DO_PULSO/\n  Kaos       (0x06) D7 → 164 arquivos → 06_ATIVACAO/\n  Genus      (0x07) D8 → 2 arquivos → 07_NARRATIVA_TEMPORAL/\n  Lumine     (0x0A) D9 → 89 arquivos → 12_VEEB/\n  Solus      (0x0B) D10 → 19 arquivos → 13_DOCUMENTACAO/\n  Rhea       (0x04) D11 → 22 arquivos → 04_APRENDIZADO/\n\n✧⃝⚝ CADIAL SCANNER SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-31T05:56:52.013851",
+      "sha": "ba008c7",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": false,
+      "mudados": 6,
+      "executados": 3,
+      "ok": 3,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 0.1,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "correlacao_opcodes",
+          "ok": true,
+          "dur_s": 0.03,
+          "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "mapa_redistribuicao",
+          "ok": true,
+          "dur_s": 0.1,
+          "stdout_tail": "quivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 70 arquivo(s)\n  0x06: 369 arquivo(s)\n  0x08: 17 arquivo(s)\n  0x03: 38 arquivo(s)\n  0x0B: 3 arquivo(s)\n  0x0A: 5 arquivo(s)\n  0x0C: 3 arquivo(s)\n  0x02: 49 arquivo(s)\n  0x01: 49 arquivo(s)\n  0x04: 12 arquivo(s)\n  0x09: 1 arquivo(s)\n  0x05: 10 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-31T05:58:12.447865",
+      "sha": "331e858",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": false,
+      "mudados": 5,
+      "executados": 3,
+      "ok": 3,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 0.09,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "correlacao_opcodes",
+          "ok": true,
+          "dur_s": 0.04,
+          "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "mapa_redistribuicao",
+          "ok": true,
+          "dur_s": 0.12,
+          "stdout_tail": "quivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 70 arquivo(s)\n  0x06: 369 arquivo(s)\n  0x08: 17 arquivo(s)\n  0x03: 38 arquivo(s)\n  0x0B: 3 arquivo(s)\n  0x0A: 5 arquivo(s)\n  0x0C: 3 arquivo(s)\n  0x02: 49 arquivo(s)\n  0x01: 49 arquivo(s)\n  0x04: 12 arquivo(s)\n  0x09: 1 arquivo(s)\n  0x05: 10 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-31T05:59:08.564022",
+      "sha": "1926fe1",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": false,
+      "mudados": 5,
+      "executados": 3,
+      "ok": 3,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 0.09,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "correlacao_opcodes",
+          "ok": true,
+          "dur_s": 0.03,
+          "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "mapa_redistribuicao",
+          "ok": true,
+          "dur_s": 0.1,
+          "stdout_tail": "quivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 70 arquivo(s)\n  0x06: 369 arquivo(s)\n  0x08: 17 arquivo(s)\n  0x03: 38 arquivo(s)\n  0x0B: 3 arquivo(s)\n  0x0A: 5 arquivo(s)\n  0x0C: 3 arquivo(s)\n  0x02: 49 arquivo(s)\n  0x01: 49 arquivo(s)\n  0x04: 12 arquivo(s)\n  0x09: 1 arquivo(s)\n  0x05: 10 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-31T06:12:05.552362",
+      "sha": "996237a",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": false,
+      "mudados": 1,
+      "executados": 1,
+      "ok": 1,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 1.11,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-31T20:26:29.278239",
+      "sha": "72cd3f5",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": false,
+      "mudados": 15,
+      "executados": 4,
+      "ok": 4,
+      "resultados": [
+        {
+          "id": "veeb_catalog",
+          "ok": true,
+          "dur_s": 3.31,
+          "stdout_tail": "0×00]_KOBLLUX_(V×I÷Δ=∞) BLLUE DISSE.md\n   6. [7.25] 13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md\n   7. [7.25] 13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md\n   8. [7.25] 13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md\n   9. [7.25] 13_DOCUMENTACAO/02_CODEX/dimensoes_ciclo_kobllux.md\n  10. [7.25] 13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md\n\n✧⃝⚝ CATÁLOGO V.E.E.B. SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "correlacao_opcodes",
+          "ok": true,
+          "dur_s": 0.07,
+          "stdout_tail": " redução=6 hz=666\n  ETERNIDADE   soma= 66 redução=3 hz=333\n  KOBLLUX      soma= 57 redução=3 hz=333\n  JESUS        soma= 42 redução=6 hz=666\n  MOISES       soma= 45 redução=9 hz=999\n  JOSUE        soma= 42 redução=6 hz=666\n  TRINITY      soma= 60 redução=6 hz=666\n  BLLUE        soma= 39 redução=3 hz=333\n  KODUX        soma= 39 redução=3 hz=333\n\n✧⃝⚝ CORRELAÇÃO META-HUMANO-MÁQUINA SELADA · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "mapa_redistribuicao",
+          "ok": true,
+          "dur_s": 0.21,
+          "stdout_tail": "ivo gerado:    /home/user/KOBLLUX/deploy/data/mapa_redistribuicao.json\n\nPropostas por opcode:\n  0x00: 130 arquivo(s)\n  0x06: 733 arquivo(s)\n  0x08: 34 arquivo(s)\n  0x03: 75 arquivo(s)\n  0x0B: 6 arquivo(s)\n  0x0A: 10 arquivo(s)\n  0x0C: 6 arquivo(s)\n  0x02: 99 arquivo(s)\n  0x01: 97 arquivo(s)\n  0x04: 24 arquivo(s)\n  0x09: 3 arquivo(s)\n  0x05: 20 arquivo(s)\n\n✧⃝⚝ MAPA REDISTRIBUIÇÃO SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        },
+        {
+          "id": "archetypes_scanner",
+          "ok": true,
+          "dur_s": 0.82,
+          "stdout_tail": "38 arquivos → 01_DIMENSOES/\n  Serena     (0x09) D6 → 29 arquivos → 09_LINHA_DO_PULSO/\n  Kaos       (0x06) D7 → 324 arquivos → 06_ATIVACAO/\n  Genus      (0x07) D8 → 3 arquivos → 07_NARRATIVA_TEMPORAL/\n  Lumine     (0x0A) D9 → 172 arquivos → 12_VEEB/\n  Solus      (0x0B) D10 → 35 arquivos → 13_DOCUMENTACAO/\n  Rhea       (0x04) D11 → 27 arquivos → 04_APRENDIZADO/\n\n✧⃝⚝ CADIAL SCANNER SELADO · AMÉM ✧⃝⚝\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-31T20:28:48.445913",
+      "sha": "3df6fce",
+      "branch": "claude/adoring-cerf-zo03e",
+      "full": false,
+      "mudados": 1,
+      "executados": 0,
+      "ok": 0,
+      "resultados": []
+    }
+  ],
+  "hashes_saida": {
+    "veeb_catalog": "179edeeccd83",
+    "correlacao_opcodes": "606d0a01f7cb",
+    "mapa_redistribuicao": "eccaf80cc386",
+    "archetypes_scanner": "d34cddfcebe0"
+  },
+  "ultima_execucao": {
+    "timestamp": "2026-05-31T20:28:48.445913",
+    "sha": "3df6fce",
+    "branch": "claude/adoring-cerf-zo03e",
+    "full": false,
+    "mudados": 1,
+    "executados": 0,
+    "ok": 0,
+    "resultados": []
+  }
+}
