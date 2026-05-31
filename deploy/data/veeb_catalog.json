@@ -2,7 +2,7 @@
   "documento": "KOBLLUX · CATÁLOGO V.E.E.B. · Vibração · Energia · Estrutura · Base",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T05:59:08.425932",
+  "gerado_em": "2026-05-31T06:12:05.529417",
   "opcode": "0x0A",
   "arquetipo": "BLLUE",
   "hz_base": 432,
@@ -17,7 +17,7 @@
   "estatisticas": {
     "total_arquivos": 729,
     "total_ignorados": 56,
-    "score_medio": 5.171,
+    "score_medio": 5.172,
     "score_max": 7.75,
     "score_min": 2.86
   },
@@ -991,8 +991,8 @@
       "caminho": "deploy/data/veeb_catalog.json",
       "nome": "veeb_catalog.json",
       "ext": "json",
-      "tamanho": 222240,
-      "sha_mini": "3e7a7f53",
+      "tamanho": 222241,
+      "sha_mini": "61d88a49",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1020,7 +1020,7 @@
       "nome": "mapa_redistribuicao.json",
       "ext": "json",
       "tamanho": 354878,
-      "sha_mini": "974f23ed",
+      "sha_mini": "e89a8c33",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1515,6 +1515,20 @@
         "V": 432,
         "E1": 5,
         "E2": 7,
+        "B": 9,
+        "score": 6.11
+      }
+    },
+    {
+      "caminho": "README.md",
+      "nome": "README.md",
+      "ext": "md",
+      "tamanho": 33220,
+      "sha_mini": "e77e9544",
+      "veeb": {
+        "V": 432,
+        "E1": 7,
+        "E2": 5,
         "B": 9,
         "score": 6.11
       }
@@ -2934,20 +2948,6 @@
       }
     },
     {
-      "caminho": "README.md",
-      "nome": "README.md",
-      "ext": "md",
-      "tamanho": 11945,
-      "sha_mini": "3b7e33e0",
-      "veeb": {
-        "V": 432,
-        "E1": 5,
-        "E2": 5,
-        "B": 9,
-        "score": 5.61
-      }
-    },
-    {
       "caminho": "scan_media_files.py",
       "nome": "scan_media_files.py",
       "ext": "py",
@@ -3820,7 +3820,7 @@
       "nome": "correlacao_opcodes_maquina.json",
       "ext": "json",
       "tamanho": 14387,
-      "sha_mini": "d53a18fc",
+      "sha_mini": "818286a2",
       "veeb": {
         "V": 777,
         "E1": 5,
@@ -3847,8 +3847,8 @@
       "caminho": "deploy/data/mirror_dna_log.json",
       "nome": "mirror_dna_log.json",
       "ext": "json",
-      "tamanho": 11522,
-      "sha_mini": "bb0a57ac",
+      "tamanho": 13552,
+      "sha_mini": "59cf50ee",
       "veeb": {
         "V": 777,
         "E1": 5,
