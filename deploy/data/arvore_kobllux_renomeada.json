@@ -2,14 +2,14 @@
   "documento": "KOBLLUX · CADIAL Archetypes Scanner + V.E.E.B. · Simulação Árvore Renomeada",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T20:26:29.220774",
+  "gerado_em": "2026-05-31T21:26:15.534532",
   "modo": "dry-run",
   "nota_seguranca": "SIMULAÇÃO — nenhum arquivo foi movido (use --executar para aplicar).",
   "estatisticas": {
-    "total_analisado": 1405,
+    "total_analisado": 1407,
     "ja_no_lugar": 0,
-    "com_proposta": 1405,
-    "score_medio_veeb": 4.681,
+    "com_proposta": 1407,
+    "score_medio_veeb": 4.683,
     "total_erros": 0
   },
   "top10_veeb_score": [
@@ -81,7 +81,7 @@
       "hz": 768,
       "rung": 1,
       "dir_ideal": "00_FUNDACAO",
-      "total": 573,
+      "total": 574,
       "arquivos": [
         "main.py",
         "tree.md",
@@ -304,7 +304,7 @@
       "hz": 1134,
       "rung": 9,
       "dir_ideal": "12_VEEB",
-      "total": 172,
+      "total": 173,
       "arquivos": [
         "requirements.txt",
         "integracao_completa_kobllux.py",
@@ -320,12 +320,12 @@
         "13_DOCUMENTACAO/02_CODEX/espelho_input.mirror.txt",
         "13_DOCUMENTACAO/02_CODEX/cartas_trinity.md",
         "13_DOCUMENTACAO/02_CODEX/veeb_dashboard_coblux_kobllux.md",
+        "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
         "13_DOCUMENTACAO/02_CODEX/livro_da_vida.md",
         "13_DOCUMENTACAO/02_CODEX/espelho_input.txt",
         "13_DOCUMENTACAO/01_MANUAIS/[008]-ESTRUTURA DE ANÁLISE GEOMÉTRICA.txt",
         "13_DOCUMENTACAO/01_MANUAIS/guia_rapido.md",
-        "13_DOCUMENTACAO/01_MANUAIS/0×00-div_class_fusion_card_∅.md",
-        "13_DOCUMENTACAO/01_MANUAIS/[009]-ANÁLISE GEOMÉTRICA KOBLLUX ∆³.md"
+        "13_DOCUMENTACAO/01_MANUAIS/0×00-div_class_fusion_card_∅.md"
       ]
     },
     "Solus": {
@@ -999,6 +999,13 @@
       "para": "13_DOCUMENTACAO/QA_0X0B_dicionario_kobllux_writer_VEEB-U_D10.json",
       "arquetipo": "Solus",
       "veeb_score": 8.25,
+      "executado": false
+    },
+    {
+      "de": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+      "para": "12_VEEB/RENDER_0X0A_linguagem_cosmica_dealsbe_kobllux_VEEB-Æ_D9.md",
+      "arquetipo": "Lumine",
+      "veeb_score": 7.0,
       "executado": false
     },
     {
@@ -1791,13 +1798,6 @@
       "arquetipo": "Nova",
       "veeb_score": 5.043,
       "executado": false
-    },
-    {
-      "de": "deploy/web/js/opcodes/0x04-geometry.js",
-      "para": "12_VEEB/RENDER_0X0A_0x04-geometry_VEEB-Æ_D9.js",
-      "arquetipo": "Lumine",
-      "veeb_score": 5.543,
-      "executado": false
     }
   ],
   "todos_arquivos": [
@@ -2376,6 +2376,30 @@
         "hz": 1134
       },
       "proposta_destino": "01_DIMENSOES/DETECT_0X01_verbo_e_agua_VEEB-A_D5.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+      "nome": "linguagem_cosmica_dealsbe_kobllux.md",
+      "arquetipo": "Lumine",
+      "opcode": "0x0A",
+      "regra": "RENDER",
+      "vogal_veeb": "Æ",
+      "rung": 9,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "12_VEEB",
+      "ja_no_lugar": false,
+      "nome_sinergico": "RENDER_0X0A_linguagem_cosmica_dealsbe_kobllux_VEEB-Æ_D9.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "12_VEEB/RENDER_0X0A_linguagem_cosmica_dealsbe_kobllux_VEEB-Æ_D9.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/1. A CIFRA KOBLLUX.md",
@@ -12192,6 +12216,30 @@
         "hz": 528
       },
       "proposta_destino": "12_VEEB/RENDER_0X0A_espelho_input_VEEB-Æ_D9.txt"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/integrar_dealsbe.py",
+      "nome": "integrar_dealsbe.py",
+      "arquetipo": "Atlas",
+      "opcode": "0x00",
+      "regra": "BOOT",
+      "vogal_veeb": "A",
+      "rung": 1,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "00_FUNDACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "BOOT_0X00_integrar_dealsbe_VEEB-A_D1.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 5,
+        "E2": 7,
+        "B": 4,
+        "score": 5.048,
+        "hz": 528
+      },
+      "proposta_destino": "00_FUNDACAO/BOOT_0X00_integrar_dealsbe_VEEB-A_D1.py"
     },
     {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_media_processor_v4.py",
