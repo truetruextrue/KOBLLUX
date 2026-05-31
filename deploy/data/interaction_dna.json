@@ -266,7 +266,8 @@
       "leitura-manifesto-sumbüs":        { "opcode": "0x09", "arquetipo": "AION",    "hz": 963 },
       "dimensoes-ciclo-kobllux":         { "opcode": "0x02", "arquetipo": "ATLAS",   "hz": 528 },
       "fases-04-06-kobllux":             { "opcode": "0x04", "arquetipo": "VITALIS", "hz": 594 },
-      "aprendendo-html-kobllux":         { "opcode": "0x03", "arquetipo": "PULSE",   "hz": 639 }
+      "aprendendo-html-kobllux":         { "opcode": "0x03", "arquetipo": "PULSE",   "hz": 639 },
+      "fractal-webgl-kobllux":           { "opcode": "0x07", "arquetipo": "KOBLLUX", "hz": 777 }
     },
     "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",
     "evento_carregado": "kobllux:codex:carregado",
