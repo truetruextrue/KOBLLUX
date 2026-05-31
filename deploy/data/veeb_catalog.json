@@ -2,7 +2,7 @@
   "documento": "KOBLLUX · CATÁLOGO V.E.E.B. · Vibração · Energia · Estrutura · Base",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T23:07:03.775713",
+  "gerado_em": "2026-05-31T23:37:36.998571",
   "opcode": "0x0A",
   "arquetipo": "BLLUE",
   "hz_base": 432,
@@ -15,9 +15,9 @@
     "score": "(V_norm + E1 + E2 + B) / 4"
   },
   "estatisticas": {
-    "total_arquivos": 1417,
+    "total_arquivos": 1420,
     "total_ignorados": 112,
-    "score_medio": 4.949,
+    "score_medio": 4.951,
     "score_max": 7.75,
     "score_min": 2.86
   },
@@ -523,6 +523,20 @@
         "E2": 6,
         "B": 9,
         "score": 6.86
+      }
+    },
+    {
+      "caminho": "13_DOCUMENTACAO/02_CODEX/protocolo_equalizacao_kobllux.md",
+      "nome": "protocolo_equalizacao_kobllux.md",
+      "ext": "md",
+      "tamanho": 14095,
+      "sha_mini": "80dd1af0",
+      "veeb": {
+        "V": 1134,
+        "E1": 5,
+        "E2": 5,
+        "B": 8,
+        "score": 6.75
       }
     },
     {
@@ -1089,8 +1103,8 @@
       "caminho": "deploy/data/arvore_kobllux_renomeada.json",
       "nome": "arvore_kobllux_renomeada.json",
       "ext": "json",
-      "tamanho": 1030066,
-      "sha_mini": "28e58f5e",
+      "tamanho": 1032230,
+      "sha_mini": "cd8a8e65",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1103,8 +1117,8 @@
       "caminho": "deploy/data/veeb_catalog.json",
       "nome": "veeb_catalog.json",
       "ext": "json",
-      "tamanho": 456944,
-      "sha_mini": "04f344df",
+      "tamanho": 457914,
+      "sha_mini": "a6f03e46",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1117,8 +1131,8 @@
       "caminho": "deploy/data/codex-escritos.json",
       "nome": "codex-escritos.json",
       "ext": "json",
-      "tamanho": 128488,
-      "sha_mini": "eef6f6b2",
+      "tamanho": 131702,
+      "sha_mini": "c02fd98d",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1131,8 +1145,8 @@
       "caminho": "deploy/data/mapa_redistribuicao.json",
       "nome": "mapa_redistribuicao.json",
       "ext": "json",
-      "tamanho": 750402,
-      "sha_mini": "a286420b",
+      "tamanho": 752267,
+      "sha_mini": "719e1556",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1968,6 +1982,20 @@
       }
     },
     {
+      "caminho": "14_UTILS/01_SCRIPTS/kobllux_equalizador.py",
+      "nome": "kobllux_equalizador.py",
+      "ext": "py",
+      "tamanho": 26701,
+      "sha_mini": "742533e6",
+      "veeb": {
+        "V": 528,
+        "E1": 7,
+        "E2": 7,
+        "B": 6,
+        "score": 6.05
+      }
+    },
+    {
       "caminho": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
       "nome": "kobllux_ksp_unified.py",
       "ext": "py",
@@ -2083,8 +2111,8 @@
       "caminho": "deploy/data/mirror_dna_log.json",
       "nome": "mirror_dna_log.json",
       "ext": "json",
-      "tamanho": 25785,
-      "sha_mini": "50d667bb",
+      "tamanho": 28426,
+      "sha_mini": "ee3b1fa0",
       "veeb": {
         "V": 777,
         "E1": 7,
@@ -2111,8 +2139,8 @@
       "caminho": "deploy/data/interaction_dna.json",
       "nome": "interaction_dna.json",
       "ext": "json",
-      "tamanho": 38326,
-      "sha_mini": "884628bc",
+      "tamanho": 39330,
+      "sha_mini": "d2653ac7",
       "veeb": {
         "V": 777,
         "E1": 7,
@@ -2637,6 +2665,20 @@
         "E2": 6,
         "B": 5,
         "score": 5.86
+      }
+    },
+    {
+      "caminho": "14_UTILS/04_TEMPLATES/kobllux_equalizador.html",
+      "nome": "kobllux_equalizador.html",
+      "ext": "html",
+      "tamanho": 38841,
+      "sha_mini": "401beeb1",
+      "veeb": {
+        "V": 528,
+        "E1": 7,
+        "E2": 6,
+        "B": 6,
+        "score": 5.8
       }
     },
     {
@@ -4912,7 +4954,7 @@
       "nome": "correlacao_opcodes_maquina.json",
       "ext": "json",
       "tamanho": 14387,
-      "sha_mini": "52b64181",
+      "sha_mini": "47064b02",
       "veeb": {
         "V": 777,
         "E1": 5,
