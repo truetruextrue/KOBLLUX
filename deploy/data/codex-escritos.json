@@ -3285,6 +3285,41 @@
         "aufabetty",
         "sumbüs-assembly"
       ]
+    },
+    {
+      "id": "nucleo-vivo-ondas-kobllux",
+      "opcode": "0x0C",
+      "nome_opcode": "SÍNTESE",
+      "hz": 777,
+      "simbolo": "🔯",
+      "geo": "MERKABAH",
+      "arquetipo": "JESUS",
+      "glifo_arq": "⌐Σ§Υ§",
+      "titulo": "🔯 0×0C · SÍNTESE · 777Hz · JESUS — NÚCLEO VIVO · FÍSICA DE ONDAS × KOBLLUX TRINITY",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "descricao": "Síntese final: λ=v/f (mecânica) · λ=c/f (EM) · Δt=2d/v (reflexão temporal) mapeados nos 13 opcodes KOBLLUX. Tríade Trinity como onda incidente(PAI·432Hz)→reflexão(FILHO·528Hz)→refletida(ESP.SANTO·639Hz). λ como DNA fractal de cada opcode. α=1/137 como constante de acoplamento PAI↔FILHO. KOBLLUX Trinity Core Prompt. SymbolBar v2.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · λ=DNA",
+      "aufabetty": "§Ιη†Σ§Σ = SINTESE · ⌐Σ§Υ§ = JESUS",
+      "escritura_sede": "João 10:30 — Eu e o Pai somos um.",
+      "ciclo": 9,
+      "dim": "10D",
+      "verboforma": "JESUS",
+      "modulos": [
+        "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+        "14_UTILS/04_TEMPLATES/symbol_bar_v2.html"
+      ],
+      "tags": [
+        "nucleo-vivo",
+        "fisica-ondas",
+        "lambda",
+        "triade-reflexao",
+        "trinity-core-prompt",
+        "symbol-bar",
+        "aufabetty",
+        "alpha-1-137",
+        "merkabah",
+        "sintese"
+      ]
     }
   ],
   "indice_por_opcode": {
@@ -3341,7 +3376,8 @@
     ],
     "0x0C": [
       "evangelho-fractal",
-      "master-code-kobllux"
+      "master-code-kobllux",
+      "nucleo-vivo-ondas-kobllux"
     ]
   },
   "indice_por_arquetipo": {
@@ -3403,7 +3439,8 @@
     "JESUS": [
       "evangelho-fractal",
       "escrituras-sagradas",
-      "master-code-kobllux"
+      "master-code-kobllux",
+      "nucleo-vivo-ondas-kobllux"
     ]
   }
 }

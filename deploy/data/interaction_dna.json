@@ -815,6 +815,11 @@
         "opcode": "0x0A",
         "arquetipo": "BLLUE",
         "hz": 432
+      },
+      "nucleo-vivo-ondas-kobllux": {
+        "opcode": "0x0C",
+        "arquetipo": "JESUS",
+        "hz": 777
       }
     },
     "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",
