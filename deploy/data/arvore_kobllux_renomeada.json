@@ -2,14 +2,14 @@
   "documento": "KOBLLUX · CADIAL Archetypes Scanner + V.E.E.B. · Simulação Árvore Renomeada",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T21:26:15.534532",
+  "gerado_em": "2026-05-31T21:59:15.843719",
   "modo": "dry-run",
   "nota_seguranca": "SIMULAÇÃO — nenhum arquivo foi movido (use --executar para aplicar).",
   "estatisticas": {
-    "total_analisado": 1407,
+    "total_analisado": 1410,
     "ja_no_lugar": 0,
-    "com_proposta": 1407,
-    "score_medio_veeb": 4.683,
+    "com_proposta": 1410,
+    "score_medio_veeb": 4.686,
     "total_erros": 0
   },
   "top10_veeb_score": [
@@ -81,7 +81,7 @@
       "hz": 768,
       "rung": 1,
       "dir_ideal": "00_FUNDACAO",
-      "total": 574,
+      "total": 575,
       "arquivos": [
         "main.py",
         "tree.md",
@@ -304,7 +304,7 @@
       "hz": 1134,
       "rung": 9,
       "dir_ideal": "12_VEEB",
-      "total": 173,
+      "total": 174,
       "arquivos": [
         "requirements.txt",
         "integracao_completa_kobllux.py",
@@ -364,8 +364,9 @@
       "hz": 672,
       "rung": 11,
       "dir_ideal": "04_APRENDIZADO",
-      "total": 27,
+      "total": 28,
       "arquivos": [
+        "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
         "13_DOCUMENTACAO/04_SIMBOLOS/[2]🌳 Estrutura Sugerida para o Repositório KOBLLUX.md",
         "08_REDE_INFODOSE/integracao_cerebro_rede.py",
         "deploy/web/js/opcodes/dual-hub/dual-hub-ui.js",
@@ -384,8 +385,7 @@
         "deploy/web/js/opcodes/dual-hub/dual-hub-audio.js",
         "deploy/web/js/opcodes/dual-hub/dual-hub-nav.js",
         "deploy/web/js/opcodes/dual-hub/dual-hub-orb.js",
-        "deploy/data/frequencias.json",
-        "deploy/data/dual-hub-modules.json"
+        "deploy/data/frequencias.json"
       ]
     },
     "Aion": {
@@ -971,6 +971,13 @@
       "para": "12_VEEB/RENDER_0X0A_cartas_trinity_VEEB-Æ_D9.md",
       "arquetipo": "Lumine",
       "veeb_score": 7.5,
+      "executado": false
+    },
+    {
+      "de": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "para": "04_APRENDIZADO/INTEGRAR_0X04_nucleo_vivo_ondas_kobllux_VEEB-U_D11.md",
+      "arquetipo": "Rhea",
+      "veeb_score": 7.0,
       "executado": false
     },
     {
@@ -1791,13 +1798,6 @@
       "arquetipo": "Nova",
       "veeb_score": 5.543,
       "executado": false
-    },
-    {
-      "de": "deploy/web/js/opcodes/0x01-detectar.js",
-      "para": "02_CICLO_369/SEED_0X02_0x01-detectar_VEEB-Æ_D2.js",
-      "arquetipo": "Nova",
-      "veeb_score": 5.043,
-      "executado": false
     }
   ],
   "todos_arquivos": [
@@ -2376,6 +2376,30 @@
         "hz": 1134
       },
       "proposta_destino": "01_DIMENSOES/DETECT_0X01_verbo_e_agua_VEEB-A_D5.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "nome": "nucleo_vivo_ondas_kobllux.md",
+      "arquetipo": "Rhea",
+      "opcode": "0x04",
+      "regra": "INTEGRAR",
+      "vogal_veeb": "U",
+      "rung": 11,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "04_APRENDIZADO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "INTEGRAR_0X04_nucleo_vivo_ondas_kobllux_VEEB-U_D11.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "04_APRENDIZADO/INTEGRAR_0X04_nucleo_vivo_ondas_kobllux_VEEB-U_D11.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
@@ -4392,6 +4416,30 @@
         "hz": 777
       },
       "proposta_destino": "04_APRENDIZADO/INTEGRAR_0X04_dual-hub-ls_VEEB-U_D11.js"
+    },
+    {
+      "arquivo_atual": "deploy/data/mirror_dna_log.json",
+      "nome": "mirror_dna_log.json",
+      "arquetipo": "Lumine",
+      "opcode": "0x0A",
+      "regra": "RENDER",
+      "vogal_veeb": "Æ",
+      "rung": 9,
+      "score_arq": 6.0,
+      "dir_atual": "deploy",
+      "dir_ideal": "12_VEEB",
+      "ja_no_lugar": false,
+      "nome_sinergico": "RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 6.17,
+        "E1": 7,
+        "E2": 6,
+        "B": 5,
+        "score": 6.043,
+        "hz": 777
+      },
+      "proposta_destino": "12_VEEB/RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json"
     },
     {
       "arquivo_atual": "deploy/data/reading.json",
@@ -9194,30 +9242,6 @@
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_codice_VEEB-A_D1.json"
     },
     {
-      "arquivo_atual": "deploy/data/mirror_dna_log.json",
-      "nome": "mirror_dna_log.json",
-      "arquetipo": "Lumine",
-      "opcode": "0x0A",
-      "regra": "RENDER",
-      "vogal_veeb": "Æ",
-      "rung": 9,
-      "score_arq": 6.0,
-      "dir_atual": "deploy",
-      "dir_ideal": "12_VEEB",
-      "ja_no_lugar": false,
-      "nome_sinergico": "RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json",
-      "nome_mudou": true,
-      "veeb": {
-        "V": 6.17,
-        "E1": 5,
-        "E2": 6,
-        "B": 5,
-        "score": 5.543,
-        "hz": 777
-      },
-      "proposta_destino": "12_VEEB/RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json"
-    },
-    {
       "arquivo_atual": "deploy/data/dual-hub-modules.json",
       "nome": "dual-hub-modules.json",
       "arquetipo": "Rhea",
@@ -10368,6 +10392,30 @@
         "hz": 528
       },
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_symbol-unified-orb-dual_VEEB-A_D1.html"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
+      "nome": "symbol_bar_v2.html",
+      "arquetipo": "Lumine",
+      "opcode": "0x0A",
+      "regra": "RENDER",
+      "vogal_veeb": "Æ",
+      "rung": 9,
+      "score_arq": 6.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "12_VEEB",
+      "ja_no_lugar": false,
+      "nome_sinergico": "RENDER_0X0A_symbol_bar_v2_VEEB-Æ_D9.html",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 6,
+        "B": 4,
+        "score": 5.298,
+        "hz": 528
+      },
+      "proposta_destino": "12_VEEB/RENDER_0X0A_symbol_bar_v2_VEEB-Æ_D9.html"
     },
     {
       "arquivo_atual": "docs/_symbol-integrated-complete.html",
@@ -12216,6 +12264,30 @@
         "hz": 528
       },
       "proposta_destino": "12_VEEB/RENDER_0X0A_espelho_input_VEEB-Æ_D9.txt"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+      "nome": "kobllux_nucleo_vivo.py",
+      "arquetipo": "Atlas",
+      "opcode": "0x00",
+      "regra": "BOOT",
+      "vogal_veeb": "A",
+      "rung": 1,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "00_FUNDACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "BOOT_0X00_kobllux_nucleo_vivo_VEEB-A_D1.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 5,
+        "E2": 7,
+        "B": 4,
+        "score": 5.048,
+        "hz": 528
+      },
+      "proposta_destino": "00_FUNDACAO/BOOT_0X00_kobllux_nucleo_vivo_VEEB-A_D1.py"
     },
     {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/integrar_dealsbe.py",

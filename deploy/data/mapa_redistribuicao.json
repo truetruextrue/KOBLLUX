@@ -2,12 +2,12 @@
   "documento": "KOBLLUX · Mapa de Redistribuição Sinérgica Modular",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T21:26:14.881879",
+  "gerado_em": "2026-05-31T21:59:14.953283",
   "nota_seguranca": "ESTE ARQUIVO É UMA PROPOSTA. Nenhum arquivo foi movido ou renomeado. Execute o mapa com supervisão humana.",
   "estatisticas": {
-    "total_analisado": 1240,
+    "total_analisado": 1243,
     "ja_no_lugar": 1,
-    "com_proposta_mover": 1239,
+    "com_proposta_mover": 1242,
     "percentual_otimo": 0.1
   },
   "principio_distribuicao": {
@@ -1693,6 +1693,10 @@
         "para": "06_ATIVACAO/kob_06_backup.py"
       },
       {
+        "de": "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+        "para": "06_ATIVACAO/kob_06_kobllux_nucleo_vivo.py"
+      },
+      {
         "de": "14_UTILS/01_SCRIPTS/integrar_dealsbe.py",
         "para": "06_ATIVACAO/kob_06_integrar_dealsbe.py"
       },
@@ -1735,6 +1739,10 @@
       {
         "de": "14_UTILS/04_TEMPLATES/README.md",
         "para": "06_ATIVACAO/kob_06_README.md"
+      },
+      {
+        "de": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
+        "para": "06_ATIVACAO/kob_06_symbol_bar_v2.html"
       },
       {
         "de": "14_UTILS/04_TEMPLATES/template.json",
@@ -3939,6 +3947,10 @@
         "para": "13_DOCUMENTACAO/m4_sci_art.txt"
       },
       {
+        "de": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+        "para": "13_DOCUMENTACAO/kob_0B_nucleo_vivo_ondas_kobllux.md"
+      },
+      {
         "de": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
         "para": "13_DOCUMENTACAO/kob_0B_linguagem_cosmica_dealsbe_kobllux.md"
       },
@@ -5986,6 +5998,18 @@
       "nome_sinergico": "kob_06_cartas_trinity.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_cartas_trinity.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/nucleo_vivo_ondas_kobllux.md",
+      "nome": "nucleo_vivo_ondas_kobllux.md",
+      "ext": "md",
+      "opcode_inferido": "0x0B",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "13_DOCUMENTACAO",
+      "ja_no_lugar": true,
+      "nome_sinergico": "kob_0B_nucleo_vivo_ondas_kobllux.md",
+      "nome_mudou": true,
+      "proposta_destino": "13_DOCUMENTACAO/kob_0B_nucleo_vivo_ondas_kobllux.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/evangelho_fractal.md",
@@ -11075,6 +11099,18 @@
       "proposta_destino": "06_ATIVACAO/kob_06_backup.py"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_nucleo_vivo.py",
+      "nome": "kobllux_nucleo_vivo.py",
+      "ext": "py",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_kobllux_nucleo_vivo.py",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_kobllux_nucleo_vivo.py"
+    },
+    {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/integrar_dealsbe.py",
       "nome": "integrar_dealsbe.py",
       "ext": "py",
@@ -11217,6 +11253,18 @@
       "nome_sinergico": "kob_06_README.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_README.md"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
+      "nome": "symbol_bar_v2.html",
+      "ext": "html",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_symbol_bar_v2.html",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_symbol_bar_v2.html"
     },
     {
       "arquivo_atual": "14_UTILS/04_TEMPLATES/template.json",
