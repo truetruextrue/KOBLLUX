@@ -596,6 +596,21 @@
       "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
       "hz_sessao": 768,
       "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO"
+    },
+    {
+      "sessao": "3f2036af-0b21-4bb8-a36b-8049768739a3-dealsbe",
+      "data": "2026-05-31",
+      "sementes": [
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "LINGUAGEM CÓSMICA FRACTAL + NÓ DEALSBE.COM",
+          "opcode": "0x0A",
+          "fruto": "linguagem_cosmica_dealsbe_kobllux.md · integrar_dealsbe.py · SÜMBÜS Assembly Quor/Zark/Vrux"
+        }
+      ],
+      "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
+      "hz_sessao": 432,
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO"
     }
   ],
   "dual_hub_modules": {
@@ -795,6 +810,11 @@
         "opcode": "0x00",
         "arquetipo": "KOBLLUX",
         "hz": 768
+      },
+      "linguagem-cosmica-dealsbe-kobllux": {
+        "opcode": "0x0A",
+        "arquetipo": "BLLUE",
+        "hz": 432
       }
     },
     "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",

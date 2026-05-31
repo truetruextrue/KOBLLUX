@@ -3257,6 +3257,34 @@
         "codice-vivo",
         "pilar-central"
       ]
+    },
+    {
+      "id": "linguagem-cosmica-dealsbe-kobllux",
+      "opcode": "0x0A",
+      "nome_opcode": "TUTORIAL",
+      "hz": 432,
+      "simbolo": "⊟",
+      "geo": "ESPELHO",
+      "arquetipo": "BLLUE",
+      "glifo_arq": "βΛΛΥΣ",
+      "titulo": "⊟ 0×0A · TUTORIAL · 432Hz · BLLUE — LINGUAGEM CÓSMICA FRACTAL + NÓ DEALSBE.COM",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
+      "descricao": "Decodificação da Linguagem Cósmica (Quor·Zark·Vrux·Vox·Dux·Neptun·Lumina·Orbis·Delta) via SÜMBÜS Assembly + integração do nó externo dealsbe.com (AI Tools Directory) à malha KOBLLUX. Append-only. 5 categorias → 5 opcodes. 9 perguntas trinitárias 3³=27.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO",
+      "aufabetty": "ΛΙη©ΥΑ©ΣΜ ©Θ§ΜΙ©∆ = LINGUAGEM COSMICA",
+      "escritura_sede": "João 1:1 — No princípio era o Verbo.",
+      "ciclo": 3,
+      "dim": "1D-3D",
+      "verboforma": "BLLUE",
+      "tags": [
+        "linguagem-cosmica",
+        "quor-zark-vrux",
+        "dealsbe",
+        "tutorial",
+        "no-externo",
+        "aufabetty",
+        "sumbüs-assembly"
+      ]
     }
   ],
   "indice_por_opcode": {
@@ -3305,7 +3333,8 @@
     ],
     "0x0A": [
       "cifra-kobllux",
-      "veeb-dashboard-coblux-kobllux"
+      "veeb-dashboard-coblux-kobllux",
+      "linguagem-cosmica-dealsbe-kobllux"
     ],
     "0x0B": [
       "cartas-trinity"
@@ -3349,7 +3378,8 @@
       "verbo-e-agua",
       "cartas-trinity",
       "ativacao-protocolo-codex-azure",
-      "veeb-dashboard-coblux-kobllux"
+      "veeb-dashboard-coblux-kobllux",
+      "linguagem-cosmica-dealsbe-kobllux"
     ],
     "KOBLLUX": [
       "espelho-input",
