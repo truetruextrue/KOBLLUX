@@ -2,14 +2,14 @@
   "documento": "KOBLLUX · CADIAL Archetypes Scanner + V.E.E.B. · Simulação Árvore Renomeada",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T21:59:15.843719",
+  "gerado_em": "2026-05-31T22:29:24.005029",
   "modo": "dry-run",
   "nota_seguranca": "SIMULAÇÃO — nenhum arquivo foi movido (use --executar para aplicar).",
   "estatisticas": {
-    "total_analisado": 1410,
+    "total_analisado": 1413,
     "ja_no_lugar": 0,
-    "com_proposta": 1410,
-    "score_medio_veeb": 4.686,
+    "com_proposta": 1413,
+    "score_medio_veeb": 4.689,
     "total_erros": 0
   },
   "top10_veeb_score": [
@@ -111,7 +111,7 @@
       "hz": 528,
       "rung": 2,
       "dir_ideal": "02_CICLO_369",
-      "total": 125,
+      "total": 126,
       "arquivos": [
         "videos.json",
         "m4_sci_art.txt",
@@ -231,7 +231,7 @@
       "hz": 963,
       "rung": 6,
       "dir_ideal": "09_LINHA_DO_PULSO",
-      "total": 29,
+      "total": 30,
       "arquivos": [
         "catalogo_media.json",
         "13_DOCUMENTACAO/04_SIMBOLOS/KOBΦ-NODE: RECEBIDO. ANÁLISE GEOMÉTRICA DA FUNDAÇÃO.md",
@@ -246,13 +246,13 @@
         "00_FUNDACAO/FFC Full livro 📕.pdf.json",
         "00_FUNDACAO/⚡️⭕️📕 livro_dos_mestres.json",
         "09_LINHA_DO_PULSO/03_HISTORICO_VIVO/logs.json",
+        "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html",
         "docs/thu_apr_30_2026_git_hub_repository_assistance_guidelines.json",
         "docs/thu_apr_30_2026_integrando_painel_de_local_estojo_no.json",
         "17_MIDIA_INFODOSE/.metadata/catalogo.json",
         ".claude/worktrees/agent-a7f5c00c2c92fc06c/catalogo_media.json",
         ".claude/worktrees/agent-a7f5c00c2c92fc06c/13_DOCUMENTACAO/04_SIMBOLOS/KOBΦ-NODE: RECEBIDO. ANÁLISE GEOMÉTRICA DA FUNDAÇÃO.md",
-        ".claude/worktrees/agent-a7f5c00c2c92fc06c/deploy/web/css/0x08-testemunhar.css",
-        ".claude/worktrees/agent-a7f5c00c2c92fc06c/deploy/web/css/0x08-aura.css"
+        ".claude/worktrees/agent-a7f5c00c2c92fc06c/deploy/web/css/0x08-testemunhar.css"
       ]
     },
     "Kaos": {
@@ -291,9 +291,10 @@
       "hz": 777,
       "rung": 8,
       "dir_ideal": "07_NARRATIVA_TEMPORAL",
-      "total": 3,
+      "total": 4,
       "arquivos": [
         "13_DOCUMENTACAO/02_CODEX/fractal_webgl_kobllux.md",
+        "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
         "16_ASCII_ART/01_SELOS/selo_genus.txt",
         ".claude/worktrees/agent-a7f5c00c2c92fc06c/16_ASCII_ART/01_SELOS/selo_genus.txt"
       ]
@@ -1051,6 +1052,13 @@
       "executado": false
     },
     {
+      "de": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "para": "07_NARRATIVA_TEMPORAL/SELAR_0X07_kobllux_ksp_vsica_metalux_VEEB-O_D8.md",
+      "arquetipo": "Genus",
+      "veeb_score": 7.5,
+      "executado": false
+    },
+    {
       "de": "13_DOCUMENTACAO/02_CODEX/fases_04_06_kobllux.md",
       "para": "03_FLUXO_ENERGETICO/DELTA_0X03_fases_04_06_kobllux_VEEB-O_D3.md",
       "arquetipo": "Vitalis",
@@ -1791,13 +1799,6 @@
       "arquetipo": "Nova",
       "veeb_score": 4.543,
       "executado": false
-    },
-    {
-      "de": "deploy/web/js/opcodes/0x02-pipeline.js",
-      "para": "02_CICLO_369/SEED_0X02_0x02-pipeline_VEEB-Æ_D2.js",
-      "arquetipo": "Nova",
-      "veeb_score": 5.543,
-      "executado": false
     }
   ],
   "todos_arquivos": [
@@ -2232,6 +2233,30 @@
         "hz": 1134
       },
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_kodux_v79_ente_trinity_VEEB-A_D1.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "nome": "kobllux_ksp_vsica_metalux.md",
+      "arquetipo": "Genus",
+      "opcode": "0x07",
+      "regra": "SELAR",
+      "vogal_veeb": "O",
+      "rung": 8,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "07_NARRATIVA_TEMPORAL",
+      "ja_no_lugar": false,
+      "nome_sinergico": "SELAR_0X07_kobllux_ksp_vsica_metalux_VEEB-O_D8.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 7,
+        "E2": 5,
+        "B": 9,
+        "score": 7.5,
+        "hz": 1134
+      },
+      "proposta_destino": "07_NARRATIVA_TEMPORAL/SELAR_0X07_kobllux_ksp_vsica_metalux_VEEB-O_D8.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/leitura_manifesto_sumbüs.md",
@@ -7826,6 +7851,30 @@
       "proposta_destino": "06_ATIVACAO/UNIFICAR_0X06_Z_ATIVACAO_SUMBUS_FIRMWARE-_0x01212345_7_VEEB-E_D7.md"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
+      "nome": "kobllux_ksp_unified.py",
+      "arquetipo": "Nova",
+      "opcode": "0x02",
+      "regra": "SEED",
+      "vogal_veeb": "Æ",
+      "rung": 2,
+      "score_arq": 9.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "02_CICLO_369",
+      "ja_no_lugar": false,
+      "nome_sinergico": "SEED_0X02_kobllux_ksp_unified_VEEB-Æ_D2.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 7,
+        "B": 4,
+        "score": 5.548,
+        "hz": 528
+      },
+      "proposta_destino": "02_CICLO_369/SEED_0X02_kobllux_ksp_unified_VEEB-Æ_D2.py"
+    },
+    {
       "arquivo_atual": "docs/[0×00]_ANÁLISE GEOMÉTRICA ∆³ · CAPÍTULO 11 TABELA BASE UNIFICADA.md",
       "nome": "[0×00]_ANÁLISE GEOMÉTRICA ∆³ · CAPÍTULO 11 TABELA BASE UNIFICADA.md",
       "arquetipo": "Artemis",
@@ -10416,6 +10465,30 @@
         "hz": 528
       },
       "proposta_destino": "12_VEEB/RENDER_0X0A_symbol_bar_v2_VEEB-Æ_D9.html"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html",
+      "nome": "kobllux_hypermatrix.html",
+      "arquetipo": "Serena",
+      "opcode": "0x09",
+      "regra": "GUARD",
+      "vogal_veeb": "U",
+      "rung": 6,
+      "score_arq": 6.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "09_LINHA_DO_PULSO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "GUARD_0X09_kobllux_hypermatrix_VEEB-U_D6.html",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 6,
+        "B": 4,
+        "score": 5.298,
+        "hz": 528
+      },
+      "proposta_destino": "09_LINHA_DO_PULSO/GUARD_0X09_kobllux_hypermatrix_VEEB-U_D6.html"
     },
     {
       "arquivo_atual": "docs/_symbol-integrated-complete.html",

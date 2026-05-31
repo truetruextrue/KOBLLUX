@@ -2,7 +2,7 @@
   "documento": "KOBLLUX · CATÁLOGO V.E.E.B. · Vibração · Energia · Estrutura · Base",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T21:59:14.633424",
+  "gerado_em": "2026-05-31T22:29:23.041261",
   "opcode": "0x0A",
   "arquetipo": "BLLUE",
   "hz_base": 432,
@@ -15,9 +15,9 @@
     "score": "(V_norm + E1 + E2 + B) / 4"
   },
   "estatisticas": {
-    "total_arquivos": 1411,
+    "total_arquivos": 1414,
     "total_ignorados": 112,
-    "score_medio": 4.943,
+    "score_medio": 4.946,
     "score_max": 7.75,
     "score_min": 2.86
   },
@@ -335,6 +335,20 @@
       "ext": "md",
       "tamanho": 28887,
       "sha_mini": "7422c61c",
+      "veeb": {
+        "V": 1134,
+        "E1": 7,
+        "E2": 5,
+        "B": 8,
+        "score": 7.25
+      }
+    },
+    {
+      "caminho": "13_DOCUMENTACAO/02_CODEX/kobllux_ksp_vsica_metalux.md",
+      "nome": "kobllux_ksp_vsica_metalux.md",
+      "ext": "md",
+      "tamanho": 24091,
+      "sha_mini": "992147eb",
       "veeb": {
         "V": 1134,
         "E1": 7,
@@ -1061,8 +1075,8 @@
       "caminho": "deploy/data/arvore_kobllux_renomeada.json",
       "nome": "arvore_kobllux_renomeada.json",
       "ext": "json",
-      "tamanho": 1025784,
-      "sha_mini": "0dd58902",
+      "tamanho": 1027890,
+      "sha_mini": "ef29c13d",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1075,8 +1089,8 @@
       "caminho": "deploy/data/veeb_catalog.json",
       "nome": "veeb_catalog.json",
       "ext": "json",
-      "tamanho": 455088,
-      "sha_mini": "ca44c135",
+      "tamanho": 456010,
+      "sha_mini": "4e9f76ed",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1089,8 +1103,8 @@
       "caminho": "deploy/data/codex-escritos.json",
       "nome": "codex-escritos.json",
       "ext": "json",
-      "tamanho": 123775,
-      "sha_mini": "004297e7",
+      "tamanho": 126162,
+      "sha_mini": "d83144f1",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1103,8 +1117,8 @@
       "caminho": "deploy/data/mapa_redistribuicao.json",
       "nome": "mapa_redistribuicao.json",
       "ext": "json",
-      "tamanho": 746934,
-      "sha_mini": "a784df55",
+      "tamanho": 748651,
+      "sha_mini": "8adc7890",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1940,6 +1954,20 @@
       }
     },
     {
+      "caminho": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
+      "nome": "kobllux_ksp_unified.py",
+      "ext": "py",
+      "tamanho": 24328,
+      "sha_mini": "0a75a711",
+      "veeb": {
+        "V": 528,
+        "E1": 7,
+        "E2": 7,
+        "B": 6,
+        "score": 6.05
+      }
+    },
+    {
       "caminho": ".claude/worktrees/agent-a7f5c00c2c92fc06c/docs/BlueCup_TRINITY_HYBRID.html",
       "nome": "BlueCup_TRINITY_HYBRID.html",
       "ext": "html",
@@ -2027,8 +2055,8 @@
       "caminho": "deploy/data/mirror_dna_log.json",
       "nome": "mirror_dna_log.json",
       "ext": "json",
-      "tamanho": 20499,
-      "sha_mini": "3f72474f",
+      "tamanho": 23143,
+      "sha_mini": "0d47df71",
       "veeb": {
         "V": 777,
         "E1": 7,
@@ -2055,8 +2083,8 @@
       "caminho": "deploy/data/interaction_dna.json",
       "nome": "interaction_dna.json",
       "ext": "json",
-      "tamanho": 36305,
-      "sha_mini": "58a1376c",
+      "tamanho": 37565,
+      "sha_mini": "1be8c941",
       "veeb": {
         "V": 777,
         "E1": 7,
@@ -2589,6 +2617,20 @@
       "ext": "html",
       "tamanho": 21978,
       "sha_mini": "84c7a5a8",
+      "veeb": {
+        "V": 528,
+        "E1": 7,
+        "E2": 6,
+        "B": 6,
+        "score": 5.8
+      }
+    },
+    {
+      "caminho": "14_UTILS/04_TEMPLATES/kobllux_hypermatrix.html",
+      "nome": "kobllux_hypermatrix.html",
+      "ext": "html",
+      "tamanho": 24610,
+      "sha_mini": "0596c47b",
       "veeb": {
         "V": 528,
         "E1": 7,
@@ -4842,7 +4884,7 @@
       "nome": "correlacao_opcodes_maquina.json",
       "ext": "json",
       "tamanho": 14387,
-      "sha_mini": "132b2241",
+      "sha_mini": "387dd149",
       "veeb": {
         "V": 777,
         "E1": 5,
