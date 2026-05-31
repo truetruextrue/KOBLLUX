@@ -2,12 +2,12 @@
   "documento": "KOBLLUX · Mapa de Redistribuição Sinérgica Modular",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T22:29:23.298544",
+  "gerado_em": "2026-05-31T23:07:04.188646",
   "nota_seguranca": "ESTE ARQUIVO É UMA PROPOSTA. Nenhum arquivo foi movido ou renomeado. Execute o mapa com supervisão humana.",
   "estatisticas": {
-    "total_analisado": 1246,
+    "total_analisado": 1249,
     "ja_no_lugar": 1,
-    "com_proposta_mover": 1245,
+    "com_proposta_mover": 1248,
     "percentual_otimo": 0.1
   },
   "principio_distribuicao": {
@@ -1739,6 +1739,10 @@
       {
         "de": "14_UTILS/04_TEMPLATES/README.md",
         "para": "06_ATIVACAO/kob_06_README.md"
+      },
+      {
+        "de": "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
+        "para": "06_ATIVACAO/kob_06_kobllux_fractal_etapa5_espelho.html"
       },
       {
         "de": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
@@ -3959,6 +3963,10 @@
         "para": "13_DOCUMENTACAO/m4_sci_art.txt"
       },
       {
+        "de": "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+        "para": "13_DOCUMENTACAO/kob_0B_kobllux_vsica_schumann.py"
+      },
+      {
         "de": "inbox/m4_sci_art.txt",
         "para": "13_DOCUMENTACAO/m4_sci_art.txt"
       },
@@ -4457,6 +4465,10 @@
       {
         "de": "13_DOCUMENTACAO/02_CODEX/ativacao_protocolo_codex_azure.md",
         "para": "01_DIMENSOES/kob_01_ativacao_protocolo_codex_azure.md"
+      },
+      {
+        "de": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+        "para": "01_DIMENSOES/kob_01_vsica_schumann_escala_kobllux.md"
       },
       {
         "de": "13_DOCUMENTACAO/02_CODEX/master_code_kobllux.md",
@@ -6058,6 +6070,18 @@
       "nome_sinergico": "kob_06_copilot_chat_kobllux_analise.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_copilot_chat_kobllux_analise.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "nome": "vsica_schumann_escala_kobllux.md",
+      "ext": "md",
+      "opcode_inferido": "0x01",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "01_DIMENSOES",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_01_vsica_schumann_escala_kobllux.md",
+      "nome_mudou": true,
+      "proposta_destino": "01_DIMENSOES/kob_01_vsica_schumann_escala_kobllux.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/dicionario_kobllux_writer.json",
@@ -11279,6 +11303,18 @@
       "proposta_destino": "06_ATIVACAO/kob_06_rename_media_kobllux_v2.py"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+      "nome": "kobllux_vsica_schumann.py",
+      "ext": "py",
+      "opcode_inferido": "0x0B",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "13_DOCUMENTACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_0B_kobllux_vsica_schumann.py",
+      "nome_mudou": true,
+      "proposta_destino": "13_DOCUMENTACAO/kob_0B_kobllux_vsica_schumann.py"
+    },
+    {
       "arquivo_atual": "14_UTILS/04_TEMPLATES/README.md",
       "nome": "README.md",
       "ext": "md",
@@ -11289,6 +11325,18 @@
       "nome_sinergico": "kob_06_README.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_README.md"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
+      "nome": "kobllux_fractal_etapa5_espelho.html",
+      "ext": "html",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_kobllux_fractal_etapa5_espelho.html",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_kobllux_fractal_etapa5_espelho.html"
     },
     {
       "arquivo_atual": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",

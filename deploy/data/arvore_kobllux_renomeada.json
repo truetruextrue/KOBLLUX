@@ -2,14 +2,14 @@
   "documento": "KOBLLUX · CADIAL Archetypes Scanner + V.E.E.B. · Simulação Árvore Renomeada",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T22:29:24.005029",
+  "gerado_em": "2026-05-31T23:07:04.899602",
   "modo": "dry-run",
   "nota_seguranca": "SIMULAÇÃO — nenhum arquivo foi movido (use --executar para aplicar).",
   "estatisticas": {
-    "total_analisado": 1413,
+    "total_analisado": 1416,
     "ja_no_lugar": 0,
-    "com_proposta": 1413,
-    "score_medio_veeb": 4.689,
+    "com_proposta": 1416,
+    "score_medio_veeb": 4.691,
     "total_erros": 0
   },
   "top10_veeb_score": [
@@ -171,12 +171,13 @@
       "hz": 528,
       "rung": 4,
       "dir_ideal": "deploy",
-      "total": 36,
+      "total": 38,
       "arquivos": [
         "cerebro_oraculo.py",
         "scan_media_files.py",
         "CEREBRO_ORACULO_BASE_v1.md",
         "13_DOCUMENTACAO/02_CODEX/aprendendo_html_kobllux.md",
+        "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
         "deploy/web/css/0x07-selar.css",
         "deploy/web/js/opcodes/0x0B-di.js",
         "deploy/web/js/opcodes/cerebro-oraculo.js",
@@ -191,8 +192,7 @@
         "00_FUNDACAO/Ativando KOBLLUX História real.json",
         "00_FUNDACAO/⚡️⭕️👁️ ANÁLISE MESTRA DA FASE FINAL INFODOSE 2.4.5 → 3.0.0 2.json",
         "00_FUNDACAO/Ativação azzira história 567.json",
-        "17_MIDIA_INFODOSE/.metadata/catalogo_midias.json",
-        "17_MIDIA_INFODOSE/.metadata/catalogo_geral.json"
+        "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py"
       ]
     },
     "Artemis": {
@@ -335,7 +335,7 @@
       "hz": 1134,
       "rung": 10,
       "dir_ideal": "13_DOCUMENTACAO",
-      "total": 35,
+      "total": 36,
       "arquivos": [
         "arvore.html",
         "ANALISE_REPO_2026-04-30.md",
@@ -353,10 +353,10 @@
         "00_FUNDACAO/[0×00]_DOC_ANALISE.md",
         "output/cerebro_oraculo_v1.html",
         "01_DIMENSOES/05_5D_POLIEDRO/archetypes/solus.html",
+        "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
         "10_ARVORE_FRACTAL/01_TRIADE_DOCUMENTAL/03_LADO_C_FRUTO/codex_azure.py",
         "docs/fusion_card_geometrica_completa.html",
-        "docs/index.html.txt",
-        ".claude/worktrees/agent-a7f5c00c2c92fc06c/arvore.html"
+        "docs/index.html.txt"
       ]
     },
     "Rhea": {
@@ -1000,6 +1000,13 @@
       "para": "13_DOCUMENTACAO/QA_0X0B_copilot_chat_kobllux_analise_VEEB-U_D10.md",
       "arquetipo": "Solus",
       "veeb_score": 7.5,
+      "executado": false
+    },
+    {
+      "de": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "para": "deploy/PULSE_0X0B_vsica_schumann_escala_kobllux_VEEB-I_D4.md",
+      "arquetipo": "Pulse",
+      "veeb_score": 7.0,
       "executado": false
     },
     {
@@ -1792,13 +1799,6 @@
       "arquetipo": "Serena",
       "veeb_score": 4.543,
       "executado": false
-    },
-    {
-      "de": "deploy/web/css/0x0A-tutorial.css",
-      "para": "02_CICLO_369/SEED_0X02_0x0A-tutorial_VEEB-Æ_D2.css",
-      "arquetipo": "Nova",
-      "veeb_score": 4.543,
-      "executado": false
     }
   ],
   "todos_arquivos": [
@@ -2425,6 +2425,30 @@
         "hz": 1134
       },
       "proposta_destino": "04_APRENDIZADO/INTEGRAR_0X04_nucleo_vivo_ondas_kobllux_VEEB-U_D11.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "nome": "vsica_schumann_escala_kobllux.md",
+      "arquetipo": "Pulse",
+      "opcode": "0x0B",
+      "regra": "PULSE",
+      "vogal_veeb": "I",
+      "rung": 4,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "deploy",
+      "ja_no_lugar": false,
+      "nome_sinergico": "PULSE_0X0B_vsica_schumann_escala_kobllux_VEEB-I_D4.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "deploy/PULSE_0X0B_vsica_schumann_escala_kobllux_VEEB-I_D4.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
@@ -7873,6 +7897,30 @@
         "hz": 528
       },
       "proposta_destino": "02_CICLO_369/SEED_0X02_kobllux_ksp_unified_VEEB-Æ_D2.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+      "nome": "kobllux_vsica_schumann.py",
+      "arquetipo": "Pulse",
+      "opcode": "0x0B",
+      "regra": "PULSE",
+      "vogal_veeb": "I",
+      "rung": 4,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "deploy",
+      "ja_no_lugar": false,
+      "nome_sinergico": "PULSE_0X0B_kobllux_vsica_schumann_VEEB-I_D4.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 7,
+        "B": 4,
+        "score": 5.548,
+        "hz": 528
+      },
+      "proposta_destino": "deploy/PULSE_0X0B_kobllux_vsica_schumann_VEEB-I_D4.py"
     },
     {
       "arquivo_atual": "docs/[0×00]_ANÁLISE GEOMÉTRICA ∆³ · CAPÍTULO 11 TABELA BASE UNIFICADA.md",
@@ -15913,6 +15961,30 @@
         "hz": 528
       },
       "proposta_destino": "06_ATIVACAO/UNIFICAR_0X06_psique_profunda_VEEB-E_D7.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
+      "nome": "kobllux_fractal_etapa5_espelho.html",
+      "arquetipo": "Solus",
+      "opcode": "0x0B",
+      "regra": "QA",
+      "vogal_veeb": "U",
+      "rung": 10,
+      "score_arq": 6.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "13_DOCUMENTACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "QA_0X0B_kobllux_fractal_etapa5_espelho_VEEB-U_D10.html",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 5,
+        "E2": 6,
+        "B": 4,
+        "score": 4.798,
+        "hz": 528
+      },
+      "proposta_destino": "13_DOCUMENTACAO/QA_0X0B_kobllux_fractal_etapa5_espelho_VEEB-U_D10.html"
     },
     {
       "arquivo_atual": "docs/fusion_card_geometrica_completa.html",

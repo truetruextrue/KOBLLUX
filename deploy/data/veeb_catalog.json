@@ -2,7 +2,7 @@
   "documento": "KOBLLUX · CATÁLOGO V.E.E.B. · Vibração · Energia · Estrutura · Base",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T22:29:23.041261",
+  "gerado_em": "2026-05-31T23:07:03.775713",
   "opcode": "0x0A",
   "arquetipo": "BLLUE",
   "hz_base": 432,
@@ -15,9 +15,9 @@
     "score": "(V_norm + E1 + E2 + B) / 4"
   },
   "estatisticas": {
-    "total_arquivos": 1414,
+    "total_arquivos": 1417,
     "total_ignorados": 112,
-    "score_medio": 4.946,
+    "score_medio": 4.949,
     "score_max": 7.75,
     "score_min": 2.86
   },
@@ -554,6 +554,20 @@
       }
     },
     {
+      "caminho": "13_DOCUMENTACAO/02_CODEX/vsica_schumann_escala_kobllux.md",
+      "nome": "vsica_schumann_escala_kobllux.md",
+      "ext": "md",
+      "tamanho": 14074,
+      "sha_mini": "c808a318",
+      "veeb": {
+        "V": 1134,
+        "E1": 5,
+        "E2": 5,
+        "B": 8,
+        "score": 6.75
+      }
+    },
+    {
       "caminho": "13_DOCUMENTACAO/02_CODEX/linguagem_cosmica_dealsbe_kobllux.md",
       "nome": "linguagem_cosmica_dealsbe_kobllux.md",
       "ext": "md",
@@ -1075,8 +1089,8 @@
       "caminho": "deploy/data/arvore_kobllux_renomeada.json",
       "nome": "arvore_kobllux_renomeada.json",
       "ext": "json",
-      "tamanho": 1027890,
-      "sha_mini": "ef29c13d",
+      "tamanho": 1030066,
+      "sha_mini": "28e58f5e",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1089,8 +1103,8 @@
       "caminho": "deploy/data/veeb_catalog.json",
       "nome": "veeb_catalog.json",
       "ext": "json",
-      "tamanho": 456010,
-      "sha_mini": "4e9f76ed",
+      "tamanho": 456944,
+      "sha_mini": "04f344df",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1103,8 +1117,8 @@
       "caminho": "deploy/data/codex-escritos.json",
       "nome": "codex-escritos.json",
       "ext": "json",
-      "tamanho": 126162,
-      "sha_mini": "d83144f1",
+      "tamanho": 128488,
+      "sha_mini": "eef6f6b2",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1117,8 +1131,8 @@
       "caminho": "deploy/data/mapa_redistribuicao.json",
       "nome": "mapa_redistribuicao.json",
       "ext": "json",
-      "tamanho": 748651,
-      "sha_mini": "8adc7890",
+      "tamanho": 750402,
+      "sha_mini": "a286420b",
       "veeb": {
         "V": 777,
         "E1": 9,
@@ -1968,6 +1982,20 @@
       }
     },
     {
+      "caminho": "14_UTILS/01_SCRIPTS/kobllux_vsica_schumann.py",
+      "nome": "kobllux_vsica_schumann.py",
+      "ext": "py",
+      "tamanho": 24343,
+      "sha_mini": "cf2e0803",
+      "veeb": {
+        "V": 528,
+        "E1": 7,
+        "E2": 7,
+        "B": 6,
+        "score": 6.05
+      }
+    },
+    {
       "caminho": ".claude/worktrees/agent-a7f5c00c2c92fc06c/docs/BlueCup_TRINITY_HYBRID.html",
       "nome": "BlueCup_TRINITY_HYBRID.html",
       "ext": "html",
@@ -2055,8 +2083,8 @@
       "caminho": "deploy/data/mirror_dna_log.json",
       "nome": "mirror_dna_log.json",
       "ext": "json",
-      "tamanho": 23143,
-      "sha_mini": "0d47df71",
+      "tamanho": 25785,
+      "sha_mini": "50d667bb",
       "veeb": {
         "V": 777,
         "E1": 7,
@@ -2083,8 +2111,8 @@
       "caminho": "deploy/data/interaction_dna.json",
       "nome": "interaction_dna.json",
       "ext": "json",
-      "tamanho": 37565,
-      "sha_mini": "1be8c941",
+      "tamanho": 38326,
+      "sha_mini": "884628bc",
       "veeb": {
         "V": 777,
         "E1": 7,
@@ -4884,7 +4912,7 @@
       "nome": "correlacao_opcodes_maquina.json",
       "ext": "json",
       "tamanho": 14387,
-      "sha_mini": "387dd149",
+      "sha_mini": "52b64181",
       "veeb": {
         "V": 777,
         "E1": 5,
@@ -6011,6 +6039,20 @@
         "E2": 5,
         "B": 5,
         "score": 5.36
+      }
+    },
+    {
+      "caminho": "14_UTILS/04_TEMPLATES/kobllux_fractal_etapa5_espelho.html",
+      "nome": "kobllux_fractal_etapa5_espelho.html",
+      "ext": "html",
+      "tamanho": 19526,
+      "sha_mini": "f8655df6",
+      "veeb": {
+        "V": 528,
+        "E1": 5,
+        "E2": 6,
+        "B": 6,
+        "score": 5.3
       }
     },
     {
