@@ -2,12 +2,12 @@
   "documento": "KOBLLUX · Mapa de Redistribuição Sinérgica Modular",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T05:52:26.720268",
+  "gerado_em": "2026-05-31T05:56:40.459665",
   "nota_seguranca": "ESTE ARQUIVO É UMA PROPOSTA. Nenhum arquivo foi movido ou renomeado. Execute o mapa com supervisão humana.",
   "estatisticas": {
-    "total_analisado": 626,
+    "total_analisado": 627,
     "ja_no_lugar": 1,
-    "com_proposta_mover": 625,
+    "com_proposta_mover": 626,
     "percentual_otimo": 0.2
   },
   "principio_distribuicao": {
@@ -2287,6 +2287,10 @@
         "para": "01_DIMENSOES/kob_01_master_code_kobllux.md"
       },
       {
+        "de": "13_DOCUMENTACAO/02_CODEX/cadial_archetypes_mirror_dna.md",
+        "para": "01_DIMENSOES/kob_01_cadial_archetypes_mirror_dna.md"
+      },
+      {
         "de": "03_FLUXO_ENERGETICO/02_NIVEL_9D_CORPO/README.md",
         "para": "01_DIMENSOES/kob_01_README.md"
       },
@@ -3662,6 +3666,18 @@
       "nome_sinergico": "kob_00_leitura_manifesto_sumbüs.md",
       "nome_mudou": true,
       "proposta_destino": "00_FUNDACAO/kob_00_leitura_manifesto_sumbüs.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/cadial_archetypes_mirror_dna.md",
+      "nome": "cadial_archetypes_mirror_dna.md",
+      "ext": "md",
+      "opcode_inferido": "0x01",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "01_DIMENSOES",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_01_cadial_archetypes_mirror_dna.md",
+      "nome_mudou": true,
+      "proposta_destino": "01_DIMENSOES/kob_01_cadial_archetypes_mirror_dna.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/espelho_input.txt",

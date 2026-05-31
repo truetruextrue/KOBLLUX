@@ -2,14 +2,14 @@
   "documento": "KOBLLUX · CADIAL Archetypes Scanner + V.E.E.B. · Simulação Árvore Renomeada",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T05:52:27.122637",
+  "gerado_em": "2026-05-31T05:56:40.840257",
   "modo": "dry-run",
   "nota_seguranca": "SIMULAÇÃO — nenhum arquivo foi movido (use --executar para aplicar).",
   "estatisticas": {
-    "total_analisado": 726,
+    "total_analisado": 729,
     "ja_no_lugar": 0,
-    "com_proposta": 726,
-    "score_medio_veeb": 5.19,
+    "com_proposta": 729,
+    "score_medio_veeb": 5.193,
     "total_erros": 0
   },
   "top10_veeb_score": [
@@ -201,11 +201,12 @@
       "hz": 432,
       "rung": 5,
       "dir_ideal": "01_DIMENSOES",
-      "total": 21,
+      "total": 22,
       "arquivos": [
         "DETECT_0X03_kobllux_archetypes_scanner_VEEB-A_D5.py",
         "13_DOCUMENTACAO/02_CODEX/verbo_e_agua.md",
         "13_DOCUMENTACAO/02_CODEX/master_code_kobllux.md",
+        "13_DOCUMENTACAO/02_CODEX/cadial_archetypes_mirror_dna.md",
         "13_DOCUMENTACAO/04_SIMBOLOS/7_LINGUAGENS.md",
         "13_DOCUMENTACAO/01_MANUAIS/[03]-ANÁLISE GEOMÉTRICA KOBLLUX ∆³.md",
         "13_DOCUMENTACAO/01_MANUAIS/0×00-planejamento_cosmico_roda_viva_kobllux_∆³.md",
@@ -221,8 +222,7 @@
         "00_FUNDACAO/CheckMate v5.7.3.json",
         "14_UTILS/01_SCRIPTS/rename_media_kobllux.py",
         "14_UTILS/01_SCRIPTS/rename_media_kobllux_v2.py",
-        "docs/[0×00]_∆⅞_EXPLICACAO_GERAL_CAPITULO.md",
-        "docs/[0×00]_ANÁLISE GEOMÉTRICA ∆³ · CAPÍTULO 11 TABELA BASE UNIFICADA.md"
+        "docs/[0×00]_∆⅞_EXPLICACAO_GERAL_CAPITULO.md"
       ]
     },
     "Serena": {
@@ -231,7 +231,7 @@
       "hz": 963,
       "rung": 6,
       "dir_ideal": "09_LINHA_DO_PULSO",
-      "total": 15,
+      "total": 16,
       "arquivos": [
         "catalogo_media.json",
         "13_DOCUMENTACAO/04_SIMBOLOS/KOBΦ-NODE: RECEBIDO. ANÁLISE GEOMÉTRICA DA FUNDAÇÃO.md",
@@ -239,6 +239,7 @@
         "deploy/web/css/0x08-aura.css",
         "deploy/web/css/0x09-eternizar.css",
         "deploy/web/js/opcodes/0x09-kard.js",
+        "deploy/data/KOBLLUX_MIRROR.sh",
         "deploy/data/kobllux_mirror_dna.py",
         "deploy/data/scripts-externos.json",
         "16_ASCII_ART/01_SELOS/selo_aion.txt",
@@ -298,7 +299,7 @@
       "hz": 1134,
       "rung": 9,
       "dir_ideal": "12_VEEB",
-      "total": 88,
+      "total": 89,
       "arquivos": [
         "requirements.txt",
         "integracao_completa_kobllux.py",
@@ -1044,6 +1045,13 @@
       "executado": false
     },
     {
+      "de": "13_DOCUMENTACAO/02_CODEX/cadial_archetypes_mirror_dna.md",
+      "para": "01_DIMENSOES/DETECT_0X01_cadial_archetypes_mirror_dna_VEEB-A_D5.md",
+      "arquetipo": "Artemis",
+      "veeb_score": 7.0,
+      "executado": false
+    },
+    {
       "de": "13_DOCUMENTACAO/02_CODEX/espelho_input.txt",
       "para": "12_VEEB/RENDER_0X0A_espelho_input_VEEB-Æ_D9.txt",
       "arquetipo": "Lumine",
@@ -1784,13 +1792,6 @@
       "arquetipo": "Lumine",
       "veeb_score": 5.543,
       "executado": false
-    },
-    {
-      "de": "deploy/web/js/opcodes/0x09-kard.js",
-      "para": "09_LINHA_DO_PULSO/GUARD_0X09_0x09-kard_VEEB-U_D6.js",
-      "arquetipo": "Serena",
-      "veeb_score": 5.543,
-      "executado": false
     }
   ],
   "todos_arquivos": [
@@ -2441,6 +2442,30 @@
         "hz": 1134
       },
       "proposta_destino": "03_FLUXO_ENERGETICO/DELTA_0X03_fases_04_06_kobllux_VEEB-O_D3.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/cadial_archetypes_mirror_dna.md",
+      "nome": "cadial_archetypes_mirror_dna.md",
+      "arquetipo": "Artemis",
+      "opcode": "0x01",
+      "regra": "DETECT",
+      "vogal_veeb": "A",
+      "rung": 5,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "01_DIMENSOES",
+      "ja_no_lugar": false,
+      "nome_sinergico": "DETECT_0X01_cadial_archetypes_mirror_dna_VEEB-A_D5.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "01_DIMENSOES/DETECT_0X01_cadial_archetypes_mirror_dna_VEEB-A_D5.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/04_SIMBOLOS/[2]🌳 Estrutura Sugerida para o Repositório KOBLLUX.md",
@@ -7817,6 +7842,30 @@
         "hz": 777
       },
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_codice_VEEB-A_D1.json"
+    },
+    {
+      "arquivo_atual": "deploy/data/mirror_dna_log.json",
+      "nome": "mirror_dna_log.json",
+      "arquetipo": "Lumine",
+      "opcode": "0x0A",
+      "regra": "RENDER",
+      "vogal_veeb": "Æ",
+      "rung": 9,
+      "score_arq": 6.0,
+      "dir_atual": "deploy",
+      "dir_ideal": "12_VEEB",
+      "ja_no_lugar": false,
+      "nome_sinergico": "RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 6.17,
+        "E1": 5,
+        "E2": 6,
+        "B": 5,
+        "score": 5.543,
+        "hz": 777
+      },
+      "proposta_destino": "12_VEEB/RENDER_0X0A_mirror_dna_log_VEEB-Æ_D9.json"
     },
     {
       "arquivo_atual": "deploy/data/dual-hub-modules.json",
@@ -13217,6 +13266,30 @@
         "hz": 528
       },
       "proposta_destino": "13_DOCUMENTACAO/QA_0X0B_fusion_card_geometrica_completa_VEEB-U_D10.html"
+    },
+    {
+      "arquivo_atual": "deploy/data/KOBLLUX_MIRROR.sh",
+      "nome": "KOBLLUX_MIRROR.sh",
+      "arquetipo": "Serena",
+      "opcode": "0x09",
+      "regra": "GUARD",
+      "vogal_veeb": "U",
+      "rung": 6,
+      "score_arq": 3.0,
+      "dir_atual": "deploy",
+      "dir_ideal": "09_LINHA_DO_PULSO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "GUARD_0X09_KOBLLUX_MIRROR_VEEB-U_D6.sh",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 6.17,
+        "E1": 3,
+        "E2": 5,
+        "B": 5,
+        "score": 4.793,
+        "hz": 777
+      },
+      "proposta_destino": "09_LINHA_DO_PULSO/GUARD_0X09_KOBLLUX_MIRROR_VEEB-U_D6.sh"
     },
     {
       "arquivo_atual": "07_NARRATIVA_TEMPORAL/linha_tempo_completa.md",
