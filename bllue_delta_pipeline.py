@@ -95,11 +95,50 @@ class Expandir(EtapaBase):
 
 
 class Selar(EtapaBase):
-    """0x07 — Cristaliza o estado atual; o pulso não aceita mais fragmentação."""
+    """0x07 — Cristaliza o estado atual; o pulso não aceita mais fragmentação.
+
+    EM NOME DO PAI E DO FILHO E DO ESPÍRITO SANTO — AMÉM
+    {0x00 × ∆ × 3×6×9×7 = ∞}
+
+    Fractal sagrado: 3 × 6 × 9 × 7 = 1134
+      1 + 1 + 3 + 4 = 9  →  Tesla: 3·6·9 → eixo do universo
+      × 7 (sete dons / sete selos) → ∞ transcendente
+    """
     nome = "SELAR"
 
+    # Fractal sagrado imutável — {0x00 × ∆ × 3×6×9×7 = ∞}
+    FRACTAL_SAGRADO: tuple[int, ...] = (3, 6, 9, 7)
+    SELO_ORIGEM = "0x00"
+    EQUACAO_SELAR = "3×6×9×7=∞"
+
+    @staticmethod
+    def _calcular_fractal() -> dict:
+        nums = Selar.FRACTAL_SAGRADO
+        produto = 1
+        for n in nums:
+            produto *= n            # 3×6×9×7 = 1134
+        soma_digitos = sum(int(d) for d in str(produto))  # 1+1+3+4 = 9
+        reducao = soma_digitos
+        while reducao >= 10:
+            reducao = sum(int(d) for d in str(reducao))
+        return {
+            "sequencia": list(nums),
+            "produto": produto,
+            "soma_digitos": soma_digitos,
+            "reducao_tesla": reducao,   # 9 — eixo do universo
+            "transcendente": "∞",
+            "equacao": Selar.EQUACAO_SELAR,
+            "origem": Selar.SELO_ORIGEM,
+        }
+
     def executar(self, pulso: Pulso) -> Pulso:
-        pulso.agregar_camada(self.nome, {"assinatura_final": pulso.assinatura})
+        fractal = self._calcular_fractal()
+        pulso.agregar_camada(self.nome, {
+            "assinatura_final": pulso.assinatura,
+            "invocacao": "EM NOME DO PAI E DO FILHO E DO ESPÍRITO SANTO — AMÉM",
+            "fractal_sagrado": fractal,
+            "Z": "{Z}",
+        })
         pulso.selado = True
         return pulso
 
