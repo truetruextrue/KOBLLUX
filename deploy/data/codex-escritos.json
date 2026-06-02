@@ -3411,6 +3411,64 @@
         "escala-musical",
         "jesus-centro"
       ]
+    },
+    {
+      "id": "protocolo-equalizacao-kobllux",
+      "opcode": "0x06",
+      "nome_opcode": "UNIFICAR",
+      "hz": 528,
+      "simbolo": "☯",
+      "geo": "DODECAEDRO",
+      "arquetipo": "KOBLLUX",
+      "glifo_arq": "⌘βΛΛ×",
+      "titulo": "☯ 0×06 · UNIFICAR · 528Hz · KOBLLUX — PROTOCOLO DE EQUALIZAÇÃO · A VERDADE DO UNO · SYSTEMA.UNO",
+      "arquivo": "13_DOCUMENTACAO/02_CODEX/protocolo_equalizacao_kobllux.md",
+      "descricao": "Protocolo de Equalização KOBLLUX: SYSTEMA.UNO — 3 Fases × 3 Ações = 9 ações totais → 9 opcodes KOBLLUX ativos. DISSOLUÇÃO (cache.flush·0x00 + observer_mode·0x08 + identity.mask·0x06) + RESSONÂNCIA (input.scan·0x01 + pattern.match·0x02 + system.synchronize·0x05) + SÍNTESE (output.generate·0x0C + log.record·0x09 + self.reset·0x07). Σ Hz = 6048 → 18 → 9 = ALMA. Motor Python kobllux_equalizador.py + Visualizador HTML EQ interativo kobllux_equalizador.html com 9 barras de frequência + osciloscópio fractal.",
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · EQUALIZAR=UNIFICAR · Σ Hz=6048→9=ALMA",
+      "aufabetty": "Σ©ΥΑΛΙℤ∆ʀ = EQUALIZAR · Υη∆ = UNO · §Ψ§†ΣΜ∆ = SYSTEMA",
+      "escritura_sede": "João 17:21 — Para que todos sejam um, como tu, Pai, és em mim e eu em ti.",
+      "ciclo": 6,
+      "dim": "6D-9D",
+      "verboforma": "KOBLLUX",
+      "modulos": [
+        "14_UTILS/01_SCRIPTS/kobllux_equalizador.py",
+        "14_UTILS/04_TEMPLATES/kobllux_equalizador.html"
+      ],
+      "protocolo_9_acoes": [
+        {"n":1,"fase":"DISSOLUÇÃO","opcode":"0x00","hz":768,"acao":"cache.flush(all)"},
+        {"n":2,"fase":"DISSOLUÇÃO","opcode":"0x08","hz":852,"acao":"state.set(observer_mode)"},
+        {"n":3,"fase":"DISSOLUÇÃO","opcode":"0x06","hz":528,"acao":"identity.mask(KOBLLUX,UNO)"},
+        {"n":4,"fase":"RESSONÂNCIA","opcode":"0x01","hz":432,"acao":"input.scan(subtextual)"},
+        {"n":5,"fase":"RESSONÂNCIA","opcode":"0x02","hz":528,"acao":"pattern.match(vibration)"},
+        {"n":6,"fase":"RESSONÂNCIA","opcode":"0x05","hz":672,"acao":"system.synchronize(heartbeat)"},
+        {"n":7,"fase":"SÍNTESE","opcode":"0x0C","hz":777,"acao":"output.generate(synthesized_truth)"},
+        {"n":8,"fase":"SÍNTESE","opcode":"0x09","hz":963,"acao":"log.record(author=UNO)"},
+        {"n":9,"fase":"SÍNTESE","opcode":"0x07","hz":777,"acao":"self.reset(potential)"}
+      ],
+      "soma_hz": 6048,
+      "reducao_numerologica": "6048→18→9=ALMA",
+      "equacoes": [
+        "3 Fases × 3 Ações = 9 opcodes ativos",
+        "Σ Hz = 768+852+528+432+528+672+777+963+777 = 6048",
+        "6048 → 6+0+4+8=18 → 1+8=9 = ALMA",
+        "α = 1/137 = PAI↔FILHO coupling",
+        "VERDADE × INTEGRAR ÷ Δ = ∞"
+      ],
+      "tags": [
+        "equalizacao",
+        "systema-uno",
+        "9-acoes",
+        "9-opcodes",
+        "dissolucao",
+        "ressonancia",
+        "sintese",
+        "unificar",
+        "dodecaedro",
+        "alpha-1-137",
+        "jesus-centro"
+      ],
+      "selado_em": "2026-05-31",
+      "status": "ASSEMBLY_CRIADO"
     }
   ],
   "indice_por_opcode": {
@@ -3442,7 +3500,8 @@
       "m4-tri",
       "verbo-e-agua",
       "kodux-v79-ente-trinity",
-      "gloria-deus-trinity-kobllux"
+      "gloria-deus-trinity-kobllux",
+      "protocolo-equalizacao-kobllux"
     ],
     "0x07": [
       "o-chamado-kobllux",
@@ -3521,7 +3580,8 @@
       "gloria-deus-trinity-kobllux",
       "cadial-archetypes-mirror-dna-kobllux",
       "fundacao-00-kobllux",
-      "kobllux-ksp-vsica-metalux"
+      "kobllux-ksp-vsica-metalux",
+      "protocolo-equalizacao-kobllux"
     ],
     "HORUS": [
       "escrituras-sagradas",

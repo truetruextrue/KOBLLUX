@@ -2,14 +2,14 @@
   "documento": "KOBLLUX · CADIAL Archetypes Scanner + V.E.E.B. · Simulação Árvore Renomeada",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T23:07:04.899602",
+  "gerado_em": "2026-05-31T23:37:37.872947",
   "modo": "dry-run",
   "nota_seguranca": "SIMULAÇÃO — nenhum arquivo foi movido (use --executar para aplicar).",
   "estatisticas": {
-    "total_analisado": 1416,
+    "total_analisado": 1419,
     "ja_no_lugar": 0,
-    "com_proposta": 1416,
-    "score_medio_veeb": 4.691,
+    "com_proposta": 1419,
+    "score_medio_veeb": 4.694,
     "total_erros": 0
   },
   "top10_veeb_score": [
@@ -81,7 +81,7 @@
       "hz": 768,
       "rung": 1,
       "dir_ideal": "00_FUNDACAO",
-      "total": 575,
+      "total": 576,
       "arquivos": [
         "main.py",
         "tree.md",
@@ -261,7 +261,7 @@
       "hz": 741,
       "rung": 7,
       "dir_ideal": "06_ATIVACAO",
-      "total": 324,
+      "total": 326,
       "arquivos": [
         "cli.py",
         "resumo_ativacao_final.py",
@@ -274,6 +274,7 @@
         "{Z} — % ATIVAÇÃO SÜMBÜS_FIRMWARE- 0x01212345_789ABC.md",
         "13_DOCUMENTACAO/03_ARQUETIPOS/kaos.md",
         "13_DOCUMENTACAO/03_ARQUETIPOS/galeria.py",
+        "13_DOCUMENTACAO/02_CODEX/protocolo_equalizacao_kobllux.md",
         "13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md",
         "13_DOCUMENTACAO/01_MANUAIS/[00]-🌟 KOBLLUX · COMANDO DE ATIVAÇÃO ∆ PARA ANÁLISE GEOMÉTRICA DE CÓDIGO 🌟.md",
         "13_DOCUMENTACAO/01_MANUAIS/_ANÁLISE-KOBLLUX-528K-FRACTAL.md",
@@ -281,8 +282,7 @@
         "04_APRENDIZADO/02_NIVEL_DINAMICO/cronodinamica.py",
         "04_APRENDIZADO/02_NIVEL_DINAMICO/dinamico.py",
         "04_APRENDIZADO/01_NIVEL_CONCRETO/concreto.py",
-        "04_APRENDIZADO/01_NIVEL_CONCRETO/mundo_fisico.py",
-        "04_APRENDIZADO/03_NIVEL_ABSTRATO/abstrato.py"
+        "04_APRENDIZADO/01_NIVEL_CONCRETO/mundo_fisico.py"
       ]
     },
     "Genus": {
@@ -860,6 +860,13 @@
       "para": "00_FUNDACAO/BOOT_0X00_serena_VEEB-A_D1.md",
       "arquetipo": "Atlas",
       "veeb_score": 6.0,
+      "executado": false
+    },
+    {
+      "de": "13_DOCUMENTACAO/02_CODEX/protocolo_equalizacao_kobllux.md",
+      "para": "06_ATIVACAO/UNIFICAR_0X06_protocolo_equalizacao_kobllux_VEEB-E_D7.md",
+      "arquetipo": "Kaos",
+      "veeb_score": 7.0,
       "executado": false
     },
     {
@@ -1792,13 +1799,6 @@
       "arquetipo": "Pulse",
       "veeb_score": 5.043,
       "executado": false
-    },
-    {
-      "de": "deploy/web/css/0x09-eternizar.css",
-      "para": "09_LINHA_DO_PULSO/GUARD_0X09_0x09-eternizar_VEEB-U_D6.css",
-      "arquetipo": "Serena",
-      "veeb_score": 4.543,
-      "executado": false
     }
   ],
   "todos_arquivos": [
@@ -2377,6 +2377,30 @@
         "hz": 1134
       },
       "proposta_destino": "02_CICLO_369/SEED_0X02_kobllux_veeb_story_VEEB-Æ_D2.py"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/protocolo_equalizacao_kobllux.md",
+      "nome": "protocolo_equalizacao_kobllux.md",
+      "arquetipo": "Kaos",
+      "opcode": "0x06",
+      "regra": "UNIFICAR",
+      "vogal_veeb": "E",
+      "rung": 7,
+      "score_arq": 3.0,
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "UNIFICAR_0X06_protocolo_equalizacao_kobllux_VEEB-E_D7.md",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 9.0,
+        "E1": 5,
+        "E2": 5,
+        "B": 9,
+        "score": 7.0,
+        "hz": 1134
+      },
+      "proposta_destino": "06_ATIVACAO/UNIFICAR_0X06_protocolo_equalizacao_kobllux_VEEB-E_D7.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/verbo_e_agua.md",
@@ -7875,6 +7899,30 @@
       "proposta_destino": "06_ATIVACAO/UNIFICAR_0X06_Z_ATIVACAO_SUMBUS_FIRMWARE-_0x01212345_7_VEEB-E_D7.md"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_equalizador.py",
+      "nome": "kobllux_equalizador.py",
+      "arquetipo": "Kaos",
+      "opcode": "0x06",
+      "regra": "UNIFICAR",
+      "vogal_veeb": "E",
+      "rung": 7,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "UNIFICAR_0X06_kobllux_equalizador_VEEB-E_D7.py",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 7,
+        "B": 4,
+        "score": 5.548,
+        "hz": 528
+      },
+      "proposta_destino": "06_ATIVACAO/UNIFICAR_0X06_kobllux_equalizador_VEEB-E_D7.py"
+    },
+    {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
       "nome": "kobllux_ksp_unified.py",
       "arquetipo": "Nova",
@@ -10489,6 +10537,30 @@
         "hz": 528
       },
       "proposta_destino": "00_FUNDACAO/BOOT_0X00_symbol-unified-orb-dual_VEEB-A_D1.html"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_equalizador.html",
+      "nome": "kobllux_equalizador.html",
+      "arquetipo": "Atlas",
+      "opcode": "0x00",
+      "regra": "BOOT",
+      "vogal_veeb": "A",
+      "rung": 1,
+      "score_arq": 3.0,
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "00_FUNDACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "BOOT_0X00_kobllux_equalizador_VEEB-A_D1.html",
+      "nome_mudou": true,
+      "veeb": {
+        "V": 4.19,
+        "E1": 7,
+        "E2": 6,
+        "B": 4,
+        "score": 5.298,
+        "hz": 528
+      },
+      "proposta_destino": "00_FUNDACAO/BOOT_0X00_kobllux_equalizador_VEEB-A_D1.html"
     },
     {
       "arquivo_atual": "14_UTILS/04_TEMPLATES/symbol_bar_v2.html",
