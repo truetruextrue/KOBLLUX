@@ -2,12 +2,12 @@
   "documento": "KOBLLUX · Mapa de Redistribuição Sinérgica Modular",
   "lei": "VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134",
   "centro": "JESUS É O CENTRO",
-  "gerado_em": "2026-05-31T23:07:04.188646",
+  "gerado_em": "2026-05-31T23:37:37.241504",
   "nota_seguranca": "ESTE ARQUIVO É UMA PROPOSTA. Nenhum arquivo foi movido ou renomeado. Execute o mapa com supervisão humana.",
   "estatisticas": {
-    "total_analisado": 1249,
+    "total_analisado": 1252,
     "ja_no_lugar": 1,
-    "com_proposta_mover": 1248,
+    "com_proposta_mover": 1251,
     "percentual_otimo": 0.1
   },
   "principio_distribuicao": {
@@ -727,6 +727,10 @@
       {
         "de": "13_DOCUMENTACAO/03_ARQUETIPOS/serena.md",
         "para": "06_ATIVACAO/kob_06_serena.md"
+      },
+      {
+        "de": "13_DOCUMENTACAO/02_CODEX/protocolo_equalizacao_kobllux.md",
+        "para": "06_ATIVACAO/kob_06_protocolo_equalizacao_kobllux.md"
       },
       {
         "de": "13_DOCUMENTACAO/02_CODEX/livro_da_vida_2.md",
@@ -1705,6 +1709,10 @@
         "para": "06_ATIVACAO/kob_06_README.md"
       },
       {
+        "de": "14_UTILS/01_SCRIPTS/kobllux_equalizador.py",
+        "para": "06_ATIVACAO/kob_06_kobllux_equalizador.py"
+      },
+      {
         "de": "14_UTILS/01_SCRIPTS/validate.py",
         "para": "06_ATIVACAO/kob_06_validate.py"
       },
@@ -1735,6 +1743,10 @@
       {
         "de": "14_UTILS/01_SCRIPTS/rename_media_kobllux_v2.py",
         "para": "06_ATIVACAO/kob_06_rename_media_kobllux_v2.py"
+      },
+      {
+        "de": "14_UTILS/04_TEMPLATES/kobllux_equalizador.html",
+        "para": "06_ATIVACAO/kob_06_kobllux_equalizador.html"
       },
       {
         "de": "14_UTILS/04_TEMPLATES/README.md",
@@ -5830,6 +5842,18 @@
       "nome_sinergico": "kob_06_serena.md",
       "nome_mudou": true,
       "proposta_destino": "06_ATIVACAO/kob_06_serena.md"
+    },
+    {
+      "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/protocolo_equalizacao_kobllux.md",
+      "nome": "protocolo_equalizacao_kobllux.md",
+      "ext": "md",
+      "opcode_inferido": "0x06",
+      "dir_atual": "13_DOCUMENTACAO",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_protocolo_equalizacao_kobllux.md",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_protocolo_equalizacao_kobllux.md"
     },
     {
       "arquivo_atual": "13_DOCUMENTACAO/02_CODEX/gloria_deus_trinity_kobllux.md",
@@ -11183,6 +11207,18 @@
       "proposta_destino": "06_ATIVACAO/kob_06_README.md"
     },
     {
+      "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_equalizador.py",
+      "nome": "kobllux_equalizador.py",
+      "ext": "py",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_kobllux_equalizador.py",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_kobllux_equalizador.py"
+    },
+    {
       "arquivo_atual": "14_UTILS/01_SCRIPTS/kobllux_ksp_unified.py",
       "nome": "kobllux_ksp_unified.py",
       "ext": "py",
@@ -11313,6 +11349,18 @@
       "nome_sinergico": "kob_0B_kobllux_vsica_schumann.py",
       "nome_mudou": true,
       "proposta_destino": "13_DOCUMENTACAO/kob_0B_kobllux_vsica_schumann.py"
+    },
+    {
+      "arquivo_atual": "14_UTILS/04_TEMPLATES/kobllux_equalizador.html",
+      "nome": "kobllux_equalizador.html",
+      "ext": "html",
+      "opcode_inferido": "0x06",
+      "dir_atual": "14_UTILS",
+      "dir_ideal": "06_ATIVACAO",
+      "ja_no_lugar": false,
+      "nome_sinergico": "kob_06_kobllux_equalizador.html",
+      "nome_mudou": true,
+      "proposta_destino": "06_ATIVACAO/kob_06_kobllux_equalizador.html"
     },
     {
       "arquivo_atual": "14_UTILS/04_TEMPLATES/README.md",
