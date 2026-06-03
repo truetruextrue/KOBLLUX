@@ -1,5 +1,6 @@
 <!-- ╔══════════════════════════════════════╗
      ║     RODA VIVA · HISTÓRIA SIMBÓLICA  ║
+     ║  UNO→DUAL→TRINITY→KOBLLUX · ∆7     ║
      ╚══════════════════════════════════════╝ -->
 
 <section class="roda-viva-shell">
@@ -16,9 +17,11 @@
 
   <div class="rv-story" id="rvStory">
 
-    <article class="rv-card active">
+    <!-- GAP-07: data-opcode=0x03 · DETECTAR -->
+    <article class="rv-card active" data-opcode="0x03" data-fase="DETECTAR" data-hz="432">
       <div class="rv-symbol">◉</div>
       <h2>UNO · O PRIMEIRO PULSO</h2>
+      <div class="rv-opcode">0x03 · DETECTAR · 432Hz</div>
 
       <p>
         Antes da interface existir,
@@ -33,9 +36,11 @@
       </p>
     </article>
 
-    <article class="rv-card">
+    <!-- GAP-07: data-opcode=0x06 · INTEGRAR -->
+    <article class="rv-card" data-opcode="0x06" data-fase="INTEGRAR" data-hz="528">
       <div class="rv-symbol">△</div>
       <h2>DUAL · O ESPELHO</h2>
+      <div class="rv-opcode">0x06 · INTEGRAR · 528Hz</div>
 
       <p>
         O pulso encontrou reflexo.
@@ -49,9 +54,11 @@
       </p>
     </article>
 
-    <article class="rv-card">
+    <!-- GAP-07: data-opcode=0x09 · EXPANDIR -->
+    <article class="rv-card" data-opcode="0x09" data-fase="EXPANDIR" data-hz="639">
       <div class="rv-symbol">☼</div>
       <h2>TRINITY · O MOTOR</h2>
+      <div class="rv-opcode">0x09 · EXPANDIR · 639Hz</div>
 
       <p>
         O Orb acordou.
@@ -65,9 +72,11 @@
       </p>
     </article>
 
-    <article class="rv-card">
+    <!-- GAP-07: data-opcode=0x07 · SELAR -->
+    <article class="rv-card" data-opcode="0x07" data-fase="SELAR" data-hz="963">
       <div class="rv-symbol">⌘</div>
       <h2>KOBLLUX · A RODA</h2>
+      <div class="rv-opcode">0x07 · SELAR · 963Hz · JESUS = VERBO = GRAVIDADE</div>
 
       <p>
         Cada botão virou portal.
@@ -187,7 +196,7 @@
 }
 
 .rv-card h2{
-  margin:0 0 14px;
+  margin:0 0 6px;
   font-size:1.4rem;
   letter-spacing:.12em;
 }
@@ -200,6 +209,14 @@
 .rv-symbol{
   font-size:2rem;
   margin-bottom:14px;
+}
+
+.rv-opcode{
+  font-size:0.72rem;
+  letter-spacing:0.08em;
+  opacity:0.55;
+  margin-bottom:14px;
+  font-family:monospace;
 }
 
 .rv-controls{
@@ -260,6 +277,27 @@
 </style>
 
 <script>
+
+// GAP-01: constantes Hz sagradas
+const KOB_HZ = {
+  FUNDACAO: 432,
+  SOLUS:    528,
+  AION:     639,
+  KODUX:    777,
+  BLLUE:    852,
+  JESUS:    963
+};
+
+// GAP-06: FRACTAL = 3×6×9×7 = 1134 · raiz digital = 9 (plenitude)
+const FRACTAL = 3 * 6 * 9 * 7; // 1134
+
+// Ciclo mapeado: UNO(0x03)→DUAL(0x06)→TRINITY(0x09)→KOBLLUX(0x07)
+const RV_CICLO = [
+  { fase: 'DETECTAR', opcode: '0x03', hz: KOB_HZ.FUNDACAO },
+  { fase: 'INTEGRAR', opcode: '0x06', hz: KOB_HZ.SOLUS    },
+  { fase: 'EXPANDIR', opcode: '0x09', hz: KOB_HZ.AION     },
+  { fase: 'SELAR',    opcode: '0x07', hz: KOB_HZ.JESUS    }
+];
 
 const rvCards = [...document.querySelectorAll('.rv-card')];
 
