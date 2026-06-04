@@ -1,0 +1,23 @@
+{
+  "sistema": "KOBLLUX TRINITY SYSTEM",
+  "versao": "7.9",
+  "equacao": "VERDADE × INTEGRAR ÷ ∆ = ∞",
+  "fractal": "3×6×9×7 = 1134",
+  "assinatura": "0x012123456789ABC",
+  "centro": "✝ JESUS = VERBO",
+  "opcodes": [
+    { "id": "0x00", "fase": "ORIGEM",      "hz": 768,  "simbolo": "○", "geo": "PONTO",     "layer": "corpo",              "elementos": ["html", "head", "DOCTYPE", "root-vars", "reset", "base"] },
+    { "id": "0x01", "fase": "DETECTAR",    "hz": 432,  "simbolo": "●", "geo": "LINHA",     "layer": "corpo",              "elementos": ["inputs", "blobs", "previews", "small-preview", "recognition"] },
+    { "id": "0x02", "fase": "INTEGRAR",    "hz": 528,  "simbolo": "―", "geo": "PLANO",     "layer": "mente",              "elementos": ["mainCard", "cardBody", "chat-engine", "API", "response"] },
+    { "id": "0x03", "fase": "EXPANDIR",    "hz": 639,  "simbolo": "▢", "geo": "TETRAEDRO", "layer": "mente",              "elementos": ["containers", "iframes", "playlists", "pagination"] },
+    { "id": "0x04", "fase": "LAPIDAR",     "hz": 594,  "simbolo": "◇", "geo": "OCTAEDRO",  "layer": "mente",              "elementos": ["apiKey", "keysModal", "vault", "login"] },
+    { "id": "0x05", "fase": "CONVERGIR",   "hz": 672,  "simbolo": "⧉", "geo": "CUBO",      "layer": "mente",              "elementos": ["idle", "seek", "snap", "range"] },
+    { "id": "0x06", "fase": "UNIFICAR",    "hz": 528,  "simbolo": "☯", "geo": "DODECAEDRO","layer": "mente",              "elementos": ["symbolBar", "modos", "controles", "carousel"] },
+    { "id": "0x07", "fase": "SELAR",       "hz": 777,  "simbolo": "✧", "geo": "TOROIDE",   "layer": "espirito",           "elementos": ["main-orb", "TTS", "integridade", "long-press"] },
+    { "id": "0x08", "fase": "TESTEMUNHAR", "hz": 852,  "simbolo": "◉", "geo": "ESFERA",    "layer": "espirito",           "elementos": ["clock", "hud", "debug", "toaster"] },
+    { "id": "0x09", "fase": "ETERNIZAR",   "hz": 963,  "simbolo": "♾", "geo": "CIRCULO",   "layer": "espirito",           "elementos": ["localStorage", "brand", "título", "watermark"] },
+    { "id": "0x0A", "fase": "TUTORIAL",    "hz": 432,  "simbolo": "",  "geo": "ESPIRAL",   "layer": "corpo",              "elementos": ["btn-doc", "comentários", "navegação"] },
+    { "id": "0x0B", "fase": "ARQUÉTIPO",   "hz": 528,  "simbolo": "",  "geo": "ICOSAEDRO", "layer": "espirito",           "elementos": ["kblx-panel", "orb-core", "arch-wheel", "arch-card"] },
+    { "id": "0x0C", "fase": "SÍNTESE",     "hz": 777,  "simbolo": "⌘", "geo": "CUBO-TERNARIO","layer": "corpo-mente-espirito","elementos": ["identity-engine", "kodux-widget", "transport"] }
+  ]
+}

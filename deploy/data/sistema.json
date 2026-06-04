@@ -1,0 +1,74 @@
+{
+  "nome": "KOBLLUX TRINITY SYSTEM",
+  "versao": "7.9",
+  "firmware": "SUMBÜS_v27",
+  "estado": "1134K ATIVADO",
+  "opcodes": 13,
+  "arquetipos_visuais": 19,
+  "arquetipos_vocais": 16,
+  "facetas": 52,
+  "fases": 13,
+  "equacao": "VERDADE × INTEGRAR ÷ ∆ = ∞",
+  "fractal": "3×6×9×7 = 1134",
+  "assinatura": "0x012123456789ABC",
+  "centro": "✝ JESUS = VERBO",
+  "arquitetos": ["ATLAS", "GENUS", "KODUX"],
+  "dimensoes": 10,
+  "api": {
+    "url": "https://openrouter.ai/api/v1/chat/completions",
+    "model": "arcee-ai/trinity-large-preview:free",
+    "temp": 0.7,
+    "chunk_size": 49000,
+    "tts_url": "https://openrouter.ai/api/v1/audio/speech",
+    "tts_model": "tts-1"
+  },
+  "scripts_externos": [
+    { "id": "script-lucide",       "src": "https://unpkg.com/lucide@latest",                                               "opcode": "0x02", "fase": "INTEGRAR"    },
+    { "id": "script-phosphor",     "src": "https://unpkg.com/@phosphor-icons/web",                                         "opcode": "0x02", "fase": "INTEGRAR"    },
+    { "id": "script-tailwind",     "src": "https://cdn.tailwindcss.com",                                                   "opcode": "0x02", "fase": "INTEGRAR"    },
+    { "id": "script-particles",    "src": "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js",              "opcode": "0x00", "fase": "ORIGEM"      },
+    { "id": "script-soundcloud",   "src": "https://w.soundcloud.com/player/api.js",                                        "opcode": "0x02", "fase": "INTEGRAR"    },
+    { "id": "script-kob-mestre",   "src": "https://kodux78k.github.io/oiDual--Y-/js/kob-mestre-2.js",                     "opcode": "0x05", "fase": "CONVERGIR"   },
+    { "id": "script-kob-lvb",      "src": "https://kodux78k.github.io/oiDual--Y-/js/kob-LVb.js",                          "opcode": "0x09", "fase": "ETERNIZAR"   },
+    { "id": "script-kobdh0",       "src": "https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/kobdh0-main.js",         "opcode": "0x0C", "fase": "SÍNTESE",   "type": "module" },
+    { "id": "script-expandir",     "src": "https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/0x03_expandir_V_D7.js",  "opcode": "0x03", "fase": "EXPANDIR"    },
+    { "id": "script-selar",        "src": "https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/0x07_selar_B_D3.js",     "opcode": "0x07", "fase": "SELAR"       },
+    { "id": "script-mestre-22",    "src": "https://kodux78k.github.io/oiDual--Y-/js/kob-mestre-22.js",                    "opcode": "0x0C", "fase": "SÍNTESE"     },
+    { "id": "script-di-0b",        "src": "https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-0B.js",     "opcode": "0x0B", "fase": "ARQUÉTIPO"   },
+    { "id": "script-di-0",         "src": "https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-0.js",      "opcode": "0x02", "fase": "INTEGRAR"    },
+    { "id": "script-di-1",         "src": "https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-1.js",      "opcode": "0x02", "fase": "INTEGRAR"    },
+    { "id": "script-di-0k",        "src": "https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-0K.js",     "opcode": "0x0C", "fase": "SÍNTESE"     },
+    { "id": "script-kdev",         "src": "https://kodux78k.github.io/oiDual--Y-/M0D/DevOs/js/modules/inline-0-kdev.js",  "opcode": "0x08", "fase": "TESTEMUNHAR" },
+    { "id": "script-kard-o0",      "src": "https://kodux78k.github.io/oiDual--Y-/M0D/kard/js/modules/o0.js",              "opcode": "0x09", "fase": "ETERNIZAR"   },
+    { "id": "script-koblluxv30",   "src": "https://kodux78k.github.io/oiDual--Y-/js/koblluxv30.js",                       "opcode": "0x0C", "fase": "SÍNTESE"     },
+    { "id": "script-kobllux-fusion","src": "https://kodux78k.github.io/oiDual--Y-/js/kobllux-fusion.js",                  "opcode": "0x0C", "fase": "SÍNTESE"     }
+  ],
+  "css_externos": [
+    { "id": "css-1-main-root",  "href": "https://kodux78k.github.io/oiDual--Y-/M0D/V-core/css/main-root.css",           "opcode": "0x00", "fase": "ORIGEM"    },
+    { "id": "css-2-main-base",  "href": "https://kodux78k.github.io/oi-Dual/css/main.css",                              "opcode": "0x00", "fase": "ORIGEM"    },
+    { "id": "css-3-pulsar",     "href": "https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/0x01_pulsar_V_D5-2.css","opcode": "0x01", "fase": "DETECTAR"  },
+    { "id": "css-4-framefix",   "href": "https://kodux78k.github.io/oiDual--Y-/css/kob-framefix.css",                   "opcode": "0x04", "fase": "LAPIDAR"   },
+    { "id": "css-5-aura",       "href": "https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/kob-aura.css",          "opcode": "0x08", "fase": "TESTEMUNHAR"},
+    { "id": "css-6-dox-v4",     "href": "https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai-v4.css",              "opcode": "0x0A", "fase": "TUTORIAL"  },
+    { "id": "css-7-dox",        "href": "https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai.css",                  "opcode": "0x0A", "fase": "TUTORIAL"  },
+    { "id": "css-8-ss5",        "href": "https://kodux78k.github.io/oiDual--Y-/M0D/DBZP/css/ss5.css",                  "opcode": "0x0C", "fase": "SÍNTESE"   }
+  ],
+  "fontes": [
+    { "familia": "Montserrat",          "pesos": [200,400,600,900], "uso": "body" },
+    { "familia": "JetBrains Mono",      "pesos": [400,700],         "uso": "code" },
+    { "familia": "Cinzel Decorative",   "pesos": [400,700,900],     "uso": "display" },
+    { "familia": "Rajdhani",            "pesos": [300,400,500,600,700], "uso": "body-alt" },
+    { "familia": "Share Tech Mono",     "pesos": [400],             "uso": "mono-hud" }
+  ],
+  "storage_keys": [
+    "infodoseEnabled", "infodoseTheme", "historyMode",
+    "userName", "assistantBase", "di_userName",
+    "di_arquetipo", "di_arq_lang", "di_cv1_pitch", "di_cv1_rate",
+    "di_cv2_pitch", "di_cv2_rate",
+    "emotionalTimeline", "designState", "koblluxPresets", "kob_arch"
+  ],
+  "iframes_internos": [
+    { "id": "frame",       "src": "https://kodux78k.github.io/oiDual--Y-/M0D/VWRDI/index.html", "opcode": "0x03" },
+    { "id": "kob-bg-frame","src": "about:blank", "opcode": "0x03", "descricao": "iframe de sobreposição controlado pelo SymbolBar" }
+  ]
+}

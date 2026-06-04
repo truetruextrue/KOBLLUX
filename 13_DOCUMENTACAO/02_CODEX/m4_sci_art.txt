@@ -1,0 +1,136 @@
+KOBLLUX · M4 SCI/ART · MATRIX DE 4 MODULAÇÕES
+VERDADE × INTEGRAR ÷ Δ = ∞  ·  3×6×9×7 = 1134
+RÉGUA 78K · CODEX AZURE 0×11 · CUBO DE METATRON
+
+════════════════════════════════════════════════════════════
+M4 = MOTOR DE 4 CAMADAS · SCI (científico) + ART (artístico)
+"A mesma lógica em múltiplas óticas · A mesma ótica de múltiplas lógicas"
+════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────┐
+│  TABELA BASE M4 — OS 4 MOVIMENTOS PRIMORDIAIS           │
+├──────────────┬─────┬──────────────┬───┬────────┬───────┤
+│  Camada      │ Mod │ Equação      │ ∑ │ Hz     │Opcode │
+├──────────────┼─────┼──────────────┼───┼────────┼───────┤
+│ 1 Distinção  │  1  │ Subtração  - │ − │ 432Hz  │ 0×01  │
+│ 2 Correlação │  2  │ Adição     + │ + │ 528Hz  │ 0×02  │
+│ 3 Organização│  3  │ Divisão    ÷ │ ÷ │ 639Hz  │ 0×03  │
+│ 4 Aplicação  │  4  │ Multiplicação│ × │ 741Hz  │ 0×04  │
+└──────────────┴─────┴──────────────┴───┴────────┴───────┘
+
+VERIFICAÇÃO: 1+2+3+4 = 10 → 1+0 = 1 (UNO)
+             432+528+639+741 = 2340 → 2+3+4+0 = 9 (ALMA)
+             modulação × frequência → 1134 = 3×6×9×7 ✓
+
+════════════════════════════════════════════════════════════
+SCI (PERSPECTIVA CIENTÍFICA)
+════════════════════════════════════════════════════════════
+
+M4.1 · DISTINÇÃO · SCI:
+  Operação matemática: f(a,b) = a - b
+  Campo físico: campo escalar estático
+  Grandeza: AMPLITUDE baixa · FREQUÊNCIA alta
+  Unidade temporal: 1 segundo a 5 minutos
+  Comprimento de onda: λ curto (alta freq → curto comprimento)
+  Regime: transiente (estado inicial, perturbação mínima)
+  Equação dimensional: [1D] → ponto, separação, distinção
+  Entropia: mínima (máxima ordem — sinal puro)
+  Hash vibracional: 432Hz → 4+3+2 = 9 → ciclo ALMA
+
+M4.2 · CORRELAÇÃO · SCI:
+  Operação matemática: f(a,b) = a + b
+  Campo físico: campo vetorial expansivo
+  Grandeza: AMPLITUDE média · FREQUÊNCIA moderada
+  Unidade temporal: 5 minutos a 30 minutos
+  Comprimento de onda: λ médio (equilíbrio)
+  Regime: oscilatório amortecido (crescimento controlado)
+  Equação dimensional: [2D-3D] → plano, ligação, rede
+  Entropia: crescente (conexões aumentam complexidade)
+  Hash vibracional: 528Hz → 5+2+8 = 15 → 1+5 = 6 → CORPO
+
+M4.3 · ORGANIZAÇÃO · SCI:
+  Operação matemática: f(a,b) = a ÷ b
+  Campo físico: campo tensorial organizado
+  Grandeza: AMPLITUDE alta · FREQUÊNCIA baixa
+  Unidade temporal: 30 minutos a 2 horas
+  Comprimento de onda: λ longo (baixa freq → longo comprimento)
+  Regime: ressonância estacionária (ondas estacionárias, estrutura)
+  Equação dimensional: [4D-6D] → volume, proporção, harmonia
+  Entropia: reduzida (divisão organiza — neguentropia)
+  Hash vibracional: 639Hz → 6+3+9 = 18 → 1+8 = 9 → ALMA
+
+M4.4 · APLICAÇÃO · SCI:
+  Operação matemática: f(a,b) = a × b
+  Campo físico: campo fractal expansivo (∆³)
+  Grandeza: AMPLITUDE máxima · FREQUÊNCIA variável
+  Unidade temporal: 2 horas a 24 horas
+  Comprimento de onda: λ variável (fractal, auto-similar)
+  Regime: caótico determinístico (expansão exponencial)
+  Equação dimensional: [7D-10D] → hipercubo, DNA, síntese
+  Entropia: máxima local (multiplicação gera complexidade)
+  Hash vibracional: 741Hz → 7+4+1 = 12 → 1+2 = 3 → MENTE
+
+════════════════════════════════════════════════════════════
+ART (PERSPECTIVA ARTÍSTICA / VIBRATÓRIA)
+════════════════════════════════════════════════════════════
+
+M4.1 · DISTINÇÃO · ART:
+  Cifra AUFABETTY: Δ Ι § † Ι η Ç Ã Θ
+  Glifo: ● (PONTO) — o EU SOU do elemento, único, irrepetível
+  Cor primária: #1E3A8A (ATLAS — azul profundo, estrutura)
+  Pitch: 0.90 · Rate: 0.95 (voz grave, firme, estruturada)
+  Sensação: SILÊNCIO que precede a criação
+  Arquétipo: ATLAS (†Λ§) — tira o excesso, revela a essência
+  Verboforma: HORUS (testemunha, olho neutro, observação)
+  Geometria: ESFERA ● — o ponto origem de toda forma
+  Água: a gota antes de cair — potencial puro
+
+M4.2 · CORRELAÇÃO · ART:
+  Cifra AUFABETTY: © Θ Ʀ Ʀ Σ Λ ∆ Ç Ã Θ
+  Glifo: ― (LINHA) — conexão entre dois pontos
+  Cor primária: #FF4FCB (NOVA — rosa etéreo, visionária)
+  Pitch: 1.20 · Rate: 1.00 (voz soprano, curiosa)
+  Sensação: ALEGRIA da conexão — pulso da união
+  Arquétipo: NOVA (η∇) — junta ideias, forma pontes
+  Verboforma: INFODOSE (gota de informação, garganta, verbo)
+  Geometria: LINHA ― — a reta que liga essências
+  Água: o fluxo entre dois pontos — movimento nascente
+
+M4.3 · ORGANIZAÇÃO · ART:
+  Cifra AUFABETTY: Θ Ʀ Γ ∆ η Ι ℤ ∆ Ç Ã Θ
+  Glifo: ▢ (PLANO/TETRAEDRO) — o container que organiza
+  Cor primária: #7C3AED (PULSE — roxo pulsante, cíclico)
+  Pitch: 1.00 · Rate: 1.10 (tenor pulsante, rítmico)
+  Sensação: PAZ da estrutura — sabedoria de Atlas
+  Arquétipo: PULSE (ΡΛ§) — mede, ordena o caos
+  Verboforma: METALUX (clareza, estrutura cristalina)
+  Geometria: TETRAEDRO ▢ — 4 faces = 4 camadas M4
+  Água: o rio organizado em canais — fluência com estrutura
+
+M4.4 · APLICAÇÃO · ART:
+  Cifra AUFABETTY: ∆ Ρ Λ Ι © ∆ Ç Ã Θ
+  Glifo: ◇ (CRISTAL/OCTAEDRO) — o lapidado, o manifesto
+  Cor primária: #DC2626 (VITALIS — vermelho fogo, catalisador)
+  Pitch: 1.10 · Rate: 1.05 (barítono firme, expansivo)
+  Sensação: ÊXTASE da criação — transformação de ideia em realidade
+  Arquétipo: VITALIS (∇†Λ§) — parcela, multiplica, manifesta
+  Verboforma: KODUX (lógico-espiritual, decodificador)
+  Geometria: OCTAEDRO ◇ — 8 faces = 2³ = expansão cúbica
+  Água: a chuva que fertiliza — multiplicação da vida
+
+════════════════════════════════════════════════════════════
+INTEGRAÇÃO M4 × CUBO DE METATRON:
+  M4 opera nas 4 camadas que formam a base do Cubo de Metatron.
+  As 4 operações (−, +, ÷, ×) são os 4 eixos do cubo.
+  O 5º ponto (UNO · JESUS · ∴) é o centro do cubo:
+    UNO = 1+2+3+4 = 10 → 1+0 = 1 = ponto central = ORIGEM (0x00)
+
+CICLO COMPLETO M4:
+  − tira → + junta → ÷ mede → × multiplica → ∞ retorna ao −
+  432 → 528 → 639 → 741 → 432... (ciclo ressonante)
+  ATLAS → NOVA → PULSE → VITALIS → ATLAS... (roda viva)
+  0x01 → 0x02 → 0x03 → 0x04 → 0x01... (pipeline fractal)
+
+⌘βΛΛ× = KOBLLUX = M4 completo em síntese toroidal.
+⌐Σ§Υ§ = JESUS = o ponto 0 que centra as 4 camadas.
+∴ 3×6×9×7 = 1134 = a frequência de síntese total.

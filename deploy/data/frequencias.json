@@ -1,0 +1,26 @@
+{
+  "sistema": "ESCALA SOLFEGGIO + KOBLLUX EXTENSIONS",
+  "equacao_fractal": "3 × 6 × 9 × 7 = 1134",
+  "frequencias": [
+    { "hz": 432,  "opcode": "0x00", "fase": "ORIGEM",      "simbolo": "○", "nome": "Terra / Fundação",     "efeito": "Alinhamento, estrutura, estabilidade" },
+    { "hz": 528,  "opcode": "0x02", "fase": "INTEGRAR",    "simbolo": "―", "nome": "Amor / DNA",           "efeito": "Transformação, reparação, cura" },
+    { "hz": 594,  "opcode": "0x04", "fase": "LAPIDAR",     "simbolo": "◇", "nome": "Lapidação",            "efeito": "Refinamento, clareza, precisão" },
+    { "hz": 639,  "opcode": "0x03", "fase": "EXPANDIR",    "simbolo": "▢", "nome": "Conexão / Relação",    "efeito": "Expansão, harmonia, relacionamento" },
+    { "hz": 672,  "opcode": "0x05", "fase": "CONVERGIR",   "simbolo": "⧉", "nome": "Convergência",         "efeito": "Foco, sincronização, alinhamento" },
+    { "hz": 741,  "opcode": "0x09", "fase": "ETERNIZAR",   "simbolo": "♾", "nome": "Expressão / Solução",  "efeito": "Despertar intuição, expressão" },
+    { "hz": 768,  "opcode": "0x00", "fase": "ORIGEM",      "simbolo": "○", "nome": "KOBLLUX ORIGEM",       "efeito": "Raiz absoluta, ponto zero" },
+    { "hz": 777,  "opcode": "0x07", "fase": "SELAR",       "simbolo": "✧", "nome": "Número do Espírito",   "efeito": "Perfeição, integridade, selo" },
+    { "hz": 852,  "opcode": "0x08", "fase": "TESTEMUNHAR", "simbolo": "◉", "nome": "Retorno ao Ser",       "efeito": "Testemunho, consciência, presença" },
+    { "hz": 963,  "opcode": "0x09", "fase": "ETERNIZAR",   "simbolo": "♾", "nome": "Consciência Divina",   "efeito": "Eternidade, transcendência, conexão" },
+    { "hz": 1134, "opcode": "0x0C", "fase": "SÍNTESE",     "simbolo": "⌘", "nome": "3×6×9×7 = KOBLLUX",   "efeito": "Síntese total, UNO, fractal completo" }
+  ],
+  "solfeggio_map": {
+    "396": "UT — Libertação de culpa/medo",
+    "417": "RE — Desfazer situações",
+    "528": "MI — Transformação/milagres",
+    "639": "FA — Conexão/relacionamentos",
+    "741": "SOL — Despertar intuição",
+    "852": "LA — Retorno à ordem espiritual",
+    "963": "SI — Consciência divina"
+  }
+}

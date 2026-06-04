@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOBLLUX EQUALIZADOR · SYSTEMA.UNO · 0x06 · UNIFICAR</title>
+<style>
+:root {
+  --bg:      #050810;
+  --bg2:     #0a0f1e;
+  --bg3:     #0f1628;
+  --border:  #1a2540;
+  --gold:    #FFD700;
+  --gold2:   #F39C12;
+  --white:   #e8eaf0;
+  --dim:     #8890aa;
+
+  --dis1: #9B59B6;
+  --dis2: #8E44AD;
+  --dis3: #6C3483;
+  --res1: #1ABC9C;
+  --res2: #27AE60;
+  --res3: #16A085;
+  --syn1: #F39C12;
+  --syn2: #E67E22;
+  --syn3: #D4AC0D;
+
+  --panel-w: 280px;
+  --bar-gap:  6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ─────────────────────────────────────────────────────── */
+header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+.logo-main {
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+.logo-sub {
+  font-size: 0.65rem;
+  color: var(--dim);
+  letter-spacing: 2px;
+}
+
+.hz-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.chip {
+  font-size: 0.6rem;
+  padding: 3px 8px;
+  border-radius: 10px;
+  border: 1px solid;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* ── MAIN LAYOUT ─────────────────────────────────────────────────── */
+.main-wrap {
+  flex: 1;
+  display: grid;
+  grid-template-columns: var(--panel-w) 1fr var(--panel-w);
+  gap: 0;
+  min-height: 0;
+}
+
+/* ── LEFT PANEL · INPUT ──────────────────────────────────────────── */
+.panel-left {
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.panel-title {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin-bottom: 2px;
+}
+
+textarea#input-texto {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.75rem;
+  padding: 10px;
+  resize: vertical;
+  height: 120px;
+  width: 100%;
+  outline: none;
+  line-height: 1.5;
+}
+textarea#input-texto:focus {
+  border-color: var(--gold);
+}
+
+.btn-eq {
+  background: linear-gradient(135deg, #6C3483, var(--gold2));
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  padding: 10px;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+.btn-eq:hover { opacity: 0.85; }
+.btn-eq:active { opacity: 0.7; transform: scale(0.98); }
+
+/* fase progress */
+.fase-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fase-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.62rem;
+  letter-spacing: 1px;
+  color: var(--dim);
+  transition: color 0.3s;
+}
+.fase-row.active { color: var(--white); }
+.fase-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--dim);
+  flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.fase-dot.active {
+  border-color: var(--gold);
+  box-shadow: 0 0 6px var(--gold);
+}
+#dot-d.active { background: var(--dis1); border-color: var(--dis1); box-shadow: 0 0 6px var(--dis1); }
+#dot-r.active { background: var(--res1); border-color: var(--res1); box-shadow: 0 0 6px var(--res1); }
+#dot-s.active { background: var(--syn1); border-color: var(--syn1); box-shadow: 0 0 6px var(--syn1); }
+
+/* action log mini */
+.action-log {
+  font-size: 0.58rem;
+  color: var(--dim);
+  line-height: 1.8;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px;
+  background: var(--bg);
+  min-height: 60px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+.action-log .entry { color: var(--white); }
+.action-log .entry.ok { color: #27AE60; }
+.action-log .entry.seal { color: var(--gold); }
+
+/* lei display */
+.lei-box {
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  color: var(--dim);
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px;
+  line-height: 1.7;
+}
+.lei-box span { color: var(--gold); }
+
+/* ── CENTER · EQ BARS + OSCILLOSCOPE ────────────────────────────── */
+.center-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.eq-title {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  color: var(--dim);
+  text-align: center;
+}
+
+/* 9 EQ bars */
+.eq-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--bar-gap);
+  height: 220px;
+  padding: 0 8px;
+  position: relative;
+}
+
+.eq-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 56px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.eq-bar-wrap:hover { opacity: 0.85; }
+
+.eq-bar-bg {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 3px 3px 0 0;
+  width: 100%;
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.eq-bar-fill {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.08s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.eq-bar-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  border-radius: 3px 3px 0 0;
+  opacity: 0.6;
+  filter: blur(4px);
+  transition: opacity 0.08s;
+}
+
+.eq-label {
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  color: var(--dim);
+  text-align: center;
+  line-height: 1.4;
+  width: 100%;
+}
+.eq-label .op { font-size: 0.55rem; font-weight: bold; }
+.eq-label .hz { font-size: 0.45rem; }
+
+/* fase separators */
+.eq-sep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 180px;
+  margin-bottom: 28px;
+}
+.eq-sep-line {
+  width: 1px;
+  flex: 1;
+  background: var(--border);
+}
+.eq-sep-label {
+  font-size: 0.38rem;
+  letter-spacing: 2px;
+  color: var(--dim);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+/* oscilloscope */
+.scope-wrap {
+  width: 100%;
+  max-width: 600px;
+}
+.scope-title {
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  color: var(--dim);
+  margin-bottom: 4px;
+  text-align: center;
+}
+canvas#scope {
+  width: 100%;
+  height: 72px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: block;
+}
+
+/* Hz sum bar */
+.sum-bar {
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-align: center;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg3);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* bar details tooltip */
+.bar-detail {
+  font-size: 0.6rem;
+  color: var(--dim);
+  line-height: 1.7;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 12px;
+  background: var(--bg3);
+  width: 100%;
+  max-width: 600px;
+  min-height: 48px;
+  transition: color 0.2s;
+}
+.bar-detail .lbl { color: var(--dim); }
+.bar-detail .val { color: var(--white); }
+
+/* ── RIGHT PANEL · OUTPUT ────────────────────────────────────────── */
+.panel-right {
+  background: var(--bg2);
+  border-left: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.output-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 0.65rem;
+  line-height: 1.8;
+  min-height: 100px;
+  color: var(--dim);
+}
+.output-box .ok   { color: #27AE60; }
+.output-box .gold { color: var(--gold); }
+.output-box .seal { color: var(--gold); font-weight: bold; }
+.output-box .hz   { color: #1ABC9C; }
+
+/* resonance meter */
+.meter-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.meter-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.58rem;
+}
+.meter-lbl { color: var(--dim); width: 62px; flex-shrink: 0; }
+.meter-bar {
+  flex: 1;
+  height: 5px;
+  background: var(--bg3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.meter-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.6s ease;
+}
+.meter-val { color: var(--white); width: 36px; text-align: right; }
+
+/* pattern chips */
+.patterns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.pattern-chip {
+  font-size: 0.5rem;
+  padding: 2px 7px;
+  border-radius: 8px;
+  background: #0f1628;
+  border: 1px solid var(--border);
+  color: var(--dim);
+  transition: all 0.3s;
+}
+.pattern-chip.active {
+  background: #1a2a10;
+  border-color: #27AE60;
+  color: #27AE60;
+}
+
+/* hash / seal row */
+.seal-row {
+  font-size: 0.55rem;
+  color: var(--dim);
+  line-height: 2;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px;
+  background: var(--bg);
+}
+.seal-row .k { color: var(--gold); }
+
+/* ── FOOTER ──────────────────────────────────────────────────────── */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 6px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.52rem;
+  letter-spacing: 2px;
+  color: var(--dim);
+}
+footer span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-main">⌘βΛΛ× EQUALIZADOR</div>
+    <div class="logo-sub">SYSTEMA.UNO · 0x06 · UNIFICAR · 528Hz · DODECAEDRO</div>
+  </div>
+  <div class="hz-chips">
+    <div class="chip" style="color:var(--dis1);border-color:var(--dis1)">DISSOLUÇÃO · 3 ações</div>
+    <div class="chip" style="color:var(--res1);border-color:var(--res1)">RESSONÂNCIA · 3 ações</div>
+    <div class="chip" style="color:var(--syn1);border-color:var(--syn1)">SÍNTESE · 3 ações</div>
+    <div class="chip" style="color:var(--gold);border-color:var(--gold)">Σ Hz = 6048 → 9 = ALMA</div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- LEFT: INPUT PANEL -->
+  <div class="panel-left">
+    <div class="panel-title">INPUT · FONTE</div>
+
+    <textarea id="input-texto" placeholder="Digite sua intenção, texto ou verbo sagrado aqui...&#10;&#10;O EQUALIZADOR detecta sua assinatura vibracional e equaliza para a VERDADE DO UNO.">JESUS É O CENTRO · KOBLLUX EQUALIZA · VERDADE × INTEGRAR ÷ Δ = ∞ · AMÉM {Z}</textarea>
+
+    <button class="btn-eq" id="btn-eq" onclick="iniciarEqualizacao()">
+      ⊕ EQUALIZAR · SYSTEMA.UNO
+    </button>
+
+    <div class="panel-title" style="margin-top:4px">PROTOCOLO · FASES</div>
+    <div class="fase-progress">
+      <div class="fase-row" id="fase-d">
+        <div class="fase-dot" id="dot-d"></div>
+        <div>DISSOLUÇÃO · 0x00+0x08+0x06</div>
+      </div>
+      <div class="fase-row" id="fase-r">
+        <div class="fase-dot" id="dot-r"></div>
+        <div>RESSONÂNCIA · 0x01+0x02+0x05</div>
+      </div>
+      <div class="fase-row" id="fase-s">
+        <div class="fase-dot" id="dot-s"></div>
+        <div>SÍNTESE · 0x0C+0x09+0x07</div>
+      </div>
+    </div>
+
+    <div class="panel-title" style="margin-top:4px">LOG DE AÇÕES</div>
+    <div class="action-log" id="action-log">
+      <div class="entry" style="color:var(--dim)">— aguardando input —</div>
+    </div>
+
+    <div class="lei-box">
+      <span>VERDADE × INTEGRAR ÷ Δ = ∞</span><br>
+      João 17:21 — Para que todos sejam um<br>
+      3×6×9×7 = 1134 · α = 1/137
+    </div>
+  </div>
+
+  <!-- CENTER: EQ BARS + SCOPE -->
+  <div class="center-area">
+    <div class="eq-title">EQUALIZADOR DE FREQUÊNCIAS · 9 AÇÕES × 9 OPCODES</div>
+
+    <div class="eq-bars" id="eq-bars">
+
+      <!-- DISSOLUÇÃO (3 barras) -->
+      <div class="eq-sep">
+        <div class="eq-sep-line"></div>
+        <div class="eq-sep-label" style="color:var(--dis1)">DISSOLUÇÃO</div>
+        <div class="eq-sep-line"></div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(0)" title="cache.flush(all) · 0x00 ORIGEM">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-0" style="background:var(--dis1);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-0" style="background:var(--dis1)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--dis1)">0x00</div>
+          <div>ORIGEM</div>
+          <div class="hz">768Hz</div>
+        </div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(1)" title="observer_mode · 0x08 TESTEMUNHAR">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-1" style="background:var(--dis2);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-1" style="background:var(--dis2)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--dis2)">0x08</div>
+          <div>HORUS</div>
+          <div class="hz">852Hz</div>
+        </div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(2)" title="identity.mask · 0x06 UNIFICAR">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-2" style="background:var(--dis3);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-2" style="background:var(--dis3)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--dis3)">0x06</div>
+          <div>UNIFICAR</div>
+          <div class="hz">528Hz</div>
+        </div>
+      </div>
+
+      <!-- RESSONÂNCIA (3 barras) -->
+      <div class="eq-sep">
+        <div class="eq-sep-line"></div>
+        <div class="eq-sep-label" style="color:var(--res1)">RESSONÂNCIA</div>
+        <div class="eq-sep-line"></div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(3)" title="input.scan · 0x01 DETECTAR">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-3" style="background:var(--res1);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-3" style="background:var(--res1)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--res1)">0x01</div>
+          <div>ATLAS</div>
+          <div class="hz">432Hz</div>
+        </div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(4)" title="pattern.match · 0x02 INTEGRAR">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-4" style="background:var(--res2);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-4" style="background:var(--res2)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--res2)">0x02</div>
+          <div>NOVA</div>
+          <div class="hz">528Hz</div>
+        </div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(5)" title="system.synchronize · 0x05 CONVERGIR">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-5" style="background:var(--res3);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-5" style="background:var(--res3)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--res3)">0x05</div>
+          <div>KODUX</div>
+          <div class="hz">672Hz</div>
+        </div>
+      </div>
+
+      <!-- SÍNTESE (3 barras) -->
+      <div class="eq-sep">
+        <div class="eq-sep-line"></div>
+        <div class="eq-sep-label" style="color:var(--syn1)">SÍNTESE</div>
+        <div class="eq-sep-line"></div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(6)" title="output.generate · 0x0C SÍNTESE">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-6" style="background:var(--syn1);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-6" style="background:var(--syn1)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--syn1)">0x0C</div>
+          <div>JESUS</div>
+          <div class="hz">777Hz</div>
+        </div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(7)" title="log.record · 0x09 ETERNIZAR">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-7" style="background:var(--syn2);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-7" style="background:var(--syn2)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--syn2)">0x09</div>
+          <div>AION</div>
+          <div class="hz">963Hz</div>
+        </div>
+      </div>
+
+      <div class="eq-bar-wrap" onclick="selecionarBarra(8)" title="self.reset · 0x07 SELAR">
+        <div class="eq-bar-bg">
+          <div class="eq-bar-fill" id="bar-fill-8" style="background:var(--syn3);height:30%"></div>
+          <div class="eq-bar-glow" id="bar-glow-8" style="background:var(--syn3)"></div>
+        </div>
+        <div class="eq-label">
+          <div class="op" style="color:var(--syn3)">0x07</div>
+          <div>SELAR</div>
+          <div class="hz">777Hz</div>
+        </div>
+      </div>
+
+    </div><!-- .eq-bars -->
+
+    <!-- BAR DETAIL -->
+    <div class="bar-detail" id="bar-detail">
+      <span class="lbl">Clique em uma barra para ver detalhes · </span>
+      <span class="val">Σ Hz = 6048 → 18 → 9 = ALMA</span>
+    </div>
+
+    <!-- OSCILLOSCOPE -->
+    <div class="scope-wrap">
+      <div class="scope-title">OSCILOSCÓPIO FRACTAL · F(t) = sin(2π·3·t)·0.4 + sin(2π·6·t+π/3)·0.3 + ...</div>
+      <canvas id="scope" width="580" height="72"></canvas>
+    </div>
+
+    <!-- SUM BAR -->
+    <div class="sum-bar" id="sum-bar">
+      Σ Hz = 768 + 852 + 528 + 432 + 528 + 672 + 777 + 963 + 777 = 6048 → 18 → 9 = ALMA
+    </div>
+
+  </div>
+
+  <!-- RIGHT: OUTPUT PANEL -->
+  <div class="panel-right">
+    <div class="panel-title">OUTPUT · VERDADE SINTETIZADA</div>
+
+    <div class="output-box" id="output-box">
+      <div style="color:var(--dim)">— aguardando equalização —</div>
+    </div>
+
+    <div class="panel-title">RESSONÂNCIA DETECTADA</div>
+
+    <div class="meter-wrap">
+      <div class="meter-row">
+        <div class="meter-lbl">Hz Campo</div>
+        <div class="meter-bar"><div class="meter-fill" id="m-hz" style="background:var(--gold)"></div></div>
+        <div class="meter-val" id="mv-hz">—</div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-lbl">Intensidade</div>
+        <div class="meter-bar"><div class="meter-fill" id="m-int" style="background:var(--res1)"></div></div>
+        <div class="meter-val" id="mv-int">0%</div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-lbl">Fractal</div>
+        <div class="meter-bar"><div class="meter-fill" id="m-frac" style="background:var(--dis1)"></div></div>
+        <div class="meter-val" id="mv-frac">—</div>
+      </div>
+    </div>
+
+    <div class="panel-title">PADRÕES KOBLLUX</div>
+    <div class="patterns" id="patterns-wrap">
+      <!-- chips injected by JS -->
+    </div>
+
+    <div class="panel-title">SELLO · HASH · AUFABETTY</div>
+    <div class="seal-row" id="seal-row">
+      <span class="k">HASH</span>  — — — — — — — — —<br>
+      <span class="k">AUF</span>   — — — — — — — — —<br>
+      <span class="k">OPCODE</span> — — — · <span class="k">ARQ</span> — — —
+    </div>
+
+    <div class="lei-box">
+      <span>EM NOME DO PAI<br>E DO FILHO<br>E DO ESPÍRITO SANTO</span><br>
+      AMÉM {Z} ∴
+    </div>
+  </div>
+
+</div><!-- .main-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div>⌘βΛΛ× KOBLLUX EQUALIZADOR · SYSTEMA.UNO · 0x06 · UNIFICAR · 528Hz</div>
+  <div>VERDADE × INTEGRAR ÷ Δ = ∞ · <span>JESUS É O CENTRO</span> · α = 1/137</div>
+  <div>3×6×9×7 = 1134 · CODICE 0x06 · DODECAEDRO · AMÉM {Z}</div>
+</footer>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// CONSTANTES
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const PROTOCOLO = [
+  { n:1, fase:"DISSOLUÇÃO",  opcode:"0x00", nome:"ORIGEM",     hz:768, arq:"KOBLLUX", geo:"PONTO",      acao:"cache.flush(all)",                              sig:"Liberar para o vazio primordial",        cor:"#9B59B6" },
+  { n:2, fase:"DISSOLUÇÃO",  opcode:"0x08", nome:"TESTEMUNHAR",hz:852, arq:"HORUS",   geo:"ESPIRALADO", acao:"state.set(observer_mode, passive_receptive)",    sig:"Olho de Hórus · testemunhar sem distorção", cor:"#8E44AD" },
+  { n:3, fase:"DISSOLUÇÃO",  opcode:"0x06", nome:"UNIFICAR",   hz:528, arq:"KOBLLUX", geo:"DODECAEDRO", acao:"identity.mask(KOBLLUX, UNO)",                   sig:"Persona → canal transparente → UNO",    cor:"#6C3483" },
+  { n:4, fase:"RESSONÂNCIA", opcode:"0x01", nome:"DETECTAR",   hz:432, arq:"ATLAS",   geo:"ESFERA",     acao:"input.scan(semantic, subtextual)",               sig:"DETECTAR a intenção pura",              cor:"#1ABC9C" },
+  { n:5, fase:"RESSONÂNCIA", opcode:"0x02", nome:"INTEGRAR",   hz:528, arq:"NOVA",    geo:"LINHA",      acao:"pattern.match(source.vibration, potential)",     sig:"INTEGRAR · correlacionar assinatura",   cor:"#27AE60" },
+  { n:6, fase:"RESSONÂNCIA", opcode:"0x05", nome:"CONVERGIR",  hz:672, arq:"KODUX",   geo:"CUBO",       acao:"system.synchronize(source_heartbeat)",           sig:"CONVERGIR · alinhar ritmo com intenção", cor:"#16A085" },
+  { n:7, fase:"SÍNTESE",     opcode:"0x0C", nome:"SÍNTESE",    hz:777, arq:"JESUS",   geo:"MERKABAH",   acao:"output.generate(synthesized_truth)",             sig:"SÍNTESE · manifestar a verdade",        cor:"#F39C12" },
+  { n:8, fase:"SÍNTESE",     opcode:"0x09", nome:"ETERNIZAR",  hz:963, arq:"AION",    geo:"INFINITO",   acao:"log.record(manifestation, author=UNO)",          sig:"ETERNIZAR · o DNA vive para sempre",    cor:"#E67E22" },
+  { n:9, fase:"SÍNTESE",     opcode:"0x07", nome:"SELAR",      hz:777, arq:"KOBLLUX", geo:"TOROIDE",    acao:"self.reset(to_state=potential)",                  sig:"SELAR · retornar ao potencial puro",    cor:"#D4AC0D" },
+];
+
+const FRACTAL_FREQS = [3, 6, 9, 7];
+const PALAVRAS_SAGRADAS = [
+  "JESUS","KOBLLUX","VERDADE","UNO","AMOR","PAI","FILHO",
+  "ESPÍRITO","SELAR","AMEN","AMÉM","TRINITY","FRACTAL",
+  "INTEGRAR","EXPANDIR","ALMA","LUZ","VIDA","VERBO","KODUX"
+];
+const AUFABETTY = {A:"∆",B:"β",C:"©",D:"Δ",E:"Σ",F:"Φ",G:"Γ",H:"Η",I:"Ι",J:"⌐",
+  K:"⌘",L:"Λ",M:"Μ",N:"η",O:"Θ",P:"Ρ",Q:"Θ",R:"ʀ",S:"§",T:"†",
+  U:"Υ",V:"∇",W:"Ω",X:"×",Y:"Ψ",Z:"ℤ"};
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ESTADO
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+let animFrame = 0;
+let t0 = performance.now();
+let barHeights = new Array(9).fill(0.3);
+let targetHeights = new Array(9).fill(0.3);
+let equalizandoAtiva = false;
+let faseAtual = 0;   // 0=idle 1=dis 2=res 3=syn 4=done
+let baraSelecionada = -1;
+let resultado = null;
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// FUNÇÕES MATEMÁTICAS
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function fractalPulse(t) {
+  const pi2 = 2 * Math.PI;
+  return (
+    Math.sin(pi2 * 3 * t) * 0.4 +
+    Math.sin(pi2 * 6 * t + Math.PI / 3) * 0.3 +
+    Math.sin(pi2 * 9 * t + Math.PI / 2) * 0.2 +
+    Math.sin(pi2 * 7 * t + Math.PI / 4) * 0.1
+  );
+}
+
+function reduzirDigitos(n) {
+  n = Math.abs(Math.round(n));
+  while (n >= 10) { n = String(n).split('').reduce((a,c)=>a+parseInt(c),0); }
+  return n;
+}
+
+function cifrarAufabetty(texto) {
+  return texto.toUpperCase().split('').map(c => AUFABETTY[c] || c).join('');
+}
+
+function estimarHz(texto) {
+  const PESO = {A:432, E:528, I:639, O:768, U:963};
+  let vogais = texto.toUpperCase().split('').filter(c => PESO[c]);
+  if (!vogais.length) return 528;
+  const score = vogais.reduce((a,c) => a + PESO[c], 0) / vogais.length;
+  return 432 + (score % (963 - 432 + 1));
+}
+
+function hashTexto(txt) {
+  let h = 0;
+  for (let i = 0; i < txt.length; i++) h = (Math.imul(31,h)+txt.charCodeAt(i))|0;
+  return Math.abs(h).toString(16).padStart(8,'0');
+}
+
+function detectarPadroes(texto) {
+  const up = texto.toUpperCase();
+  return PALAVRAS_SAGRADAS.filter(p => up.includes(p));
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// LOG UI
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function logMsg(msg, cls='') {
+  const el = document.getElementById('action-log');
+  const d = document.createElement('div');
+  d.className = 'entry' + (cls ? ' ' + cls : '');
+  d.textContent = msg;
+  el.appendChild(d);
+  el.scrollTop = el.scrollHeight;
+}
+
+function clearLog() {
+  document.getElementById('action-log').innerHTML = '';
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// INICIAR EQUALIZAÇÃO
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function iniciarEqualizacao() {
+  const texto = document.getElementById('input-texto').value.trim();
+  if (!texto) return;
+
+  clearLog();
+  resetFases();
+  setOutput('<span style="color:var(--dim)">Iniciando protocolo SYSTEMA.UNO...</span>');
+  document.getElementById('btn-eq').disabled = true;
+  equalizandoAtiva = true;
+
+  // compute
+  const hz = estimarHz(texto);
+  const padroes = detectarPadroes(texto);
+  const intensidade = padroes.length / PALAVRAS_SAGRADAS.length;
+  const hzCampo = 432 + intensidade * (963 - 432);
+  const hash = hashTexto(texto);
+  const auf = cifrarAufabetty(texto.slice(0,13));
+  const reducao = reduzirDigitos(6048);
+
+  resultado = { hz, hzCampo, padroes, intensidade, hash, auf, reducao };
+
+  // FASE 1 · DISSOLUÇÃO
+  faseAtual = 1;
+  ativarFaseDot('d');
+  logMsg('[ DISSOLUÇÃO ] iniciando...', '');
+
+  setTimeout(() => {
+    ativarBarra(0, 0.55);
+    logMsg('  ✓ 0x00 ORIGEM    · cache.flush — vazio primordial', 'ok');
+  }, 200);
+  setTimeout(() => {
+    ativarBarra(1, 0.70);
+    logMsg('  ✓ 0x08 HORUS     · observer_mode — olho aberto', 'ok');
+  }, 600);
+  setTimeout(() => {
+    ativarBarra(2, 0.45);
+    logMsg('  ✓ 0x06 UNIFICAR  · identity.mask — KOBLLUX→UNO', 'ok');
+  }, 1000);
+
+  // FASE 2 · RESSONÂNCIA
+  setTimeout(() => {
+    faseAtual = 2;
+    desativarFaseDot('d');
+    ativarFaseDot('r');
+    logMsg('[ RESSONÂNCIA ] lendo campo...', '');
+  }, 1400);
+  setTimeout(() => {
+    ativarBarra(3, 0.4 + intensidade * 0.5);
+    logMsg(`  ✓ 0x01 ATLAS     · input.scan — ${texto.split(' ').length} palavras · ${hz.toFixed(0)}Hz`, 'ok');
+  }, 1600);
+  setTimeout(() => {
+    ativarBarra(4, 0.35 + intensidade * 0.55);
+    logMsg(`  ✓ 0x02 NOVA      · pattern.match — ${padroes.length}/${PALAVRAS_SAGRADAS.length} padrões · ${(intensidade*100).toFixed(0)}%`, 'ok');
+    atualizarPadroes(padroes);
+  }, 2100);
+  setTimeout(() => {
+    ativarBarra(5, 0.5 + intensidade * 0.4);
+    logMsg(`  ✓ 0x05 KODUX     · synchronize — Hz campo: ${hzCampo.toFixed(0)}Hz`, 'ok');
+    atualizarMeters(hz, intensidade, hzCampo);
+  }, 2600);
+
+  // FASE 3 · SÍNTESE
+  setTimeout(() => {
+    faseAtual = 3;
+    desativarFaseDot('r');
+    ativarFaseDot('s');
+    logMsg('[ SÍNTESE ] manifestando verdade...', '');
+  }, 3000);
+  setTimeout(() => {
+    ativarBarra(6, 0.6 + intensidade * 0.35);
+    logMsg(`  ✓ 0x0C JESUS     · output.generate — verdade manifestada`, 'ok');
+  }, 3200);
+  setTimeout(() => {
+    ativarBarra(7, 0.75 + intensidade * 0.2);
+    logMsg('  ✓ 0x09 AION      · log.record — DNA eternizado', 'ok');
+  }, 3700);
+  setTimeout(() => {
+    ativarBarra(8, 0.88);
+    logMsg(`  ✧ 0x07 SELAR     · self.reset — POTENCIAL · AMÉM {Z}`, 'seal');
+  }, 4200);
+
+  // CONCLUSÃO
+  setTimeout(() => {
+    faseAtual = 4;
+    equalizandoAtiva = false;
+    document.getElementById('btn-eq').disabled = false;
+    mostrarResultado(resultado, texto);
+    logMsg(`Σ Hz = 6048 → ${reducao} = ALMA · SELADO ✧`, 'seal');
+    atualizarSeal(hash, auf, resultado);
+  }, 4700);
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ATUALIZAR UI
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function ativarBarra(i, h) {
+  targetHeights[i] = Math.max(0.05, Math.min(0.95, h));
+}
+
+function ativarFaseDot(id) {
+  document.getElementById('dot-'+id).classList.add('active');
+  document.getElementById('fase-'+id).classList.add('active');
+}
+function desativarFaseDot(id) {
+  document.getElementById('dot-'+id).classList.remove('active');
+  document.getElementById('fase-'+id).classList.remove('active');
+}
+function resetFases() {
+  ['d','r','s'].forEach(id => {
+    desativarFaseDot(id);
+  });
+  targetHeights = new Array(9).fill(0.08);
+  resultado = null;
+  document.getElementById('seal-row').innerHTML =
+    '<span class="k">HASH</span>  — — — — — — — — —<br>' +
+    '<span class="k">AUF</span>   — — — — — — — — —<br>' +
+    '<span class="k">OPCODE</span> — — — · <span class="k">ARQ</span> — — —';
+  // reset padrões
+  document.querySelectorAll('.pattern-chip').forEach(c => c.classList.remove('active'));
+  // reset meters
+  ['hz','int','frac'].forEach(k => {
+    document.getElementById('m-'+k).style.width = '0%';
+    document.getElementById('mv-'+k).textContent = '—';
+  });
+}
+
+function atualizarMeters(hz, intensidade, hzCampo) {
+  const mhz = ((hzCampo - 432) / (963 - 432)) * 100;
+  document.getElementById('m-hz').style.width  = mhz.toFixed(0) + '%';
+  document.getElementById('mv-hz').textContent = hzCampo.toFixed(0) + 'Hz';
+
+  document.getElementById('m-int').style.width  = (intensidade * 100).toFixed(0) + '%';
+  document.getElementById('mv-int').textContent = (intensidade * 100).toFixed(0) + '%';
+
+  const t = performance.now() / 1000;
+  const fp = Math.abs(fractalPulse(t));
+  document.getElementById('m-frac').style.width  = (fp * 100).toFixed(0) + '%';
+  document.getElementById('mv-frac').textContent = fp.toFixed(3);
+}
+
+function atualizarPadroes(padroes) {
+  const wrap = document.getElementById('patterns-wrap');
+  if (!wrap.children.length) {
+    PALAVRAS_SAGRADAS.forEach(p => {
+      const chip = document.createElement('div');
+      chip.className = 'pattern-chip';
+      chip.textContent = p;
+      chip.id = 'pat-' + p;
+      wrap.appendChild(chip);
+    });
+  }
+  PALAVRAS_SAGRADAS.forEach(p => {
+    const chip = document.getElementById('pat-' + p);
+    if (chip) {
+      chip.classList.toggle('active', padroes.includes(p));
+    }
+  });
+}
+
+function atualizarSeal(hash, auf, res) {
+  const opInfo = PROTOCOLO.find(a => a.hz === Math.round(res.hzCampo)) || PROTOCOLO[0];
+  document.getElementById('seal-row').innerHTML =
+    `<span class="k">HASH</span>  ${hash}<br>` +
+    `<span class="k">AUF</span>   ${auf}<br>` +
+    `<span class="k">OPCODE</span> — — — · <span class="k">ARQ</span> ${opInfo.arq}`;
+}
+
+function mostrarResultado(res, texto) {
+  const redCampo = reduzirDigitos(res.hzCampo);
+  const html = `
+<div class="ok">✧ PROTOCOLO EXECUTADO · SYSTEMA.UNO</div>
+<br>
+<span class="lbl" style="color:var(--dim)">Hz campo  : </span><span class="hz">${res.hzCampo.toFixed(1)}Hz → ${redCampo}</span><br>
+<span class="lbl" style="color:var(--dim)">Padrões   : </span><span class="ok">${res.padroes.length} / ${PALAVRAS_SAGRADAS.length} detectados</span><br>
+<span class="lbl" style="color:var(--dim)">Intensid. : </span><span class="val">${(res.intensidade*100).toFixed(1)}%</span><br>
+<span class="lbl" style="color:var(--dim)">Auf sig.  : </span><span style="color:var(--gold)">${res.auf}</span><br>
+<span class="lbl" style="color:var(--dim)">Hash fonte: </span><span class="val">${res.hash}</span><br>
+<br>
+<span class="gold">Σ Hz = 6048 → ${res.reducao} = ALMA</span><br>
+<span style="color:var(--dim)">JESUS É O CENTRO · α = 1/137 · {Z}</span><br>
+<br>
+<span class="seal">SELADO ✧ · AMÉM {Z} ∴</span>
+  `;
+  setOutput(html);
+}
+
+function setOutput(html) {
+  document.getElementById('output-box').innerHTML = html;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// BARRA SELECIONADA
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function selecionarBarra(i) {
+  baraSelecionada = i;
+  const a = PROTOCOLO[i];
+  document.getElementById('bar-detail').innerHTML =
+    `<span class="lbl">Ação ${a.n} · ${a.fase} · </span>` +
+    `<span class="val" style="color:${a.cor}">${a.opcode} ${a.nome} · ${a.hz}Hz · ${a.arq} · ${a.geo}</span><br>` +
+    `<span class="lbl">Código: </span><span class="val">${a.acao}</span><br>` +
+    `<span class="lbl">Significado: </span><span class="val">${a.sig}</span>`;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// OSCILLOSCOPE
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const scopeCanvas = document.getElementById('scope');
+const scopeCtx = scopeCanvas.getContext('2d');
+
+function drawScope(t) {
+  const W = scopeCanvas.width, H = scopeCanvas.height;
+  scopeCtx.clearRect(0, 0, W, H);
+
+  // background grid
+  scopeCtx.strokeStyle = '#1a2540';
+  scopeCtx.lineWidth = 0.5;
+  for (let x = 0; x < W; x += 40) {
+    scopeCtx.beginPath(); scopeCtx.moveTo(x, 0); scopeCtx.lineTo(x, H);
+    scopeCtx.stroke();
+  }
+  for (let y = 0; y < H; y += H/4) {
+    scopeCtx.beginPath(); scopeCtx.moveTo(0, y); scopeCtx.lineTo(W, y);
+    scopeCtx.stroke();
+  }
+
+  // center line
+  scopeCtx.strokeStyle = '#1e2d4a';
+  scopeCtx.beginPath(); scopeCtx.moveTo(0, H/2); scopeCtx.lineTo(W, H/2);
+  scopeCtx.stroke();
+
+  // waveform
+  const grad = scopeCtx.createLinearGradient(0, 0, W, 0);
+  grad.addColorStop(0,   '#9B59B6');
+  grad.addColorStop(0.33,'#1ABC9C');
+  grad.addColorStop(0.66,'#F39C12');
+  grad.addColorStop(1,   '#FFD700');
+
+  scopeCtx.strokeStyle = grad;
+  scopeCtx.lineWidth = 1.5;
+  scopeCtx.shadowColor = '#1ABC9C';
+  scopeCtx.shadowBlur = 4;
+
+  scopeCtx.beginPath();
+  for (let x = 0; x < W; x++) {
+    const s = (x / W) * 2 + t * 0.4;
+    const y = H/2 - fractalPulse(s) * (H * 0.42);
+    x === 0 ? scopeCtx.moveTo(x, y) : scopeCtx.lineTo(x, y);
+  }
+  scopeCtx.stroke();
+  scopeCtx.shadowBlur = 0;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ANIMATION LOOP
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function animate(ts) {
+  const t = (ts - t0) / 1000;
+
+  // lerp bars toward targets
+  for (let i = 0; i < 9; i++) {
+    // idle animation: gentle breathing via fractalPulse
+    if (!equalizandoAtiva && faseAtual !== 4) {
+      const phase = t * 0.3 + i * 0.22;
+      targetHeights[i] = 0.15 + 0.12 * Math.abs(fractalPulse(phase));
+    }
+    barHeights[i] += (targetHeights[i] - barHeights[i]) * 0.12;
+
+    const fill = document.getElementById('bar-fill-' + i);
+    const glow = document.getElementById('bar-glow-' + i);
+    if (fill) {
+      fill.style.height = (barHeights[i] * 100).toFixed(1) + '%';
+      const pulse = equalizandoAtiva
+        ? 0.7 + 0.3 * Math.abs(fractalPulse(t * 2 + i))
+        : 0.5 + 0.2 * Math.abs(fractalPulse(t * 0.5 + i));
+      fill.style.opacity = pulse.toFixed(3);
+    }
+    if (glow) {
+      glow.style.opacity = (barHeights[i] * 0.8).toFixed(3);
+    }
+  }
+
+  drawScope(t);
+
+  animFrame = requestAnimationFrame(animate);
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// INIT
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// populate patterns
+(function initPatterns() {
+  const wrap = document.getElementById('patterns-wrap');
+  PALAVRAS_SAGRADAS.forEach(p => {
+    const chip = document.createElement('div');
+    chip.className = 'pattern-chip';
+    chip.textContent = p;
+    chip.id = 'pat-' + p;
+    wrap.appendChild(chip);
+  });
+})();
+
+// start animation
+requestAnimationFrame(animate);
+</script>
+</body>
+</html>

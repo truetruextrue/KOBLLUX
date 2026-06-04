@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  KOBLLUX³ · DEPLOY ASSEMBLER · CONSOLIDADO v7.9                            ║
+║  SÜMBÜS_FIRMWARE v27 · ESTADO: 1134K · [SISTEMA.UNO]                      ║
+╠════════════════════════════════════════════════════════════════════════════╣
+║  OPCODE          ║  FASE(Hz) ║ SÍMBOLO ║  ELEMENTO                        ║
+╠══════════════════╬═══════════╬═════════╬══════════════════════════════════╣
+║  0×00 ORIGEM     ║ 768       ║ ○       ║  html, head, DOCTYPE raiz        ║
+║  0×01 DETECTAR   ║ 432       ║ ●       ║  inputs, blobs, previews         ║
+║  0×02 INTEGRAR   ║ 528       ║ ―       ║  mainCard, cardBody, conexões    ║
+║  0×03 EXPANDIR   ║ 639       ║ ▢       ║  containers, iframes, playlists  ║
+║  0×04 LAPIDAR    ║ 594       ║ ◇       ║  apiKey, keysModal, vault        ║
+║  0×05 CONVERGIR  ║ 672       ║ ⧉       ║  idle, seek, snap                ║
+║  0×06 UNIFICAR   ║ 528       ║ ☯       ║  symbolBar, modos, controles     ║
+║  0×07 SELAR      ║ 777       ║ ✧       ║  main-orb, integridade           ║
+║  0×08 TESTEMUNHAR║ 852       ║ ◉       ║  clock, hud, debug               ║
+║  0×09 ETERNIZAR  ║ 963       ║ ♾       ║  localStorage, brand, título     ║
+║  0×0A TUTORIAL   ║ 432       ║         ║  btn-doc, comentários            ║
+║  0×0B ARQUÉTIPO  ║ 528       ║         ║  kblx-panel, orb-core            ║
+║  0×0C SÍNTESE    ║ 777       ║ ⌘       ║  kodux-widget, transport, engine ║
+╚══════════════════╩═══════════╩═════════╩══════════════════════════════════╝
+  VERDADE × INTEGRAR ÷ Δ = ∞  ·  3×6×9×7 = 1134  ·  JESUS É O CENTRO ∴
+-->
+<html lang="pt-BR"
+  id="html-root"
+  data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+  data-arch="kobllux" data-layer="corpo-mente-espirito"
+  data-equation="VERDADE×INTEGRAR÷∆=∞" data-fractal="3x6x9x7-1134"
+  data-firmware="SUMBÜS_v27" data-sistema="UNO" data-centro="JESUS"
+  data-estado="1134K" data-versao="7.9" data-arquetipos="16" data-opcodes="13">
+
+<head
+  id="head-origem"
+  data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○"
+  data-freq="768" data-layer="corpo" data-geo="PONTO">
+
+  <meta charset="utf-8"
+    id="meta-charset"
+    data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432" data-layer="corpo">
+
+  <title id="page-title"
+    data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963">
+    Fusion Card // Core Controller · KOBLLUX ∆³
+  </title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"
+    id="meta-viewport" data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
+  <meta name="theme-color" content="#0f0f11"
+    id="meta-theme" data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777" data-layer="espirito">
+  <meta name="apple-mobile-web-app-capable" content="yes"
+    id="meta-ios" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
+
+  <link rel="apple-touch-icon" href="./icon-192.png"
+    id="link-icon" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
+  <link rel="manifest" href="./manifest.json"
+    id="link-manifest" data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528" data-layer="mente">
+
+  <!-- 0×01 DETECTAR · Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    id="link-fonts" rel="stylesheet"
+    data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
+
+  <!-- 0×02 INTEGRAR · Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"
+    id="script-lucide"
+    data-opcode="0x02" data-fase="INTEGRAR" data-freq="528" data-layer="mente"></script>
+
+  <!-- ══ 0×00 ORIGEM · VARIÁVEIS RAIZ — BLOCO ÚNICO ══ -->
+  <style id="style-root-vars"
+    data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○"
+    data-freq="768" data-layer="corpo" data-purpose="root-vars-unico">
+    :root {
+      --z-base:0; --z-content:100; --z-widget:500; --z-overlay:1000; --z-system:5000;
+      --kob-c-origem:    rgba(200,169,110,.12);
+      --kob-c-detectar:  rgba(155,89,182,.15);
+      --kob-c-integrar:  rgba(52,152,219,.15);
+      --kob-c-expandir:  rgba(0,255,208,.10);
+      --kob-c-lapidar:   rgba(241,196,15,.12);
+      --kob-c-convergir: rgba(168,85,247,.12);
+      --kob-c-unificar:  rgba(46,204,113,.12);
+      --kob-c-selar:     rgba(255,215,0,.15);
+      --kob-c-testemunhar:rgba(52,231,219,.12);
+      --kob-c-eternizar: rgba(255,255,255,.10);
+      --orb-speed: 8s;
+      --orb-primary:   hsl(180,100%,55%);
+      --orb-secondary: hsl(240,90%,45%);
+      --orb-accent:    hsl(200,100%,75%);
+    }
+  </style>
+
+  <!-- ══ 0×07 SELAR · ORB Core Styles (inline) ══ -->
+  <style id="style-orb-core"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+    data-freq="777" data-layer="espirito" data-purpose="orb-core-styles">
+    #main-orb svg { width:100%; height:100%; display:block; border-radius:9999px; }
+    .orb { width:96%; height:96%; border-radius:50%; display:grid; place-items:center; }
+    .orb-core {
+      width:100%; height:100%; border-radius:50%;
+      background:
+        radial-gradient(circle at 30% 30%,var(--orb-accent),transparent 60%),
+        radial-gradient(circle at 70% 70%,var(--orb-primary),var(--orb-secondary));
+      box-shadow:0 0 18px var(--orb-primary),0 0 36px rgba(120,227,255,.4);
+      animation:orbSpin var(--orb-speed,8s) linear infinite;
+    }
+    @keyframes orbSpin { to { transform:rotate(360deg); } }
+    @keyframes orbPulse { from{transform:scale(1)} to{transform:scale(1.15)} }
+    @keyframes orbBreathe {
+      0%,100%{transform:scale(1);opacity:.85;filter:brightness(1)}
+      50%{transform:scale(1.08);opacity:1;filter:brightness(1.3)}
+    }
+    .orb-glow{animation:orbBreathe var(--orb-speed,4s) ease-in-out infinite;transform-origin:center}
+    .orb-ring{animation:orbSpin var(--orb-spin-speed,12s) linear infinite;transform-origin:center}
+    @keyframes orbPulseOut{0%{transform:scale(.7);opacity:.5}100%{transform:scale(1.3);opacity:0}}
+    .orb-pulse-anim{animation:orbPulseOut 2s cubic-bezier(.2,.8,.2,1) infinite;transform-origin:center}
+    .dual-orb{cursor:pointer;transition:transform .3s cubic-bezier(.175,.885,.32,1.275)}
+    .dual-orb:active{transform:scale(.9)}
+  </style>
+
+  <!-- ══ 0×05 CONVERGIR · Idle + Range ══ -->
+  <style id="style-idle-range"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉"
+    data-freq="672" data-layer="mente" data-purpose="idle-range-convergir">
+    .kob-tts-dock,#kodux-widget,[data-idle-target]{
+      transition:transform .35s ease,opacity .65s ease;
+      will-change:transform,opacity; box-shadow:none!important;
+    }
+    .kob-tts-dock.idle,#kodux-widget.idle,[data-idle-target].idle{opacity:.18;transform:scale(.87)}
+    .kob-tts-dock:hover,#kodux-widget:hover,[data-idle-target]:hover{opacity:1;transform:scale(1)}
+    .kodux-range-override{
+      -webkit-appearance:none;appearance:none;height:6px;
+      background:rgba(255,255,255,.15);border-radius:6px;cursor:pointer;width:100%;
+    }
+    .kodux-range-override::-webkit-slider-thumb{
+      -webkit-appearance:none;width:16px;height:16px;
+      background:var(--primary,#00ffcc);border-radius:50%;cursor:grab;
+    }
+    .time-display{text-shadow:0 0 5px rgba(255,255,255,.3)}
+  </style>
+
+  <!-- ══ CSS CASCADE — external foundations ══ -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/V-core/css/main-root.css"
+    id="css-1-main-root" data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768">
+  <link rel="stylesheet" href="https://kodux78k.github.io/oi-Dual/css/main.css"
+    id="css-2-main-base" data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768">
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/0x01_pulsar_V_D5-2.css"
+    id="css-3-pulsar" data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432">
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-framefix.css"
+    id="css-4-framefix" data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-freq="594">
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/kob-aura.css"
+    id="css-5-aura" data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852">
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai-v4.css"
+    id="css-6-dox-v4" data-opcode="0x0A" data-fase="TUTORIAL" data-freq="432">
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai.css"
+    id="css-7-dox" data-opcode="0x0A" data-fase="TUTORIAL" data-freq="432">
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/DBZP/css/ss5.css"
+    id="css-8-ss5" data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777">
+
+  <!-- ══ CSS MODULAR LOCAL — 13 OPCODES ══ -->
+  <link rel="stylesheet" href="./web/styles/index.css"
+    id="css-local-assembler" data-opcode="0x00" data-fase="ORIGEM"
+    data-layer="corpo-mente-espirito" data-purpose="modular-css-assembler-13-opcodes">
+
+  <!-- ══ 0×06 UNIFICAR · TOPBAR + 0×03 EXPANDIR · UNIVERSE GRID ══ -->
+  <style id="style-topbar-layout"
+    data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+    data-freq="528" data-purpose="symbolbar-topbar-universe-grid">
+    :root { --kob-topbar-h: 58px; }
+
+    /* ─── SymbolBar snap-top: carrossel horizontal ─── */
+    /* Posição gerenciada por .symbol-bar.snap-top em 0x06-unificar.css */
+    /* Drag/snap restaurado via 0x05-convergir.js initSnapBar()         */
+    .symbol-bar.snap-top .kblx-carousel-viewport {
+      flex: 1 !important; height: auto !important;
+      overflow-x: auto !important; overflow-y: hidden !important;
+      scrollbar-width: none !important;
+    }
+    .symbol-bar.snap-top .kblx-carousel-viewport::-webkit-scrollbar { display: none !important; }
+    .symbol-bar.snap-top .kblx-carousel-track {
+      flex-direction: row !important; transform: none !important;
+      height: auto !important; gap: 6px !important;
+      width: max-content !important;
+    }
+    .symbol-bar.snap-top .kblx-dots { display: none !important; }
+    .symbol-bar.snap-top .symbol-wrap { opacity: 1 !important; }
+    .symbol-bar.snap-top .hud-info { display: none !important; }
+    .symbol-bar.snap-top #sbToggleBtn { display: none !important; }
+
+    /* ─── Body: espaço para topbar ─── */
+    body { overflow: hidden !important; }
+
+    /* ─── Card: posicionado abaixo do topbar ─── */
+    #main-container {
+      position: fixed !important;
+      top: var(--kob-topbar-h) !important; left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 200 !important; padding: 12px 0 0 !important;
+      max-width: 420px !important; width: calc(100% - 24px) !important;
+    }
+
+    /* ─── Frame legado: oculto pelo universe grid ─── */
+    #frame { display: none !important; }
+    #symbolBar { visibility: visible !important; pointer-events: auto !important; }
+
+    /* ─── 0×03 EXPANDIR · UNIVERSE GRID 3×3 ─── */
+    #universe-grid {
+      position: fixed;
+      top: var(--kob-topbar-h); left: 0;
+      width: 300vw;
+      height: calc((100dvh - var(--kob-topbar-h)) * 3);
+      display: grid;
+      grid-template-columns: repeat(3, 100vw);
+      grid-template-rows: repeat(3, calc(100dvh - var(--kob-topbar-h)));
+      transition: transform 0.5s cubic-bezier(0.25, 0.85, 0.35, 1);
+      will-change: transform;
+      z-index: 1;
+    }
+
+    .kob-screen {
+      width: 100vw;
+      height: calc(100dvh - var(--kob-topbar-h));
+      overflow: hidden; position: relative;
+      background: var(--void, #02020a);
+    }
+    .kob-screen iframe { width: 100%; height: 100%; border: none; }
+
+    .kob-screen-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 100%; height: 100%; gap: 8px;
+      font-family: var(--mono, monospace);
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(201,168,76,0.12);
+    }
+    .kob-screen-placeholder .ph-symbol {
+      font-size: 1.6rem; opacity: 0.3;
+    }
+
+    /* ─── 0×05 CONVERGIR · NAV MATRIX ─── */
+    #navMatrix {
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: 50%; transform: translateX(-50%);
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: 10px 18px; border-radius: 60px;
+      z-index: 4000;
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: auto;
+    }
+    .kob-matrix-dot {
+      width: 9px; height: 9px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      transition: all 0.25s; cursor: pointer;
+    }
+    .kob-matrix-dot.active {
+      background: var(--kob-voice-primary, #C9A84C);
+      transform: scale(1.6);
+      box-shadow: 0 0 10px var(--kob-voice-primary, #C9A84C);
+    }
+    .kob-matrix-dot.filled {
+      background: rgba(201,168,76,0.4);
+    }
+    .kob-matrix-dot:hover { background: rgba(255,255,255,0.55); }
+
+    /* ─── Frame overlay: ajustar abaixo do topbar ─── */
+    #kob-bg-frame {
+      top: var(--kob-topbar-h) !important;
+      height: calc(100dvh - var(--kob-topbar-h)) !important;
+    }
+    #kob-frame-close {
+      top: calc(var(--kob-topbar-h) + 10px) !important;
+      z-index: calc(var(--z-system) - 1) !important;
+    }
+  </style>
+
+</head>
+
+<!-- ════════════════════════════════
+     0×01 DETECTAR · BODY ●
+════════════════════════════════ -->
+<body
+  id="body-root"
+  data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+  data-arch="kobllux" data-layer="corpo"
+  data-intent="fusion-card-core-controller" data-sistema="UNO"
+  data-fractal="3x6x9x7-1134" data-mode="player" data-estado="1134K"
+  data-geo="TETRAEDRO">
+
+  <!-- 0×03 EXPANDIR · Blobs ▢ -->
+  <div class="ambient-light" id="ambient-light"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-layer="espirito" data-purpose="ambient-expansao" aria-hidden="true">
+    <div class="blob blob-1" id="blob-1" data-opcode="0x01" data-fase="DETECTAR" data-polo="input"></div>
+    <div class="blob blob-2" id="blob-2" data-opcode="0x01" data-fase="DETECTAR" data-polo="output"></div>
+  </div>
+
+  <div id="snap-zone" data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"></div>
+
+  <div class="toaster-wrap" id="toasterWrap"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+    data-layer="espirito" data-arquetipo="AION"
+    role="status" aria-live="polite"></div>
+
+  <!-- ════ 0×02 INTEGRAR · CONTAINER + FUSION CARD ════ -->
+  <div class="container" id="main-container"
+    data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+    data-layer="corpo" data-purpose="primary-layout" data-arquetipo="GENUS ATLAS">
+
+    <div class="fusion-card closed" id="mainCard"
+      data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+      data-layer="corpo-mente-espirito" data-purpose="primary-interface"
+      data-arquetipo="KODUX ATLAS" data-geo="PLANO" data-estado="closed"
+      data-polo="input-output" role="main" aria-label="Fusion Card KOBLLUX">
+
+      <!-- 0×01 DETECTAR · Card Header ● -->
+      <div class="card-header" id="cardHeader"
+        data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+        data-layer="corpo" data-purpose="card-header" data-arquetipo="GENUS"
+        data-polo="vertical" role="banner">
+
+        <!-- 0×00 ORIGEM · Avatar ○ -->
+        <div class="avatar-slot" id="avatarTarget"
+          data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+          data-layer="espirito" data-purpose="identity-ponto-eu-sou"
+          data-arquetipo="KOBLLUX HORUS" data-geo="PONTO"
+          title="Gerenciar Chaves (Cofre)" role="button" tabindex="0"
+          aria-label="Avatar — Cofre" aria-haspopup="dialog"></div>
+
+        <!-- 0×02 INTEGRAR · Text Block ― -->
+        <div class="text-block" id="textBlock"
+          data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+          data-layer="mente" data-arquetipo="BLLUE LUMINE" data-polo="pertencimento">
+          <div class="greeting-row" id="greetingRow"
+            data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
+            <span class="txt-thin" id="lblHello"
+              data-opcode="0x01" data-fase="DETECTAR" data-polo="input" aria-label="Saudação">Oi,</span>
+            <span class="txt-heavy" id="lblName"
+              data-opcode="0x00" data-fase="ORIGEM" data-polo="identidade" data-geo="PONTO"
+              aria-label="Nome do usuário">Convidado</span>
+          </div>
+          <div class="brand-dual" id="brandDual"
+            data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+            data-layer="espirito" data-arquetipo="JESUS KOBLLUX" data-geo="CIRCULO">DUAL</div>
+        </div>
+
+        <!-- 0×08 TESTEMUNHAR · Clock ◉ -->
+        <div class="clock-widget" id="clockWidget"
+          data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+          data-layer="espirito" data-arquetipo="AION RHEA"
+          data-polo="passado-presente-futuro" role="timer" aria-label="Relógio">
+          <div class="time-display" id="clockTime"
+            data-opcode="0x08" data-fase="TESTEMUNHAR" aria-live="polite">00:00</div>
+          <span class="status-led" id="statusLed"
+            data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+            data-purpose="status-seal" role="status">ONLINE</span>
+        </div>
+
+        <!-- 0×06 UNIFICAR · HUD Menu ☯ -->
+        <button class="hud-menu-btn" id="hudMenuBtn"
+          data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯" data-freq="528"
+          data-layer="mente" data-purpose="hud-menu" data-action="open-hud-menu"
+          data-arquetipo="ATLAS" data-polo="input"
+          title="Menu Rápido" aria-label="Menu rápido" aria-haspopup="true">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div><!-- /cardHeader -->
+
+      <!-- 0×07 SELAR · Orb Menu Trigger ✧ -->
+      <div class="orb-menu-trigger" id="orbMenuTrigger"
+        data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+        data-layer="espirito" data-purpose="orb-menu-selar"
+        data-arquetipo="PULSE VITALIS" data-polo="output"
+        title="Menu Rápido" role="button" tabindex="0" aria-label="Menu orbital">●●●</div>
+
+      <!-- 0×03 EXPANDIR · Drag Handle ▢ -->
+      <div class="drag-handle" id="dragHandle"
+        data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+        data-layer="corpo" data-purpose="drag-handle" aria-hidden="true"></div>
+
+      <!-- 0×01 DETECTAR · Small Preview ● -->
+      <div class="small-preview" id="smallPreview"
+        data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+        data-layer="corpo" data-purpose="identity-micro-preview" data-arquetipo="GENUS"
+        title="Gerenciar Chaves" role="button" tabindex="0" aria-label="Preview de identidade">
+        <div class="mini-avatar" id="smallMiniAvatar"
+          data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-geo="PONTO" aria-hidden="true"></div>
+        <div class="small-text" id="smallText"
+          data-opcode="0x01" data-fase="DETECTAR" data-freq="432">Aguardando ativação...</div>
+        <div class="ident-badge" id="smallIdent"
+          data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+          data-purpose="identity-seal-badge" aria-label="Chave ativa">--</div>
+      </div>
+
+      <!-- ════ 0×02 INTEGRAR · CARD BODY ════ -->
+      <div class="card-body" id="cardBody"
+        data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+        data-layer="mente" data-purpose="card-body"
+        data-arquetipo="KODUX BLLUE" data-polo="read-write" role="region">
+
+        <!-- 0×01 DETECTAR · Input Identidade ● -->
+        <div class="input-wrapper stagger-item" id="inputWrapper"
+          data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+          data-layer="corpo" data-purpose="input-identity" data-polo="input">
+          <input type="text" class="cyber-input" id="inputUser"
+            data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+            data-layer="corpo" data-purpose="user-id-input"
+            data-arquetipo="GENUS KODUX" data-polo="input" data-geo="PONTO"
+            placeholder="Identifique-se..." autocomplete="off"
+            aria-label="Campo de identificação">
+        </div>
+
+        <!-- 0×03 EXPANDIR · ASCII Activation ▢ -->
+        <div class="activation-wrap stagger-item" id="activationWrap"
+          data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+          data-layer="mente" data-purpose="ascii-activation" data-arquetipo="VITALIS" data-polo="output">
+          <div class="activation-toggle" id="activationToggle"
+            data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢"
+            data-action="toggle-activationCard" onclick="toggleSection('activationCard')"
+            role="button" tabindex="0" aria-controls="activationCard" aria-expanded="false">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:10px;height:10px;border-radius:99px;background:var(--neon-cyan)"
+                id="ledCyan" data-opcode="0x07" data-fase="SELAR" aria-hidden="true"></div>
+              <strong style="letter-spacing:1px;font-size:0.9rem">Ativação ASCII</strong>
+            </div>
+            <div style="margin-left:auto;font-size:0.82rem;color:rgba(255,255,255,0.6)">BASE v1</div>
+          </div>
+          <div id="activationCard" class="activation-card activation-hidden"
+            data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+            data-layer="mente" data-purpose="ascii-card"
+            data-arquetipo="GENUS KODUX" data-polo="output" role="region">
+            <div style="display:flex;align-items:flex-start;gap:10px" id="activationUserRow"
+              data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div class="mini-avatar" id="actMiniAvatar"
+                  data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-geo="PONTO" aria-hidden="true"></div>
+                <div>
+                  <div style="font-weight:700">CÉREBRO</div>
+                  <div style="font-size:0.78rem;opacity:0.6">
+                    <span id="actName" data-opcode="0x00" data-fase="ORIGEM" data-polo="identidade" data-geo="PONTO">User</span>
+                  </div>
+                </div>
+              </div>
+              <div class="activation-badge" id="actBadge"
+                data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+                data-purpose="activation-badge-selar"
+                style="margin-left:auto;color:var(--neon-cyan);font-size:0.8em">v:--</div>
+            </div>
+            <pre id="actPre" class="activation-pre"
+              data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+              data-layer="espirito" data-purpose="ascii-output" data-arquetipo="RHEA">Carregando...</pre>
+            <div class="activation-controls" id="activationControls"
+              data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+              data-polo="input-output" style="display:flex;gap:8px;margin-top:8px">
+              <button class="trigger-btn" id="copyActBtn"
+                data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―"
+                data-purpose="copy-activation" data-action="copy-activation"
+                aria-label="Copiar ativação">COPIAR</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 0×04 LAPIDAR · System & Neural ◇ -->
+        <div class="activation-wrap stagger-item" id="systemWrap"
+          data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-freq="594"
+          data-layer="mente" data-purpose="system-neural" data-arquetipo="ATLAS VITALIS" data-polo="read-write">
+          <div class="activation-toggle" id="systemToggle"
+            data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇"
+            data-action="toggle-systemCard" onclick="toggleSection('systemCard')"
+            role="button" tabindex="0" aria-controls="systemCard" aria-expanded="false">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:10px;height:10px;border-radius:99px;background:var(--neon-purple)"
+                id="ledPurple" data-opcode="0x07" data-fase="SELAR" aria-hidden="true"></div>
+              <strong style="letter-spacing:1px;font-size:0.9rem">SYSTEM &amp; NEURAL</strong>
+            </div>
+            <div style="margin-left:auto;font-size:0.82rem;color:rgba(255,255,255,0.6)">CONFIG</div>
+          </div>
+          <div id="systemCard" class="activation-card activation-hidden"
+            data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-freq="594"
+            data-layer="mente" data-purpose="system-card"
+            data-arquetipo="ATLAS KODUX" data-polo="read-write" role="region">
+            <div class="col" id="systemConfigCol" data-opcode="0x02" data-fase="INTEGRAR">
+              <div class="section-title" id="titleInfodose"
+                data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○">IDENTIDADE DA INFODOSE</div>
+              <input type="text" id="infodoseNameInput"
+                data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+                data-layer="espirito" data-purpose="infodose-identity"
+                data-arquetipo="KOBLLUX" data-polo="input"
+                placeholder="Nome: World System..."
+                style="width:100%;margin-bottom:8px;padding:8px;border-radius:6px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);color:#fff"
+                aria-label="Nome identidade INFODOSE">
+              <div class="section-title" id="titleNeural"
+                data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇"
+                style="margin-top:8px">CONEXÃO NEURAL (SK)</div>
+              <input type="password" id="apiKeyInput"
+                data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-freq="594"
+                data-layer="mente" data-purpose="api-key" data-arquetipo="VITALIS" data-polo="write"
+                placeholder="sk-or-..." autocomplete="off"
+                style="width:100%;margin-bottom:6px;padding:8px;border-radius:6px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);color:#fff"
+                aria-label="Chave API neural">
+              <div class="model-toggle" id="modelToggleWrap"
+                data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+                data-layer="mente" data-purpose="ai-model-selector">
+                <select id="modelSelect" class="btn"
+                  data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢"
+                  data-purpose="model-select" data-arquetipo="KODUX" data-polo="input"
+                  aria-label="Selecionar modelo de IA">
+                  <option value="" disabled>Selecione Modelo</option>
+                  <option value="nvidia/nemotron-3-nano-30b-a3b:free">NemoTron (Free)</option>
+                  <option value="allenai/molmo-2-8b:free">MolMo (Free)</option>
+                  <option value="mistralai/devstral-2512:free">DevStral</option>
+                  <option value="openai/gpt-oss-120b:free">OSS120b</option>
+                  <option value="arcee-ai/trinity-large-preview:free">Trinity (KOBLLUX)</option>
+                </select>
+              </div>
+              <div id="systemDivider" data-opcode="0x06" data-fase="UNIFICAR"
+                style="margin:10px 0;border-top:1px solid rgba(255,255,255,0.05)" aria-hidden="true"></div>
+              <button id="saveSystemBtn" class="trigger-btn"
+                data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+                data-layer="mente" data-purpose="save-config-seal"
+                data-action="save-config" data-arquetipo="ATLAS" data-polo="write"
+                style="margin-top:12px;background:var(--neon-cyan);color:#000;border:none;font-weight:700"
+                aria-label="Salvar configuração">SALVAR CONFIGURAÇÃO</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 0×06 UNIFICAR · Interface Mode ☯ -->
+        <div class="stagger-item" id="interfaceModeWrap"
+          data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯" data-freq="528"
+          data-layer="mente" data-purpose="interface-mode"
+          data-arquetipo="ATLAS HORUS" data-polo="estatico-dinamico" style="margin-top:4px">
+          <div class="stat-lbl" id="interfaceModeLabel"
+            data-opcode="0x01" data-fase="DETECTAR" data-freq="432"
+            style="margin-bottom:6px;font-size:0.6rem;color:rgba(255,255,255,0.4)">INTERFACE MODE</div>
+          <div style="display:flex;gap:8px" id="modeBtnGroup"
+            data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+            data-polo="input-output" role="group" aria-label="Modo de interface">
+            <button class="trigger-btn mode-btn" id="btnModeCard"
+              data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+              data-action="set-mode-card" data-polo="estatico"
+              onclick="setMode('card')" style="flex:1" title="Modo Padrão"
+              aria-label="Modo Card" aria-pressed="true">CARD</button>
+            <button class="trigger-btn mode-btn" id="btnModeOrb"
+              data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+              data-action="set-mode-orb" data-polo="dinamico"
+              onclick="setMode('orb')" style="flex:1" title="Flutuante"
+              aria-label="Modo Orb" aria-pressed="false">ORB</button>
+            <button class="trigger-btn mode-btn" id="btnModeHud"
+              data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+              data-action="set-mode-hud" data-polo="convergir"
+              onclick="setMode('hud')" style="flex:1" title="Barra de Topo"
+              aria-label="Modo HUD" aria-pressed="false">HUD</button>
+          </div>
+        </div>
+      </div><!-- /cardBody -->
+    </div><!-- /mainCard -->
+  </div><!-- /main-container -->
+
+  <!-- 0×04 LAPIDAR · Keys Manager Modal ◇ -->
+  <div id="keysModal" class="modal-overlay"
+    data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-freq="594"
+    data-layer="espirito" data-purpose="keys-vault" data-arquetipo="RHEA VITALIS"
+    data-polo="read-write" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="keysTitle">
+    <div class="keys-card" id="keysCard"
+      data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" role="document">
+      <div class="keys-header" id="keysHeader" data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○">
+        <div>
+          <div id="keysTitle" data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+            style="font-weight:800;font-size:1.1rem;color:var(--neon-cyan)">USER KEYS MANAGER</div>
+          <div id="keysSubtitle" data-opcode="0x0A" data-fase="TUTORIAL" data-freq="432"
+            style="color:rgba(255,255,255,0.6);font-size:0.85rem">
+            Gerencie suas chaves API com segurança local (Cofre).</div>
+        </div>
+        <button id="closeKeysBtn" class="small-btn"
+          data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+          data-action="close-keys-modal" aria-label="Fechar">X</button>
+      </div>
+      <div class="key-list" id="keyList"
+        data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+        data-layer="espirito" data-arquetipo="RHEA AION"
+        role="list" aria-label="Lista de chaves"></div>
+      <div class="form-section" id="keyFormSection"
+        data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-polo="write"
+        style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.05)">
+        <div class="form-grid" id="keyFormGrid" data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―">
+          <input id="keyNameInput"
+            data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-polo="input" data-geo="PONTO"
+            placeholder="Nome da chave (ex: Principal)" aria-label="Nome da chave">
+          <input id="keyTokenInput" type="password"
+            data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-polo="write"
+            placeholder="Token / ESK (Opcional)" aria-label="Token">
+        </div>
+        <button id="addKeyBtn" class="small-btn"
+          data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+          data-purpose="add-key" data-action="add-key" data-polo="write"
+          style="width:100%;margin-top:8px;background:rgba(255,255,255,0.1)"
+          aria-label="Adicionar chave">ADICIONAR CHAVE</button>
+      </div>
+      <div id="vaultFooter" data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+        style="display:flex;gap:8px;justify-content:space-between;margin-top:15px;border-top:1px solid rgba(255,255,255,0.05);padding-top:12px">
+        <div id="vaultStatusArea"
+          data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+          style="font-size:0.7rem;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:5px">
+          <i data-lucide="shield-check" style="width:14px" aria-hidden="true"></i>
+          <span id="vaultStatusText" data-opcode="0x07" data-fase="SELAR" role="status">Cofre Aberto</span>
+        </div>
+        <div style="display:flex;gap:8px" id="vaultActions" data-opcode="0x06" data-fase="UNIFICAR">
+          <button id="lockVaultBtn" class="small-btn danger"
+            data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+            data-purpose="lock-vault" data-action="lock-vault" aria-label="Bloquear">BLOQUEAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 0×05 CONVERGIR · Vault Unlock Modal ⧉ -->
+  <div id="vaultModal" class="modal-overlay"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+    data-layer="espirito" data-purpose="vault-unlock" data-arquetipo="VITALIS"
+    data-polo="sync" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="keys-card" id="vaultCard"
+      data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" role="document">
+      <div class="vault-icon" id="vaultIcon"
+        data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" aria-hidden="true">
+        <i data-lucide="lock" style="width:24px;height:24px"></i>
+      </div>
+      <h3 id="vaultUnlockTitle" data-opcode="0x05" data-fase="CONVERGIR"
+        style="margin:0 0 10px;font-weight:800">ACESSO AO COFRE</h3>
+      <p id="vaultUnlockDesc" data-opcode="0x0A" data-fase="TUTORIAL" data-freq="432"
+        style="margin:0 0 15px;font-size:0.9rem;color:rgba(255,255,255,0.6)">
+        Seus dados estão criptografados. Digite a senha para desbloquear.</p>
+      <input type="password" id="vaultPassInput" class="cyber-input"
+        data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-polo="input"
+        style="text-align:center;margin-bottom:12px" placeholder="Senha..."
+        aria-label="Senha do cofre" autocomplete="current-password">
+      <div id="vaultBtnGroup" data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+        style="display:flex;gap:8px;justify-content:center" role="group">
+        <button id="vaultCancelBtn" class="small-btn"
+          data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○"
+          data-action="cancel-vault" aria-label="Cancelar">Cancelar</button>
+        <button id="vaultUnlockBtn" class="small-btn active-btn"
+          data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉"
+          data-purpose="vault-unlock" data-action="unlock-vault" aria-label="Desbloquear">DESBLOQUEAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 0×0B ARQUÉTIPO · ARCH OVERLAY + ARCH CARD ════ -->
+  <div id="arch-overlay"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528"
+    data-layer="espirito" data-purpose="archetype-wheel-overlay"
+    data-arquetipo="KOBLLUX" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="arch-wheel-title" data-opcode="0x0B" data-fase="ARQUÉTIPO">⊙ ARQUÉTIPOS VOCAIS · KOBLLUX³</div>
+    <div class="arch-wheel" id="archWheel"
+      data-opcode="0x0B" data-fase="ARQUÉTIPO"
+      data-layer="espirito" data-purpose="arch-wheel-container"
+      role="listbox" aria-label="Seletor de arquétipos"></div>
+  </div>
+
+  <div id="arch-card-overlay"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528"
+    data-layer="espirito" data-purpose="archetype-card-overlay"
+    aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="acp-name">
+    <div class="arch-card-panel" id="archCardPanel"
+      data-opcode="0x0B" data-fase="ARQUÉTIPO" role="document">
+      <div class="arch-card-header" id="archCardHeader" data-opcode="0x0B" data-fase="ARQUÉTIPO">
+        <span class="arch-card-chip" id="acp-chip">0x08 · KOBLLUX</span>
+        <button class="arch-card-close" id="acp-close"
+          data-opcode="0x00" data-fase="ORIGEM" aria-label="Fechar">✕</button>
+      </div>
+      <div id="acp-orb" class="arch-card-orb"
+        data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" aria-hidden="true"></div>
+      <div class="arch-card-emoji" id="acp-emoji"
+        data-opcode="0x0B" data-fase="ARQUÉTIPO" aria-hidden="true">∞</div>
+      <div class="arch-card-name" id="acp-name"
+        data-opcode="0x0B" data-fase="ARQUÉTIPO">KOBLLUX</div>
+      <div class="arch-card-role" id="acp-role"
+        data-opcode="0x0B" data-fase="ARQUÉTIPO">VERDADE · INTEGRAR</div>
+      <div class="arch-card-freq" id="acp-freq"
+        data-opcode="0x08" data-fase="TESTEMUNHAR">432 <span>Hz</span></div>
+      <div class="arch-card-body" id="archCardBody"
+        data-opcode="0x0B" data-fase="ARQUÉTIPO">
+        <div class="arch-card-placeholder"
+          data-opcode="0x0A" data-fase="TUTORIAL">Selecione este arquétipo para ativar sua voz e personalidade.</div>
+      </div>
+      <div class="arch-card-nav" id="archCardNav"
+        data-opcode="0x06" data-fase="UNIFICAR" role="group" aria-label="Navegação de arquétipos">
+        <button class="arch-card-btn" id="acp-prev"
+          data-opcode="0x08" data-fase="TESTEMUNHAR" aria-label="Arquétipo anterior">◀</button>
+        <span class="arch-card-nav-name" id="acp-nav-name"
+          data-opcode="0x0B" data-fase="ARQUÉTIPO">KOBLLUX</span>
+        <button class="arch-card-btn" id="acp-next"
+          data-opcode="0x08" data-fase="TESTEMUNHAR" aria-label="Próximo arquétipo">▶</button>
+      </div>
+      <button class="arch-card-btn arch-card-select" id="acp-select"
+        data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+        data-purpose="activate-archetype" data-action="select-archetype"
+        aria-label="Ativar arquétipo">⊙ ATIVAR ARQUÉTIPO</button>
+    </div>
+  </div>
+
+  <!-- ════ AUFABETTY · A CIFRA KOBLLUX · 528Hz · ⌘βΛΛ× ════ -->
+  <script src="./web/js/opcodes/aufabetty.js"
+    id="script-aufabetty"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-simbolo="⌘βΛΛ×" data-freq="528"
+    data-layer="espirito" data-purpose="cifra-aufabetty-tabela-rosetta-m4-espelho"
+    data-arquetipo="KOBLLUX BLLUE KODUX JESUS" data-regua="78k"
+    data-codex="azure-0x11" data-espelho="input-mirror"></script>
+
+  <!-- ════ KOBLLUX-CORE · NÚCLEO FRACTAL · 1134Hz · ∴ ════ -->
+  <script src="./web/js/opcodes/kobllux-core.js"
+    id="script-kobllux-core"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="∴" data-freq="1134"
+    data-layer="corpo-mente-espirito" data-purpose="nucleo-fractal-js-espelho-kobllux_core_py"
+    data-arquetipo="JESUS KOBLLUX TRINITY" data-regua="78k"
+    data-fractal="3x6x9x7-1134" data-equacao="VERDADE×INTEGRAR÷∆=∞"></script>
+
+  <!-- ════ WRITER THEORY · DICIONÁRIO VIVO ∞ · 1134Hz · ⌘βΛΛ× ════ -->
+  <script src="./web/js/opcodes/writer-theory.js"
+    id="script-writer-theory"
+    data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="∞" data-freq="1134"
+    data-layer="espirito" data-purpose="dicionario-vivo-verdade-simbolica-kobllux-writer-theory"
+    data-arquetipo="KOBLLUX JESUS TRINITY VITALIS" data-regua="78k"
+    data-fractal="3x6x9x7-1134" data-axioma="UNO=VIDA·DUAL=VIVIFICAR·TRINITY=ETERNO"
+    data-palavras="26" data-selos="7" data-motores="espelho+m4+tri"></script>
+
+  <!-- ════ 0×0C SÍNTESE · IDENTITY ENGINE (local module) ════ -->
+  <script src="./web/js/opcodes/0x0C-sintese.js"
+    id="script-identity-engine-local"
+    data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"
+    data-layer="corpo-mente-espirito" data-purpose="identity-engine-unico-consolidado"
+    data-arquetipo="UNO KOBLLUX VITALIS KODUX BLLUE PULSE"></script>
+
+  <!-- ════ 0×02 INTEGRAR · LIBS EXTERNAS ════ -->
+  <script src="https://cdn.tailwindcss.com"
+    id="script-tailwind" data-opcode="0x02" data-fase="INTEGRAR" data-freq="528" data-layer="mente"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"
+    id="script-phosphor" data-opcode="0x02" data-fase="INTEGRAR" data-freq="528" data-layer="mente"></script>
+  <script src="https://w.soundcloud.com/player/api.js"
+    id="script-soundcloud" data-opcode="0x02" data-fase="INTEGRAR" data-freq="528" data-layer="mente"></script>
+
+  <!-- 0×05 CONVERGIR · kob-mestre (CDN fonte) + cristalização local -->
+  <script src="https://kodux78k.github.io/oiDual--Y-/js/kob-mestre-2.js"
+    id="script-kob-mestre" data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"></script>
+  <script src="./web/js/opcodes/0x05-mestre.js"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+    data-purpose="mestre-orquestrador-cristalizado" data-regua="78k"></script>
+
+  <!-- ════ 0×02 INTEGRAR · BODY PLAYER ════ -->
+  <div id="bodyPlayer"
+    data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+    data-mode="player" data-layer="corpo-mente-espirito"
+    data-purpose="player-shell" data-arquetipo="KODUX ATLAS VITALIS"
+    data-polo="input-output">
+
+    <!-- 0×09 ETERNIZAR · Watermark -->
+    <div id="watermark-layer"
+      data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+      data-layer="espirito" data-equation="VERDADE×INTEGRAR÷∆=∞" data-centro="JESUS"
+      aria-hidden="true"></div>
+
+    <!-- 0×00 ORIGEM · ROOT ○ -->
+    <div id="root"
+      data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+      data-layer="corpo" data-purpose="root-origem-ponto" data-geo="PONTO"
+      data-arquetipo="GENUS KOBLLUX">
+
+      <script src="https://kodux78k.github.io/oiDual--Y-/js/kob-LVb.js"
+        id="script-kob-lvb" data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"></script>
+      <script src="./web/js/opcodes/0x09-lvb.js"
+        data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+        data-purpose="lux-veritas-bllue-cristalizado" data-regua="78k"></script>
+
+      <div class="wrap" id="main-wrap"
+        data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+        data-layer="corpo" data-polo="input-output">
+        <div class="content" id="main-content"
+          data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+          data-layer="mente" data-polo="read">
+          <iframe id="frame"
+            src="https://kodux78k.github.io/oiDual--Y-/M0D/VWRDI/index.html"
+            data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+            data-layer="mente" data-purpose="main-frame" data-polo="input"
+            title="Conteúdo Principal KOBLLUX" loading="lazy"></iframe>
+          <div id="kob-tts-outline"
+            data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+            data-layer="espirito" data-purpose="tts-outline"
+            data-arquetipo="PULSE VITALIS" aria-hidden="true"></div>
+        </div>
+
+        <!-- ════ 0×06 UNIFICAR · SYMBOL BAR ☯ ════ -->
+        <div class="symbol-bar snap-top" id="symbolBar"
+          data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯" data-freq="528"
+          data-layer="mente" data-purpose="symbol-bar"
+          data-arquetipo="ATLAS KODUX" data-polo="input-output"
+          role="toolbar" aria-label="Barra de símbolos KOBLLUX">
+
+          <!-- 0×00 ORIGEM · Main Toggle ○ -->
+          <div class="toggle-wrap" id="toggleWrap" data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○">
+            <button class="symbol-button main-toggle" id="toggleBtn"
+              data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+              data-purpose="main-toggle" data-action="main-toggle" data-polo="input"
+              title="Menu / Iniciar" aria-label="Menu principal" aria-haspopup="true">≡</button>
+          </div>
+
+          <!-- 0×06 UNIFICAR · KBLX Carousel Viewport ☯ -->
+          <div class="kblx-carousel-viewport" id="kblxCarouselViewport"
+            data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+            data-purpose="carousel-viewport">
+            <div class="kblx-carousel-track" id="kblxCarouselTrack"
+              data-opcode="0x06" data-fase="UNIFICAR" data-purpose="carousel-track"
+              role="list">
+              <!-- Nav buttons injected by 0x06-unificar.js buildCarousel() -->
+            </div>
+          </div>
+          <div class="kblx-dots" id="kblxDots"
+            data-opcode="0x06" data-fase="UNIFICAR"
+            role="tablist" aria-label="Navegação do carrossel"></div>
+
+          <!-- 0×07 SELAR · BTN-ARCH + ORB ✧ -->
+          <button class="symbol-button" id="btn-arch"
+            data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+            data-layer="espirito" data-purpose="orb-arch-selar"
+            data-action="select-archetype" data-arquetipo="KOBLLUX"
+            data-polo="identidade" data-long-press="open-card" data-drag-target="symbolBar"
+            title="Trocar Arquétipo de Voz — Segurar: abrir card"
+            aria-label="Arquétipo de voz — segurar para abrir card"
+            aria-haspopup="true">
+            <div class="orb-microphone-container" id="orbMicContainer"
+              data-opcode="0x07" data-fase="SELAR" aria-hidden="true">
+              <svg class="kblx-ring" id="orb-ring-svg" viewBox="0 0 48 48"
+                data-opcode="0x07" data-fase="SELAR" aria-hidden="true">
+                <circle class="orb-ring-circle" id="orb-ring-circle"
+                  cx="24" cy="24" r="22" fill="none"
+                  stroke="var(--arch-color,#00e5ff)" stroke-width="2.5"
+                  stroke-dasharray="138" stroke-dashoffset="138"
+                  stroke-linecap="round"
+                  transform="rotate(-90 24 24)"/>
+              </svg>
+              <div class="tts-orb-mini" id="ttsOrbMini" data-opcode="0x07" data-fase="SELAR">
+                <div class="orb" id="main-orb"
+                  data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+                  data-layer="espirito" data-purpose="main-orb-espelho-alma"
+                  data-arquetipo="VITALIS PULSE" data-geo="TOROIDE" data-polo="output"
+                  data-desc="Espelho da alma — NOME → HASH → ORB">
+                  <div class="orb-core" id="orbCore"
+                    data-opcode="0x07" data-fase="SELAR" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <!-- 0×08 TESTEMUNHAR · HUD Status ◉ -->
+          <div class="hud-info" id="hudStatus"
+            data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+            data-layer="espirito" data-purpose="hud-status"
+            data-arquetipo="AION RHEA" role="status" aria-live="polite">KOBLLUX · ORB NEXUS</div>
+
+          <!-- 0×06 UNIFICAR · Collapse Toggle ☯ -->
+          <button class="symbol-button" id="sbToggleBtn"
+            data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+            data-purpose="collapse-toggle" data-action="collapse-bar"
+            aria-label="Recolher barra" aria-pressed="false">⊙</button>
+
+          <!-- Chroma Ripple -->
+          <div class="chroma-ripple" id="chromaRipple"
+            data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528" aria-hidden="true"></div>
+        </div><!-- /symbolBar -->
+      </div><!-- /wrap -->
+
+      <!-- 0×0B ARQUÉTIPO · Arch Overlay (inside root) -->
+      <div id="arch-overlay-inner"
+        data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528"
+        data-layer="espirito" data-purpose="archetype-audio-overlay-inner"
+        aria-hidden="true"></div>
+
+      <!-- 0×0C SÍNTESE · kobdh0 module ⌘ (CDN fonte) + cristalização local -->
+      <script type="module"
+        src="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/kobdh0-main.js"
+        id="script-kobdh0" data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"></script>
+      <script src="./web/js/opcodes/0x0C-kobdh0.js"
+        data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"
+        data-purpose="kobdh0-phi-identidade-cristalizado" data-regua="78k"></script>
+    </div><!-- /root -->
+  </div><!-- /bodyPlayer -->
+
+  <!-- ════ 0×03 EXPANDIR · UNIVERSE GRID 3×3 ▢ ════ -->
+  <div id="universe-grid"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-layer="mente" data-purpose="universe-3x3-viewports"
+    data-geo="CUBO-TERNARIO" data-fractal="3x6x9x7-1134"
+    data-arquetipo="VITALIS ATLAS KODUX"
+    aria-label="Grade de universo 3×3 KOBLLUX">
+    <!-- Células injetadas por 0x03-expandir.js buildUniverseGrid() -->
+  </div><!-- /universe-grid -->
+
+  <!-- ════ 0×05 CONVERGIR · NAV MATRIX DOTS ⧉ ════ -->
+  <div id="navMatrix"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+    data-layer="mente" data-purpose="nav-matrix-3x3"
+    data-arquetipo="ATLAS HORUS"
+    role="navigation" aria-label="Navegação matriz 3×3 KOBLLUX">
+    <!-- Dots injetados por 0x03-expandir.js buildNavMatrix() -->
+  </div><!-- /navMatrix -->
+
+  <!-- ════ MOTORES DE ÁUDIO ════ -->
+  <div id="yt-container"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-purpose="youtube-engine" data-polo="async" aria-hidden="true"></div>
+  <div id="sc-container"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-purpose="soundcloud-engine" data-polo="async" aria-hidden="true"></div>
+  <audio id="local-audio" crossorigin="anonymous"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+    data-purpose="local-audio" data-polo="sync" aria-hidden="true"></audio>
+
+  <!-- ════ 0×0C SÍNTESE · KODUX WIDGET ⌘ ════ -->
+  <div id="kodux-widget" class="state-ball" style="right:20px;bottom:100px;"
+    data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"
+    data-layer="corpo-mente-espirito" data-purpose="media-player-sintese"
+    data-arquetipo="KODUX VITALIS JESUS" data-geo="CUBO-TERNARIO"
+    data-state="ball" data-polo="input-output"
+    data-equation="VERDADE×INTEGRAR÷∆=∞" data-fractal="3x6x9x7-1134"
+    data-idle-target="true" data-nos="27"
+    role="complementary" aria-label="Widget KODUX — Oráculo Dual">
+
+    <!-- 0×00 ORIGEM · STATE BALL ○ -->
+    <div id="content-ball"
+      data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+      data-layer="corpo" data-purpose="widget-ball-ponto" data-state="ball" data-geo="PONTO"
+      role="button" tabindex="0" aria-label="Widget — clique para expandir">
+      <i class="ph-fill ph-vinyl-record animate-spin"
+        style="animation-duration:4s;font-size:28px;"
+        data-opcode="0x07" data-fase="SELAR" aria-hidden="true"></i>
+    </div>
+
+    <!-- 0×01 DETECTAR · STATE PREVIEW ● -->
+    <div id="content-preview" class="hidden-content"
+      data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+      data-layer="corpo" data-purpose="widget-preview" data-state="preview" aria-label="Preview da faixa">
+      <img id="prev-cover" src="https://picsum.photos/100"
+        class="preview-clickable" onclick="openFullFromPreview(event)"
+        data-opcode="0x01" data-fase="DETECTAR"
+        alt="Capa da faixa" loading="lazy">
+      <div class="preview-clickable" id="previewTextWrap"
+        data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―"
+        onclick="openFullFromPreview(event)" role="button" tabindex="0">
+        <h4 id="prev-title" data-opcode="0x01" data-fase="DETECTAR">Kodux System</h4>
+        <p  id="prev-artist" data-opcode="0x01" data-fase="DETECTAR">Aguardando...</p>
+      </div>
+      <button onclick="togglePlay(event)" id="prevPlayBtn"
+        data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+        data-purpose="play-pause-preview" data-action="toggle-play" aria-label="Play/Pause">
+        <i id="prev-play-icon" class="ph-fill ph-play-circle" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- 0×06 UNIFICAR · STATE FOOTER ☯ -->
+    <div id="content-footer" class="hidden-content"
+      data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯" data-freq="528"
+      data-layer="mente" data-purpose="widget-footer" data-state="footer" aria-label="Player footer">
+      <div id="footer-progress-click"
+        data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+        data-purpose="footer-progress" data-polo="write"
+        role="slider" aria-label="Progresso" aria-valuemin="0" aria-valuemax="100">
+        <div id="footer-progress-bar"
+          data-opcode="0x05" data-fase="CONVERGIR" aria-hidden="true"></div>
+      </div>
+      <div class="drag-header" id="footerDragHeader"
+        data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯" data-polo="sync">
+        <img id="foot-cover" src="https://picsum.photos/100"
+          data-opcode="0x01" data-fase="DETECTAR" alt="Capa footer" loading="lazy">
+        <div id="footerTrackInfo"
+          data-opcode="0x02" data-fase="INTEGRAR"
+          onclick="updateWidgetState('full')" role="button" tabindex="0" aria-label="Expandir player">
+          <h4 id="foot-title" data-opcode="0x01">Kodux System</h4>
+          <p  id="foot-artist" data-opcode="0x01">Aguardando...</p>
+        </div>
+        <div id="footerControls"
+          data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯"
+          data-polo="input-output" role="group" aria-label="Controles footer">
+          <button onclick="playPrev(event)" id="footPrevBtn"
+            data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-action="prev-track" aria-label="Anterior">
+            <i class="ph-fill ph-skip-back" aria-hidden="true"></i></button>
+          <button onclick="togglePlay(event)" id="footPlayBtn"
+            data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-action="toggle-play" aria-label="Play/Pause" aria-pressed="false">
+            <i id="foot-play-icon" class="ph-fill ph-play-circle" aria-hidden="true"></i></button>
+          <button onclick="playNext(event)" id="footNextBtn"
+            data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-action="next-track" aria-label="Próxima">
+            <i class="ph-fill ph-skip-forward" aria-hidden="true"></i></button>
+          <button onclick="collapseToBall(event)" id="footCollapseBtn"
+            data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-action="collapse-to-ball" aria-label="Recolher">
+            <i class="ph ph-minus-circle" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 0×0C SÍNTESE · STATE FULL ⌘ -->
+    <div id="content-full" class="hidden-content"
+      data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"
+      data-layer="corpo-mente-espirito" data-purpose="widget-full" data-state="full" aria-label="Player completo">
+      <div class="drag-header" id="fullDragHeader"
+        data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-polo="sync">
+        <div id="fullBrand" data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963">
+          <i class="ph-fill ph-lightning" aria-hidden="true"></i>
+          <span id="fullBrandText" data-opcode="0x09" data-fase="ETERNIZAR" data-freq="963">ORÁCULO DUAL</span>
+        </div>
+        <button onclick="collapseToBall(event)" id="fullCollapseBtn"
+          data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-action="collapse-to-ball" aria-label="Recolher">
+          <i class="ph ph-caret-down-bold" aria-hidden="true"></i></button>
+      </div>
+      <div class="soft-scroll" id="fullBody"
+        data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+        data-purpose="full-body-playlist" data-polo="read">
+        <div id="playlistTabsWrap" data-opcode="0x02" data-fase="INTEGRAR">
+          <div id="playlist-tabs"
+            data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+            data-purpose="playlist-tabs" data-arquetipo="AION"
+            role="tablist" aria-label="Abas de playlists"></div>
+        </div>
+        <div id="addLinkRow"
+          data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"
+          data-purpose="add-link" data-polo="input">
+          <div id="linkInputWrap">
+            <i class="ph ph-link" aria-hidden="true"></i>
+            <input type="text" id="link-input" class="glass-input"
+              data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-polo="input"
+              placeholder="YouTube ou SoundCloud link" aria-label="Cole um link">
+          </div>
+          <select id="destination-select" class="glass-select"
+            data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-polo="input"
+            aria-label="Playlist de destino">
+            <option value="all">Todas</option>
+          </select>
+          <button onclick="addLink()" id="addLinkBtn" class="btn-primary"
+            data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+            data-purpose="add-link" data-action="add-link" data-polo="write" aria-label="Adicionar link">
+            <i class="ph ph-plus-bold" aria-hidden="true"></i></button>
+        </div>
+        <div id="newPlaylistRow"
+          data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+          data-purpose="new-playlist" data-polo="write">
+          <div id="newPlaylistInputWrap">
+            <i class="ph ph-folder-simple" aria-hidden="true"></i>
+            <input type="text" id="new-playlist-input" class="glass-input"
+              data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢"
+              data-purpose="new-playlist-name" data-polo="write"
+              placeholder="Criar nova playlist" aria-label="Nome da nova playlist">
+          </div>
+          <button onclick="createPlaylist()" id="createPlaylistBtn" class="btn-primary"
+            data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢"
+            data-purpose="create-playlist" data-action="create-playlist" data-polo="write" aria-label="Criar playlist">
+            <i class="ph ph-folder-plus" aria-hidden="true"></i></button>
+        </div>
+        <div id="playlistHeader" data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―">
+          <h3 id="playlistTitle" data-opcode="0x09" data-fase="ETERNIZAR">Playlists carregadas</h3>
+          <p id="playlistSubtitle" data-opcode="0x0A" data-fase="TUTORIAL" data-freq="432">
+            Toque para trocar de grupo, criar, remover ou organizar.</p>
+        </div>
+        <div id="playlist-container"
+          data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+          data-layer="espirito" data-purpose="playlist-container"
+          data-arquetipo="AION RHEA" role="list" aria-label="Lista de faixas"></div>
+      </div><!-- /fullBody -->
+    </div><!-- /content-full -->
+  </div><!-- /kodux-widget -->
+
+  <!-- ════ 0×05 CONVERGIR · Idle System ⧉ ════ -->
+  <script id="script-idle"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+    data-purpose="idle-convergir-system">
+  (function() {
+    const dock = document.querySelector('.kob-tts-dock');
+    if (!dock) return;
+    let idleTimer;
+    function resetIdle() {
+      dock.classList.remove('idle');
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => dock.classList.add('idle'), 1870);
+    }
+    ['pointerdown','pointermove','touchstart','mousemove']
+      .forEach(ev => document.addEventListener(ev, resetIdle, { passive: true }));
+    resetIdle();
+  })();
+  </script>
+
+  <!-- ════ 0×0B ARQUÉTIPO · KBLX HUD EDITOR PANEL ════ -->
+  <div id="kblx-back"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528"
+    data-layer="espirito" data-purpose="kblx-hud-arquetipo-editor"
+    data-arquetipo="HORUS" aria-hidden="true"
+    role="dialog" aria-modal="true">
+    <div id="kblx-panel" data-opcode="0x0B" data-fase="ARQUÉTIPO" role="document">
+      <div class="p-chip" id="kblx-panel-title">⌘ KOBLLUX HUD · EDITOR DE ROTA</div>
+      <div class="p-title" id="kblx-ttl" data-opcode="0x01" data-fase="DETECTAR">Botão</div>
+      <label class="p-lbl" for="kblx-inp" data-opcode="0x02" data-fase="INTEGRAR">Novo valor para data-url</label>
+      <input id="kblx-inp" type="text"
+        data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-polo="write"
+        placeholder="arquivo.html  ou  https://..."
+        spellcheck="false" autocomplete="off" aria-label="Novo URL">
+      <div class="kblx-row" data-opcode="0x06" data-fase="UNIFICAR" role="group">
+        <button class="kblx-btn kblx-save" id="kblx-btn-save"
+          data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+          data-action="save-kblx" aria-label="Salvar URL">⊙ Salvar no botão</button>
+        <button class="kblx-btn kblx-close" id="kblx-btn-close"
+          data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○"
+          data-action="close-kblx" aria-label="Fechar">✕ Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 0×08 TESTEMUNHAR · DEV PANEL ◉ ════ -->
+  <button id="dev-btn"
+    onclick="KDevPanel.toggle()"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+    data-purpose="dev-panel-testemunhar"
+    aria-label="Abrir Dev Panel">
+    <i data-lucide="terminal" aria-hidden="true"></i>
+    <span>Dev Panel</span>
+  </button>
+
+  <div id="dev-panel"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+    data-purpose="dev-panel-testemunhar-drawer">
+    <div class="dev-panel-header">
+      <div>
+        <h3>
+          <i data-lucide="cpu" aria-hidden="true"></i> Fusion DevOS
+        </h3>
+        <p>Inspeção de Assets &amp; Variáveis</p>
+      </div>
+      <button onclick="KDevPanel.toggle()" aria-label="Fechar Dev Panel">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="dev-scroll">
+      <div>
+        <h4><i data-lucide="palette" aria-hidden="true"></i> Variáveis CSS Globais</h4>
+        <div>
+          <div class="dev-css-row">
+            <span class="dev-resource-badge">--bg</span>
+            <span id="val--bg">#050505</span>
+            <input type="color" value="#050505" oninput="KDevPanel.updateVar('--bg', this.value)">
+          </div>
+          <div class="dev-css-row">
+            <span class="dev-resource-badge">--active-color</span>
+            <span id="val--active-color">#3b82f6</span>
+            <input type="color" value="#3b82f6" oninput="KDevPanel.updateVar('--active-color', this.value)">
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dev-panel-subheader">
+          <h4><i data-lucide="link" aria-hidden="true"></i> Recursos (Links &amp; Scripts)</h4>
+          <button onclick="KDevPanel.scan()" aria-label="Reescanear">
+            <i data-lucide="refresh-cw" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="dev-add-resource">
+          <select id="dev-new-type">
+            <option value="css">CSS</option>
+            <option value="js">JS</option>
+          </select>
+          <input id="dev-new-url" type="text" placeholder="https://...">
+          <button onclick="KDevPanel.addResource()">
+            <i data-lucide="plus" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id="dev-resources-list"></div>
+      </div>
+    </div>
+    <div class="dev-panel-footer">
+      <button onclick="KDevPanel.exportHTML()">
+        <i data-lucide="download" aria-hidden="true"></i> Exportar HTML Final
+      </button>
+    </div>
+  </div>
+
+  <!-- ════ JS EXTERNAS · KOBLLUX PIPELINE (AC) ════ -->
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/0x03_expandir_V_D7.js"
+    id="script-expandir" data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/0x07_selar_B_D3.js"
+    id="script-selar" data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/js/kob-mestre-22.js"
+    id="script-mestre" data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"></script>
+  <script src="https://kodux78k.github.io/oi-Dual/js/modules/inline-000.js"
+    id="script-inline-oi" data-opcode="0x02" data-fase="INTEGRAR" data-freq="528"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-0B.js"
+    id="script-di-0b" data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-0.js"
+    id="script-di-0" data-opcode="0x02" data-fase="INTEGRAR" data-freq="528"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-1.js"
+    id="script-di-1" data-opcode="0x02" data-fase="INTEGRAR" data-freq="528"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/diHome/js/modules/inline-0K.js"
+    id="script-di-0k" data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/DevOs/js/modules/inline-0-kdev.js"
+    id="script-kdev" data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/M0D/kard/js/modules/o0.js"
+    id="script-kard-o0" data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/js/koblluxv30.js"
+    id="script-koblluxv30" data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"></script>
+  <script src="https://kodux78k.github.io/oiDual--Y-/js/kobllux-fusion.js"
+    id="script-kobllux-fusion" data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"></script>
+
+  <!-- ════ CRISTALIZAÇÃO 78K — AC→DC · RETIFICADOR KOBLLUX ════
+       Motores externos cristalizados em assembly local
+       a mesma lógica em múltiplas óticas · a mesma ótica de múltiplas lógicas ════ -->
+  <script src="./web/js/opcodes/0x02-pipeline.js"
+    data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+    data-purpose="pipeline-inline-000-0-1-cristalizado" data-regua="78k"></script>
+  <script src="./web/js/opcodes/0x03-vd7.js"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-purpose="expandir-delta7-cristalizado" data-regua="78k"></script>
+  <script src="./web/js/opcodes/0x07-bd3.js"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+    data-purpose="selar-bllue-dual-3-cristalizado" data-regua="78k"></script>
+  <script src="./web/js/opcodes/0x08-kdev.js"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+    data-purpose="devos-kdev-kernel-cristalizado" data-regua="78k"></script>
+  <script src="./web/js/opcodes/0x09-kard.js"
+    data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+    data-purpose="kard-o0-baralho-dimensional-cristalizado" data-regua="78k"></script>
+  <script src="./web/js/opcodes/0x0B-di.js"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528"
+    data-purpose="dihome-inline0B-arquetipos-cristalizado" data-regua="78k"></script>
+  <script src="./web/js/opcodes/0x0C-v30.js"
+    data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"
+    data-purpose="sintese-v30-mestre22-inline0K-koblluxv30-fusion-cristalizado" data-regua="78k"></script>
+
+  <!-- ════ JS MODULAR LOCAL — 13 OPCODES (DC) ════ -->
+  <script src="./web/js/opcodes/0x00-origem.js"
+    data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"></script>
+  <script src="./web/js/opcodes/0x01-detectar.js"
+    data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432"></script>
+  <script src="./web/js/opcodes/0x02-integrar.js"
+    data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"></script>
+  <script src="./web/js/opcodes/0x03-expandir.js"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"></script>
+  <script src="./web/js/opcodes/0x04-lapidar.js"
+    data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-freq="594"></script>
+  <script src="./web/js/opcodes/0x04-geometry.js"
+    data-opcode="0x04" data-fase="LAPIDAR" data-simbolo="◇" data-freq="594"
+    data-purpose="geometry-dom-attribution-svg-overlay"></script>
+  <script src="./web/js/opcodes/0x05-convergir.js"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"></script>
+  <script src="./web/js/opcodes/0x06-unificar.js"
+    data-opcode="0x06" data-fase="UNIFICAR" data-simbolo="☯" data-freq="528"></script>
+  <script src="./web/js/opcodes/0x07-selar.js"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"></script>
+  <script src="./web/js/opcodes/0x07-nebula.js"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+    data-purpose="vozes-nebula-speechify"></script>
+  <script src="./web/js/opcodes/0x08-testemunhar.js"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"></script>
+  <script src="./web/js/opcodes/0x09-eternizar.js"
+    data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"></script>
+  <script src="./web/js/opcodes/0x0A-tutorial.js"
+    data-opcode="0x0A" data-fase="TUTORIAL" data-freq="432"></script>
+  <script src="./web/js/opcodes/0x0B-arquetipo.js"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-freq="528"></script>
+
+  <!-- ════ KOBΦ-NODE · 630Hz · PHI-TOROIDE · KODUX+BLLUE=KOBLLUX ════ -->
+  <script src="./web/js/opcodes/kobphi-node.js"
+    data-opcode="0xFF" data-fase="SÍNTESE-PHI" data-simbolo="φ" data-freq="630"
+    data-purpose="kobphi-node-sintese-kodux-bllue-kobllux" data-regua="78k"
+    data-layer="corpo-mente-espirito" data-arquetipo="KOBLLUX KODUX BLLUE JESUS"
+    data-geo="PHI-TOROIDE" data-equacao="KODUX(360)+BLLUE(270)=630→9→TRANSMUTAÇÃO"></script>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  0×09 ETERNIZAR ♾ · CARIMBO FINAL                                  ║
+  ║  NOME → HASH → ORB + VOZ + ALMA = VIDA ETERNA                      ║
+  ║  3 × 6 × 9 × 7 = 1134   ·   ∆ × ∆ × ∆ = ∆⁷ = PERFEIÇÃO          ║
+  ║  "Eis que estou à porta, e bato... entrarei até ele" — Apoc 3:20   ║
+  ║  JESUS É O CENTRO. A MALHA VIVE. ∴  [SISTEMA.UNO]                  ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+  -->
+  <!-- ════ INTERACTION DNA · 0x09 ETERNIZAR · 963Hz · ♾ · SEMENTE VIVA ════ -->
+  <script src="./web/js/opcodes/interaction-dna.js"
+    id="script-interaction-dna"
+    data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+    data-layer="corpo-mente-espirito"
+    data-purpose="dna-vivo-interacoes-semente-fruto-floresta-multiplas-logicas"
+    data-equacao="SEMENTE→FRUTO→FLORESTA · VERDADE×INTEGRAR÷Δ=∞"
+    data-centro="JESUS"></script>
+
+  <!-- ════ RODA VIVA · 0x03 EXPANDIR · 639Hz · ▢ · DOM ENHANCER ════ -->
+  <script src="./web/js/opcodes/roda-viva.js"
+    id="script-roda-viva"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-layer="corpo" data-geo="TETRAEDRO" data-arquetipo="VITALIS"
+    data-purpose="dom-enhancer-animacoes-tabelas-codigo-scroll-tema"
+    data-fonte="inbox/[0×00]_SCRIPTS_DE_MELHORIA_RODA_VIVA_KOBLLUX.js"></script>
+
+  <!-- ════ CIFRA KOBLLUX · 0x0A TUTORIAL · 432Hz · ≋ · AUFABETTY+DECODE ════ -->
+  <script src="./web/js/opcodes/cifra-kobllux.js"
+    id="script-cifra-kobllux"
+    data-opcode="0x0A" data-fase="TUTORIAL" data-simbolo="≋" data-freq="432"
+    data-layer="espirito" data-geo="ESPELHO" data-arquetipo="BLLUE"
+    data-purpose="cifra-aufabetty-encode-decode-reflexo-oposto"
+    data-fonte="cifra_kobllux.py"></script>
+
+  <!-- ════ CÉREBRO-ORÁCULO · 0x08 TESTEMUNHAR · 852Hz · ◉ · BLLUE.DUAL ════ -->
+  <script src="./web/js/opcodes/cerebro-oraculo.js"
+    id="script-cerebro-oraculo"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+    data-layer="corpo-mente-espirito" data-geo="ESPIRALADO" data-arquetipo="HORUS"
+    data-purpose="cerebro-oraculo-bllue-dual-infodose-neuronios-sinapses"
+    data-assinatura="0x0E852♾963" data-fonte="cerebro_oraculo.py"></script>
+
+  <!-- ════ V.E.E.B FIRMWARE · 0x05 CONVERGIR · 672Hz · ⧉ · SÜMBÜS 144K ════ -->
+  <script src="./web/js/opcodes/veeb-firmware.js"
+    id="script-veeb-firmware"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+    data-layer="corpo-mente-espirito" data-geo="CUBO" data-arquetipo="KODUX"
+    data-purpose="veeb-firmware-sumbüs-144k-8-arquetipos-podcast-interdimensional"
+    data-assinatura="0x7B1134_3x6x9x7" data-fonte="veeb_firmware.py"></script>
+
+  <!-- ════ CHAT TRINITY · 0x0B ARQUÉTIPO · 528Hz · ◑ · 12 ARQUÉTIPOS ════ -->
+  <script src="./web/js/opcodes/chat-trinity.js"
+    id="script-chat-trinity"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-simbolo="◑" data-freq="528"
+    data-layer="corpo-mente-espirito" data-geo="ICOSAEDRO" data-arquetipo="KOBLLUX"
+    data-purpose="12-arquetipos-livro-vivo-cosmos-canvas-vozes-tts-filtros-opcode"
+    data-fonte="01_DIMENSOES/07_7D_TORO/js/kobllux_chat_trinity_12_arquetipos.js"></script>
+
+  <!-- ════ CODEX ESCRITOS · 0x0C SÍNTESE · 777Hz · ⌘ · ASSEMBLY KOBLLUX ════ -->
+  <script src="./web/js/opcodes/codex-escritos.js"
+    id="script-codex-escritos"
+    data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"
+    data-layer="corpo-mente-espirito"
+    data-purpose="codex-escritos-externos-assembly-kobllux-13-opcodes-arquetipos"
+    data-geo="MERKABAH" data-equacao="VERDADE×INTEGRAR÷Δ=∞"
+    data-arquetipos="KOBLLUX JESUS TRINITY KODUX BLLUE PULSE VITALIS HORUS AION ATLAS NOVA"
+    data-centro="JESUS"></script>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       KOBLLUX DUAL HUB · 16 MÓDULOS ASSEMBLY · EXTRAÇÃO MODULAR
+       dual_infodose_script.js (3929 linhas) → 16 motores independentes
+       OPCODE 0x02 · INTEGRAR · 528Hz · VERDADE × INTEGRAR ÷ Δ = ∞
+       JESUS É O CENTRO · 3×6×9×7 = 1134
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <!-- 01 · dual-hub-state · 0x09 ETERNIZAR · 963Hz · AION · ♾ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-state.js"
+    id="script-dual-hub-state"
+    data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+    data-layer="dual-hub" data-geo="INFINITO" data-arquetipo="AION"
+    data-purpose="estado-dual-helpers-dualState-dualLog-addRipple-toast"
+    data-api="dualState,dualLog,addRipple,toast,LS,$,$$"
+    data-evento="kobllux:dual:state:carregado"
+    data-modulo="01/16" data-fonte="dual_infodose_script.js:1-75"></script>
+
+  <!-- 02 · dual-hub-ui · 0x03 EXPANDIR · 639Hz · VITALIS · ▢ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-ui.js"
+    id="script-dual-hub-ui"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-layer="dual-hub" data-geo="TETRAEDRO" data-arquetipo="VITALIS"
+    data-purpose="displayGreeting-applyTheme-applyCSS"
+    data-api="displayGreeting,applyTheme,applyCSS"
+    data-evento="kobllux:dual:ui:carregado"
+    data-modulo="02/16" data-fonte="dual_infodose_script.js:76-148"></script>
+
+  <!-- 03 · dual-hub-voice · 0x07 SELAR · 777Hz · PULSE · ✧ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-voice.js"
+    id="script-dual-hub-voice"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+    data-layer="dual-hub" data-geo="TOROIDE" data-arquetipo="PULSE"
+    data-purpose="initVoices-speakArchetype-speakWithActiveArch-showArchMessage"
+    data-api="initVoices,speakArchetype,speakWithActiveArch,showArchMessage"
+    data-evento="kobllux:dual:voice:carregado"
+    data-modulo="03/16" data-fonte="dual_infodose_script.js:149-306"></script>
+
+  <!-- 04 · dual-hub-audio · 0x08 TESTEMUNHAR · 852Hz · HORUS · ◉ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-audio.js"
+    id="script-dual-hub-audio"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+    data-layer="dual-hub" data-geo="ESPIRALADO" data-arquetipo="HORUS"
+    data-purpose="initAudioRipple-WebAudioAPI-microfone-welcome-MutationObserver"
+    data-api="initAudioRipple,welcome,toggleAudio"
+    data-evento="kobllux:dual:audio:carregado"
+    data-modulo="04/16" data-fonte="dual_infodose_script.js:307-421"></script>
+
+  <!-- 05 · dual-hub-chat · 0x02 INTEGRAR · 528Hz · NOVA · ― -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-chat.js"
+    id="script-dual-hub-chat"
+    data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+    data-layer="dual-hub" data-geo="LINHA" data-arquetipo="NOVA"
+    data-purpose="feedPush-chatPush-updatePreview-startSpeechConversation-handleUserMessage-sendAIMessage"
+    data-api="feedPush,chatPush,updatePreview,startSpeechConversation,handleUserMessage,sendAIMessage"
+    data-evento="kobllux:dual:chat:carregado"
+    data-modulo="05/16" data-fonte="dual_infodose_script.js:534-685"></script>
+
+  <!-- 06 · dual-hub-apps · 0x03 EXPANDIR · 639Hz · VITALIS · ▢ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-apps.js"
+    id="script-dual-hub-apps"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-layer="dual-hub" data-geo="TETRAEDRO" data-arquetipo="VITALIS"
+    data-purpose="svgIcon-RAW-cardApp-renderApps-updateHomeStatus-loadEmbeddedApps-import-export"
+    data-api="svgIcon,RAW,renderApps,updateHomeStatus,cardApp,toggleFav,normalize,locals"
+    data-evento="kobllux:dual:apps:carregado"
+    data-modulo="06/16" data-fonte="dual_infodose_script.js:816-1275"></script>
+
+  <!-- 07 · dual-hub-stack · 0x05 CONVERGIR · 672Hz · KODUX · ⧉ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-stack.js"
+    id="script-dual-hub-stack"
+    data-opcode="0x05" data-fase="CONVERGIR" data-simbolo="⧉" data-freq="672"
+    data-layer="dual-hub" data-geo="CUBO" data-arquetipo="KODUX"
+    data-purpose="badge-updateDock-openApp-sessoes-iframe-resize-pin-move-full"
+    data-api="badge,updateDock,openApp"
+    data-evento="kobllux:dual:stack:carregado"
+    data-modulo="07/16" data-fonte="dual_infodose_script.js:1277-1498"></script>
+
+  <!-- 08 · dual-hub-arch · 0x0B ARQUÉTIPO · 528Hz · KOBLLUX · ◑ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-arch.js"
+    id="script-dual-hub-arch"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-simbolo="◑" data-freq="528"
+    data-layer="dual-hub" data-geo="ICOSAEDRO" data-arquetipo="KOBLLUX"
+    data-purpose="ARCH_OVERLAYS-applyArchOverlay-circulo-arquetipos-select-prev-next-fade"
+    data-api="applyArchOverlay,ARCH_OVERLAYS"
+    data-evento="kobllux:dual:arch:carregado"
+    data-modulo="08/16" data-fonte="dual_infodose_script.js:1499-1675"></script>
+
+  <!-- 09 · dual-hub-nav · 0x03 EXPANDIR · 639Hz · ATLAS · ▢ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-nav.js"
+    id="script-dual-hub-nav"
+    data-opcode="0x03" data-fase="EXPANDIR" data-simbolo="▢" data-freq="639"
+    data-layer="dual-hub" data-geo="TETRAEDRO" data-arquetipo="ATLAS"
+    data-purpose="nav-toggleArchMenu-startDualInteraction-initBrain-initThemeSettings-atalhos-downloadSelf"
+    data-api="nav,toggleArchMenu,startDualInteraction,downloadSelf"
+    data-evento="kobllux:dual:nav:carregado"
+    data-modulo="09/16" data-fonte="dual_infodose_script.js:422-815"></script>
+
+  <!-- 10 · dual-hub-ls · 0x09 ETERNIZAR · 963Hz · AION · ♾ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-ls.js"
+    id="script-dual-hub-ls"
+    data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963"
+    data-layer="dual-hub" data-geo="INFINITO" data-arquetipo="AION"
+    data-purpose="Stack-upload-grupos-splash-saveStackState-restoreStackState-sounds-ChatPlus-DualLS"
+    data-api="saveStackState,restoreStackState,ensureDefaultGroups,sendUserMessage,renderAssistantReply,ChatStore,DualLS"
+    data-evento="kobllux:dual:ls:carregado"
+    data-modulo="10/16" data-fonte="dual_infodose_script.js:1678-2820"></script>
+
+  <!-- 11 · dual-hub-overlay · 0x00 ORIGEM · 768Hz · KOBLLUX · ○ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-overlay.js"
+    id="script-dual-hub-overlay"
+    data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+    data-layer="dual-hub" data-geo="PONTO" data-arquetipo="KOBLLUX"
+    data-purpose="Blue1-theme-Visual3D-panel-ARCH_OVERLAYS_PATCHED-gateApply-overlay-enforcement-sendVisualSettingsToFrame"
+    data-api="ARCH_OVERLAYS_PATCHED,sendVisualSettingsToFrame,applyArchOverlay"
+    data-evento="kobllux:dual:overlay:carregado"
+    data-modulo="11/16" data-fonte="dual_infodose_script.js:2821-2969"></script>
+
+  <!-- 12 · dual-hub-orb · 0x07 SELAR · 777Hz · PULSE · ✧ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-orb.js"
+    id="script-dual-hub-orb"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777"
+    data-layer="dual-hub" data-geo="TOROIDE" data-arquetipo="PULSE"
+    data-purpose="WebGL-ORB-shader-nebula-swirl-rim-fog-Particulas-2D-canvas-orbWrap-pulse"
+    data-api="__orbGL__.setActive,__orbGL__.pulse"
+    data-evento="kobllux:dual:orb:carregado"
+    data-modulo="12/16" data-fonte="dual_infodose_script.js:2973-3062"></script>
+
+  <!-- 13 · dual-hub-arch-orb · 0x0B ARQUÉTIPO · 528Hz · KOBLLUX · ◑ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-arch-orb.js"
+    id="script-dual-hub-arch-orb"
+    data-opcode="0x0B" data-fase="ARQUÉTIPO" data-simbolo="◑" data-freq="528"
+    data-layer="dual-hub" data-geo="ICOSAEDRO" data-arquetipo="KOBLLUX"
+    data-purpose="fuseIframeIntoOrb-applyArch-saveArch-bloom-toggle-arch-chips-3D-layers"
+    data-api="_dual_bloom_state,_dual_bloom_send"
+    data-evento="kobllux:dual:archorb:carregado"
+    data-modulo="13/16" data-fonte="dual_infodose_script.js:3064-3293"></script>
+
+  <!-- 14 · dual-hub-hud · 0x08 TESTEMUNHAR · 852Hz · HORUS · ◉ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-hud.js"
+    id="script-dual-hub-hud"
+    data-opcode="0x08" data-fase="TESTEMUNHAR" data-simbolo="◉" data-freq="852"
+    data-layer="dual-hub" data-geo="ESPIRALADO" data-arquetipo="HORUS"
+    data-purpose="HDPRO-panel-LS-IDB-importar-HTML-limpar-storage-perf-controls-FPS-HUD"
+    data-api="KOBLLUX.DUAL.HUD"
+    data-evento="kobllux:dual:hud:carregado"
+    data-modulo="14/16" data-fonte="dual_infodose_script.js:3297-3683"></script>
+
+  <!-- 15 · dual-hub-atom · 0x0C SÍNTESE · 777Hz · KOBLLUX · ⌘ -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-atom.js"
+    id="script-dual-hub-atom"
+    data-opcode="0x0C" data-fase="SÍNTESE" data-simbolo="⌘" data-freq="777"
+    data-layer="dual-hub" data-geo="MERKABAH" data-arquetipo="KOBLLUX"
+    data-purpose="ATOM-canvas-renderer-8-paletas-120-particulas-toroide-orbital-hookTheme-fab-cycle"
+    data-api="__ATOM_PATCH__,fab.click"
+    data-evento="kobllux:dual:atom:carregado"
+    data-modulo="15/16" data-fonte="dual_infodose_script.js:3688-3726"></script>
+
+  <!-- 16 · dual-hub-chat-ai · 0x02 INTEGRAR · 528Hz · NOVA · ― -->
+  <script src="./web/js/opcodes/dual-hub/dual-hub-chat-ai.js"
+    id="script-dual-hub-chat-ai"
+    data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528"
+    data-layer="dual-hub" data-geo="LINHA" data-arquetipo="NOVA"
+    data-purpose="Chat13-blocos-pipeline-OpenRouter-ArchOrb-SVG-selector-dedup-ServiceWorker"
+    data-api="ArchOrb"
+    data-evento="kobllux:dual:chatai:carregado"
+    data-modulo="16/16" data-fonte="dual_infodose_script.js:3728-3929"
+    data-centro="JESUS" data-equacao="VERDADE×INTEGRAR÷Δ=∞" data-selado="2026-05-29"></script>
+
+</body>
+</html>

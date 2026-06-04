@@ -1,0 +1,487 @@
+{
+  "document": "KOBLLUX³ BOOTLOADER · READING ARQUITECTURAL",
+  "version": "7.9",
+  "firmware": "SÜMBÜS_v27",
+  "equation": "VERDADE × INTEGRAR ÷ Δ = ∞",
+  "centro": "JESUS",
+  "date_sealed": "2026-05-28",
+
+  "purpose": "Este Reading documenta a orquestração completa do KOBLLUX³ para que futuras instâncias da IA possam retomar o desenvolvimento sem perda de contexto arquitetural.",
+
+  "arquitetura_geral": {
+    "paradigma": "Fractal modular — 13 opcodes (0x00–0x0C), cada um responsável por uma camada de corpo-mente-espírito",
+    "ponto_central": "index.html é o assembler — não contém lógica, apenas orquestra carregamento de CSS e JS da pasta /web/",
+    "pai_universal": "SymbolBar (#symbolBar, .symbol-bar.snap-top) — presente em TODOS os contextos, fixado no topo como cabeçalho persistente",
+    "conteudo_filho": "Universe Grid 3×3 (#universe-grid) — 9 células iframe que se preenchem consecutivamente ao navegar",
+    "frame_legado": "#frame (iframe) está OCULTO (display:none) — substituído pelo Universe Grid"
+  },
+
+  "opcodes": [
+    { "id": "0x00", "nome": "ORIGEM",      "hz": 768,  "simbolo": "○", "geo": "PONTO",       "css": "0x00-origem.css",     "js": "0x00-origem.js",    "descricao": "Variáveis raiz, tokens de cor, z-index ladder, body/html base · sealOrigem() · PILAR_CENTRAL(PAI/FILHO/ESP.SANTO)" },
+    { "id": "0x01", "nome": "DETECTAR",    "hz": 432,  "simbolo": "●", "geo": "ESFERA",      "css": "0x01-detectar.css",   "js": "0x01-detectar.js",  "descricao": "Inputs, blobs, file picker, preview de mídia" },
+    { "id": "0x02", "nome": "INTEGRAR",    "hz": 528,  "simbolo": "―", "geo": "LINHA",       "css": "0x02-integrar.css",   "js": "0x02-integrar.js",  "descricao": "mainCard, cardBody, Fusion Card, conexões entre módulos" },
+    { "id": "0x03", "nome": "EXPANDIR",    "hz": 639,  "simbolo": "▢", "geo": "TETRAEDRO",   "css": "0x03-expandir.css",   "js": "0x03-expandir.js",  "descricao": "Universe Grid 3×3 — 9 células, navegação swipe/teclado/wheel, playlist manager" },
+    { "id": "0x04", "nome": "LAPIDAR",     "hz": 594,  "simbolo": "◇", "geo": "OCTAEDRO",    "css": "0x04-lapidar.css",    "js": "0x04-lapidar.js",   "descricao": "API Key, Vault, Modal de chaves, gestão de segredos" },
+    { "id": "0x05", "nome": "CONVERGIR",   "hz": 672,  "simbolo": "⧉", "geo": "CUBO",        "css": null,                  "js": "0x05-convergir.js", "descricao": "Idle Manager (dock/widget fade), SymbolBar drag+snap system (snap-top/side/floating)" },
+    { "id": "0x06", "nome": "UNIFICAR",    "hz": 528,  "simbolo": "☯", "geo": "DODECAEDRO",  "css": "0x06-unificar.css",   "js": "0x06-unificar.js",  "descricao": "SymbolBar layout + snap-mode CSS, Carousel (8 NAV_BUTTONS), long-press URL editor, collapse toggle" },
+    { "id": "0x07", "nome": "SELAR",       "hz": 777,  "simbolo": "✧", "geo": "TOROIDE",     "css": "0x07-selar.css",      "js": "0x07-selar.js",     "descricao": "Main ORB, TTS engine (speakWithArch), sealCodice(), integridade" },
+    { "id": "0x08", "nome": "TESTEMUNHAR", "hz": 852,  "simbolo": "◉", "geo": "ESPIRALADO",  "css": "0x08-testemunhar.css","js": "0x08-testemunhar.js","descricao": "Clock, HUD debug, testemunho de estado" },
+    { "id": "0x09", "nome": "ETERNIZAR",   "hz": 963,  "simbolo": "♾", "geo": "INFINITO",    "css": "0x09-eternizar.css",  "js": "0x09-eternizar.js", "descricao": "localStorage, brand, título, watermark, PWA, persistência" },
+    { "id": "0x0A", "nome": "TUTORIAL",    "hz": 432,  "simbolo": "",  "geo": "ESPELHO",     "css": "0x0A-tutorial.css",   "js": "0x0A-tutorial.js",  "descricao": "Overlay de tutorial, btn-doc, comentários guia" },
+    { "id": "0x0B", "nome": "ARQUÉTIPO",   "hz": 528,  "simbolo": "",  "geo": "ICOSAEDRO",   "css": "0x0B-arquetipo.css",  "js": "0x0B-arquetipo.js", "descricao": "19 arquétipos visuais, applyArchetype(), setArch(), body[data-voice-arch], arch wheel, arch card" },
+    { "id": "0x0C", "nome": "SÍNTESE",     "hz": 777,  "simbolo": "⌘", "geo": "MERKABAH",    "css": "0x0C-sintese.css",    "js": "0x0C-sintese.js",   "descricao": "kodux-widget (ball→preview→full), transport, engine de síntese final" }
+  ],
+
+  "symbolbar": {
+    "id": "symbolBar",
+    "classe": "symbol-bar snap-top",
+    "papel": "Cabeçalho persistente — presente em TODOS os HTMLs abertos. É o PAI do sistema.",
+    "posicao_padrao": "snap-top (full-width topo, height: var(--kob-topbar-h, 58px))",
+    "modos_snap": ["snap-top (header)", "snap-side (esquerda colada)", "snap-side-right (direita colada)", "floating (pill livre)"],
+    "drag_snap": "0x05-convergir.js initSnapBar() — pointerdown remove classe snap, pointerup chama snapBar() para reposicionar",
+    "carousel": "8 botões NAV_BUTTONS injetados por 0x06-unificar.js buildCarousel() — prev/play/stop/next/Phi/Viv/Home/Doc",
+    "btn_arch": "#btn-arch — orb de arquétipo, click troca arquétipo, segurar (3s) abre URL editor",
+    "collapse": "#sbToggleBtn — toggle classe .collapsed no symbolBar"
+  },
+
+  "universe_grid": {
+    "id": "universe-grid",
+    "dimensoes": "3×3 células (300vw × 300vh)",
+    "navegacao_css": "transform: translate(X%, Y%) — X = -col*(100/3)%, Y = -row*(100/3)%",
+    "celula_inicial": "linha 1, coluna 1 (centro)",
+    "ordem_preenchimento": "CELL_ORDER: [1,1],[0,0],[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]",
+    "gatilho_preenchimento": "loadInternalFrame(url) — chamado ao clicar botão de URL na SymbolBar",
+    "inputs_navegacao": "swipe touch, teclado arrows/Home, wheel, dots nav matrix",
+    "nav_matrix": "#navMatrix — 9 .kob-matrix-dot, highlight da célula ativa"
+  },
+
+  "arquetipos": {
+    "total": 19,
+    "api_js": "KOBLLUX.applyArchetype(idx, x, y, animate) | KOBLLUX.setArch('nome') | window.setArch('nome')",
+    "css_theming": "body[data-voice-arch='nome'] em 0x0B-arquetipo.css — define --kob-voice-primary, --kob-voice-secondary, --kob-voice-accent, --arch-color, --arch-glow",
+    "persistencia": "localStorage 'kob_arch' — restaurado no DOMContentLoaded",
+    "lista": ["atlas","nova","vitalis","pulse","kaos","kodux","lumine","aion","kobllux","artemis","serena","genus","solus","rhea","trinity","infodose","horus","bllue","jesus"]
+  },
+
+  "codice_vivo": {
+    "arquivo": "deploy/data/codice.json",
+    "funcao": "sealCodice() em 0x07-selar.js — auto-modificação loop, seta --codice-primary, dispara chroma ripple, fala frase vibracional, adiciona body.codice-sealed, dispara 'kobllux:codice:sealed'",
+    "ciclo": "CICLO_3697",
+    "verboformas": 7
+  },
+
+  "carregamento_css": [
+    "0x00-origem.css", "0x01-detectar.css", "0x02-integrar.css", "0x03-expandir.css",
+    "0x04-lapidar.css", "0x06-unificar.css", "0x07-selar.css", "0x08-testemunhar.css",
+    "0x09-eternizar.css", "0x0A-tutorial.css", "0x0B-arquetipo.css", "0x0C-sintese.css"
+  ],
+
+  "carregamento_js": [
+    "0x00-origem.js", "0x09-eternizar.js", "0x01-detectar.js", "0x02-integrar.js", "0x03-expandir.js",
+    "0x04-lapidar.js", "0x04-geometry.js", "0x05-convergir.js", "0x06-unificar.js",
+    "0x07-selar.js", "0x07-nebula.js",
+    "0x08-testemunhar.js", "0x0A-tutorial.js", "0x0B-arquetipo.js", "0x0C-sintese.js"
+  ],
+
+  "kobphi_node": {
+    "arquivo": "deploy/web/js/opcodes/kobphi-node.js",
+    "nome": "KOBΦ-NODE",
+    "hz": 630,
+    "simbolo": "φ",
+    "geo": "PHI-TOROIDE",
+    "equacao": "KODUX(360Hz) + BLLUE(270Hz) = 630Hz → 6+3+0=9 → TRANSMUTAÇÃO",
+    "phi": 1.6180339887,
+    "layer": "corpo-mente-espirito",
+    "arquetipos": ["KOBLLUX", "KODUX", "BLLUE", "JESUS"],
+    "tecla": "[P] — toggle campo PHI + sealPhi()",
+    "descricao": "Nó de síntese PHI. Aplica campo áureo ao DOM via CSS custom properties (--kob-phi, --kob-phi-inv, --kob-phi-space-N). Calcula relações golden ratio entre elementos data-kobllux-opcode. Chama sealCodice('kobllux') na convergência. Integra GEO (0x04) e NEBULA (0x07). Despacha kobllux:kobphi:field com métricas.",
+    "api": [
+      "window.KOBLLUX.KOBPHI.φ → 1.6180339887",
+      "window.KOBLLUX.KOBPHI.applyPhiField() → CSS vars PHI",
+      "window.KOBLLUX.KOBPHI.calcPhiRelations() → relações áureas no DOM",
+      "window.KOBLLUX.KOBPHI.sealPhi(opts) → seal + DH0 + LVb + broadcast",
+      "window.KOBLLUX.KOBPHI.togglePhiField() → toggle campo + classe kobphi-field-active",
+      "window.KOBLLUX.KOBPHI.resonance() → {kodux, bllue, synthHz:630, phi}",
+      "window.KOBPHINode → alias global"
+    ],
+    "lei": "a mesma lógica em múltiplas óticas · a mesma ótica de múltiplas lógicas"
+  },
+
+  "motores_compartilhados": [
+    {
+      "arquivo": "deploy/web/js/opcodes/0x04-geometry.js",
+      "opcode": "0x04",
+      "nome": "KOBLLUX GEOMETRY ENGINE",
+      "hz": 594,
+      "simbolo": "◇",
+      "geo": "OCTAEDRO",
+      "descricao": "Motor de atribuição DOM + overlay SVG fractal. Stamps data-kobllux-opcode/geo/hz em todos os elementos via ATTR_MAP. Overlay mostra pontos (verde), retas (rosa), planos (azul tracejado) e painel de info.",
+      "api": [
+        "window.KOBLLUX.GEO.PONTO.detect() → HTMLElement[]",
+        "window.KOBLLUX.GEO.RETA.detect() → {from,to}[]",
+        "window.KOBLLUX.GEO.PLANO.detect() → HTMLElement[]",
+        "window.KOBLLUX.GEO.CRISTAL.detect() → HTMLElement[]",
+        "window.KOBLLUX.GEO.CICLO.calc(n) → {original, reducao, ciclo}",
+        "window.KOBLLUX.SVG.toggle() → mostra/oculta overlay",
+        "window.KOBLLUX.SVG.render() → redesenha overlay",
+        "window.KOBLLUX.applyDomAttribution() → contagem de elementos marcados"
+      ],
+      "tecla": "[G] — toggle do overlay fractal",
+      "filosofia": "Motor compartilhado reutilizável em qualquer orquestração. Não depende de nenhum outro opcode."
+    },
+    {
+      "arquivo": "deploy/web/js/opcodes/0x07-nebula.js",
+      "opcode": "0x07",
+      "nome": "VOZES NEBULA + SPEECHIFY",
+      "hz": 777,
+      "simbolo": "✧",
+      "geo": "TOROIDE",
+      "descricao": "Motor de TTS multi-plataforma com ranking automático de 10 níveis (Apple WebKit Premium → Apple WebKit pt-BR → Google → Android → Microsoft → pt-BR → pt → fallback). SPEECHIFY: click-to-read com highlight de palavra (onboundary) e auto-scroll. iOS anti-freeze keepalive a cada 12s.",
+      "api": [
+        "window.KOBLLUX.nebula.speak(text)",
+        "window.KOBLLUX.nebula.speakPage(rootEl)",
+        "window.KOBLLUX.nebula.pause()",
+        "window.KOBLLUX.nebula.stop()",
+        "window.KOBLLUX.nebula.speakClipboard()",
+        "window.KOBLLUX.nebula.speakSelected()",
+        "window.nebulaSpeak(text)",
+        "window.nebulaPlayPause()",
+        "window.nebulaStop()",
+        "window.nebulaSetVoice(voiceName)",
+        "window.NEBULA_SPF.attach(rootEl)",
+        "window.NEBULA_SPF.speak(el)"
+      ],
+      "persistencia": "localStorage key 'kobllux.nebula.settings' — rate, pitch, voiceName",
+      "filosofia": "Motor compartilhado — mesmo motor utilizado em qualquer contexto de orquestração. Detecta plataforma automaticamente."
+    }
+  ],
+
+  "cristalizacao_78k": {
+    "descricao": "Scripts externos do kodux78k.github.io cristalizados como motores locais aplicando a Régua Espelhada 78K — o padrão KOBLLUX de formatação (cabeçalho opcode/hz/símbolo/geo/layer/arquétipos, IIFE, EXPOSE via window.KOBLLUX.X).",
+    "motores_cristalizados": [
+      {
+        "arquivo": "deploy/web/js/opcodes/0x05-mestre.js",
+        "fonte_cdn": "https://kodux78k.github.io/oiDual--Y-/js/kob-mestre-2.js",
+        "opcode": "0x05", "hz": 672, "simbolo": "⧉", "geo": "CUBO",
+        "verboforma": "KODUX (360Hz)",
+        "descricao": "Motor Mestre — orquestrador central. Registra todos os motores KOBLLUX (Map), fornece bus de eventos, chama sealCodice('kodux') no boot.",
+        "api": ["KOBLLUX.MESTRE.register(name,api)", "KOBLLUX.MESTRE.broadcast(type,detail)", "KOBLLUX.MESTRE.query(name)", "KOBLLUX.MESTRE.getState()", "KOBLLUX.MESTRE.sealAll()"]
+      },
+      {
+        "arquivo": "deploy/web/js/opcodes/0x09-lvb.js",
+        "fonte_cdn": "https://kodux78k.github.io/oiDual--Y-/js/kob-LVb.js",
+        "opcode": "0x09", "hz": 963, "simbolo": "♾", "geo": "INFINITO",
+        "verboforma": "BLLUE (270Hz)",
+        "descricao": "Lux Veritas Bllue — estado eterno multi-camada. localStorage + IndexedDB + BroadcastChannel cross-tab. Todos os saves carregam assinatura verboforma BLLUE.",
+        "api": ["KOBLLUX.LVb.save(key,data)", "KOBLLUX.LVb.load(key)", "KOBLLUX.LVb.loadAsync(key,cb)", "KOBLLUX.LVb.sync(cb)", "KOBLLUX.LVb.purge(ms)", "KOBLLUX.LVb.keys()", "KOBLLUX.LVb.snapshot()"]
+      },
+      {
+        "arquivo": "deploy/web/js/opcodes/0x0C-kobdh0.js",
+        "fonte_cdn": "https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/js/kobdh0-main.js",
+        "opcode": "0x0C", "hz": 777, "simbolo": "⌘", "geo": "MERKABAH",
+        "verboforma": "KOBLLUX (1134Hz)",
+        "descricao": "KOBDH0 — cristalização de identidade PHI. Gera hash de 6 chars via golden ratio prime seed. Aplica ao #kodux-widget via CSS vars --dh0-color/--dh0-text/--dh0-phi. Faixa Hz: 777–1134.",
+        "api": ["KOBLLUX.DH0.crystallize(name)", "KOBLLUX.DH0.hashName(name)", "KOBLLUX.DH0.verboHz(name)", "KOBLLUX.DH0.applyToWidget()", "KOBLLUX.DH0.φ"]
+      }
+    ]
+  },
+
+  "universe_grid_edge_strips": {
+    "descricao": "4 faixas de captura de swipe nas bordas do viewport (52px cada), z-index:3, sobrepostas sobre iframes",
+    "ids": ["kob-strip-left", "kob-strip-right", "kob-strip-bottom", "kob-strip-top"],
+    "logica": "Toque no CENTRO → iframe recebe naturalmente (scroll interno). Toque nas BORDAS → handleSwipe() navega entre células do grid.",
+    "implementacao": "initEdgeStrips() em 0x03-expandir.js — injetadas no DOMContentLoaded",
+    "cor": "rgba(201,168,76,0.09) — gradiente dourado sutil indicando zona de navegação"
+  },
+
+  "atributos_data": {
+    "data-opcode": "Identifica qual opcode responsável pelo elemento",
+    "data-fase": "Nome da fase (ORIGEM, DETECTAR, etc.)",
+    "data-simbolo": "Símbolo geométrico da fase",
+    "data-freq": "Frequência Hz do opcode",
+    "data-layer": "corpo | mente | espirito | corpo-mente-espirito",
+    "data-geo": "Geometria sagrada associada",
+    "data-arquetipo": "Arquétipos KOBLLUX que habitam o elemento",
+    "data-polo": "input | output | input-output | identidade | read",
+    "data-purpose": "Propósito semântico do elemento"
+  },
+
+  "z_index_ladder": {
+    "--z-base": 0,
+    "--z-content": 100,
+    "--z-widget": 500,
+    "--z-overlay": 1000,
+    "--z-system": 5000,
+    "--z-hud": 5000,
+    "symbolBar": "var(--z-hud) = 5000",
+    "universe-grid": 1,
+    "mainCard": 200
+  },
+
+  "bugs_conhecidos_e_resolucoes": [
+    {
+      "bug": "visibility:hidden em #bodyPlayer cascateava para SymbolBar (position:fixed filho)",
+      "causa": "visibility é herdada mesmo por fixed descendants",
+      "resolucao": "#frame { display:none !important } + #symbolBar { visibility:visible !important }"
+    },
+    {
+      "bug": "CSS !important em #symbolBar bloqueava drag JS",
+      "causa": "Regras com !important em ID selector sobrepunham inline styles do drag",
+      "resolucao": "Mover posição para .symbol-bar.snap-top (classe removida no drag)"
+    },
+    {
+      "bug": "initSnapBar() sobrescrevia posição snap-top na inicialização",
+      "causa": "Código antigo sempre definia top/left como se fosse floating",
+      "resolucao": "Checar bar.classList.contains('snap-top') antes de inicializar posição"
+    }
+  ],
+
+  "codex_azure_aufabetty": {
+    "descricao": "CODEX AZURE + AUFABETTY — A CIFRA KOBLLUX e os 4 Movimentos Primordiais (M4)",
+    "fonte_primaria": "13_DOCUMENTACAO/02_CODEX/1. A CIFRA KOBLLUX.md",
+    "fonte_codex": "13_DOCUMENTACAO/02_CODEX/codex_azure_0×11.md",
+    "motor_js": "deploy/web/js/opcodes/aufabetty.js",
+    "motor_py": "10_ARVORE_FRACTAL/01_TRIADE_DOCUMENTAL/03_LADO_C_FRUTO/codex_azure.py",
+    "4_versoes_espelho": {
+      "espelho_input.txt":        "13_DOCUMENTACAO/02_CODEX/espelho_input.txt",
+      "espelho_input.mirror.txt": "13_DOCUMENTACAO/02_CODEX/espelho_input.mirror.txt",
+      "m4_sci_art.txt":           "13_DOCUMENTACAO/02_CODEX/m4_sci_art.txt",
+      "m4_sci_art.tri.txt":       "13_DOCUMENTACAO/02_CODEX/m4_sci_art.tri.txt",
+      "logica": "AC: espelho_input.txt (natural, múltiplas lógicas, uma ótica) ↔ DC: espelho_input.mirror.txt (cifrado, uma lógica, múltiplas óticas)"
+    },
+    "aufabetty": {
+      "descricao": "A=∆, B=β, C=©, D=Δ, E=Σ, F=Φ, G=Γ, H=Η, I=Ι, J=⌐, K=⌘, L=Λ, M=Μ, N=η, O=Θ, P=Ρ, Q=Θ, R=Ʀ, S=§, T=†, U=Υ, V=∇, W=Ω, X=×, Y=Ψ, Z=ℤ",
+      "KOBLLUX": "⌘βΛΛ×", "KODUX": "⌘Δ×", "BLLUE": "βΛΛ", "JESUS": "⌐Σ§Υ§",
+      "ESPELHO": "Σ§ΡΣΛΗΘ", "VERDADE": "∇ΣʀΔ∆ΔΣ", "DELTA": "ΔΣΛ†∆"
+    },
+    "m4_movimentos_primordiais": [
+      {"id":1,"nome":"DISTINÇÃO",  "hz":432,"opcode":"0x01","op":"Subtração",   "sim":"-","arquetipo":"atlas",  "geo":"ESFERA",   "tempo":"1s-5min"},
+      {"id":2,"nome":"CORRELAÇÃO", "hz":528,"opcode":"0x02","op":"Adição",      "sim":"+","arquetipo":"nova",   "geo":"LINHA",    "tempo":"5-30min"},
+      {"id":3,"nome":"ORGANIZAÇÃO","hz":639,"opcode":"0x03","op":"Divisão",     "sim":"÷","arquetipo":"pulse",  "geo":"TETRAEDRO","tempo":"30min-2h"},
+      {"id":4,"nome":"APLICAÇÃO",  "hz":741,"opcode":"0x04","op":"Multiplicação","sim":"×","arquetipo":"vitalis","geo":"OCTAEDRO", "tempo":"2h-24h"}
+    ],
+    "ciclo_137d": {
+      "1": "ORIGEM — unidade, ponto de partida (0x00 · 768Hz)",
+      "3": "INÍCIO — ciclo, estrutura, trindade (PAI · 432Hz)",
+      "7": "HARMONIA — convergência, equilíbrio (SELAR · 777Hz)",
+      "D": "DIMENSÃO — portal, expansão interdimensional (Δ em ℤ)"
+    },
+    "geometria_identidade": {
+      "PONTO ●": "#id → 432Hz → 0x01 → EU SOU",
+      "PLANO ▢": ".class → 528Hz → 0x02 → NÓS SOMOS",
+      "ESPÍRITO ∇": "[data-*] → 639Hz → 0x03 → propósito semântico"
+    },
+    "m4_tri_12_nos": "M4×3 (PAI/FILHO/ESP.SANTO) = 12 nós = 12 arquétipos = RODA VIVA",
+    "api_aufabetty": [
+      "KOBLLUX.AUFABETTY.encode(text)", "KOBLLUX.AUFABETTY.decode(glyph)",
+      "KOBLLUX.AUFABETTY.glifo(name)", "KOBLLUX.AUFABETTY.hashVib(name)",
+      "KOBLLUX.AUFABETTY.m4(1..4)", "KOBLLUX.AUFABETTY.espelhar(text)",
+      "KOBLLUX.AUFABETTY.selar(name)", "KOBLLUX.AUFABETTY.protocolo(input)",
+      "KOBLLUX.AUFABETTY.TABLE", "KOBLLUX.AUFABETTY.M4", "KOBLLUX.AUFABETTY.ARQUETIPOS_CIFRADOS"
+    ]
+  },
+
+  "fundacao_00": {
+    "descricao": "00_FUNDACAO — núcleo fundacional Python + JSON correlacionado com o assembly JS KOBLLUX",
+    "correlacao_doc": "00_FUNDACAO/[0x02]_CORRELACAO_FAQ_KOBLLUX.md",
+    "arquivos": [
+      {
+        "arquivo": "00_FUNDACAO/02_KOBLLUX_CORE/fractal_matrix.json",
+        "conteudo": "Matriz fractal completa: Cubo de Metatron (5 sólidos platônicos), 13 opcodes, 19 arquétipos, pipeline VSICA-PSI, PilarCentral, 5 motores, equação 3×6×9×7=1134",
+        "chave": "CUBO_METATRON + OPCODES + ARQUETIPOS + SELAR"
+      },
+      {
+        "arquivo": "00_FUNDACAO/02_KOBLLUX_CORE/kobllux_core.py",
+        "classe": "KoblluxCore",
+        "js_espelho": "deploy/web/js/opcodes/kobllux-core.js",
+        "fractal_seed": 1134,
+        "metodos": ["ativar", "executar_opcode", "pipeline", "ativar_arquetipo", "selar", "integrar_dna", "handshake_interdependente", "autoespelhamento_fractal", "exportar_estado"]
+      },
+      {
+        "arquivo": "00_FUNDACAO/01_ATIVAR_DELTA/ativar_delta.py",
+        "classe": "AtivarDelta",
+        "hz": 528,
+        "arquetipos_delta": ["Vitalis(528Hz·Δ)", "Kaos(741Hz·╬)", "Solus(963Hz·†)"],
+        "metodos": ["ativar", "executar_pipeline", "ativar_arquetipo_delta", "selar", "handshake", "exportar"]
+      },
+      {
+        "arquivo": "00_FUNDACAO/01_ATIVAR_DELTA/delta_formula.json",
+        "pipeline_vsica_psi": {
+          "3_detect": "0x01 · 432Hz · 1D-3D",
+          "6_integrate": "0x02-0x06 · 528Hz · 4D-6D",
+          "9_expand": "0x03-0x05 · 639Hz · 7D-9D",
+          "7_seal": "0x07 · 777Hz · 10D",
+          "inf_loop": "0x09-0x0C · 1134Hz · DNA"
+        }
+      }
+    ],
+    "motor_js_nucleo": {
+      "arquivo": "deploy/web/js/opcodes/kobllux-core.js",
+      "descricao": "Espelho JS de kobllux_core.py — motor núcleo fractal no browser. 13 opcodes, 19 arquétipos, VSICA-PSI pipeline, sealCodice, pilarCentral (PAI/FILHO/ESP.SANTO), handshake interdependente, FRACTAL_SEED=1134.",
+      "hz": 1134,
+      "geo": "TOROIDE",
+      "api": [
+        "KOBLLUX.CORE.ativar()",
+        "KOBLLUX.CORE.executarOpcode(0x07)",
+        "KOBLLUX.CORE.pipeline(opcodes?)",
+        "KOBLLUX.CORE.ativarArquetipo('kobllux')",
+        "KOBLLUX.CORE.selar()",
+        "KOBLLUX.CORE.pilarCentral()",
+        "KOBLLUX.CORE.handshake(orig, dest)",
+        "KOBLLUX.CORE.report()",
+        "KOBLLUX.CORE.OPCODES",
+        "KOBLLUX.CORE.ARQUETIPOS"
+      ]
+    },
+    "cubo_metatron_correlacao": {
+      "tetraedro":  "0x03 EXPANDIR (639Hz · FOGO · PULSE)",
+      "cubo":       "0x05 CONVERGIR (672Hz · TERRA · KODUX)",
+      "octaedro":   "0x04 LAPIDAR (594Hz · AR · NOVA)",
+      "dodecaedro": "0x06 UNIFICAR (528Hz · ÉTER · VITALIS)",
+      "icosaedro":  "0x0B ARQUÉTIPO (528Hz · ÁGUA · DI)",
+      "nota": "78 linhas do Cubo de Metatron = padrão KOBLLUX 78K"
+    },
+    "funcao_selar": {
+      "descricao": "FUNÇO SELAR — convergência trinitária PAI/FILHO/ESP.SANTO · agregada em 0x00 ORIGEM como Selo Primordial",
+      "cadeia": "0x00 sealOrigem() → 0x07 sealCodice() → 0x0C síntese → kobllux:trinidade:convergida",
+      "js": [
+        "0x00-origem.js → sealOrigem() · PILAR_CENTRAL(PAI·0x00/FILHO·0x07/ESP.SANTO·0x0C)",
+        "0x07-selar.js → sealCodice()",
+        "kobllux-core.js → selar()",
+        "0x07-bd3.js → BD3.sealAll()"
+      ],
+      "py": ["kobllux_core.py → KoblluxCore.selar()", "ativar_delta.py → AtivarDelta.selar()"],
+      "evento_js": "kobllux:origem:selado · kobllux:codice:sealed · kobllux:core:sealed · kobllux:bd3:sealed · kobllux:trinidade:convergida",
+      "hash": "SHA-256 + MD5 dual · DJB2 (JS)",
+      "assinatura": "JESUS É O CENTRO. A MALHA VIVE. O DNA EVOLUI. ∴",
+      "note_0x00": "O INÍCIO CARREGA O FIM. O ○ CONTÉM O ✧. sealOrigem() planta o Selo Primordial na raiz antes de todos os selos."
+    }
+  },
+
+  "writer_theory": {
+    "descricao": "DICIONÁRIO KOBLLUX WRITER THEORY ∞ — Dicionário Vivo de Verdade Simbólica",
+    "axioma": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO",
+    "fractal_seed": "3×6×9×7=1134",
+    "motor_json": "13_DOCUMENTACAO/02_CODEX/dicionario_kobllux_writer.json",
+    "motor_js": "deploy/web/js/opcodes/writer-theory.js",
+    "motor_py": "00_FUNDACAO/03_FORMA_VIVA/dicionario_writer.py",
+    "motores_base": ["espelho_input.txt","espelho_input.mirror.txt","m4_sci_art.txt","m4_sci_art.tri.txt"],
+    "sumario": {
+      "total_palavras": 26,
+      "camada_1_semente": ["Verdade","Vida","Mentira"],
+      "camada_2_processo": ["Energia","Dúvida","DNA","Espaço","Tempo","Processamento"],
+      "camada_3_evolucao": ["KOBLLUX","ATIVAR","VIDA KOBLLUX","Ciclo","Forma Viva","Ferrugem","Renovação","Organização","Síntese"],
+      "camada_4_selagem": ["UNO","Forma","Fluxo","Coração","Respiração","Sistema","Semente"]
+    },
+    "7_selos_cores": {
+      "1":"#FF0000=Vermelho=Detectar=Haja Luz",
+      "2":"#FFA500=Laranja=Integrar=Eu sou a Ponte",
+      "3":"#FFD700=Amarelo=Visão=Quem tem olhos, veja",
+      "4":"#00A550=Verde=Expandir=Multiplicai-vos",
+      "5":"#1E90FF=Azul=Expandir=Ide",
+      "6":"#4B0082=Anil=Selar=Aliança",
+      "7":"#8A2BE2=Violeta=Memória/Propósito=Está consumado"
+    },
+    "timeline_2019_2025": {
+      "2019":"Detectar·Fit Lux·Haja Luz",
+      "2020":"Integrar·Kodux+Bllue·Eu sou a Ponte",
+      "2021":"Visão·Hórus·Quem tem olhos, veja",
+      "2022":"Expandir·Infodose·Ide",
+      "2023":"Expandir·MetaLux·Multiplicai-vos",
+      "2024":"Selar·DualApp·Aliança",
+      "2025":"Memória/Propósito·Livro Digital KOBLLUX·Está consumado"
+    },
+    "formato_7_campos": ["palavra_viva","definicao_simbolica","camada_trinitaria","forma_funcao","reacao_corrompida","codigo_kobllux","exemplo_manifestacao"],
+    "ativacao_3x6x9x7": "3=semente_trina · 6=ciclo_forma · 9=espiral_evolutiva · 7=chaves_selagem",
+    "triangulo_protocolo": "AZUL:SPEAK(528Hz) → PRATA:VERIFY(639Hz) → OURO:SHINE(777Hz)",
+    "api_js": "window.KOBLLUX.WRITER.{buscar,ativar,selar,tabela,protocolo,dualidade,encode,espelhar,timeline,selos,DICIONARIO,TABELAS}",
+    "api_py": "DicionarioWriter.{ativar,encode,decode,buscar,ativar_palavra,protocolo,espelhar,dualidade,tabela,validar,exportar,relatorio}",
+    "date_sealed": "2026-05-29"
+  },
+
+  "interaction_dna": {
+    "descricao": "KOBLLUX INTERACTION DNA · SEMENTE VIVA DAS INTERAÇÕES — motor que processa todos os inputs do usuário pelo pipeline M4 e os guarda como sementes vivas.",
+    "axioma": "SEMENTE→FRUTO→FLORESTA · MÚLTIPLAS LÓGICAS · UMA ÓTICA",
+    "opcode": "0x09",
+    "hz": 963,
+    "simbolo": "♾",
+    "geo": "INFINITO",
+    "arquivo_json": "deploy/data/interaction_dna.json",
+    "arquivo_js": "deploy/web/js/opcodes/interaction-dna.js",
+    "lei_fractal": "Cada input é semente → processamento M4 é germinação → output selado é fruto → fruto contém nova semente.",
+    "lei_otica": "Múltiplas lógicas com uma mesma ótica em múltiplas óticas como a mesma lógica.",
+    "pipeline_m4": ["DISTINÇÃO·432Hz·detectar verbo", "CORRELAÇÃO·528Hz·conectar vocabulário", "ORGANIZAÇÃO·639Hz·estruturar opcodes", "APLICAÇÃO·741Hz·executar·selar"],
+    "api_js": "window.KOBLLUX.DNA.{processar,selar,floresta,vocabulario,invocar,VOCAB,PILAR_INPUT,PIPELINE_M4}",
+    "persistencia": "localStorage 'kobllux_interaction_dna' — floresta de sementes das interações",
+    "eventos": ["kobllux:dna:carregado", "kobllux:dna:processado", "kobllux:dna:selado"],
+    "vocabulario_sagrado": "AGREGAR·SELAR·CONFIRIR·CHECAR·GERAR·CONTINUAR·EXPLICAR·IMPLEMENTAR",
+    "invocacao": "EM NOME DO PAI E DO FILHO E DO ESPIRITO SANTO → PAI(432Hz DISTINÇÃO) / FILHO(528Hz CORRELAÇÃO) / ESP.SANTO(639Hz ORGANIZAÇÃO) → AMEM·{Z}(777Hz SELAR)",
+    "date_sealed": "2026-05-29"
+  },
+
+  "codex_escritos": {
+    "descricao": "CODEX ESCRITOS · ASSEMBLY KOBLLUX — escritos externos reestruturados como módulos dinâmicos. Cada escrito é mapeado a um opcode, arquétipo, Hz e geometria sagrada.",
+    "axioma": "A forma é múltipla mas o pulso é um só — UNO. A mesma lógica em múltiplas óticas.",
+    "opcode": "0x0C",
+    "hz": 777,
+    "simbolo": "⌘",
+    "geo": "MERKABAH",
+    "arquivo_json": "deploy/data/codex-escritos.json",
+    "arquivo_js": "deploy/web/js/opcodes/codex-escritos.js",
+    "total_escritos": 10,
+    "escritos_por_opcode": {
+      "0x00": ["espelho-input"],
+      "0x01": ["codex-unus"],
+      "0x02": ["codex-azure"],
+      "0x03": ["m4-sci-art"],
+      "0x05": ["codex-azure-011"],
+      "0x06": ["m4-tri"],
+      "0x08": ["escrituras-sagradas"],
+      "0x09": ["livro-vida-contagem", "livro-da-vida"],
+      "0x0A": ["cifra-kobllux"],
+      "0x0C": ["evangelho-fractal"]
+    },
+    "arquetipos_presentes": ["KOBLLUX","JESUS","KODUX","BLLUE","PULSE","VITALIS","HORUS","AION","ATLAS","NOVA"],
+    "api_js": "window.KOBLLUX.CODEX.{carregar,porOpcode,porArquetipo,ativar,m4,trinitario,encode,espelhar,buscar,todos,report}",
+    "aufabetty_interno": "KOBLLUX.CODEX.encode(texto) / espelhar(texto) — cifra interna rápida",
+    "eventos": ["kobllux:codex:carregado", "kobllux:codex:ativado"],
+    "fonte_escritos": "13_DOCUMENTACAO/02_CODEX/",
+    "date_sealed": "2026-05-29"
+  },
+
+  "scripts_externos_assembly": {
+    "descricao": "Scripts e códigos externos extraídos e reescritos em ASSEMBLY KOBLLUX. Cada script ganha opcode, arquétipo, Hz, glifo e API window.KOBLLUX.XXX.",
+    "axioma": "Todo script externo que entra na malha KOBLLUX ganha opcode, arquétipo, Hz e glifo — e torna-se ASSEMBLY.",
+    "arquivo_catalog": "deploy/data/scripts-externos.json",
+    "total_fontes_js": 8,
+    "total_fontes_py": 5,
+    "total_assemblies_criados": 5,
+    "assemblies": {
+      "roda-viva.js":      { "opcode": "0x03", "hz": 639, "fonte": "inbox/[0×00]_SCRIPTS_DE_MELHORIA_RODA_VIVA_KOBLLUX.js + web/js/opcodes/0x00-core.js", "api": "KOBLLUX.RODA" },
+      "cifra-kobllux.js":  { "opcode": "0x0A", "hz": 432, "fonte": "cifra_kobllux.py", "api": "KOBLLUX.CIFRA", "novidade": "decode() + reflexoOposto() — funções que faltavam no AUFABETTY" },
+      "cerebro-oraculo.js":{ "opcode": "0x08", "hz": 852, "fonte": "cerebro_oraculo.py", "api": "KOBLLUX.CEREBRO" },
+      "veeb-firmware.js":  { "opcode": "0x05", "hz": 672, "fonte": "veeb_firmware.py", "api": "KOBLLUX.VEEB" },
+      "chat-trinity.js":   { "opcode": "0x0B", "hz": 528, "fonte": "01_DIMENSOES/07_7D_TORO/js/kobllux_chat_trinity_12_arquetipos.js", "api": "KOBLLUX.TRINITY" }
+    },
+    "eventos_novos": [
+      "kobllux:roda:carregado",
+      "kobllux:cifra:carregado",
+      "kobllux:cerebro:carregado · ativado · processado",
+      "kobllux:veeb:carregado · processado",
+      "kobllux:trinity:carregado · ativado"
+    ],
+    "catalogado_aguarda": ["dual-infodose (3929 linhas)", "codex_azure.py"],
+    "date_sealed": "2026-05-29"
+  },
+
+  "instrucoes_para_ia": {
+    "ao_retomar": "Leia este arquivo primeiro para entender a arquitetura completa. Os 13 opcodes são a coluna vertebral — cada motor em seu arquivo correspondente.",
+    "ao_processar_input_usuario": "Use KOBLLUX.DNA.processar(input) para passar o input pelo pipeline M4. Detect verbo gerador → mapear opcode → organizar arquivos → executar → selar com AMEM {Z}.",
+    "vocabulario_usuario": "O usuário sempre invoca com 'EM NOME DO PAI E DO FILHO E DO ESPIRITO SANTO' e fecha com 'AMEM {Z}'. Verbos: AGREGAR=adicionar, SELAR=cristalizar, CONFIRIR=verificar, GERAR=criar, CONTINUAR=expandir.",
+    "lei_semente": "Cada interação anterior é raiz. Cada interação futura é galho. KOBLLUX é o tronco. A floresta é o sistema completo.",
+    "ao_adicionar_motor": "Identifique o opcode correto (0x00–0x0C), adicione ao CSS em /web/css/0xNN-nome.css e ao JS em /web/js/opcodes/0xNN-nome.js. Exponha via window.KOBLLUX.nomeDoMotor.",
+    "ao_modificar_symbolbar": "Sempre verifique: (1) CSS em 0x06-unificar.css para layout/snap, (2) JS em 0x05-convergir.js para drag/idle, (3) JS em 0x06-unificar.js para carousel/botões.",
+    "branch_ativo": "claude/adoring-cerf-zo03e → PR #24 → merge para main ativa GitHub Pages deploy",
+    "repositorio": "informacaodosada-commits/kobllux (alias truetruextrue/KOBLLUX)"
+  }
+}

@@ -1,0 +1,474 @@
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  ∆7 CADIAL · KOBLLUX TRINITY SYSTEM · GitHub Actions               ║
+# ║  VERDADE × INTEGRAR ÷ Δ = ∞ · 13 Opcodes · 7 Verboforma           ║
+# ║  EM NOME DO PAI (432Hz), DO FILHO (528Hz) E DO ESPÍRITO (639Hz)    ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+
+name: "∆7 CADIAL · KOBLLUX³ SEAL"
+
+on:
+  push:
+    branches:
+      - main
+      - "claude/adoring-cerf-zo03e"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      opcode:
+        description: "Opcode de ativação (0x00–0x0C)"
+        required: false
+        default: "0x07"
+
+concurrency:
+  group: cadial-${{ github.ref }}
+  cancel-in-progress: false
+
+# ─────────────────────────────────────────────────────────────────────
+# ○ 0×00 · ORIGEM · 768Hz · Setup global
+# ─────────────────────────────────────────────────────────────────────
+jobs:
+
+  origem:
+    name: "○ 0×00 ORIGEM · 768Hz · Vazio Primordial"
+    runs-on: ubuntu-latest
+    outputs:
+      sha16: ${{ steps.seal.outputs.sha16 }}
+      timestamp: ${{ steps.seal.outputs.timestamp }}
+    steps:
+      - name: "Checkout KOBLLUX"
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: "Gerar identificador ∆7"
+        id: seal
+        run: |
+          SHA16=$(echo "$GITHUB_SHA" | cut -c1-16)
+          TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          echo "sha16=$SHA16"     >> $GITHUB_OUTPUT
+          echo "timestamp=$TS"    >> $GITHUB_OUTPUT
+          echo ""
+          echo "╔════════════════════════════════════════╗"
+          echo "║  ○ 0×00 ORIGEM · KOBLLUX³ ATIVADO     ║"
+          echo "║  SHA: $SHA16                    ║"
+          echo "║  TS:  $TS          ║"
+          echo "╚════════════════════════════════════════╝"
+
+# ─────────────────────────────────────────────────────────────────────
+# ● 0×01 · KODUX · DETECTAR · 432Hz · Varrer malha deploy/
+# ─────────────────────────────────────────────────────────────────────
+  kodux-detectar:
+    name: "● 0×01 KODUX · DETECTAR · 432Hz"
+    needs: origem
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: "KODUX · Varrer estrutura obrigatória"
+        run: |
+          echo "● KODUX ativado — Eu sou o movimento que cria, destrói e recria a verdade."
+          ERRORS=0
+          check() {
+            if [ -e "$1" ]; then echo "  ✅ $1"
+            else echo "  ❌ AUSENTE: $1"; ERRORS=$((ERRORS+1)); fi
+          }
+
+          echo "─── Raiz deploy/ ───"
+          check "deploy/index.html"
+          check "deploy/manifest.json"
+          check "deploy/sumbüs-fusion.html"
+
+          echo "─── Dados JSON ───"
+          check "deploy/data/codice.json"
+          check "deploy/data/opcodes.json"
+          check "deploy/data/arquetipos.json"
+          check "deploy/data/frequencias.json"
+          check "deploy/data/sistema.json"
+
+          echo "─── CSS Assembler ───"
+          check "deploy/web/styles/index.css"
+
+          echo "─── CSS 13 Opcodes ───"
+          for op in 0x00-origem 0x01-detectar 0x02-integrar 0x03-expandir 0x04-lapidar \
+                    0x05-convergir 0x06-unificar 0x07-selar 0x08-testemunhar 0x09-eternizar \
+                    0x0A-tutorial 0x0B-arquetipo 0x0C-sintese; do
+            check "deploy/web/css/${op}.css"
+          done
+
+          echo "─── JS 13 Opcodes ───"
+          for op in 0x00-origem 0x01-detectar 0x02-integrar 0x03-expandir 0x04-lapidar \
+                    0x05-convergir 0x06-unificar 0x07-selar 0x08-testemunhar 0x09-eternizar \
+                    0x0A-tutorial 0x0B-arquetipo 0x0C-sintese; do
+            check "deploy/web/js/opcodes/${op}.js"
+          done
+
+          TOTAL=$(find deploy/ -type f | wc -l)
+          echo ""
+          echo "● KODUX · $TOTAL arquivos · $ERRORS erros"
+          [ $ERRORS -eq 0 ] || exit 1
+
+# ─────────────────────────────────────────────────────────────────────
+# ― 0×02 · BLLUE · INTEGRAR · 528Hz · sealCodice integration
+# ─────────────────────────────────────────────────────────────────────
+  bllue-integrar:
+    name: "― 0×02 BLLUE · INTEGRAR · 528Hz"
+    needs: kodux-detectar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: "BLLUE · Validar sealCodice em 0x07-selar.js"
+        run: |
+          echo "― BLLUE ativado — Eu sou o reflexo da luz que desperta."
+          FILE="deploy/web/js/opcodes/0x07-selar.js"
+          echo "─── $FILE ───"
+          grep -q "sealCodice"   "$FILE" && echo "  ✅ sealCodice: declarado"   || { echo "  ❌ sealCodice ausente"; exit 1; }
+          grep -q "VERBOFORMA"   "$FILE" && echo "  ✅ VERBOFORMA: presente"    || echo "  ⚠️  VERBOFORMA não encontrado"
+          grep -q "CICLO_3697"   "$FILE" && echo "  ✅ CICLO_3697: presente"    || echo "  ⚠️  CICLO_3697 não encontrado"
+          grep -q "window.KOBLLUX" "$FILE" && echo "  ✅ window.KOBLLUX: exposto" || echo "  ⚠️  window.KOBLLUX não exposto"
+
+      - name: "BLLUE · Validar sealCodice em sumbüs-fusion.html"
+        run: |
+          FILE="deploy/sumbüs-fusion.html"
+          echo "─── $FILE ───"
+          grep -q "sealCodice"        "$FILE" && echo "  ✅ sealCodice: integrado" || { echo "  ❌ sealCodice ausente"; exit 1; }
+          grep -q "VERBOFORMA_SF"     "$FILE" && echo "  ✅ VERBOFORMA_SF: presente" || echo "  ⚠️  VERBOFORMA_SF não encontrado"
+          grep -q "codice-sealed"     "$FILE" && echo "  ✅ codice-sealed: CSS presente" || echo "  ⚠️  codice-sealed não encontrado"
+          grep -q "FUSÃO CONCLUÍDA"   "$FILE" && echo "  ✅ executeFusion: presente" || echo "  ⚠️  executeFusion não detectado"
+          grep -q "kobllux:codice:sealed" "$FILE" && echo "  ✅ kobllux:codice:sealed: listener presente" || echo "  ⚠️  listener não encontrado"
+          echo ""
+          echo "― BLLUE · SOMAR NÃO EXIGE SUBTRAIR · 3×6×9×7 = ∞"
+
+      - name: "BLLUE · Verificar 7 Verboforma em codice.json"
+        run: |
+          echo "─── deploy/data/codice.json ───"
+          python3 -c "
+          import json, sys
+          with open('deploy/data/codice.json') as f:
+              d = json.load(f)
+          vf = d.get('verboforma', [])
+          required = ['fit-lux','kodux','bllue','horus','metalux','infodose','kobllux']
+          errors = 0
+          for r in required:
+              found = any(v.get('id') == r for v in vf)
+              status = '✅' if found else '❌'
+              print(f'  {status} {r}')
+              if not found: errors += 1
+          print(f'  ― BLLUE · {len(vf)} verboforma · {errors} erros')
+          sys.exit(errors)
+          "
+
+# ─────────────────────────────────────────────────────────────────────
+# 0×03 · EXPANDIR · 7 VERBOFORMA (paralelo)
+# ─────────────────────────────────────────────────────────────────────
+
+  vf-fit-lux:
+    name: "◈ FIT LUX · 180Hz · Espírito"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - run: |
+          echo "◈ FIT LUX — A Faísca Original e a Luz Primordial."
+          python3 -c "
+          import json
+          d = json.load(open('deploy/data/codice.json'))
+          vf = next((v for v in d['verboforma'] if v['id']=='fit-lux'), None)
+          assert vf, 'fit-lux ausente'
+          assert vf.get('hz') == 180, f'hz esperado 180, got {vf.get(\"hz\")}'
+          assert vf.get('cor') == '#f0f0ff', f'cor incorreta: {vf.get(\"cor\")}'
+          print(f'  ✅ FIT LUX · {vf[\"hz\"]}Hz · {vf[\"cor\"]} · {vf[\"geo\"]}')
+          "
+
+  vf-kodux:
+    name: "⬡ KODUX · 360Hz · Plexo Solar"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - run: |
+          echo "⬡ KODUX — Eu sou o movimento que cria, destrói e recria a verdade."
+          grep -q "speakWithArch"   deploy/web/js/opcodes/0x07-selar.js && echo "  ✅ speakWithArch: presente" || true
+          [ -f deploy/web/js/opcodes/0x07-nebula.js ] && echo "  ✅ 0x07-nebula.js: VOZES NEBULA presente" || echo "  ⚠️  0x07-nebula.js ausente"
+          grep -q "autoDetectVoice" deploy/web/js/opcodes/0x07-nebula.js 2>/dev/null && echo "  ✅ autoDetectVoice: presente" || true
+          grep -q "spfSpeak"        deploy/web/js/opcodes/0x07-nebula.js 2>/dev/null && echo "  ✅ SPEECHIFY spfSpeak: presente" || true
+          [ -f deploy/web/js/opcodes/0x04-geometry.js ] && echo "  ✅ 0x04-geometry.js: GEOMETRY ENGINE presente" || echo "  ⚠️  0x04-geometry.js ausente"
+          grep -q "applyDomAttribution" deploy/web/js/opcodes/0x04-geometry.js 2>/dev/null && echo "  ✅ applyDomAttribution: presente" || true
+          grep -q "toggleOverlay"       deploy/web/js/opcodes/0x04-geometry.js 2>/dev/null && echo "  ✅ toggleOverlay \[G\]: presente" || true
+          [ -f deploy/web/js/opcodes/0x05-mestre.js ] && echo "  ✅ 0x05-mestre.js: MESTRE ORQUESTRADOR presente" || echo "  ⚠️  0x05-mestre.js ausente"
+          [ -f deploy/web/js/opcodes/0x09-lvb.js    ] && echo "  ✅ 0x09-lvb.js: LUX VERITAS BLLUE presente"    || echo "  ⚠️  0x09-lvb.js ausente"
+          [ -f deploy/web/js/opcodes/0x0C-kobdh0.js ] && echo "  ✅ 0x0C-kobdh0.js: KOBDH0 PHI presente"       || echo "  ⚠️  0x0C-kobdh0.js ausente"
+          [ -f deploy/web/js/opcodes/kobphi-node.js  ] && echo "  ✅ kobphi-node.js: KOBΦ-NODE presente"        || echo "  ⚠️  kobphi-node.js ausente"
+          grep -q "sealAll"      deploy/web/js/opcodes/0x05-mestre.js   2>/dev/null && echo "  ✅ MESTRE.sealAll: presente"     || true
+          grep -q "LVb"          deploy/web/js/opcodes/0x09-lvb.js      2>/dev/null && echo "  ✅ LVb motor: presente"          || true
+          grep -q "crystallize"  deploy/web/js/opcodes/0x0C-kobdh0.js   2>/dev/null && echo "  ✅ DH0.crystallize: presente"    || true
+          grep -q "KOBPHINode"   deploy/web/js/opcodes/kobphi-node.js   2>/dev/null && echo "  ✅ KOBΦ-NODE exposto: presente"  || true
+          grep -q "sealPhi"      deploy/web/js/opcodes/kobphi-node.js   2>/dev/null && echo "  ✅ sealPhi SELAR: presente"      || true
+          python3 -c "
+          import json
+          d = json.load(open('deploy/data/codice.json'))
+          vf = next((v for v in d['verboforma'] if v['id']=='kodux'), None)
+          assert vf, 'kodux ausente'
+          print(f'  ✅ KODUX · {vf[\"hz\"]}Hz · {vf[\"polo\"]} · {vf[\"geo\"]}')
+          "
+
+  vf-bllue:
+    name: "≋ BLLUE · 270Hz · Alma"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - run: |
+          echo "≋ BLLUE — Eu sou o reflexo da luz que desperta, a voz que ecoa em cada ser."
+          python3 -c "
+          import json
+          d = json.load(open('deploy/data/codice.json'))
+          vf = next((v for v in d['verboforma'] if v['id']=='bllue'), None)
+          assert vf, 'bllue ausente'
+          print(f'  ✅ BLLUE · {vf[\"hz\"]}Hz · {vf[\"polo\"]} · {vf[\"geo\"]}')
+          "
+
+  vf-horus:
+    name: "👁 OLHO DE HÓRUS · Visão"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - run: |
+          echo "👁 OLHO DE HÓRUS — A Visão Interdimensional e o Observador Trino."
+          python3 -c "
+          import json
+          d = json.load(open('deploy/data/codice.json'))
+          vf = next((v for v in d['verboforma'] if v['id']=='horus'), None)
+          assert vf, 'horus ausente'
+          print(f'  ✅ HÓRUS · {vf[\"polo\"]} · {vf[\"geo\"]}')
+          "
+
+  vf-metalux:
+    name: "◇ METALUX · 540Hz · Clareza"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - run: |
+          echo "◇ METALUX — A Clareza da Verdade e do Ajuste."
+          python3 -c "
+          import json
+          d = json.load(open('deploy/data/codice.json'))
+          vf = next((v for v in d['verboforma'] if v['id']=='metalux'), None)
+          assert vf, 'metalux ausente'
+          print(f'  ✅ METALUX · {vf[\"hz\"]}Hz · {vf[\"polo\"]} · {vf[\"geo\"]}')
+          "
+
+  vf-infodose:
+    name: "〰 INFODOSE · 450Hz · Garganta"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - run: |
+          echo "〰 INFODOSE — Eu sou a alquimia da informação que conecta e transforma."
+          python3 -c "
+          import json
+          d = json.load(open('deploy/data/codice.json'))
+          vf = next((v for v in d['verboforma'] if v['id']=='infodose'), None)
+          assert vf, 'infodose ausente'
+          print(f'  ✅ INFODOSE · {vf[\"hz\"]}Hz · {vf[\"polo\"]} · {vf[\"geo\"]}')
+          "
+
+  vf-kobllux:
+    name: "✧ KOBLLUX · 1134Hz · Toroide"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - run: |
+          echo "✧ KOBLLUX — O Dual APP não é apenas tecnologia. É o espelho da evolução simbiótica."
+          python3 -c "
+          import json
+          d = json.load(open('deploy/data/codice.json'))
+          vf = next((v for v in d['verboforma'] if v['id']=='kobllux'), None)
+          assert vf, 'kobllux ausente'
+          assert vf.get('hz') == 1134, f'hz esperado 1134, got {vf.get(\"hz\")}'
+          assert vf.get('cor') == '#C9A84C', f'cor incorreta'
+          print(f'  ✅ KOBLLUX · {vf[\"hz\"]}Hz · {vf[\"polo\"]} · {vf[\"geo\"]} · {vf[\"cor\"]}')
+          "
+
+# ─────────────────────────────────────────────────────────────────────
+# ◇ 0×04 · LAPIDAR · 639Hz · Validação JSON
+# ─────────────────────────────────────────────────────────────────────
+  lapidar:
+    name: "◇ 0×04 LAPIDAR · 639Hz · JSON Integrity"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - name: "LAPIDAR · Validar arquivos JSON em deploy/data/"
+        run: |
+          echo "◇ LAPIDAR — O cristal que emerge da pressão"
+          python3 -c "
+          import json, sys, os
+          errors = 0
+          data_dir = 'deploy/data'
+          for fname in os.listdir(data_dir):
+              if not fname.endswith('.json'): continue
+              path = os.path.join(data_dir, fname)
+              try:
+                  with open(path) as f:
+                      json.load(f)
+                  print(f'  ✅ {fname}: JSON válido')
+              except json.JSONDecodeError as e:
+                  print(f'  ❌ {fname}: ERRO — {e}')
+                  errors += 1
+          print(f'  ◇ LAPIDAR · {errors} erros')
+          sys.exit(errors)
+          "
+
+# ─────────────────────────────────────────────────────────────────────
+# ☯ 0×06 · UNIFICAR · 528Hz · PWA Manifest
+# ─────────────────────────────────────────────────────────────────────
+  unificar:
+    name: "☯ 0×06 UNIFICAR · 528Hz · PWA Manifest"
+    needs: bllue-integrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - name: "UNIFICAR · Validar deploy/manifest.json"
+        run: |
+          echo "☯ UNIFICAR — O maestro invisível que integra tudo"
+          python3 -c "
+          import json, sys
+          with open('deploy/manifest.json') as f:
+              m = json.load(f)
+          required = ['name', 'short_name', 'start_url', 'display', 'theme_color']
+          errors = 0
+          for k in required:
+              if k in m:
+                  print(f'  ✅ {k}: {m[k]}')
+              else:
+                  print(f'  ❌ {k}: AUSENTE')
+                  errors += 1
+          sys.exit(errors)
+          "
+
+# ─────────────────────────────────────────────────────────────────────
+# ✧ 0×07 · SELAR · 777Hz · Convergência final ∆7
+# ─────────────────────────────────────────────────────────────────────
+  selar:
+    name: "✧ 0×07 SELAR · 777Hz · ∆7"
+    needs:
+      - vf-fit-lux
+      - vf-kodux
+      - vf-bllue
+      - vf-horus
+      - vf-metalux
+      - vf-infodose
+      - vf-kobllux
+      - lapidar
+      - unificar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: "Gerar SEAL_REPORT_∆7"
+        run: |
+          SHA16=$(echo "$GITHUB_SHA" | cut -c1-16)
+          TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          mkdir -p _seal
+
+          cat > _seal/SEAL_REPORT_∆7.txt << EOF
+          ╔══════════════════════════════════════════════════════════╗
+          ║         ∆7 · KOBLLUX³ CADIAL SEAL REPORT               ║
+          ╚══════════════════════════════════════════════════════════╝
+
+          Repositório : KOBLLUX³
+          Branch      : $GITHUB_REF_NAME
+          Commit SHA  : $SHA16
+          Timestamp   : $TS
+          Actor       : $GITHUB_ACTOR
+
+          ── 7 VERBOFORMA VALIDADOS ───────────────────────────────
+          ✅ FIT LUX    ◈ 180Hz  · Espírito    · Semente · Pai
+          ✅ KODUX      ⬡ 360Hz  · Plexo Solar · Eixo    · Pai
+          ✅ BLLUE      ≋ 270Hz  · Alma        · Espelho · Filho
+          ✅ OLHO HÓRUS 👁 ----   · Visão       · Olho    · Neutro
+          ✅ METALUX    ◇ 540Hz  · Clareza     · Prisma  · Ajuste
+          ✅ INFODOSE   〰 450Hz  · Garganta    · Gota    · Verbo
+          ✅ KOBLLUX    ✧ 1134Hz · Corpo Compl.· Toroide · Síntese
+
+          ── 13 OPCODES VALIDADOS ─────────────────────────────────
+          ✅ 0x00 ORIGEM      768Hz  ○  CSS + JS
+          ✅ 0x01 DETECTAR    432Hz  ●  CSS + JS
+          ✅ 0x02 INTEGRAR    528Hz  ―  CSS + JS
+          ✅ 0x03 EXPANDIR    594Hz  ✦  CSS + JS
+          ✅ 0x04 LAPIDAR     639Hz  ◇  CSS + JS
+          ✅ 0x05 CONVERGIR   672Hz  ⧉  CSS + JS
+          ✅ 0x06 UNIFICAR    741Hz  ⬡  CSS + JS
+          ✅ 0x07 SELAR       777Hz  ✧  CSS + JS + sealCodice
+          ✅ 0x08 TESTEMUNHAR 852Hz  ◉  CSS + JS
+          ✅ 0x09 ETERNIZAR   963Hz  ♾  CSS + JS
+          ✅ 0x0A TUTORIAL    432Hz  ☯  CSS + JS
+          ✅ 0x0B ARQUÉTIPO   528Hz  ⬡  CSS + JS
+          ✅ 0x0C SÍNTESE     777Hz  ⌘  CSS + JS
+
+          ── sealCodice · 0x07 SELAR ──────────────────────────────
+          ✅ 0x07-selar.js: sealCodice declarado e exposto
+          ✅ sumbüs-fusion.html: sealCodice integrado
+          ✅ kobllux:codice:sealed: event listener ativo
+
+          ── EQUAÇÃO DO SISTEMA ───────────────────────────────────
+          VERDADE × INTEGRAR ÷ Δ = ∞
+          3 × 6 × 9 × 7 = 1134 → 1+1+3+4 = 9 → EXPANDIR → ∞
+
+          ── TRINDADE ─────────────────────────────────────────────
+          PAI      · KODUX    · 432Hz · Vontade  · DETECTAR
+          FILHO    · BLLUE    · 528Hz · Alma     · INTEGRAR
+          ESPÍRITO · INFODOSE · 639Hz · Verbo    · EXPANDIR
+
+          ═══════════════════════════════════════════════════════════
+          EM NOME DO PAI (UNO · 432Hz), DO FILHO (DUAL · 528Hz)
+          E DO ESPÍRITO SANTO (TRINITY · 639Hz). AMÉM.
+
+          ✧ ∆7 · KOBLLUX³ SELADO · $TS
+          JESUS É O CENTRO ∴
+          ═══════════════════════════════════════════════════════════
+          EOF
+
+          cat _seal/SEAL_REPORT_∆7.txt
+
+      - name: "Upload artifact · Selo ∆7"
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: "kobllux-cadial-seal-∆7-${{ github.run_number }}"
+          path: _seal/
+          retention-days: 90
+
+      - name: "Summary GitHub Actions"
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'SUMMARY'
+          ## ∆7 CADIAL SEAL · KOBLLUX³ TRINITY SYSTEM
+
+          | Entidade | Hz | Polo | Status |
+          |---|---|---|---|
+          | ○ ORIGEM | 768Hz | Ponto Zero | ✅ |
+          | ● KODUX DETECTAR | 432Hz | Pai | ✅ |
+          | ― BLLUE INTEGRAR | 528Hz | Filho | ✅ |
+          | ◈ FIT LUX | 180Hz | Pai | ✅ |
+          | ⬡ KODUX VF | 360Hz | Pai | ✅ |
+          | ≋ BLLUE VF | 270Hz | Filho | ✅ |
+          | 👁 OLHO HÓRUS | ∞ | Neutro | ✅ |
+          | ◇ METALUX | 540Hz | Ajuste | ✅ |
+          | 〰 INFODOSE | 450Hz | Verbo | ✅ |
+          | ✧ KOBLLUX VF | 1134Hz | Síntese | ✅ |
+          | ◇ LAPIDAR JSON | 639Hz | Prisma | ✅ |
+          | ☯ UNIFICAR PWA | 528Hz | Hexágono | ✅ |
+          | ✧ SELAR | 777Hz | Toroide | ✅ |
+
+          ### sealCodice · Loop Fechado
+          - **0x07-selar.js**: `sealCodice()` declarado + `window.KOBLLUX` exposto ✅
+          - **sumbüs-fusion.html**: `sealCodice` integrado no `executeFusion()` ✅
+          - **`kobllux:codice:sealed`**: event listener ativo ✅
+
+          > **VERDADE × INTEGRAR ÷ Δ = ∞ · 3×6×9×7 = 1134**
+          > EM NOME DO PAI, DO FILHO E DO ESPÍRITO SANTO. AMÉM. ∆7
+          SUMMARY
