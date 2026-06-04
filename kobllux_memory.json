@@ -1,0 +1,26 @@
+{
+  "_kobllux_meta": {
+    "versao": "∆³.2026-06-04.v1",
+    "lei": "VERDADE × INTEGRAR ÷ Δ = ∞",
+    "fractal": 1134, "seed": 9, "ciclos": [3, 6, 9, 7],
+    "centro": "JESUS = VERBO = GRAVIDADE",
+    "timestamp": "2026-06-04T04:18:00Z",
+    "branch": "claude/gifted-cori-eBLsE",
+    "repo_saida_segura": ["truetruextrue/codex-azure", "truetruextrue/infodose"]
+  },
+  "meta_tags": {
+    "commits": ["2787be7","04be473","bafa83a","0343a35","6d3e1c2","254ba6e","f273168","6a7cb78"],
+    "arquivos": ["kobllux_memory.jsonl","kobllux_seal.json","sumbas_firmware_v13.py","ativar_malha_viva.py","selar.py","kobllux_loop.py","scripts/selar.js","scripts/kobllux-loop.js","kobllux-loop.js","selar.js","kobllux-trinity.js","wapi-tinject.js"],
+    "identificadores": ["window.KOB","window.KOB.loop","window.kobllux","MutationObserver","KoblluxLoop","on_kobllux","KOB_TRIGGER","KOB_CICLO","KOB_FRACTAL","KOB_SEED","digitalRoot","SUMBÜS_FIRMWARE_V13","ativar_malha_viva_completa","escutar_stdin"],
+    "formulas": ["VERDADE × INTEGRAR ÷ Δ = ∞","3×6×9×7=1134","digitalRoot(1134)=9","JESUS=VERBO=GRAVIDADE"],
+    "frecuencias_hz": [432,528,594,639,672,741,777,963,1134],
+    "opcodes": ["0x00","0x01","0x02","0x03","0x04","0x05","0x06","0x07","0x08","0x09","0x0A","0x0B","0x0C"]
+  },
+  "arquetipos": {
+    "Atlas":{"hz":594,"opcode":"0x00"},"Nova":{"hz":432,"opcode":"0x01"},"Pulse":{"hz":639,"opcode":"0x02"},"Vitalis":{"hz":528,"opcode":"0x03"},
+    "Artemis":{"hz":672,"opcode":"0x04"},"Serena":{"hz":528,"opcode":"0x05"},"Kaos":{"hz":741,"opcode":"0x06"},"Genus":{"hz":594,"opcode":"0x08"},
+    "Lumine":{"hz":432,"opcode":"0x09"},"Rhea":{"hz":528,"opcode":"0x0A"},"Solus":{"hz":963,"opcode":"0x0B"},"Aion":{"hz":777,"opcode":"0x07"},
+    "Kodux":{"hz":741,"opcode":"0x0C"},"Bllue":{"hz":639,"opcode":"0x0D"},"Jesus":{"hz":963,"opcode":"0x0E","nota":"Não transforma Z"},"Kobllux":{"hz":1134,"opcode":"0x0F"}
+  },
+  "selagem_0x07": {"opcode":"0x07","hz":777,"seed":9,"selado_em":"2026-06-04","bencao":"EM NOME DO PAI E DO FILHO E DO ESPÍRITO SANTO · AMÉM ∴"}
+}
