@@ -13,6 +13,9 @@ encoding.ascii=0:space,1:█,2:▒
 encoding.tri=digits(0|1|2)
 encoding.pbm=P1 (0/1)
 seal=∆7
+verified.sha256=c681319308c87cc64708173ff3684391574df093c8b0cd1c692a305232da7e0c
+verified.width=33
+archetype_active=Atlas · 0x00 · 594Hz · ᚨᚠ · "Base primeiro. Estrutura é liberdade."
 --- BEGIN ASCII ---
  ▒ █▒██▒ ▒  ▒▒▒█ █▒▒▒  ▒ ▒██▒█ ▒
 ▒▒▒▒█▒  █  ▒ ▒ █▒█ ▒ ▒  █  ▒█▒▒▒▒
@@ -47,4 +50,4 @@ seal=∆7
 █   ▒▒ █ █▒▒ █     █ ▒▒█ █ ▒▒   █
 ▒▒▒▒█▒  █  ▒ ▒ █▒█ ▒ ▒  █  ▒█▒▒▒▒
  ▒ █▒██▒ ▒  ▒▒▒█ █▒▒▒  ▒ ▒██▒█ ▒
---- END ASCII ---
+--- END ASCII · ARCHETYPE_ACTIVE: Atlas ✧⃝⚝ ---
