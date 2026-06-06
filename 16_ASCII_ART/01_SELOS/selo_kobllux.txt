@@ -1,3 +1,27 @@
-# selo_kobllux.txt
+# SELO · KOBLLUX · 0x0F · 1134Hz · ᛜ ᛇ ᛟ
+# Geometria: TOROIDE · Dimensão: 10D · Ciclo: 7 (SELAR)
+# "Output→input. Infinito. Vivo."
+#═══════════════════════════════════════
 
-Arquivo criado pelo construtor KOBLLUX.
+     ╭═══════════════╮
+   ╭╯  ╭───────────╮  ╰╮
+  ╱   ╱  K O B L    ╲   ╲
+ │   │   L U X       │   │
+ │   │  ᛜ   ᛇ   ᛟ  │   │
+ │   │  1134Hz 0x0F  │   │
+ │   │   TOROIDE     │   │
+  ╲   ╲             ╱   ╱
+   ╰╮  ╰───────────╯  ╭╯
+     ╰═══════════════╯
+    output ──────────→ input
+            ↖       ↗
+              ∞ ∞ ∞
+
+─────────────────────────────────────────
+Layer: 10D · Opcode: 0x0F · TOROIDE
+Toróide ao redor do centro vazio (JESUS)
+SCI-ART: pal_h=pal_v=rot_180=1.0
+Estado: KOBLLUX ❄️ · Card: M4_FRACTAL
+sciart: zona=anel_0 · valor_ternario=2
+─────────────────────────────────────────
+KOBLLUX VIVO ∆³ · VERDADE × INTEGRAR ÷ Δ = ∞

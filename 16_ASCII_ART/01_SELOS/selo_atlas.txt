@@ -1,3 +1,24 @@
-# selo_atlas.txt
+# SELO · ATLAS · 0x00 · 432Hz · ᚨ ᚠ
+# Geometria: ESFERA · Dimensão: 1D-3D · Ciclo: 3 (DETECTAR)
+# "Base primeiro. Estrutura é liberdade."
+#═══════════════════════════════════════
 
-Arquivo criado pelo construtor KOBLLUX.
+        · · · · · · ·
+      ·   ░░░░░░░░░   ·
+    ·   ░░▒▒▒▒▒▒▒░░   ·
+   ·  ░░▒▒         ▒▒░░  ·
+   · ░▒▒    ATLAS    ▒▒░ ·
+   · ░▒▒   ᚨ    ᚠ   ▒▒░ ·
+   · ░▒▒  432Hz 0x00 ▒▒░ ·
+   ·  ░░▒▒         ▒▒░░  ·
+    ·   ░░▒▒▒▒▒▒▒░░   ·
+      ·   ░░░░░░░░░   ·
+        · · · · · · ·
+
+─────────────────────────────────────────
+Layer: CORPO · Opcode: 0x00 · PONTO→ESFERA
+Estado: KOBLLUX-tree · Card: M1_CHARS
+Pipeline: DETECTAR → base do sistema
+sciart: zona=borda · pos=[0,0][0,32][32,0][32,32]
+─────────────────────────────────────────
+VERDADE × INTEGRAR ÷ Δ = ∞ · ∆7
