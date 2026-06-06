@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>KOBLLUX • M6 Viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+body {
+  font-family: monospace;
+  background: #0b0d12;
+  color: #e6e6eb;
+  margin: 0;
+}
+header {
+  padding: 16px;
+  border-bottom: 1px solid #333;
+}
+h1 { margin: 0; font-size: 20px; }
+main { display: flex; height: calc(100vh - 60px); }
+aside {
+  width: 300px;
+  border-right: 1px solid #333;
+  overflow-y: auto;
+  padding: 12px;
+}
+section {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+.run {
+  cursor: pointer;
+  padding: 6px;
+  border-bottom: 1px dashed #333;
+}
+.run:hover { background: #1a1f2e; }
+pre {
+  background: #111;
+  padding: 12px;
+  overflow-x: auto;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  margin-right: 6px;
+  background: #222;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>KOBLLUX • ESPELHO FRACTAL (M6)</h1>
+  <div class="tag">V×I÷Δ=∞</div>
+  <div class="tag">∆7</div>
+</header>
+
+<main>
+  <aside>
+    <strong>sealed_runs/</strong>
+    <div id="runs"></div>
+  </aside>
+
+  <section>
+    <h2 id="runTitle">Selecione um ciclo</h2>
+    <div id="content"></div>
+  </section>
+</main>
+
+<script>
+const BASE = "../sealed_runs";
+
+async function listRuns() {
+  // Para produção, mantém um arquivo runs.index.json
+  try {
+    const res = await fetch(BASE + "/runs.index.json");
+    const runs = await res.json();
+    const container = document.getElementById("runs");
+    runs.forEach(run => {
+      const div = document.createElement("div");
+      div.className = "run";
+      div.textContent = run;
+      div.onclick = () => loadRun(run);
+      container.appendChild(div);
+    });
+  } catch (e) {
+    document.getElementById("runs").innerHTML =
+      "<em>Crie sealed_runs/runs.index.json</em>";
+  }
+}
+
+async function loadJSON(path) {
+  const r = await fetch(path);
+  return r.json();
+}
+
+async function loadText(path) {
+  const r = await fetch(path);
+  return r.text();
+}
+
+async function loadRun(run) {
+  document.getElementById("runTitle").textContent = run;
+  const base = `${BASE}/${run}`;
+  let html = "";
+
+  try {
+    const manifest = await loadJSON(`${base}/meta/manifest.json`);
+    html += `<h3>Manifesto</h3><pre>${JSON.stringify(manifest, null, 2)}</pre>`;
+  } catch {}
+
+  const modules = [
+    ["M1 • Detectar", "m1_detectar/m1_chars_report.json"],
+    ["M2 • Integrar", "m2_classificar/m2_lang_report.json"],
+    ["M3 • Espelho", "m3_invariantes/m3_symbol_report.json"],
+    ["M4 • Expandir", "m4_expandir/m4_fractal_report.json"],
+    ["M5 • Pool", "m5_espelho_pool/espelho_report.json"]
+  ];
+
+  for (const [title, file] of modules) {
+    try {
+      const data = await loadJSON(`${base}/${file}`);
+      html += `<h3>${title}</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+    } catch {}
+  }
+
+  try {
+    const unified = await loadJSON(`${base}/unified/unified.json`);
+    html += `<h3>UNIFIED</h3><pre>${JSON.stringify(unified, null, 2)}</pre>`;
+  } catch {}
+
+  try {
+    const sci = await loadText(`${base}/m4_expandir/m4_sci_art.tri.txt`);
+    html += `<h3>Arte SCI (TRI)</h3><pre>${sci}</pre>`;
+  } catch {}
+
+  document.getElementById("content").innerHTML = html;
+}
+
+listRuns();
+</script>
+
+</body>
+</html>
