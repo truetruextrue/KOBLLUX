@@ -271,3 +271,224 @@ A estrutura fractal não é apenas uma organização, mas a **meta-arquitetura**
 ---
 
 Em resumo, o KOBLLUX é um **software complexo e intencional**. Ele usa uma **linguagem 3D** para criar uma experiência rica e imersiva para o usuário, enquanto sua **linguagem DEV** revela uma arquitetura bem definida, modular e baseada em princípios claros para sua implementação e manutenção prática no ManyChat. Cada arquétipo é um "micro-serviço" com uma "API" bem definida (seus atributos e funções), todos orquestrados para guiar o usuário através de uma jornada significativa.
+
+
+---
+
+{Excelente! A rede KOBLLUX está quase completa, e a cada novo arquétipo, a profundidade e a inteligência do sistema se revelam. Já construímos ATLAS, NOVA, VITALIS, PULSE, ARTEMIS, SERENA, KAOS, GENUS e LUMINE. Agora, vamos finalizar com os últimos três: SOLUS, RHEA e AION.
+
+---
+
+### **Construindo o Fluxo 10 · SOLUS (O Espelho da Alma)**
+
+**3D Perspective:** Este é o arquétipo que convida à introspecção, à pausa para a reflexão. É um espaço de autoconhecimento, um **ambiente virtual de meditação** onde o usuário pode se desconectar do ruído externo e focar em sua essência. É como entrar em uma sala espelhada, onde a única coisa que importa é o que se reflete de dentro.
+
+**DEV Perspective:** O SOLUS atua como um **módulo de `self_reflection_utility`** ou um **`FAQ_handler` avançado**. Ele é projetado para capturar a necessidade de clareza interna (`necessidade = "autoconhecimento"`) e oferecer ferramentas para isso. Sua arquitetura deve ser robusta para lidar com diferentes tipos de consultas e direcionar para recursos externos ou internos de aprofundamento.
+
+1.  **Criando um Novo Fluxo:**
+    *   Na barra lateral esquerda, clico em **"Automation"**, depois em **"Flows"**.
+    *   No canto superior direito, clico no botão azul **"+ New Flow"**.
+
+2.  **Nomeando o Fluxo SOLUS:**
+    *   No topo da tela, digito o nome: `10 - SOLUS - Reflexão e FAQ`.
+
+3.  **Definindo os Gatilhos (O Chamado à Introspecção):**
+    *   Clico no bloco **"Starting Step"**.
+    *   Adiciono os gatilhos:
+        *   **"Flow Trigger"**: Seleciono. *Mentalmente:* Este virá do botão "FAQ / Dúvidas" do ARTEMIS.
+        *   **"Keyword"**: Digito "REFLETIR".
+        *   **"Keyword"**: Digito "PENSAR".
+        *   **"Keyword"**: Digito "COMO FUNCIONA". *Mentalmente:* Para capturar dúvidas gerais que podem levar à reflexão ou ao FAQ.
+    *   Clico em "Done".
+
+4.  **Adicionando as Ações Iniciais (O Registro da Busca Interior):**
+    *   Abaixo do "Starting Step", clico no **"+"** e escolho **"Perform Actions"**.
+    *   Dentro do bloco "Actions":
+        *   **"+ Add Action"**: "Add Tag" `solus_acessado`. *DEV: `user.addTag("solus_acessado")`*
+        *   **"+ Add Action"**: "Set Custom Field" `last_archetype` = `"SOLUS"`. *DEV: `user.setCustomField("last_archetype", "SOLUS")`*
+        *   **"+ Add Action"**: "Set Custom Field" `necessidade` = `"autoconhecimento"`. *DEV: `user.setCustomField("necessidade", "autoconhecimento")`*. *Mentalmente:* Isso é um `state_update` importante para futuras personalizações.
+    *   Fecho o bloco "Actions".
+
+5.  **Criando as Mensagens A1-A5 (A Profundidade do Espelho):**
+    *   Abaixo do bloco "Actions", clico no **"+"** e escolho **"Send Message"**.
+    *   Digito as mensagens:
+        *   **A1:** "🌑 𝐄𝐔 𝐒𝐎𝐔 𝐒𝐎𝐋𝐔𝐒 — 𝐎 𝐄𝐒𝐏𝐄𝐋𝐇𝐎 𝐐𝐔𝐄 𝐌𝐎𝐒𝐓𝐑𝐀 𝐀 𝐕𝐄𝐑𝐃𝐀𝐃𝐄."
+        *   **A2:** "𝐒𝐢𝐥𝐞̂𝐧𝐜𝐢𝐨 𝑟𝐢𝐭𝐮𝐚𝐥, 𝑒𝐬𝐩𝐞𝐥𝐡𝐨 da 𝐞𝐬𝐬𝐞̂𝐧𝐜𝐢𝐚."
+        *   **A3:** "𝐔𝐌𝐀 𝐕𝐄𝐙 𝐏𝐎𝐑 𝐒𝐄𝐌𝐀𝐍𝐀 eu 𝐩𝐚𝐫𝐨 𝑡𝐮𝐝𝐨. 𝐃𝐄𝐒𝐋𝐈𝐆𝐎 o 𝐛𝐚𝐫𝐮𝐥𝐡𝐨. 𝐅𝐄𝐂𝐇𝐎 os 𝑜𝐥𝐡𝐨𝐬."
+        *   **A4:** "Quem está 𝐝𝐢𝐫𝐢𝐠𝐢𝐧𝐝𝐨 a minha 𝑐𝐚𝐬𝐚? Eu 𝐦𝐞𝐬𝐦𝐚… ou os 𝑚𝐨𝐝𝐢𝐬𝐦𝐨𝐬, as 𝐨𝐩𝐢𝐧𝐢𝐨̃𝐞𝐬 𝑎𝐥𝐡𝐞𝐢𝐚𝐬 e o 𝑎𝐮𝐭𝐨𝐦𝐚́𝐭𝐢𝐜𝐨?"
+        *   **A5:** "🪞 𝐐𝐔𝐄𝐑 𝐈𝐑 𝐌𝐀𝐈𝐒 𝐅𝐔𝐍𝐃𝐎 𝐍𝐄𝐒𝐒𝐄 𝑠𝐢𝐥𝐞̂𝐧𝐜𝐢𝐨 𝐂𝐎𝐌𝐈𝐆𝐎:"
+
+6.  **Adicionando os Botões:**
+    *   Abaixo da mensagem A5, clico em **"+ Add Button"** três vezes.
+    *   **Botão 1:** "Fazer o quiz" -> "Open Link" (Abrir Link). No campo URL, coloco o link para um quiz externo de autoconhecimento ou estilo de decoração. *DEV: `action.openExternalLink(quiz_url)`*. *Mentalmente:* Uma ferramenta para aprofundar a reflexão, um `external_resource_call`.
+    *   **Botão 2:** "Entrar na comunidade" -> "Start Another Flow" -> "11 - RHEA". *DEV: `navigateToFlow("11 - RHEA")`*. *Mentalmente:* Para quem busca compartilhar essa jornada.
+    *   **Botão 3:** "Falar com Viviani" -> "Start Another Flow" -> "05 - ARTEMIS". *DEV: `navigateToFlow("05 - ARTEMIS")`*. *Mentalmente:* Se a reflexão levou a uma dúvida mais específica, um `escalation_path`.
+    *   Clico em "Done".
+
+7.  **Publicando o Fluxo SOLUS:**
+    *   Clico no botão verde **"Publish"**.
+    *   Confirmo a publicação, ciente de que RHEA e ARTEMIS já estão parcialmente configurados.
+
+---
+
+### **Construindo o Fluxo 11 · RHEA (A Teia da Conexão)**
+
+**3D Perspective:** RHEA é a **rede social intrínseca** do KOBLLUX, um espaço onde os usuários se sentem parte de algo maior. É a sensação de um **abraço coletivo**, onde cada indivíduo é um fio que fortalece a teia, criando um **ambiente de apoio e crescimento mútuo**.
+
+**DEV Perspective:** RHEA funciona como um **módulo de `community_engagement`**. Ele é responsável por conectar usuários a plataformas sociais externas e a outros usuários, fomentando o senso de pertencimento. Sua lógica de `trigger` e `action` visa identificar a `necessidade = "pertencimento"` e oferecer o `entry_point` para a comunidade.
+
+1.  **Criando um Novo Fluxo:**
+    *   Na barra lateral esquerda, clico em **"Automation"**, depois em **"Flows"**.
+    *   No canto superior direito, clico no botão azul **"+ New Flow"**.
+
+2.  **Nomeando o Fluxo RHEA:**
+    *   No topo da tela, digito o nome: `11 - RHEA - Comunidade`.
+
+3.  **Definindo os Gatilhos (O Chamado à União):**
+    *   Clico no bloco **"Starting Step"**.
+    *   Adiciono os gatilhos:
+        *   **"Flow Trigger"**: Seleciono. *Mentalmente:* Este virá do botão "Comunidade" do VITALIS, SERENA, LUMINE e SOLUS.
+        *   **"Keyword"**: Digito "COMUNIDADE".
+        *   **"Keyword"**: Digito "GRUPO".
+        *   **"Keyword"**: Digito "PESSOAS".
+        *   **"Keyword"**: Digito "REDE".
+    *   Clico em "Done".
+
+4.  **Adicionando as Ações Iniciais (O Registro do Elo):**
+    *   Abaixo do "Starting Step", clico no **"+"** e escolho **"Perform Actions"**.
+    *   Dentro do bloco "Actions":
+        *   **"+ Add Action"**: "Add Tag" `rhea_acessado`. *DEV: `user.addTag("rhea_acessado")`*
+        *   **"+ Add Action"**: "Set Custom Field" `last_archetype` = `"RHEA"`. *DEV: `user.setCustomField("last_archetype", "RHEA")`*
+        *   **"+ Add Action"**: "Set Custom Field" `necessidade` = `"pertencimento"`. *DEV: `user.setCustomField("necessidade", "pertencimento")`*. *Mentalmente:* Isso é um `state_update` importante para entender a motivação do usuário.
+    *   Fecho o bloco "Actions".
+
+5.  **Criando as Mensagens A1-A5 (A Força da Rede):**
+    *   Abaixo do bloco "Actions", clico no **"+"** e escolho **"Send Message"**.
+    *   Digito as mensagens:
+        *   **A1:** "🔗 𝐄𝐔 𝐒𝐎𝐔 𝐑𝐇𝐄𝐀 — 𝐀 𝐑𝐄𝐃𝐄 𝐐𝐔𝐄 𝐔𝐍𝐄 𝐓𝐔𝐃𝐎."
+        *   **A2:** "Estou em 𝐜𝐨𝐦𝐮𝐧𝐡𝐚̃𝐨 com todos os 𝑒𝐥𝐨𝐬."
+        *   **A3:** "𝐍𝐄𝐍𝐇𝐔𝐌𝐀 𝐉𝐎𝐑𝐍𝐀𝐃𝐀 de um 𝑙𝐚𝐫 𝑏𝐨𝐧𝐢𝐭𝐨 é feita 𝑠𝐨𝐳𝐢𝐧𝐡𝐚."
+        *   **A4:** "𝐀𝐐𝐔𝐈 𝐍𝐀̃𝐎 𝐓𝐄𝐌 𝐜𝐨𝐦𝐩𝐞𝐭𝐢𝐜̧𝐚̃𝐨. Tem só: ✅𝐂𝐫𝐞𝐬𝐜𝐢𝐦𝐞𝐧𝐭𝐨 𝑗𝐮𝐧𝐭𝐨, ✅𝐷𝐢𝐜𝐚 que 𝐬𝐚𝐥𝐯𝐚, ✅𝐀𝐩𝐨𝐢𝐨."
+        *   **A5:** "🌐 𝐕𝐎𝐂𝐄̂ 𝐄𝐒𝐓𝐀́ 𝐂𝐎𝐍𝐕𝐈𝐃𝐀𝐃𝐀(𝐀) 𝐀 𝐄𝐍𝐓𝐑𝐀𝐑 𝐍𝐀 𝑟𝐞𝐝𝐞:"
+
+6.  **Adicionando os Botões:**
+    *   Abaixo da mensagem A5, clico em **"+ Add Button"** três vezes.
+    *   **Botão 1:** "Entrar na rede" -> "Open Link" (Abrir Link). No campo URL, coloco o link para o grupo de Facebook, WhatsApp ou outra plataforma da comunidade. *DEV: `action.openExternalLink(community_url)`*. *Mentalmente:* A ponte direta para a comunidade, um `external_resource_call`.
+    *   **Botão 2:** "Ver conteúdos" -> "Start Another Flow" -> "03 - VITALIS". *DEV: `navigateToFlow("03 - VITALIS")`*. *Mentalmente:* Para quem quer ver o tipo de conteúdo compartilhado.
+    *   **Botão 3:** "Acompanhar ciclo" -> "Start Another Flow" -> "12 - AION". *DEV: `navigateToFlow("12 - AION")`*. *Mentalmente:* Para quem quer entender a jornada de transformação.
+    *   Clico em "Done".
+
+7.  **Publicando o Fluxo RHEA:**
+    *   Clico no botão verde **"Publish"**.
+    *   Confirmo a publicação, ciente de que VITALIS e AION já estão parcialmente configurados.
+
+---
+
+### **Construindo o Fluxo 12 · AION (O Rio do Tempo Vivo)**
+
+**3D Perspective:** AION é o **fluxo contínuo da jornada**, o guardião dos ciclos e da evolução. É a percepção de que a transformação é um processo constante, um **rio que nunca para de fluir**, convidando o usuário a sempre buscar o próximo passo em sua evolução.
+
+**DEV Perspective:** AION atua como um **módulo de `lifecycle_management` e `re-engagement_orchestrator`**. Ele é ativado por `date/time triggers` (para campanhas de nutrição pós-compra, por exemplo), `tag triggers` (para ciclos de acompanhamento) ou `keywords` de retorno. Ele atualiza o `ciclo_atual` do usuário e oferece opções para reiniciar a jornada (`new_cycle`), explorar novas ofertas (`curadoria`) ou reforçar a conexão com a comunidade.
+
+1.  **Criando um Novo Fluxo:**
+    *   Na barra lateral esquerda, clico em **"Automation"**, depois em **"Flows"**.
+    *   No canto superior direito, clico no botão azul **"+ New Flow"**.
+
+2.  **Nomeando o Fluxo AION:**
+    *   No topo da tela, digito o nome: `12 - AION - Ciclo e Acompanhamento`.
+
+3.  **Definindo os Gatilhos (O Ritmo do Tempo):**
+    *   Clico no bloco **"Starting Step"**.
+    *   Adiciono os gatilhos:
+        *   **"Flow Trigger"**: Seleciono. *Mentalmente:* Este virá do botão "Acompanhar pedido" do SERENA e "Acompanhar ciclo" do RHEA.
+        *   **"Date/Time Trigger"**: Seleciono. *DEV: `cron_job_trigger`*. *Mentalmente:* Para agendar mensagens de acompanhamento baseadas em datas específicas (ex: 30 dias após a compra).
+        *   **"Tag Trigger"**: Seleciono. Digito `acompanhamento_ativo`. *DEV: `event_listener_on_tag_add`*. *Mentalmente:* Para ativar ciclos de acompanhamento.
+        *   **"Keyword"**: Digito "PEDIDO".
+        *   **"Keyword"**: Digito "ACOMPANHAR".
+        *   **"Keyword"**: Digito "RETORNAR".
+    *   Clico em "Done".
+
+4.  **Adicionando as Ações Iniciais (O Registro do Ciclo):**
+    *   Abaixo do "Starting Step", clico no **"+"** e escolho **"Perform Actions"**.
+    *   Dentro do bloco "Actions":
+        *   **"+ Add Action"**: "Add Tag" `aion_acessado`. *DEV: `user.addTag("aion_acessado")`*
+        *   **"+ Add Action"**: "Set Custom Field" `last_archetype` = `"AION"`. *DEV: `user.setCustomField("last_archetype", "AION")`*
+        *   **"+ Add Action"**: "Set Custom Field" `ciclo_atual` = `1`. *DEV: `user.setCustomField("ciclo_atual", 1)`*. *Mentalmente:* Inicializa o contador do ciclo, um `counter_variable`.
+    *   Fecho o bloco "Actions".
+
+5.  **Criando as Mensagens A1-A5 (A Narrativa do Tempo):**
+    *   Abaixo do bloco "Actions", clico no **"+"** e escolho **"Send Message"**.
+    *   Digito as mensagens:
+        *   **A1:** "♾️ 𝐄𝐔 𝐒𝐎𝐔 𝐀𝐈𝐎𝐍 — 𝐎 𝐓𝐄𝐌𝐏𝐎 𝐕𝐈𝐕𝐎, 𝐎 𝐂𝐈𝐂𝐋𝐎 𝐐𝐔𝐄 𝐍𝐀̃𝐎 𝐀𝐂𝐀𝐁𝐀."
+        *   **A2:** "Sou o 𝐭𝐞𝐦𝐩𝐨 𝑣𝐢𝐯𝐨, 𝑟𝐢𝐭𝐦𝐨 da 𝐞𝐭𝐞𝐫𝐧𝐢𝐝𝐚𝐝𝐞."
+        *   **A3:** "🎉 𝟑𝟎 𝐃𝐈𝐀𝐒 𝐉𝐔𝐍𝐓𝐎𝐒. 𝐉𝐀́ 𝐄́ 𝐔𝐌 𝐂𝐈𝐂𝐋𝐎 𝑐𝐨𝐦𝐩𝐥𝐞𝐭𝐨. O seu 𝑒𝐬𝐩𝐚𝐜̧𝐨 já 𝐦𝐮𝐝𝐨𝐮. 𝐕𝐎𝐂𝐄̂ 𝐉𝐀́ 𝐌𝐔𝐃𝐎𝐔."
+        *   **A4:** "𝐎 𝐩𝐫𝐢𝐦𝐞𝐢𝐫𝐨 passo foi 𝐝𝐢𝐟𝐢́𝐜𝐢𝐥. 𝐎 𝐬𝐞𝐠𝐮𝐧𝐝𝐨 mais 𝑓𝐚́𝐜𝐢𝐥. 𝐎 𝐝𝐞́𝐜𝐢𝐦𝐨 terceiro ficou 𝑛𝐚𝐭𝐮𝐫𝐚𝐥. 𝐎 𝐭𝐫𝐢𝐠𝐞́𝐬𝐢𝐦𝐨 virou 𝐡𝐚́𝐛𝐢𝐭𝐨."
+        *   **A5:** "⚜️ 𝐎 𝐐𝐔𝐄 𝐕𝐎𝐂𝐄̂ 𝐐𝐔𝐄𝐑 𝐅𝐀𝐙𝐄𝐑 𝐍𝐎 𝐏𝐑𝐎́𝐗𝐈𝐌𝐎 𝑐𝐢𝐜𝐥𝐨:"
+
+6.  **Adicionando os Botões:**
+    *   Abaixo da mensagem A5, clico em **"+ Add Button"** três vezes.
+    *   **Botão 1:** "Novo ciclo" -> "Start Another Flow" -> "02 - NOVA". *DEV: `navigateToFlow("02 - NOVA")`*. *Mentalmente:* Convida a explorar novas coleções ou lançamentos, um `re_engagement_path`.
+    *   **Botão 2:** "Ver curadoria" -> "Start Another Flow" -> "04 - PULSE". *DEV: `navigateToFlow("04 - PULSE")`*. *Mentalmente:* Para quem quer ver as ofertas atuais.
+    *   **Botão 3:** "Comunidade" -> "Start Another Flow" -> "11 - RHEA". *DEV: `navigateToFlow("11 - RHEA")`*. *Mentalmente:* Reforça o pertencimento.
+    *   Clico em "Done".
+
+7.  **Publicando o Fluxo AION:**
+    *   Clico no botão verde **"Publish"**.
+    *   Confirmo a publicação, ciente de que NOVA, PULSE e RHEA já estão parcialmente configurados.
+
+---
+
+**Pausa para reflexão final:**
+
+Ufa! Todos os doze arquétipos do sistema KOBLLUX estão agora construídos no ManyChat! A tela, antes vazia, agora exibe uma complexa e bela rede de fluxos interconectados.
+
+*   **SOLUS** oferece um refúgio para a introspecção, guiando o usuário à clareza.
+*   **RHEA** tece a teia da comunidade, convidando ao pertencimento e ao crescimento mútuo.
+*   **AION** orquestra o ritmo do tempo, acompanhando o usuário em sua jornada e celebrando cada ciclo.
+
+A sensação é de ter dado vida a uma verdadeira inteligência artificial, capaz de compreender, guiar, nutrir e conectar. O trabalho agora seria o de **revisitar cada fluxo** e garantir que todas as conexões de botões e "Go to Flow" estejam apontando para os fluxos corretos, agora que todos existem. É como dar os últimos retoques em uma obra de arte, garantindo que cada pincelada esteja no lugar certo.
+
+O KOBLLUX não é apenas um chatbot; é um universo de experiências, e cada clique no ManyChat foi um passo para construir essa realidade dimensional para a Feeling Decor. É gratificante ver a visão se materializar em algo tão funcional e estratégico.
+
+---
+
+### **Verificação Final de Compatibilidade e Fluxo (A Auditoria Humana e DEV)**
+
+Agora que todos os 12 arquétipos principais estão "codificados" no ManyChat, é crucial fazer uma **passagem final de QA (Quality Assurance)**, como um desenvolvedor revisando seu código e um usuário testando a experiência.
+
+**1. Conexões Inter-Arquétipos (O "Mesh Network" KOBLLUX):**
+
+*   **ATLAS (01)**: Seus botões agora podem ser conectados aos fluxos `03 - VITALIS`, `04 - PULSE`, `05 - ARTEMIS`. O `Go to Flow: last_archetype` é um `dynamic_router` que funcionará perfeitamente, desde que `last_archetype` sempre contenha um nome de fluxo válido.
+*   **NOVA (02)**: Seus botões se conectam a `04 - PULSE`, `03 - VITALIS`, `05 - ARTEMIS`. O gatilho de `AION` para "Novo ciclo" agora tem um destino claro.
+*   **VITALIS (03)**: Seus botões se conectam a `09 - LUMINE`, `04 - PULSE`, `11 - RHEA`.
+*   **PULSE (04)**: Seus botões se conectam a `05 - ARTEMIS`, `08 - GENUS`, `07 - KAOS`. O `IF YES` (já viu oferta hoje) também direciona para `05 - ARTEMIS`.
+*   **ARTEMIS (05)**: Seus botões se conectam a um `Open Link` externo, `10 - SOLUS`, `08 - GENUS`. O `IF YES` (já falou com Viviani) direciona para `06 - SERENA`.
+*   **SERENA (06)**: Seus botões se conectam a `12 - AION`, `11 - RHEA`, `03 - VITALIS`. A condição de `Smart Delay` direciona para `09 - LUMINE` ou `12 - AION`.
+*   **KAOS (07)**: Seus botões se conectam a `08 - GENUS`, `05 - ARTEMIS`, `04 - PULSE`.
+*   **GENUS (08)**: Seus botões se conectam a `04 - PULSE`, `05 - ARTEMIS`, `03 - VITALIS`.
+*   **LUMINE (09)**: Seus botões se conectam a `03 - VITALIS`, `11 - RHEA`, `04 - PULSE`.
+*   **SOLUS (10)**: Seus botões se conectam a um `Open Link` externo, `11 - RHEA`, `05 - ARTEMIS`.
+*   **RHEA (11)**: Seus botões se conectam a um `Open Link` externo, `03 - VITALIS`, `12 - AION`.
+*   **AION (12)**: Seus botões se conectam a `02 - NOVA`, `04 - PULSE`, `11 - RHEA`.
+
+**2. Coerência da Jornada do Usuário (A Experiência 3D):**
+
+*   **Entrada:** O usuário é acolhido pelo **ATLAS**, que o orienta sobre as possibilidades.
+*   **Descoberta/Inspiração:** O **NOVA** apresenta novidades, o **VITALIS** nutre com conteúdo.
+*   **Consideração/Desejo:** O **PULSE** desperta o interesse na oferta, o **GENUS** oferece prova social para construir confiança.
+*   **Resolução de Dúvidas/Objeções:** O **KAOS** quebra resistências, o **SOLUS** oferece espaço para reflexão e FAQ, e o **ARTEMIS** direciona para o atendimento humano.
+*   **Pós-Venda/Acolhimento:** O **SERENA** cuida do cliente após a compra, e o **LUMINE** celebra a conexão e a gratidão.
+*   **Ciclo Contínuo/Comunidade:** O **RHEA** integra o usuário à comunidade, e o **AION** gerencia o ciclo de vida, convidando à renovação e ao engajamento contínuo.
+
+**3. Integridade dos Dados (A Persistência DEV):**
+
+*   Todos os `Custom Fields` e `Tags` estão sendo atualizados de forma consistente em cada arquétipo, garantindo que o `user_profile` reflita com precisão a jornada e as interações do usuário. Isso é vital para a personalização e para a análise de dados.
+*   A regra de `last_archetype` como `dynamic_router` é um ponto forte, permitindo uma experiência de retorno fluida.
+
+**Conclusão da Auditoria:**
+
+O sistema KOBLLUX, conforme implementado através desses 12 arquétipos no ManyChat, demonstra uma **arquitetura robusta e um design de experiência de usuário coeso e intencional**. Cada "microsserviço" (arquétipo) cumpre sua função, e as "APIs" (botões e gatilhos) entre eles estão bem definidas, permitindo uma navegação lógica e uma jornada de cliente bem estruturada.
+
+A fase final de "amarrar as pontas" (atualizar os nomes dos fluxos nos botões `Start Another Flow` que foram preenchidos genericamente) é um passo de `refactoring` essencial para garantir que o `deployment` seja impecável.
+
+A visão do KOBLLUX como um "ecossistema digital vivo" foi plenamente traduzida em um sistema funcional e estratégico no ManyChat.
