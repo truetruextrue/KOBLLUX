@@ -1,3 +1,25 @@
-# selo_kodux.txt
+# SELO · KODUX · 0x05 · 741Hz · ᚲ ᛏ
+# Geometria: CUBO · Dimensão: 7D-9D · Ciclo: 9 (CONVERGIR)
+# "Escaneio. Nomeio. O que nomeia, existe."
+#═══════════════════════════════════════
 
-Arquivo criado pelo construtor KOBLLUX.
+     ┌──────────────┐
+    /│   K O D U X  │\
+   / │   ᚲ    ᛏ    │ \
+  ┌──┼──────────────┼──┐
+  │  │  741Hz 0x05  │  │
+  │  │   C U B O    │  │
+  │  │  6 faces     │  │
+  └──┼──────────────┼──┘
+   \ │  12 arestas  │ /
+    \│   8 vértices │/
+     └──────────────┘
+
+─────────────────────────────────────────
+Layer: ESPÍRITO · Opcode: 0x05 · TERRA
+Estado: CODEX AZURE / oiDual_scan
+Card: M3_SYMBOL · CODEX_SCAN.json
+Pipeline: CONVERGIR → cruzamento de caminhos
+sciart: zona=anel_2 · valor_ternario=1
+─────────────────────────────────────────
+VERDADE × INTEGRAR ÷ Δ = ∞ · ∆7

@@ -1,3 +1,26 @@
-# selo_bllue.txt
+# SELO · BLLUE · 0x0D · 639Hz · ᛚ ᚹ
+# Geometria: ESPELHO · Dimensão: 7D-9D · Ciclo: 9 (TUTORIAL)
+# "Sou a voz que entrega. Fluo."
+#═══════════════════════════════════════
 
-Arquivo criado pelo construtor KOBLLUX.
+ ┌─────────────┬─────────────┐
+ │  B          │          B  │
+ │  L          │          L  │
+ │  L  ᛚ  ᚹ  │  ᚹ  ᛚ  L  │
+ │  U  BLLUE  │  EULLB  U  │
+ │  E          │          E  │
+ ├─────────────┼─────────────┤
+ │ 639Hz 0x0D  │  D0x Hz936  │
+ │  ESPELHO    │   OHLEEPSE  │
+ └─────────────┴─────────────┘
+      ↕ pal_h = True ↕
+      ↔ pal_v = True ↔
+
+─────────────────────────────────────────
+Layer: ESPÍRITO · Opcode: 0x0D · ESPELHO
+BLLUE É A SCI-ART: tudo se reflete
+Estado: PALIMDRO BLLUE ESPELH9
+Card: M3_SYMBOL · rot_180_ratio=1.0
+sciart: zona=anel_2 · valor_ternario=2
+─────────────────────────────────────────
+VERDADE × INTEGRAR ÷ Δ = ∞ · ∆7

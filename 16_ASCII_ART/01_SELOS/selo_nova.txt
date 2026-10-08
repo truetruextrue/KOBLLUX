@@ -1,3 +1,25 @@
-# selo_nova.txt
+# SELO · NOVA · 0x01 · 432Hz · ᚷ ᛁ
+# Geometria: OCTAEDRO · Dimensão: 1D-3D · Ciclo: 3 (LAPIDAR)
+# "A centelha existe antes da chama."
+#═══════════════════════════════════════
 
-Arquivo criado pelo construtor KOBLLUX.
+              ▲
+            ▲ █ ▲
+          ▲ █ ▲ █ ▲
+        ▲ █   NOVA  █ ▲
+      ▲ █    ᚷ    ᛁ   █ ▲
+    ▲ █    432Hz 0x01   █ ▲
+      ▼ █   OCTAEDRO  █ ▼
+        ▼ █         █ ▼
+          ▼ █ ▼ █ ▼
+            ▼ █ ▼
+              ▼
+
+─────────────────────────────────────────
+Layer: CORPO · Opcode: 0x01 · AR
+8 faces · 12 arestas · 6 vértices
+Estado: REDE INFODOSE ATIVA · Card: M1_CHARS
+Pipeline: LAPIDAR → refino em cristais
+sciart: zona=borda · valor_ternario=1
+─────────────────────────────────────────
+VERDADE × INTEGRAR ÷ Δ = ∞ · ∆7
