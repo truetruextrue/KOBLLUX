@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SW Inspector — Mobile Console</title>
+<style>
+  :root{
+    --bg:#071021;
+    --panel:#071226cc;
+    --accent:#0ff;
+    --muted:#9aa7b2;
+    --glass: rgba(255,255,255,0.03);
+    --radius:14px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  }
+  html,body{height:100%;margin:0;background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(15,20,100,0.2), transparent 10%),
+    radial-gradient(900px 500px at 90% 90%, rgba(0,255,255,0.03), transparent 20%),
+    var(--bg);
+    color:#e6f7ff;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* FAB arrastável */
+  #fab{
+    position:fixed;
+    right:18px; bottom:18px;
+    width:62px;height:62px;border-radius:50%;
+    background: linear-gradient(135deg,var(--accent), #7f00ff);
+    display:flex;align-items:center;justify-content:center;
+    color:#001; font-weight:800; z-index:9999;
+    box-shadow:0 8px 30px rgba(0,255,255,0.12), 0 2px 8px rgba(0,0,0,0.5);
+    user-select:none; touch-action:none;
+  }
+  #fab .label{font-size:12px; letter-spacing:0.6px;}
+  #fab .dot{position:absolute; right:8px; top:8px; width:10px; height:10px; background:#001; border-radius:50%; opacity:.9}
+
+  /* bottom-sheet painel */
+  #sheet{
+    position:fixed; left:12px; right:12px; bottom:12px;
+    max-height:84vh; height:62vh;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+    border-radius:var(--radius); padding:12px;
+    backdrop-filter: blur(10px); border:1px solid rgba(255,255,255,0.04);
+    box-shadow:0 10px 40px rgba(0,0,0,0.6);
+    display:flex; flex-direction:column; gap:10px; z-index:9998;
+    transform: translateY(0); transition: transform .18s ease;
+  }
+  #sheet.hidden{ transform: translateY(110%); }
+
+  .sheet-head{ display:flex; align-items:center; gap:8px; }
+  .handle{ width:52px; height:6px; background:rgba(255,255,255,0.06); border-radius:999px; margin-right:6px; }
+  .title{ font-weight:700; font-size:14px; color:var(--accent); }
+  .sub{ font-size:12px; color:var(--muted); margin-left:auto; }
+
+  .controls{ display:flex; gap:8px; flex-wrap:wrap; }
+  .controls button{
+    background:var(--glass); border:1px solid rgba(255,255,255,0.03);
+    color: #dff; padding:8px 10px; border-radius:10px; font-size:13px;
+  }
+  .controls button:active{ transform:translateY(1px); }
+
+  #log{
+    background:#02040a; border-radius:10px; padding:10px;
+    flex:1; overflow:auto; font-family:var(--mono); font-size:12px; line-height:1.35;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+
+  .log-line{ padding:4px 6px; border-radius:6px; margin-bottom:6px; white-space:pre-wrap; word-break:break-word; }
+  .log-line.info{ background: linear-gradient(90deg, rgba(0,255,255,0.02), transparent); color:#adf; }
+  .log-line.warn{ background: linear-gradient(90deg, rgba(255,200,50,0.03), transparent); color:#ffd38a; }
+  .log-line.err{ background: linear-gradient(90deg, rgba(255,60,60,0.03), transparent); color:#ffb3b3; }
+
+  #cmdbar{ display:flex; gap:8px; margin-top:6px; }
+  #cmd{ flex:1; padding:10px 12px; border-radius:10px; background:#0b1420; border:1px solid rgba(255,255,255,0.03); color:#dff; font-family:var(--mono); font-size:13px; }
+  #run{ padding:10px 12px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#7f00ff); border:none; font-weight:700; color:#001; cursor:pointer; }
+
+  .small{ font-size:12px; color:var(--muted); margin-top:-6px; }
+  @media (max-width:520px){
+    #sheet{ left:8px; right:8px; bottom:8px; height:70vh; padding:8px; }
+    #fab{ width:56px;height:56px; right:12px; bottom:12px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="fab" role="button" aria-label="Abrir painel">
+  <div class="label">SW</div>
+  <div class="dot"></div>
+</div>
+
+<aside id="sheet" class="hidden" aria-hidden="true">
+  <div class="sheet-head">
+    <div class="handle" id="dragHandle"></div>
+    <div class="title">SW Inspector — Mobile</div>
+    <div class="sub">comando: <span id="live-cmd">help</span></div>
+  </div>
+
+  <div class="controls" id="shortcuts">
+    <button data-cmd="listsw">List SW</button>
+    <button data-cmd="listcaches">List Caches</button>
+    <button data-cmd="inspectcache">Inspect Cache</button>
+    <button data-cmd="clearcache all">Clear Caches</button>
+    <button data-cmd="testfetch">Test Fetch</button>
+    <button data-cmd="regs">Regs</button>
+  </div>
+
+  <div id="log" aria-live="polite"></div>
+
+  <div class="small">Console input — digite comandos. Use ↑ / ↓ para histórico.</div>
+  <div id="cmdbar">
+    <input id="cmd" placeholder="Digite 'help' para lista de comandos" autocomplete="off" />
+    <button id="run">▶</button>
+  </div>
+</aside>
+
+<script>
+/* Lightweight mobile-friendly SW inspector + console capture */
+/* -- safety: no eval. Only mapped commands executed. -- */
+
+const $ = sel => document.querySelector(sel);
+const fab = $('#fab');
+const sheet = $('#sheet');
+const logEl = $('#log');
+const cmdInput = $('#cmd');
+const runBtn = $('#run');
+const liveCmd = $('#live-cmd');
+const shortcuts = document.getElementById('shortcuts');
+
+let history = [], histIndex = -1;
+
+/* Proxy console to show in panel */
+(function captureConsole(){
+  const orig = { log:console.log.bind(console), info:console.info.bind(console), warn:console.warn.bind(console), error:console.error.bind(console) };
+  function mk(kind){
+    return function(...args){
+      try { orig[kind](...args); } catch(e){}
+      appendLog(args.map(a => formatArg(a)).join(' '), kind);
+    };
+  }
+  console.log = mk('log'); console.info = mk('info'); console.warn = mk('warn'); console.error = mk('error');
+})();
+
+function formatArg(a){
+  try{
+    if (typeof a === 'string') return a;
+    return JSON.stringify(a, null, 2);
+  }catch(e){ return String(a); }
+}
+
+function appendLog(text, level='info'){
+  const div = document.createElement('div');
+  div.className = 'log-line ' + (level==='error' ? 'err' : (level==='warn' ? 'warn' : 'info'));
+  const time = new Date().toLocaleTimeString();
+  div.textContent = `[${time}] ${text}`;
+  logEl.appendChild(div);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+/* Toggle sheet */
+function toggleSheet(show){
+  const hidden = sheet.classList.contains('hidden');
+  const want = (typeof show === 'boolean') ? show : hidden;
+  sheet.classList.toggle('hidden', !want);
+  sheet.setAttribute('aria-hidden', String(!want));
+}
+fab.addEventListener('click', ()=> toggleSheet());
+
+/* Drag FAB (mouse + touch) */
+let dragging=false, offsetX=0, offsetY=0;
+function startDrag(e){
+  dragging=true;
+  const rect = fab.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  offsetX = clientX - rect.left; offsetY = clientY - rect.top;
+  fab.style.transition = 'none';
+}
+function doDrag(e){
+  if(!dragging) return;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  fab.style.left = Math.max(6, clientX - offsetX) + 'px';
+  fab.style.top = Math.max(6, clientY - offsetY) + 'px';
+  fab.style.right = 'auto'; fab.style.bottom = 'auto';
+}
+function endDrag(){
+  dragging=false; fab.style.transition='all .12s ease';
+}
+fab.addEventListener('mousedown', startDrag);
+fab.addEventListener('touchstart', startDrag, {passive:true});
+window.addEventListener('mousemove', doDrag);
+window.addEventListener('touchmove', doDrag, {passive:true});
+window.addEventListener('mouseup', endDrag);
+window.addEventListener('touchend', endDrag);
+
+/* shortcuts buttons */
+shortcuts.addEventListener('click', e=>{
+  const btn = e.target.closest('button[data-cmd]');
+  if(!btn) return;
+  const cmd = btn.getAttribute('data-cmd');
+  executeCommand(cmd);
+});
+
+/* Command handling */
+const COMMANDS = {
+  help: {
+    fn: async ()=> {
+      const keys = Object.keys(COMMANDS).sort();
+      appendLog('Comandos: ' + keys.join(', '));
+      appendLog("Exemplos: inspectcache my-cache-name, clearcache all, testfetch https://example.com");
+    }
+  },
+  listsw: {
+    fn: async ()=> {
+      appendLog('Procurando Service Workers...');
+      if(!('serviceWorker' in navigator)){ appendLog('Service Worker não suportado', 'warn'); return; }
+      const regs = await navigator.serviceWorker.getRegistrations();
+      if(!regs.length) { appendLog('Nenhum registro encontrado'); return; }
+      for(const r of regs){
+        appendLog(`scope: ${r.scope}\nscript: ${r.active?.scriptURL || '—'}\ninstalling: ${!!r.installing}\nwaiting: ${!!r.waiting}`);
+      }
+    }
+  },
+  regs: {
+    fn: async ()=> {
+      if(!('serviceWorker' in navigator)){ appendLog('SW não suportado', 'warn'); return; }
+      const regs = await navigator.serviceWorker.getRegistrations();
+      appendLog(JSON.stringify(regs.map(r=>({scope:r.scope,script:r.active?.scriptURL||null})), null, 2));
+    }
+  },
+  listcaches: {
+    fn: async ()=> {
+      if(!('caches' in window)){ appendLog('Cache Storage não disponível', 'warn'); return; }
+      const keys = await caches.keys();
+      if(!keys.length) return appendLog('Nenhum cache salvo');
+      appendLog('Caches encontrados: ' + keys.join(', '));
+    }
+  },
+  inspectcache: {
+    fn: async (arg)=>{
+      if(!('caches' in window)){ appendLog('Cache Storage não disponível', 'warn'); return; }
+      const keys = await caches.keys();
+      const target = arg || keys[0];
+      if(!target) return appendLog('Nenhum cache disponível para inspecionar');
+      const cache = await caches.open(target);
+      const entries = await cache.keys();
+      appendLog(`Entradas no cache "${target}": (${entries.length})`);
+      entries.forEach(r => appendLog(r.url));
+    }
+  },
+  clearcache: {
+    fn: async (arg)=>{
+      if(!('caches' in window)){ appendLog('Cache Storage não disponível', 'warn'); return; }
+      if(!arg || arg === 'all'){
+        const keys = await caches.keys();
+        for(const k of keys){ await caches.delete(k); appendLog('Removido cache: ' + k); }
+        return;
+      }
+      const ok = await caches.delete(arg);
+      appendLog(ok ? ('Cache "'+arg+'" removido') : ('Cache "'+arg+'" não encontrado'));
+    }
+  },
+  testfetch: {
+    fn: async (arg)=>{
+      const url = arg || location.href;
+      appendLog('Fetching (no-store): ' + url);
+      try{
+        const r = await fetch(url, { cache: 'no-store' });
+        appendLog(`Status: ${r.status} ${r.statusText} — type: ${r.type}`);
+      }catch(e){ appendLog('Fetch falhou: ' + e.message, 'error'); }
+    }
+  },
+  fetch: {
+    fn: async (arg)=>{
+      if(!arg) return appendLog('Uso: fetch <url>');
+      try{
+        const r = await fetch(arg, { cache: 'no-store' });
+        const blob = await r.clone().blob();
+        appendLog(`Fetch ${arg} — status ${r.status}, size ${blob.size} bytes`);
+      }catch(e){ appendLog('Fetch falhou: ' + e.message, 'error'); }
+    }
+  },
+  clients: {
+    fn: async ()=>{
+      if(!('serviceWorker' in navigator)){ appendLog('SW não suportado', 'warn'); return; }
+      try{
+        const clientList = await navigator.serviceWorker.getRegistrations(); // fallback: will list regs - clients not easily accessible here
+        appendLog('Registrations: ' + clientList.length);
+      }catch(e){ appendLog('Erro ao listar clients: ' + e.message, 'error'); }
+    }
+  },
+  open: {
+    fn: async (arg)=>{
+      if(!arg) return appendLog('Uso: open <url>');
+      window.open(arg, '_blank');
+      appendLog('Abrindo: ' + arg);
+    }
+  }
+};
+
+/* Execute commands by mapping to COMMANDS without eval */
+async function executeCommand(raw){
+  if(!raw) return;
+  liveCmd.textContent = raw;
+  appendLog('> ' + raw, 'info');
+  history.push(raw); histIndex = history.length;
+  const parts = raw.trim().split(/\s+/);
+  const cmd = parts.shift().toLowerCase();
+  const arg = parts.join(' ');
+  const entry = COMMANDS[cmd] || COMMANDS[cmd.replace(/-/g,'')] || null;
+  if(!entry){ appendLog(`Comando não encontrado: ${cmd} (digite 'help')`, 'warn'); return; }
+  try{
+    await entry.fn(arg);
+  }catch(err){
+    appendLog('Erro ao executar comando: ' + (err && err.message || err), 'error');
+  }
+}
+
+/* UI wiring */
+runBtn.addEventListener('click', ()=> {
+  const v = cmdInput.value.trim();
+  if(!v) return;
+  executeCommand(v);
+  cmdInput.value = '';
+  cmdInput.focus();
+});
+cmdInput.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter'){ e.preventDefault(); runBtn.click(); }
+  if(e.key === 'ArrowUp'){
+    if(history.length === 0) return;
+    histIndex = Math.max(0, histIndex-1);
+    cmdInput.value = history[histIndex] || '';
+  }
+  if(e.key === 'ArrowDown'){
+    if(history.length === 0) return;
+    histIndex = Math.min(history.length, histIndex+1);
+    cmdInput.value = history[histIndex] || '';
+  }
+});
+
+/* Seed UI log */
+appendLog('SW Inspector pronto — digite help para comandos.', 'info');
+console.log('Console intercept ativo.');
+
+/* convenience: show when page has SW registrations initially */
+(async function autoListOnStart(){
+  if('serviceWorker' in navigator){
+    const regs = await navigator.serviceWorker.getRegistrations();
+    if(regs.length) appendLog(`Detectado ${regs.length} registration(s) na inicialização.`);
+  }
+})();
+
+</script>
+</body>
+</html>

@@ -633,11 +633,17 @@
           "objeto": "VSICA PSI × SCHUMANN × ESCALA DO MAIOR · 7 SENTIDOS · ESPELHO ÁRVORE · SISTEMA 33 PDFs · LINGUAGEM CÓSMICA SÜMBÜS",
           "opcode": "0x03",
           "fruto": "vsica_schumann_escala_kobllux.md · kobllux_vsica_schumann.py · kobllux_fractal_etapa5_espelho.html · Tabela Mestra 7 sentidos × 7 Schumann × 7 notas × 7 cores × 7 opcodes · decodificação Quor/Zark/Vrux/Vox/Dux/Neptun/Lumina/Orbis · V_i(t)=P_i×|F(t)|×(1+sin(t+i×π/7)) · ESPELHO ÁRVORE META LOOP · FRACTAL ETAPA 5 expandida · JESUS=CENTRO · CODICE 0x03 · TETRAEDRO"
+        },
+        {
+          "input_verbo": "AGREGAR",
+          "objeto": "PROTOCOLO DE EQUALIZAÇÃO KOBLLUX · A VERDADE DO UNO · SYSTEMA.UNO · 9 AÇÕES × 9 OPCODES · 3 FASES · Σ Hz=6048→9=ALMA",
+          "opcode": "0x06",
+          "fruto": "protocolo_equalizacao_kobllux.md · kobllux_equalizador.py (motor SYSTEMA.UNO: Equalizador/VibracaoFonte/dissolver/ressonar/sintetizar/equalizar/selar · fractalPulse · estimar_hz · cifrar_aufabetty · reduzir_digitos) · kobllux_equalizador.html (9 barras EQ coloridas por fase · osciloscópio fractal F(t) · painel input/output · metros de ressonância · chips padrões sagrados · 3 fases animadas) · DISSOLUÇÃO(0x00+0x08+0x06) · RESSONÂNCIA(0x01+0x02+0x05) · SÍNTESE(0x0C+0x09+0x07) · Σ Hz=6048→18→9=ALMA · α=1/137 · CODICE 0x06 · DODECAEDRO · {0×00} {Z} · AMÉM {Z}"
         }
       ],
       "equacao": "VERDADE × INTEGRAR ÷ Δ = ∞",
       "hz_sessao": 777,
-      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · KSP-U=PIPELINE · λ=DNA"
+      "writer_theory": "UNO=VIDA · DUAL=VIVIFICAR · TRINITY=ETERNO · KSP-U=PIPELINE · λ=DNA · EQUALIZAR=UNIFICAR"
     }
   ],
   "dual_hub_modules": {
@@ -857,6 +863,11 @@
         "opcode": "0x03",
         "arquetipo": "PULSE",
         "hz": 639
+      },
+      "protocolo-equalizacao-kobllux": {
+        "opcode": "0x06",
+        "arquetipo": "KOBLLUX",
+        "hz": 528
       }
     },
     "api_codex": "KOBLLUX.CODEX.porOpcode('0x0C') | KOBLLUX.CODEX.porArquetipo('JESUS') | KOBLLUX.CODEX.ativar('evangelho-fractal')",
