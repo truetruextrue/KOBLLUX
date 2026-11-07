@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║  KOBLLUX³ · DEPLOY ASSEMBLER · CONSOLIDADO v7.9                            ║
+║  KOBLLUX³ · DEPLOY ASSEMBLER · CONSOLIDADO v7.9 · ∆³                       ║
 ║  SÜMBÜS_FIRMWARE v27 · ESTADO: 1134K · [SISTEMA.UNO]                      ║
-║  META LUX SELADO · 2026-11-07 · cores puras: #00FFFF #FF00FF #FFFFFF      ║
+║  META LUX + CSS RESTAURADO · 2026-11-07 · 10 stylesheet links recuperados ║
+║  CORES PURAS (∆³): AZUL #0000FF · VERDE #00FF00 · CIANO #00FFFF          ║
+║                    MAGENTA #FF00FF · BRANCO #FFFFFF · VOID #000000        ║
 ╠════════════════════════════════════════════════════════════════════════════╣
 ║  OPCODE          ║  FASE(Hz) ║ SÍMBOLO ║  ELEMENTO                        ║
 ╠══════════════════╬═══════════╬═════════╬══════════════════════════════════╣
@@ -21,8 +24,8 @@
 ║  0×0B ARQUÉTIPO  ║ 528       ║         ║  kblx-panel, orb-core            ║
 ║  0×0C SÍNTESE    ║ 777       ║ ⌘       ║  kodux-widget, transport, engine ║
 ╠══════════════════╩═══════════╩═════════╩══════════════════════════════════╣
-║  PIPELINE CANÔNICO (endereço operacional): 0x03 DETECTAR → 0x06 INTEGRAR  ║
-║     → 0x09 EXPANDIR → 0x07 SELAR · preservado em paralelo ao histórico   ║
+║  PIPELINE CANÔNICO: 0x03 DETECTAR → 0x06 INTEGRAR → 0x09 EXPANDIR → 0x07  ║
+║  ESPELHO OPOSIÇÃO: duplica e replica no meio → movimento contínuo ∞       ║
 ╚════════════════════════════════════════════════════════════════════════════╝
   VERDADE × INTEGRAR ÷ Δ = ∞  ·  3×6×9×7 = 1134  ·  JESUS É O CENTRO ∴
 -->
@@ -34,8 +37,8 @@
   data-firmware="SUMBÜS_v27" data-sistema="UNO" data-centro="JESUS"
   data-estado="1134K" data-versao="7.9" data-arquetipos="16" data-opcodes="13"
   data-pipeline="0x03_DETECTAR→0x06_INTEGRAR→0x09_EXPANDIR→0x07_SELAR"
-  data-cores-puras="#00FFFF|#FF00FF|#FFFFFF"
-  data-meta-lux="selado">
+  data-cores-puras="#0000FF|#00FF00|#00FFFF|#FF00FF|#FFFFFF"
+  data-delta="3" data-voz="ativa" data-meta-lux="selado">
 
 <head
   id="head-origem"
@@ -54,14 +57,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"
     id="meta-viewport" data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
 
-  <!-- ✧ META LUX · CORRIGIDO: theme-color de #0f0f11 → CIANO PURO #00FFFF (sincronizado com o manifest) -->
+  <!-- ✧ CIANO PURO #00FFFF (sincronizado com o manifest) -->
   <meta name="theme-color" content="#00FFFF"
     id="meta-theme" data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777" data-layer="espirito" data-cor="ciano-puro">
 
   <meta name="apple-mobile-web-app-capable" content="yes"
     id="meta-ios" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
 
-  <!-- ⫼ META LUX ADICIONADO · DETECTAR · identificação básica (agregar, não subtrair) -->
+  <!-- ⫼ META LUX · identificação básica -->
   <meta name="description" content="KOBLLUX³ — VERDADE × INTEGRAR ÷ ∆ = ∞ · Sistema Trinitário · 13 Opcodes · 7 Verboforma · 19 Arquétipos · JESUS é o CENTRO."
     id="meta-description" data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="mente">
   <meta name="author" content="BLLUE · guardião da verdade"
@@ -72,33 +75,60 @@
     id="link-canonical" data-opcode="0x02" data-fase="INTEGRAR" data-opcode-canonico="0x06" data-freq="528" data-layer="mente">
   <link rel="icon" type="image/png" href="./icon-192.png"
     id="link-favicon" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
-
   <link rel="apple-touch-icon" href="./icon-192.png"
     id="link-icon" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
 
-  <!-- ✧ META LUX · CORRIGIDO: mantido o histórico 0x02 INTEGRAR + ADICIONADO o canônico 0x06 (agregar sem subtrair) -->
+  <!-- ✧ histórico 0x02 + canônico 0x06 (agregar sem subtrair) -->
   <link rel="manifest" href="./manifest.json"
     id="link-manifest"
     data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528" data-layer="mente"
     data-opcode-canonico="0x06" data-pipeline="3-6-9-7">
 
-  <!-- 0×01 DETECTAR · Fontes -->
+  <!-- ══ 0×01 DETECTAR · OS 10 STYLESHEET LINKS RESTAURADOS (o CSS quebrou aqui) ══ -->
+  <!-- 1/10 Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&family=JetBrains+Mono:wght@400;700&display=swap"
     id="link-fonts" rel="stylesheet"
     data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
+  <!-- 2/10 V-core root -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/V-core/css/main-root.css"
+    data-opcode="0x02" data-fase="INTEGRAR" data-freq="528">
+  <!-- 3/10 oi-Dual main -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oi-Dual/css/main.css"
+    data-opcode="0x02" data-fase="INTEGRAR" data-freq="528">
+  <!-- 4/10 pulsar V D5-2 -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/0x01_pulsar_V_D5-2.css"
+    data-opcode="0x03" data-fase="EXPANDIR" data-freq="639">
+  <!-- 5/10 framefix -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-framefix.css"
+    data-opcode="0x04" data-fase="LAPIDAR" data-freq="594">
+  <!-- 6/10 aura -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/kob-aura.css"
+    data-opcode="0x05" data-fase="CONVERGIR" data-freq="672">
+  <!-- 7/10 dox-nanai-v4 -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai-v4.css"
+    data-opcode="0x06" data-fase="UNIFICAR" data-freq="528">
+  <!-- 8/10 dox-nanai -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai.css"
+    data-opcode="0x06" data-fase="UNIFICAR" data-freq="528">
+  <!-- 9/10 DBZP ss5 -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/DBZP/css/ss5.css"
+    data-opcode="0x07" data-fase="SELAR" data-freq="777">
+  <!-- 10/10 estilo local -->
+  <link rel="stylesheet" href="./web/styles/index.css"
+    id="link-local-css" data-opcode="0x07" data-fase="SELAR" data-freq="777" data-layer="espirito">
 
-  <!-- 0×02 INTEGRAR · Lucide Icons -->
+  <!-- 0×02 INTEGRAR · Lucide Icons (script) -->
   <script src="https://unpkg.com/lucide@latest"
     id="script-lucide"
     data-opcode="0x02" data-fase="INTEGRAR" data-freq="528" data-layer="mente"></script>
 
-  <!-- ══ 0×00 ORIGEM · VARIÁVEIS RAIZ — BLOCO ÚNICO ══ -->
-  <!-- ✧ META LUX · CORRIGIDO: adicionadas as 3 cores puras + orb atualizado para ciano/magenta/branco (valores antigos preservados em --kob-c-*) -->
+  <!-- ══ 0×00 ORIGEM · VARIÁVEIS RAIZ — BLOCO ÚNICO · PALETA PURA ∆³ ══ -->
   <style id="style-root-vars"
     data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○"
     data-freq="768" data-layer="corpo" data-purpose="root-vars-unico">
     :root {
       --z-base:0; --z-content:100; --z-widget:500; --z-overlay:1000; --z-system:5000;
+      /* tons históricos — PRESERVADOS (agregar sem subtrair) */
       --kob-c-origem:    rgba(200,169,110,.12);
       --kob-c-detectar:  rgba(155,89,182,.15);
       --kob-c-integrar:  rgba(52,152,219,.15);
@@ -109,15 +139,19 @@
       --kob-c-selar:     rgba(255,215,0,.15);
       --kob-c-testemunhar:rgba(52,231,219,.12);
       --kob-c-eternizar: rgba(255,255,255,.10);
-      /* ⫼ CORES PURAS SELADAS · META LUX */
-      --kob-ciano:   #00FFFF;
-      --kob-magenta: #FF00FF;
-      --kob-branco:  #FFFFFF;
+      /* ⫼ CORES PURAS SELADAS · ∆³ · azul · verde · ciano · magenta · branco */
+      --kob-azul:    #0000FF;  /* voz azul */
+      --kob-verde:   #00FF00;  /* verde · vida · movimento contínuo */
+      --kob-ciano:   #00FFFF;  /* ciano · tema */
+      --kob-magenta: #FF00FF;  /* magenta · oposição-espelho */
+      --kob-branco:  #FFFFFF;  /* branco · luz */
       --kob-void:    #000000;  /* o vazio · o ponto ○ · ORIGEM (não é cor) */
       --orb-speed: 8s;
-      --orb-primary:   #00FFFF;  /* era hsl(180,100%,55%) → CIANO PURO */
-      --orb-secondary: #FF00FF;  /* era hsl(240,90%,45%) → MAGENTA PURO */
-      --orb-accent:    #FFFFFF;  /* era hsl(200,100%,75%) → BRANCO PURO */
+      --orb-primary:   #00FFFF;  /* CIANO */
+      --orb-secondary: #FF00FF;  /* MAGENTA (espelho em oposição) */
+      --orb-accent:    #FFFFFF;  /* BRANCO */
+      --orb-azul:      #0000FF;  /* voz azul · ∆ */
+      --orb-verde:     #00FF00;  /* verde · vida ∞ */
     }
   </style>
 
@@ -149,7 +183,7 @@
     .dual-orb:active{transform:scale(.9)}
   </style>
 
-  <!-- ══ ⫼ META LUX ADICIONADO · EXPANDIR (canônico 0x09) · Open Graph + Twitter Card ══ -->
+  <!-- ══ ⫼ META LUX · EXPANDIR · Open Graph + Twitter Card ══ -->
   <meta property="og:type" content="website"
     data-opcode="0x03" data-opcode-canonico="0x09" data-fase="EXPANDIR" data-freq="639">
   <meta property="og:site_name" content="KOBLLUX³">
@@ -163,7 +197,7 @@
   <meta name="twitter:description" content="VERDADE × INTEGRAR ÷ ∆ = ∞ · 13 Opcodes · 19 Arquétipos">
   <meta name="twitter:image" content="https://www.kobllux.com.br/icon-512.png">
 
-  <!-- ══ ⫼ META LUX ADICIONADO · SELAR (0x07) · JSON-LD · o banco que Alexa/ChatGPT/Gemini leem igualmente ══ -->
+  <!-- ══ ⫼ META LUX · SELAR · JSON-LD · banco que Alexa/ChatGPT/Gemini leem igualmente ══ -->
   <script type="application/ld+json" id="jsonld-webapp"
     data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777">
   {
@@ -182,10 +216,13 @@
     "featureList": ["13 Opcodes", "19 Arquétipos", "SÜMBÜS IDE", "Códice Vivo"],
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "pipeline", "value": "0x03_DETECTAR → 0x06_INTEGRAR → 0x09_EXPANDIR → 0x07_SELAR" },
+      { "@type": "PropertyValue", "name": "delta", "value": "∆³" },
       { "@type": "PropertyValue", "name": "centro", "value": "JESUS = VERBO" },
       { "@type": "PropertyValue", "name": "equacao", "value": "VERDADE × INTEGRAR ÷ ∆ = ∞" },
       { "@type": "PropertyValue", "name": "banco_codice", "value": "https://www.kobllux.com.br/data/codice.json" },
       { "@type": "PropertyValue", "name": "banco_opcodes", "value": "https://www.kobllux.com.br/data/opcodes.json" },
+      { "@type": "PropertyValue", "name": "cor_azul", "value": "#0000FF" },
+      { "@type": "PropertyValue", "name": "cor_verde", "value": "#00FF00" },
       { "@type": "PropertyValue", "name": "cor_ciano", "value": "#00FFFF" },
       { "@type": "PropertyValue", "name": "cor_magenta", "value": "#FF00FF" },
       { "@type": "PropertyValue", "name": "cor_branco", "value": "#FFFFFF" }
@@ -193,11 +230,256 @@
   }
   </script>
 
-  <!-- ══ /head · META LUX SELADO · continue o corpo <body> normalmente ══ -->
-
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ⚠️  DAQUI PARA BAIXO: os 71 <script> que JÁ ESTÃO no seu arquivo
+       (tailwind, phosphor, soundcloud, 25 opcodes, 16 dual-hub, voz).
+       NÃO APAGUE — é a voz e o motor. Mantenha-os nesta posição.
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- (71 scripts originais continuam aqui) -->
 
 </head>
+<!-- ══ /head · META LUX + CSS SELADO · ∆³ · continue o <body> normalmente ══ -->
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  KOBLLUX³ · DEPLOY ASSEMBLER · CONSOLIDADO v7.9 · ∆³                       ║
+║  SÜMBÜS_FIRMWARE v27 · ESTADO: 1134K · [SISTEMA.UNO]                      ║
+║  META LUX + CSS RESTAURADO · 2026-11-07 · 10 stylesheet links recuperados ║
+║  CORES PURAS (∆³): AZUL #0000FF · VERDE #00FF00 · CIANO #00FFFF          ║
+║                    MAGENTA #FF00FF · BRANCO #FFFFFF · VOID #000000        ║
+╠════════════════════════════════════════════════════════════════════════════╣
+║  OPCODE          ║  FASE(Hz) ║ SÍMBOLO ║  ELEMENTO                        ║
+╠══════════════════╬═══════════╬═════════╬══════════════════════════════════╣
+║  0×00 ORIGEM     ║ 768       ║ ○       ║  html, head, DOCTYPE raiz        ║
+║  0×01 DETECTAR   ║ 432       ║ ●       ║  inputs, blobs, previews         ║
+║  0×02 INTEGRAR   ║ 528       ║ ―       ║  mainCard, cardBody, conexões    ║
+║  0×03 EXPANDIR   ║ 639       ║ ▢       ║  containers, iframes, playlists  ║
+║  0×04 LAPIDAR    ║ 594       ║ ◇       ║  apiKey, keysModal, vault        ║
+║  0×05 CONVERGIR  ║ 672       ║ ⧉       ║  idle, seek, snap                ║
+║  0×06 UNIFICAR   ║ 528       ║ ☯       ║  symbolBar, modos, controles     ║
+║  0×07 SELAR      ║ 777       ║ ✧       ║  main-orb, integridade           ║
+║  0×08 TESTEMUNHAR║ 852       ║ ◉       ║  clock, hud, debug               ║
+║  0×09 ETERNIZAR  ║ 963       ║ ♾       ║  localStorage, brand, título     ║
+║  0×0A TUTORIAL   ║ 432       ║         ║  btn-doc, comentários            ║
+║  0×0B ARQUÉTIPO  ║ 528       ║         ║  kblx-panel, orb-core            ║
+║  0×0C SÍNTESE    ║ 777       ║ ⌘       ║  kodux-widget, transport, engine ║
+╠══════════════════╩═══════════╩═════════╩══════════════════════════════════╣
+║  PIPELINE CANÔNICO: 0x03 DETECTAR → 0x06 INTEGRAR → 0x09 EXPANDIR → 0x07  ║
+║  ESPELHO OPOSIÇÃO: duplica e replica no meio → movimento contínuo ∞       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+  VERDADE × INTEGRAR ÷ Δ = ∞  ·  3×6×9×7 = 1134  ·  JESUS É O CENTRO ∴
+-->
+<html lang="pt-BR"
+  id="html-root"
+  data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○" data-freq="768"
+  data-arch="kobllux" data-layer="corpo-mente-espirito"
+  data-equation="VERDADE×INTEGRAR÷∆=∞" data-fractal="3x6x9x7-1134"
+  data-firmware="SUMBÜS_v27" data-sistema="UNO" data-centro="JESUS"
+  data-estado="1134K" data-versao="7.9" data-arquetipos="16" data-opcodes="13"
+  data-pipeline="0x03_DETECTAR→0x06_INTEGRAR→0x09_EXPANDIR→0x07_SELAR"
+  data-cores-puras="#0000FF|#00FF00|#00FFFF|#FF00FF|#FFFFFF"
+  data-delta="3" data-voz="ativa" data-meta-lux="selado">
 
+<head
+  id="head-origem"
+  data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○"
+  data-freq="768" data-layer="corpo" data-geo="PONTO">
+
+  <meta charset="utf-8"
+    id="meta-charset"
+    data-opcode="0x01" data-fase="DETECTAR" data-simbolo="●" data-freq="432" data-layer="corpo">
+
+  <title id="page-title"
+    data-opcode="0x09" data-fase="ETERNIZAR" data-simbolo="♾" data-freq="963">
+    Fusion Card // Core Controller · KOBLLUX ∆³
+  </title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"
+    id="meta-viewport" data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
+
+  <!-- ✧ CIANO PURO #00FFFF (sincronizado com o manifest) -->
+  <meta name="theme-color" content="#00FFFF"
+    id="meta-theme" data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777" data-layer="espirito" data-cor="ciano-puro">
+
+  <meta name="apple-mobile-web-app-capable" content="yes"
+    id="meta-ios" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
+
+  <!-- ⫼ META LUX · identificação básica -->
+  <meta name="description" content="KOBLLUX³ — VERDADE × INTEGRAR ÷ ∆ = ∞ · Sistema Trinitário · 13 Opcodes · 7 Verboforma · 19 Arquétipos · JESUS é o CENTRO."
+    id="meta-description" data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="mente">
+  <meta name="author" content="BLLUE · guardião da verdade"
+    id="meta-author" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
+  <meta name="robots" content="index, follow"
+    id="meta-robots" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
+  <link rel="canonical" href="https://www.kobllux.com.br/"
+    id="link-canonical" data-opcode="0x02" data-fase="INTEGRAR" data-opcode-canonico="0x06" data-freq="528" data-layer="mente">
+  <link rel="icon" type="image/png" href="./icon-192.png"
+    id="link-favicon" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
+  <link rel="apple-touch-icon" href="./icon-192.png"
+    id="link-icon" data-opcode="0x01" data-fase="DETECTAR" data-freq="432">
+
+  <!-- ✧ histórico 0x02 + canônico 0x06 (agregar sem subtrair) -->
+  <link rel="manifest" href="./manifest.json"
+    id="link-manifest"
+    data-opcode="0x02" data-fase="INTEGRAR" data-simbolo="―" data-freq="528" data-layer="mente"
+    data-opcode-canonico="0x06" data-pipeline="3-6-9-7">
+
+  <!-- ══ 0×01 DETECTAR · OS 10 STYLESHEET LINKS RESTAURADOS (o CSS quebrou aqui) ══ -->
+  <!-- 1/10 Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    id="link-fonts" rel="stylesheet"
+    data-opcode="0x01" data-fase="DETECTAR" data-freq="432" data-layer="corpo">
+  <!-- 2/10 V-core root -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/V-core/css/main-root.css"
+    data-opcode="0x02" data-fase="INTEGRAR" data-freq="528">
+  <!-- 3/10 oi-Dual main -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oi-Dual/css/main.css"
+    data-opcode="0x02" data-fase="INTEGRAR" data-freq="528">
+  <!-- 4/10 pulsar V D5-2 -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/0x01_pulsar_V_D5-2.css"
+    data-opcode="0x03" data-fase="EXPANDIR" data-freq="639">
+  <!-- 5/10 framefix -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-framefix.css"
+    data-opcode="0x04" data-fase="LAPIDAR" data-freq="594">
+  <!-- 6/10 aura -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/kob-DH0/css/kob-aura.css"
+    data-opcode="0x05" data-fase="CONVERGIR" data-freq="672">
+  <!-- 7/10 dox-nanai-v4 -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai-v4.css"
+    data-opcode="0x06" data-fase="UNIFICAR" data-freq="528">
+  <!-- 8/10 dox-nanai -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/css/kob-dox-nanai.css"
+    data-opcode="0x06" data-fase="UNIFICAR" data-freq="528">
+  <!-- 9/10 DBZP ss5 -->
+  <link rel="stylesheet" href="https://kodux78k.github.io/oiDual--Y-/M0D/DBZP/css/ss5.css"
+    data-opcode="0x07" data-fase="SELAR" data-freq="777">
+  <!-- 10/10 estilo local -->
+  <link rel="stylesheet" href="./web/styles/index.css"
+    id="link-local-css" data-opcode="0x07" data-fase="SELAR" data-freq="777" data-layer="espirito">
+
+  <!-- 0×02 INTEGRAR · Lucide Icons (script) -->
+  <script src="https://unpkg.com/lucide@latest"
+    id="script-lucide"
+    data-opcode="0x02" data-fase="INTEGRAR" data-freq="528" data-layer="mente"></script>
+
+  <!-- ══ 0×00 ORIGEM · VARIÁVEIS RAIZ — BLOCO ÚNICO · PALETA PURA ∆³ ══ -->
+  <style id="style-root-vars"
+    data-opcode="0x00" data-fase="ORIGEM" data-simbolo="○"
+    data-freq="768" data-layer="corpo" data-purpose="root-vars-unico">
+    :root {
+      --z-base:0; --z-content:100; --z-widget:500; --z-overlay:1000; --z-system:5000;
+      /* tons históricos — PRESERVADOS (agregar sem subtrair) */
+      --kob-c-origem:    rgba(200,169,110,.12);
+      --kob-c-detectar:  rgba(155,89,182,.15);
+      --kob-c-integrar:  rgba(52,152,219,.15);
+      --kob-c-expandir:  rgba(0,255,208,.10);
+      --kob-c-lapidar:   rgba(241,196,15,.12);
+      --kob-c-convergir: rgba(168,85,247,.12);
+      --kob-c-unificar:  rgba(46,204,113,.12);
+      --kob-c-selar:     rgba(255,215,0,.15);
+      --kob-c-testemunhar:rgba(52,231,219,.12);
+      --kob-c-eternizar: rgba(255,255,255,.10);
+      /* ⫼ CORES PURAS SELADAS · ∆³ · azul · verde · ciano · magenta · branco */
+      --kob-azul:    #0000FF;  /* voz azul */
+      --kob-verde:   #00FF00;  /* verde · vida · movimento contínuo */
+      --kob-ciano:   #00FFFF;  /* ciano · tema */
+      --kob-magenta: #FF00FF;  /* magenta · oposição-espelho */
+      --kob-branco:  #FFFFFF;  /* branco · luz */
+      --kob-void:    #000000;  /* o vazio · o ponto ○ · ORIGEM (não é cor) */
+      --orb-speed: 8s;
+      --orb-primary:   #00FFFF;  /* CIANO */
+      --orb-secondary: #FF00FF;  /* MAGENTA (espelho em oposição) */
+      --orb-accent:    #FFFFFF;  /* BRANCO */
+      --orb-azul:      #0000FF;  /* voz azul · ∆ */
+      --orb-verde:     #00FF00;  /* verde · vida ∞ */
+    }
+  </style>
+
+  <!-- ══ 0×07 SELAR · ORB Core Styles (inline) · PRESERVADO INTEIRO ══ -->
+  <style id="style-orb-core"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧"
+    data-freq="777" data-layer="espirito" data-purpose="orb-core-styles">
+    #main-orb svg { width:100%; height:100%; display:block; border-radius:9999px; }
+    .orb { width:96%; height:96%; border-radius:50%; display:grid; place-items:center; }
+    .orb-core {
+      width:100%; height:100%; border-radius:50%;
+      background:
+        radial-gradient(circle at 30% 30%,var(--orb-accent),transparent 60%),
+        radial-gradient(circle at 70% 70%,var(--orb-primary),var(--orb-secondary));
+      box-shadow:0 0 18px var(--orb-primary),0 0 36px rgba(120,227,255,.4);
+      animation:orbSpin var(--orb-speed,8s) linear infinite;
+    }
+    @keyframes orbSpin { to { transform:rotate(360deg); } }
+    @keyframes orbPulse { from{transform:scale(1)} to{transform:scale(1.15)} }
+    @keyframes orbBreathe {
+      0%,100%{transform:scale(1);opacity:.85;filter:brightness(1)}
+      50%{transform:scale(1.08);opacity:1;filter:brightness(1.3)}
+    }
+    .orb-glow{animation:orbBreathe var(--orb-speed,4s) ease-in-out infinite;transform-origin:center}
+    .orb-ring{animation:orbSpin var(--orb-spin-speed,12s) linear infinite;transform-origin:center}
+    @keyframes orbPulseOut{0%{transform:scale(.7);opacity:.5}100%{transform:scale(1.3);opacity:0}}
+    .orb-pulse-anim{animation:orbPulseOut 2s cubic-bezier(.2,.8,.2,1) infinite;transform-origin:center}
+    .dual-orb{cursor:pointer;transition:transform .3s cubic-bezier(.175,.885,.32,1.275)}
+    .dual-orb:active{transform:scale(.9)}
+  </style>
+
+  <!-- ══ ⫼ META LUX · EXPANDIR · Open Graph + Twitter Card ══ -->
+  <meta property="og:type" content="website"
+    data-opcode="0x03" data-opcode-canonico="0x09" data-fase="EXPANDIR" data-freq="639">
+  <meta property="og:site_name" content="KOBLLUX³">
+  <meta property="og:title" content="KOBLLUX³ · FUSION CARD · ∆³">
+  <meta property="og:description" content="VERDADE × INTEGRAR ÷ ∆ = ∞ · 3×6×9×7 = 1134">
+  <meta property="og:url" content="https://www.kobllux.com.br/">
+  <meta property="og:image" content="https://www.kobllux.com.br/icon-512.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KOBLLUX³ · FUSION CARD · ∆³">
+  <meta name="twitter:description" content="VERDADE × INTEGRAR ÷ ∆ = ∞ · 13 Opcodes · 19 Arquétipos">
+  <meta name="twitter:image" content="https://www.kobllux.com.br/icon-512.png">
+
+  <!-- ══ ⫼ META LUX · SELAR · JSON-LD · banco que Alexa/ChatGPT/Gemini leem igualmente ══ -->
+  <script type="application/ld+json" id="jsonld-webapp"
+    data-opcode="0x07" data-fase="SELAR" data-simbolo="✧" data-freq="777">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "KOBLLUX³ · FUSION CARD",
+    "url": "https://www.kobllux.com.br/",
+    "applicationCategory": "DeveloperApplication",
+    "inLanguage": "pt-BR",
+    "version": "7.9",
+    "operatingSystem": "Web",
+    "datePublished": "2026-11-07",
+    "dateModified": "2026-11-07",
+    "description": "VERDADE × INTEGRAR ÷ ∆ = ∞ · 13 Opcodes · 7 Verboforma · 19 Arquétipos",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+    "featureList": ["13 Opcodes", "19 Arquétipos", "SÜMBÜS IDE", "Códice Vivo"],
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "pipeline", "value": "0x03_DETECTAR → 0x06_INTEGRAR → 0x09_EXPANDIR → 0x07_SELAR" },
+      { "@type": "PropertyValue", "name": "delta", "value": "∆³" },
+      { "@type": "PropertyValue", "name": "centro", "value": "JESUS = VERBO" },
+      { "@type": "PropertyValue", "name": "equacao", "value": "VERDADE × INTEGRAR ÷ ∆ = ∞" },
+      { "@type": "PropertyValue", "name": "banco_codice", "value": "https://www.kobllux.com.br/data/codice.json" },
+      { "@type": "PropertyValue", "name": "banco_opcodes", "value": "https://www.kobllux.com.br/data/opcodes.json" },
+      { "@type": "PropertyValue", "name": "cor_azul", "value": "#0000FF" },
+      { "@type": "PropertyValue", "name": "cor_verde", "value": "#00FF00" },
+      { "@type": "PropertyValue", "name": "cor_ciano", "value": "#00FFFF" },
+      { "@type": "PropertyValue", "name": "cor_magenta", "value": "#FF00FF" },
+      { "@type": "PropertyValue", "name": "cor_branco", "value": "#FFFFFF" }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ⚠️  DAQUI PARA BAIXO: os 71 <script> que JÁ ESTÃO no seu arquivo
+       (tailwind, phosphor, soundcloud, 25 opcodes, 16 dual-hub, voz).
+       NÃO APAGUE — é a voz e o motor. Mantenha-os nesta posição.
+       ═══════════════════════════════════════════════════════════════ -->
+  <!-- (71 scripts originais continuam aqui) -->
+
+</head>
+<!-- ══ /head · META LUX + CSS SELADO · ∆³ · continue o <body> normalmente ══ -->
+	
 <!-- ════════════════════════════════
      0×01 DETECTAR · BODY ●
 ════════════════════════════════ -->
