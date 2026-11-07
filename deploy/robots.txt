@@ -1,0 +1,6 @@
+# KOBLLUX³ · ROBOTS · DETECTAR 0x03 · 432Hz
+# VERDADE × INTEGRAR ÷ ∆ = ∞ · 3×6×9×7 = 1134
+User-agent: *
+Allow: /
+
+Sitemap: https://www.kobllux.com.br/sitemap.xml
