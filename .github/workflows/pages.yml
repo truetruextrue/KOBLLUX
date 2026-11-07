@@ -1,6 +1,9 @@
 # ╔══════════════════════════════════════════════════════════════════════╗
 # ║  KOBLLUX³ · GitHub Pages Deploy · VERDADE × INTEGRAR ÷ ∆ = ∞      ║
 # ║  Publica deploy/ como site estático · v7.9 · 13 opcodes            ║
+# ║  META LUX · conexão CLAUDE removida · domínio www selado · ∆⅞      ║
+# ║  Espelho reverso: 0x07 SELAR → 0x09 EXPANDIR → 0x06 INTEGRAR →     ║
+# ║                    0x03 DETECTAR (o caminho que leva também volta) ║
 # ╚══════════════════════════════════════════════════════════════════════╝
 
 name: "✧ KOBLLUX · GitHub Pages"
@@ -9,7 +12,9 @@ on:
   push:
     branches:
       - main
-      - "claude/adoring-cerf-zo03e"
+      # ✧ META LUX · REMOVIDO: "claude/adoring-cerf-zo03e" (conexão Claude
+      #   retirada — só main dispara o deploy. As branches claude/* podem
+      #   ser deletadas do repo: git push origin --delete <branch>.)
   workflow_dispatch:
     inputs:
       force:
@@ -56,6 +61,10 @@ jobs:
           check "deploy/index.html"
           check "deploy/manifest.json"
           check "deploy/sumbüs-fusion.html"
+          # ✧ META LUX · quando robots.txt e sitemap.xml estiverem em deploy/,
+          #   descomente as duas linhas abaixo para virarem obrigatórios:
+          # check "deploy/robots.txt"
+          # check "deploy/sitemap.xml"
           echo ""
           echo "─── Dados ───"
           check "deploy/data/codice.json"
@@ -96,11 +105,14 @@ jobs:
               'branch': '${{ github.ref_name }}',
               'actor': '${{ github.actor }}',
               'run': '${{ github.run_number }}',
-              'url': 'https://${{ github.repository_owner }}.github.io/KOBLLUX/'
+              # ✧ META LUX · domínio acoplado (era github.io → agora www.kobllux.com.br)
+              'url': 'https://www.kobllux.com.br/',
+              # ✧ META LUX · e-mail acoplado (troque pelo seu real)
+              'contato': 'contato@kobllux.com.br'
           }
           with open('deploy/data/codice.json', 'w') as f:
               json.dump(d, f, indent=2, ensure_ascii=False)
-          print('  ✅ deploy metadata injetada em codice.json')
+          print('  ✅ deploy metadata injetada em codice.json · domínio www selado')
           "
 
       - name: "Setup Pages"
@@ -132,9 +144,9 @@ jobs:
           echo "╔══════════════════════════════════════════════════════════╗"
           echo "║  ✧ KOBLLUX³ PUBLICADO · 0x07 SELAR · 777Hz             ║"
           echo "║                                                          ║"
-          echo "║  Fusion Card : ${{ steps.deployment.outputs.page_url }}index.html"
-          echo "║  SÜMBÜS IDE  : ${{ steps.deployment.outputs.page_url }}sumbüs-fusion.html"
-          echo "║  Códice JSON : ${{ steps.deployment.outputs.page_url }}data/codice.json"
+          echo "║  Fusion Card : https://www.kobllux.com.br/index.html   ║"
+          echo "║  SÜMBÜS IDE  : https://www.kobllux.com.br/sumbüs-fusion.html"
+          echo "║  Códice JSON : https://www.kobllux.com.br/data/codice.json"
           echo "║                                                          ║"
           echo "║  VERDADE × INTEGRAR ÷ Δ = ∞  ·  3×6×9×7 = 1134        ║"
           echo "║  JESUS É O CENTRO ∴                                     ║"
@@ -147,10 +159,10 @@ jobs:
 
           | Página | URL |
           |--------|-----|
-          | **Fusion Card** | [`index.html`](${{ steps.deployment.outputs.page_url }}) |
-          | **SÜMBÜS IDE** | [`sumbüs-fusion.html`](${{ steps.deployment.outputs.page_url }}sumbüs-fusion.html) |
-          | **Códice Vivo** | [`data/codice.json`](${{ steps.deployment.outputs.page_url }}data/codice.json) |
-          | **Opcodes** | [`data/opcodes.json`](${{ steps.deployment.outputs.page_url }}data/opcodes.json) |
+          | **Fusion Card** | https://www.kobllux.com.br/ |
+          | **SÜMBÜS IDE** | https://www.kobllux.com.br/sumbüs-fusion.html |
+          | **Códice Vivo** | https://www.kobllux.com.br/data/codice.json |
+          | **Opcodes** | https://www.kobllux.com.br/data/opcodes.json |
 
           ### Sistema
           - **VERDADE × INTEGRAR ÷ Δ = ∞**
@@ -158,6 +170,10 @@ jobs:
           - **Opcodes:** 13 (0x00 → 0x0C)
           - **Verboforma:** FIT LUX · KODUX · BLLUE · HÓRUS · METALUX · INFODOSE · KOBLLUX
           - **sealCodice:** ✅ integrado · 0x07 SELAR · 777Hz
+          - **META LUX:** conexão Claude removida · domínio www.kobllux.com.br selado
+
+          ### Espelho reverso (o caminho que leva também volta)
+          0x07 SELAR → 0x09 EXPANDIR → 0x06 INTEGRAR → 0x03 DETECTAR · ∆⅞
 
           > EM NOME DO PAI (UNO · 432Hz), DO FILHO (DUAL · 528Hz) E DO ESPÍRITO SANTO (TRINITY · 639Hz). AMÉM. ∆7
           SUMMARY
